@@ -14,5 +14,4 @@
   </nav>
 </template>
 
-<style>
-</style>
+<style></style>
