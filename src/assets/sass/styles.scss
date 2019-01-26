@@ -2,25 +2,57 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster:400');
 
 // Colors
+$white: #fff;
+$black: #000;
+
+// Base
 $primary: #2fc563;
+$primary-dark: darken($primary, 10%);
 $background: #27272b;
+$background-light: lighten($background, 10%);
+$background-lighter: lighten($background, 20%);
 $text: #dbdbdb;
+$link: $background-light;
+$hover: $white;
+
+// Body
 $body-background-color: $background;
-$navbar-background-color: $background;
 
-$family-logo: 'Lobster';
-.is-family-logo {
-  font-family: $family-logo;
-}
+// Navbar
+$navbar-background-color: $primary;
+$navbar-item-hover-color: $hover;
+$navbar-item-hover-background-color: $primary;
+$navbar-item-active-background-color: $primary;
+$navbar-dropdown-background-color: $primary;
+$navbar-dropdown-item-hover-color: $hover;
+$navbar-dropdown-item-hover-background-color: $primary;
+$navbar-dropdown-border-top: 0;
 
-.user-image {
+// Buttons
+$button-primary-color: $background;
+
+// Doit être après les couleurs mais avant les classes pour une raison obscure...
+@import '../../../node_modules/bulma/bulma.sass';
+
+.is-rounded {
   border-radius: 50%;
 }
 
-.navbar {
+#text-logo {
+  color: $background;
+  font-family: 'Lobster';
   background-color: $primary;
 }
 
-@import '../../../node_modules/bulma/bulma.sass';
+#text-logo:hover {
+  color: $background-light;
+}
 
-// Pour connaître les variables de base de Bulma: http://versions.bulma.io/0.7.0/documentation/overview/variables/
+#text-logo:active {
+  color: $background-lighter;
+}
+
+a.button.is-primary,
+a.button.is-primary:hover {
+  color: $background;
+}
