@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Lobster:400');
+
+// Colors
+$primary: #2fc563;
+$background: #27272b;
+$text: #dbdbdb;
+$body-background-color: $background;
+$navbar-background-color: $background;
+
+$family-logo: 'Lobster';
+.is-family-logo {
+  font-family: $family-logo;
+}
+
+.user-image {
+  border-radius: 50%;
+}
+
+.navbar {
+  background-color: $primary;
+}
+
+@import '../../../node_modules/bulma/bulma.sass';
+
+// Pour connaître les variables de base de Bulma: http://versions.bulma.io/0.7.0/documentation/overview/variables/
