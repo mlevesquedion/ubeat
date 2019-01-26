@@ -17,7 +17,7 @@
     </div>
     <div id="nav-menu" class="navbar-menu">
       <div id="nav-start" class="navbar-start">
-        <p class="navbar-item">Utilisateur</p>
+        <router-link to="/user" class="navbar-item">Utilisateur</router-link>
         <div class="navbar-item">
           <img class="is-rounded" src="@/static/images/default_profile.png">
         </div>
