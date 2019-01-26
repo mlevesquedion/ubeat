@@ -70,7 +70,7 @@ export default {
 @import '@/assets/sass/styles.scss';
 #text-logo {
   color: $background;
-  font-family: 'Lobster';
+  font-family: 'Permanent Marker', cursive;
   background-color: $primary;
 }
 
