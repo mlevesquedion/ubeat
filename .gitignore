@@ -13,3 +13,5 @@ package-lock.json
 *.njsproj
 *.sln
 
+# Generated files
+src/assets/css/styles.css
