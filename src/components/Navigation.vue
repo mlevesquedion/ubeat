@@ -43,4 +43,19 @@
 </template>
 
 
-<style></style>
+<style lang="scss">
+@import '@/assets/sass/styles.scss';
+#text-logo {
+  color: $background;
+  font-family: 'Lobster';
+  background-color: $primary;
+}
+
+#text-logo:hover {
+  color: $background-light;
+}
+
+#text-logo:active {
+  color: $background-lighter;
+}
+</style>

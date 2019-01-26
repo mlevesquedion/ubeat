@@ -38,20 +38,6 @@ $button-primary-color: $background;
   border-radius: 50%;
 }
 
-#text-logo {
-  color: $background;
-  font-family: 'Lobster';
-  background-color: $primary;
-}
-
-#text-logo:hover {
-  color: $background-light;
-}
-
-#text-logo:active {
-  color: $background-lighter;
-}
-
 a.button.is-primary,
 a.button.is-primary:hover {
   color: $background;
