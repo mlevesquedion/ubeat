@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import '@/assets/css/styles.css';
 import Navigation from '@/components/Navigation';
 
 export default {

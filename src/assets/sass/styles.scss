@@ -1,0 +1,48 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Lobster:400');
+
+// Colors
+$white: #fff;
+$black: #000;
+
+// Base
+$primary: #2fc563;
+$primary-dark: darken($primary, 10%);
+$background: #27272b;
+$background-light: lighten($background, 10%);
+$background-lighter: lighten($background, 20%);
+$text: #dbdbdb;
+$link: $background-light;
+$hover: $white;
+
+// Body
+$body-background-color: $background;
+
+// Navbar
+$navbar-height: 5rem;
+$navbar-background-color: $primary;
+$navbar-item-hover-color: $hover;
+$navbar-item-hover-background-color: $primary;
+$navbar-item-active-background-color: $primary;
+$navbar-dropdown-background-color: $primary;
+$navbar-dropdown-item-hover-color: $hover;
+$navbar-dropdown-item-hover-background-color: $primary;
+$navbar-dropdown-border-top: 0;
+
+// Buttons
+$button-primary-color: $background;
+
+// Doit être après les couleurs mais avant les classes pour une raison obscure...
+@import '../../../node_modules/bulma/bulma.sass';
+
+// Helpers
+$burger-break: $desktop;
+
+.is-rounded {
+  border-radius: 50%;
+}
+
+a.button.is-primary,
+a.button.is-primary:hover {
+  color: $background;
+}
