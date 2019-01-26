@@ -19,6 +19,7 @@ $hover: $white;
 $body-background-color: $background;
 
 // Navbar
+$navbar-height: 5rem;
 $navbar-background-color: $primary;
 $navbar-item-hover-color: $hover;
 $navbar-item-hover-background-color: $primary;
@@ -33,6 +34,9 @@ $button-primary-color: $background;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
+
+// Helpers
+$burger-break: $desktop;
 
 .is-rounded {
   border-radius: 50%;
