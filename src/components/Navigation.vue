@@ -99,4 +99,8 @@ export default {
     display: flex;
   }
 }
+
+.navbar-item {
+  @extend .is-unselectable;
+}
 </style>
