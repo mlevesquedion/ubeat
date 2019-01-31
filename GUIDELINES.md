@@ -7,6 +7,6 @@
 # Workflow Git :
 
 - Faire une branche
-- Pull master dans votre branch
+- Pull master dans votre branche
 - Faire une pull request
 - Merger dans le master
