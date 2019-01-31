@@ -32,6 +32,9 @@ $navbar-dropdown-border-top: 0;
 // Buttons
 $button-primary-color: $background;
 
+// Labels
+$label-color: $text;
+
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
 
