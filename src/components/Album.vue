@@ -48,8 +48,11 @@
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">Buy it!</p>
-              <p class="subtitle">Open Orders</p>
+              <figure>
+                <img
+                  src="https://www.apple.com/ca/itunes/link/images/link-badge-itunes.png"
+                />
+              </figure>
             </article>
           </div>
         </div>
