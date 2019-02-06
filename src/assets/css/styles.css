@@ -8773,11 +8773,229 @@ label.panel-block {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-/* line 44, src/assets/sass/styles.scss */
+/* line 93, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+.carousel {
+  position: relative;
+  overflow: hidden; }
+  /* line 44, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel .carousel-container {
+    width: 100%;
+    position: relative;
+    border: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    left: -100%;
+    transform: translateX(100%); }
+    /* line 46, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .carousel .carousel-container .carousel-item {
+      display: block;
+      position: relative;
+      flex: 1 0 100%; }
+      /* line 14, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .carousel .carousel-container .carousel-item.has-background .is-background {
+        object-fit: cover;
+        object-position: center center;
+        height: 100%;
+        width: 100%; }
+      /* line 19, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .carousel .carousel-container .carousel-item .title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1.5em;
+        margin: 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.6);
+        font-size: 0.75rem; }
+  /* line 48, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel .carousel-navigation {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    pointer-events: none; }
+    /* line 60, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .carousel .carousel-navigation .carousel-nav-left,
+    .carousel .carousel-navigation .carousel-nav-right {
+      padding: 1em;
+      pointer-events: auto; }
+    /* line 64, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .carousel .carousel-navigation.is-centered {
+      justify-content: center; }
+    /* line 66, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .carousel .carousel-navigation.is-overlay {
+      top: 50%;
+      transform: perspective(1px) translateY(-50%);
+      bottom: auto;
+      left: auto;
+      right: auto;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99; }
+      /* line 75, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .carousel .carousel-navigation.is-overlay .carousel-nav-left,
+      .carousel .carousel-navigation.is-overlay .carousel-nav-right {
+        height: 2.2em;
+        width: 2em;
+        background: rgba(255, 255, 255, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #dbdbdb;
+        position: absolute;
+        left: 0; }
+        /* line 86, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+        .carousel .carousel-navigation.is-overlay .carousel-nav-left:hover,
+        .carousel .carousel-navigation.is-overlay .carousel-nav-right:hover {
+          cursor: pointer; }
+      /* line 88, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .carousel .carousel-navigation.is-overlay .carousel-nav-right {
+        left: auto;
+        right: 0; }
+  /* line 51, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel.is-reversing .carousel-container {
+    transform: translateX(-100%); }
+  /* line 98, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel[data-size]:not(.carousel-animate-fade) .carousel-container .carousel-item {
+    padding: 1em; }
+
+/* line 116, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+.hero.has-carousel {
+  position: relative; }
+  /* line 118, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .hero.has-carousel + .hero-body,
+  .hero.has-carousel + .hero-head,
+  .hero.has-carousel + .hero-footer {
+    z-index: 1; }
+  /* line 122, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .hero.has-carousel .hero-carousel {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    border: none;
+    margin: auto;
+    padding: 0;
+    z-index: 0; }
+    /* line 124, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .hero.has-carousel .hero-carousel .carousel-container {
+      height: auto !important; }
+
+/* line 127, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+.hero-carousel {
+  position: relative;
+  overflow: hidden; }
+  /* line 44, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .hero-carousel .carousel-container {
+    width: 100%;
+    position: relative;
+    border: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    left: -100%;
+    transform: translateX(100%); }
+    /* line 46, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .hero-carousel .carousel-container .carousel-item {
+      display: block;
+      position: relative;
+      flex: 1 0 100%; }
+      /* line 14, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .hero-carousel .carousel-container .carousel-item.has-background .is-background {
+        object-fit: cover;
+        object-position: center center;
+        height: 100%;
+        width: 100%; }
+      /* line 19, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .hero-carousel .carousel-container .carousel-item .title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1.5em;
+        margin: 0;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.6);
+        font-size: 0.75rem; }
+  /* line 48, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .hero-carousel .carousel-navigation {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    pointer-events: none; }
+    /* line 60, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .hero-carousel .carousel-navigation .carousel-nav-left,
+    .hero-carousel .carousel-navigation .carousel-nav-right {
+      padding: 1em;
+      pointer-events: auto; }
+    /* line 64, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .hero-carousel .carousel-navigation.is-centered {
+      justify-content: center; }
+    /* line 66, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+    .hero-carousel .carousel-navigation.is-overlay {
+      top: 50%;
+      transform: perspective(1px) translateY(-50%);
+      bottom: auto;
+      left: auto;
+      right: auto;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99; }
+      /* line 75, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .hero-carousel .carousel-navigation.is-overlay .carousel-nav-left,
+      .hero-carousel .carousel-navigation.is-overlay .carousel-nav-right {
+        height: 2.2em;
+        width: 2em;
+        background: rgba(255, 255, 255, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #dbdbdb;
+        position: absolute;
+        left: 0; }
+        /* line 86, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+        .hero-carousel .carousel-navigation.is-overlay .carousel-nav-left:hover,
+        .hero-carousel .carousel-navigation.is-overlay .carousel-nav-right:hover {
+          cursor: pointer; }
+      /* line 88, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+      .hero-carousel .carousel-navigation.is-overlay .carousel-nav-right {
+        left: auto;
+        right: 0; }
+  /* line 51, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .hero-carousel.is-reversing .carousel-container {
+    transform: translateX(-100%); }
+
+/* line 135, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+.carousel.carousel-animate-slide.carousel-animated .carousel-container,
+.hero-carousel.carousel-animate-slide.carousel-animated .carousel-container {
+  transform: none !important;
+  transition: transform 0.5s ease-in-out; }
+
+/* line 139, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+.carousel.carousel-animate-fade .carousel-item,
+.hero-carousel.carousel-animate-fade .carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out; }
+  /* line 144, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel.carousel-animate-fade .carousel-item.is-active,
+  .hero-carousel.carousel-animate-fade .carousel-item.is-active {
+    opacity: 1; }
+  /* line 146, node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass */
+  .carousel.carousel-animate-fade .carousel-item:not(.is-active),
+  .hero-carousel.carousel-animate-fade .carousel-item:not(.is-active) {
+    opacity: 0; }
+
+/* line 48, src/assets/sass/styles.scss */
 .is-rounded {
   border-radius: 50%; }
 
-/* line 48, src/assets/sass/styles.scss */
+/* line 52, src/assets/sass/styles.scss */
 a.button.is-primary,
 a.button.is-primary:hover {
   color: #27272b; }

@@ -77,7 +77,7 @@ export default {
 @import '@/assets/sass/styles.scss';
 #text-logo {
   color: $background;
-  font-family: 'Permanent Marker', cursive;
+  font-family: $big-text;
   background-color: $primary;
 }
 
