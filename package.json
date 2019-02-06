@@ -5,7 +5,7 @@
   "author": "William Fortin <willyfortin@gmail.com>",
   "private": true,
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url src/assets/sass/styles.scss src/assets/css/styles.css",
+    "css-build": "touch src/assets/css/styles.css && node-sass --omit-source-map-url src/assets/sass/styles.scss src/assets/css/styles.css",
     "css-watch": "npm run css-build -- -watch",
     "dev": "node build/dev-server.js",
     "start": "npm run css-watch & node build/dev-server.js",

@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar-brand">
-      <router-link id="text-logo" class="is-size-2 navbar-item" to="/">UBeat</router-link>
+      <router-link id="text-logo" class="is-size-2 navbar-item" to="/"
+        >UBeat</router-link
+      >
       <a
         id="burger"
         role="button"
@@ -19,19 +21,21 @@
       <div id="nav-start" class="navbar-start">
         <router-link to="/user" class="navbar-item">Utilisateur</router-link>
         <div class="navbar-item">
-          <img class="is-rounded" src="@/static/images/default_profile.png">
+          <img class="is-rounded" src="@/static/images/default_profile.png" />
         </div>
         <div class="navbar-item">
           <a class="button is-primary is-rounded">
-            <i class="fas fa-sign-out-alt"/>
+            <i class="fas fa-sign-out-alt" />
           </a>
           <a class="button is-primary is-rounded">
-            <i class="fas fa-cog"/>
+            <i class="fas fa-cog" />
           </a>
         </div>
       </div>
       <div class="navbar-end">
-        <router-link id="user-link" to="/user" class="navbar-item">User</router-link>
+        <router-link id="user-link" to="/user" class="navbar-item"
+          >User</router-link
+        >
         <router-link to="/artist" class="navbar-item">Artist</router-link>
         <router-link to="/album" class="navbar-item">Album</router-link>
         <div class="navbar-item has-dropdown is-hoverable">
@@ -43,7 +47,11 @@
           </div>
         </div>
         <div class="navbar-item">
-          <input type="search" placeholder="Rechercher..." class="navbar-item">
+          <input
+            type="search"
+            placeholder="Rechercher..."
+            class="navbar-item"
+          />
         </div>
       </div>
     </div>
@@ -64,7 +72,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';

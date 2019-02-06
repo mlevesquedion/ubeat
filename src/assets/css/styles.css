@@ -3385,7 +3385,7 @@ a.box:active {
 
 /* line 399, node_modules/bulma/sass/elements/form.sass */
 .label {
-  color: #363636;
+  color: #dbdbdb;
   display: block;
   font-size: 1rem;
   font-weight: 700; }
@@ -8991,11 +8991,11 @@ label.panel-block {
   .hero-carousel.carousel-animate-fade .carousel-item:not(.is-active) {
     opacity: 0; }
 
-/* line 42, src/assets/sass/styles.scss */
+/* line 48, src/assets/sass/styles.scss */
 .is-rounded {
   border-radius: 50%; }
 
-/* line 46, src/assets/sass/styles.scss */
+/* line 52, src/assets/sass/styles.scss */
 a.button.is-primary,
 a.button.is-primary:hover {
   color: #27272b; }
