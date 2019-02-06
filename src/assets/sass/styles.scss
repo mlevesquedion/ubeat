@@ -37,6 +37,7 @@ $button-primary-color: $background;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
+@import '../../../node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass';
 
 // Helpers
 $burger-break: $desktop;
