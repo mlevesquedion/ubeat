@@ -20,45 +20,38 @@
     <div id="nav-menu" class="navbar-menu">
       <div id="nav-start" class="navbar-start">
 
-
       </div>
-
-
-
-
-      <div class="navbar-end">
-
-        <div class="navbar-item has-dropdown is-hoverable">
-
-          <a class="navbar-link"> <router-link to="/user" class="navbar-item">
-            <img class="is-rounded" src="@/static/images/default_profile.png" />
-            &nbspUser</router-link>
+    </div>
+    <div class="navbar-end">
+      <router-link to="/artist" class="navbar-item">Artist</router-link>
+      <router-link to="/album" class="navbar-item">Album</router-link>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a id="nav-dropdown" class="navbar-link">Playlists</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">Playlist 1</a>
+          <a class="navbar-item">Playlist 2</a>
+          <a class="navbar-item">Playlist 3</a>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <input
+          type="search"
+          placeholder="Rechercher..."
+          class="navbar-item"
+        />
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link"> <router-link to="/user" class="navbar-item">
+          <img class="is-rounded" src="@/static/images/default_profile.png" />
+          &nbspUser</router-link>
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            <i class="fas fa-cog" />  &nbspSettings
           </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              <i class="fas fa-cog" />  &nbspSettings
-            </a>
-            <a class="navbar-item">
-              <i class="fas fa-sign-out-alt" /> &nbspSign out
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a id="nav-dropdown" class="navbar-link">Playlists</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item">Playlist 1</a>
-            <a class="navbar-item">Playlist 2</a>
-            <a class="navbar-item">Playlist 3</a>
-          </div>
-        </div>
-        <div class="navbar-item">
-          <input
-            type="search"
-            placeholder="Rechercher..."
-            class="navbar-item"
-          />
+          <a class="navbar-item">
+            <i class="fas fa-sign-out-alt" /> &nbspSign out
+          </a>
         </div>
       </div>
     </div>
