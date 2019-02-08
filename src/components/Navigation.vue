@@ -17,7 +17,7 @@
     </div>
     <div id="nav-menu" class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item is-marginless">
+        <div id="search-bar-container" class="navbar-item is-marginless">
           <input class="is-size-6 search-bar" type="search" placeholder="Search ...">
         </div>
         <router-link to="/artist" class="navbar-item">Artist</router-link>
@@ -86,11 +86,12 @@ export default {
 
 #nav-menu {
   padding-top: 0;
+  padding-right: 0;
 }
 
 #user-container {
   @extend .is-paddingless;
-  @media screen and (max-width: $burger-break) {
+  @media screen and (max-width: $navbar-breakpoint) {
     display: flex;
     align-items: center;
   }
@@ -111,7 +112,7 @@ export default {
 .search-bar {
   height: 40px;
   padding: 10px;
-  @media screen and (max-width: $burger-break) {
+  @media screen and (max-width: $navbar-breakpoint) {
     width: 100%;
   }
 }
