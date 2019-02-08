@@ -49,7 +49,7 @@
           </div>
           <div class="tile is-parent">
             <article class="tile is-child box">
-              <p id="playTime" class="title">00:46:19</p>
+              <p id="albumPlayTime" class="title">00:46:19</p>
               <p class="subtitle">Play time</p>
             </article>
           </div>
@@ -64,332 +64,394 @@
           </div>
         </div>
       </section>
-      <div class="card-table">
-        <div class="content">
-          <table class="table is-fullwidth is-striped">
-            <tbody>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>1. Stacked Actors (4:17)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>2. Breakout (3:21)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>3. Learn to Fly (3:58)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>4. Gimme Stitches (3:42)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>5. Generator (3:48)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success is-loading">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>6. Aurora (5:49)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>7. Live-in Skin (3:52)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>8. Next Year (4:37)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>9. Headwires (4:37)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>10. Ain't it the Life (4:15)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td width="5%"><i class="fa fa-bell-o"></i></td>
-                <td>11. M.I.A (4:03)</td>
-                <td>
-                  <div class="field is-grouped has-addons">
-                    <p class="control">
-                      <a class="button is-success">
-                        <span class="icon is-small">
-                          <i class="far fa-play-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-pause-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                    <p class="control">
-                      <a class="button is-success" disabled>
-                        <span class="icon is-small">
-                          <i class="far fa-stop-circle"></i>
-                        </span>
-                      </a>
-                    </p>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div id="listSongs" class="content">
+        <ol type="1">
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Stacked Actors</div>
+                <div>
+                  <span> (</span><span id="playTime">4:17</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Breakout</div>
+                <div>
+                  <span> (</span><span id="playTime">3:21</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Learn to Fly</div>
+                <div>
+                  <span> (</span><span id="playTime">3:58</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Gimme Stitches</div>
+                <div>
+                  <span> (</span><span id="playTime">3:42</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Generator</div>
+                <div>
+                  <span> (</span><span id="playTime">3:48</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success is-loading">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Aurora</div>
+                <div>
+                  <span> (</span><span id="playTime">5:49</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Live-in Skin</div>
+                <div>
+                  <span> (</span><span id="playTime">3:52</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Next Year</div>
+                <div>
+                  <span> (</span><span id="playTime">4:37</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Headwires</div>
+                <div>
+                  <span> (</span><span id="playTime">4:37</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">Ain't it the Life</div>
+                <div>
+                  <span> (</span><span id="playTime">4:15</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="level">
+              <div class="level-left">
+                <div id="songName">M.I.A</div>
+                <div>
+                  <span> (</span><span id="playTime">4:03</span><span>)</span>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="field is-grouped has-addons">
+                  <p class="control">
+                    <a class="button is-success">
+                      <span class="icon is-small">
+                        <i class="far fa-play-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-pause-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button is-success" disabled>
+                      <span class="icon is-small">
+                        <i class="far fa-stop-circle"></i>
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
