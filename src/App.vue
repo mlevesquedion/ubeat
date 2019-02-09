@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import '@/assets/css/styles.css';
+import '@/assets/sass/styles.scss';
 import Navigation from '@/components/Navigation';
 
 export default {
@@ -17,4 +17,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
