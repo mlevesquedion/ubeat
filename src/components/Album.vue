@@ -69,6 +69,8 @@
                 alt="Album cover"
               />
             </figure>
+            <span id="numberSongs">11</span><span> songs, </span>
+            <span id="albumPlayTime">46</span><span> minutes</span>
           </div>
           <!-- right -->
           <div class="column">
@@ -102,7 +104,7 @@
         </div>
       </div>
 
-      <div class="level">
+      <!--div class="level">
         <div class="level-item box has-text-centered">
           <p id="numberSongs" class="title">11</p>
           <p class="subtitle">Songs</p>
@@ -111,7 +113,7 @@
           <p id="albumPlayTime" class="title">00:46:19</p>
           <p class="subtitle">Play time</p>
         </div>
-      </div>
+      </div-->
 
       <!--section class="info-tiles">
         <div class="tile is-ancestor has-text-centered">
@@ -141,7 +143,7 @@
       <div id="listSongs" class="content">
         <ol type="1">
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Stacked Actors</div>
                 <div>
@@ -153,21 +155,7 @@
                   <p class="control">
                     <a class="button is-success">
                       <span class="icon is-small">
-                        <i class="far fa-play-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
                         <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
                       </span>
                     </a>
                   </p>
@@ -176,7 +164,7 @@
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Breakout</div>
                 <div>
@@ -192,26 +180,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Learn to Fly</div>
                 <div>
@@ -227,26 +201,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Gimme Stitches</div>
                 <div>
@@ -262,26 +222,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Generator</div>
                 <div>
@@ -291,23 +237,9 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success is-loading">
+                    <a class="button is-success">
                       <span class="icon is-small">
                         <i class="far fa-play-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
                       </span>
                     </a>
                   </p>
@@ -316,7 +248,7 @@
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Aurora</div>
                 <div>
@@ -332,26 +264,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Live-in Skin</div>
                 <div>
@@ -367,26 +285,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Next Year</div>
                 <div>
@@ -402,26 +306,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Headwires</div>
                 <div>
@@ -437,26 +327,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Ain't it the Life</div>
                 <div>
@@ -472,26 +348,12 @@
                       </span>
                     </a>
                   </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
-                      </span>
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>
           </li>
           <li>
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">M.I.A</div>
                 <div>
@@ -504,20 +366,6 @@
                     <a class="button is-success">
                       <span class="icon is-small">
                         <i class="far fa-play-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-pause-circle"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button is-success" disabled>
-                      <span class="icon is-small">
-                        <i class="far fa-stop-circle"></i>
                       </span>
                     </a>
                   </p>
