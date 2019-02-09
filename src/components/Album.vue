@@ -15,7 +15,9 @@
           </div>
         </div>
         <div class="column is-four-fifths-desktop is-two-thirds-tablet">
-          <p class="title is-1 has-text-light">There Is Nothing Left to Lose</p>
+          <p
+            class="title is-size-1-tablet is-size-1-desktop is-size-2-mobile has-text-light"
+          >There Is Nothing Left to Lose</p>
           <div class="subtitle is-6 has-text-grey-lighter">
             <p>Foo Fighters (1998)</p>
             <p>11 songs, 46 minutes</p>
