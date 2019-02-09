@@ -6,7 +6,7 @@
     <div class="level-right">
       <div class="field is-grouped has-addons">
         <p class="control">
-          <a class="has-text-light">
+          <a class="has-text-light" style="text-decoration: none;">
             <span class="icon is-medium">
               <i class="far fa-play-circle"></i>
             </span>
@@ -19,19 +19,19 @@
 </template>
 
 <script>
-export default {
-  name: 'song',
-  props: ['song', 'index'],
-  computed: {
-    isDark() {
-      return this.index % 2 === 0;
+  export default {
+    name: 'song',
+    props: ['song', 'index'],
+    computed: {
+      isDark() {
+        return this.index % 2 === 0;
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped lang="scss">
-.level {
-  margin-bottom: 0;
-}
+  .level {
+    margin-bottom: 0;
+  }
 </style>

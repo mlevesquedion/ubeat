@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <section class="section">
-      <div class="columns is-tablet">
-        <div class="column">
+      <div class="columns">
+        <div class="column is-one-third is-one-quarter-widescreen">
           <figure class="media-left">
             <img
               src="https://upload.wikimedia.org/wikipedia/en/8/8b/Foo_Fighters_-_There_Is_Nothing_Left_to_Lose.jpg"
