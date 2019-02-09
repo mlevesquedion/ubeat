@@ -260,7 +260,7 @@
                   <p class="control">
                     <a class="icon has-text-light">
                       <span class="icon is-medium">
-                        <i class="fa fa-play"></i>
+                        <i class="far fa-play-circle"></i>
                       </span>
                     </a>
                   </p>
@@ -281,7 +281,7 @@
                   <p class="control">
                     <a class="has-text-light">
                       <span class="icon is-medium">
-                        <i class="fas fa-play-circle"></i>
+                        <i class="far fa-play-circle"></i>
                       </span>
                     </a>
                   </p>
