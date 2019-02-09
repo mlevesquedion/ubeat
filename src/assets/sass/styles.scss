@@ -38,22 +38,11 @@ $button-primary-color: $background;
 // Labels
 $label-color: $text;
 
-// Needed for card elements on dark background (album page)
-$card-color: $text;
-$card-header-color: $text;
-$card-content-background-color: $background;
-$card-background-color: $background;
-
-// Style for boxes
-$box-background-color: $primary;
-$box-color: $text;
-
 // Responsive
 $navbar-breakpoint: 769px;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
-@import '../../../node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass';
 
 // Helpers
 $burger-break: $desktop;

@@ -74,32 +74,30 @@
           </div>
           <!-- right -->
           <div class="column">
-            <div class="container">
-              <p id="albumName" class="title is-4">
-                There Is Nothing Left to Lose
-              </p>
-              <p class="subtitle is-6">
-                <span>by </span><span id="artist">Foo Fighters</span
-                ><span id="releaseYear"> (1998)</span>
-              </p>
-              <p id="albumDescription">
-                There Is Nothing Left to Lose is the third studio album by
-                American rock band Foo Fighters, released on November 2, 1999 by
-                Roswell and RCA Records.
-              </p>
+            <p id="albumName" class="title is-4">
+              There Is Nothing Left to Lose
+            </p>
+            <p class="subtitle is-6">
+              <span>by </span><span id="artist">Foo Fighters</span
+              ><span id="releaseYear"> (1998)</span>
+            </p>
+            <p id="albumDescription">
+              There Is Nothing Left to Lose is the third studio album by
+              American rock band Foo Fighters, released on November 2, 1999 by
+              Roswell and RCA Records.
+            </p>
 
-              <div id="musicStyles">
-                <span class="tag is-success is-medium is-rounded">Rock</span>
-                <span class="tag is-success is-medium is-rounded"
-                  >Alternative</span
-                >
-              </div>
-              <a
-                id="albumLink"
-                href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648"
-                style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music) no-repeat;width:158px;height:45px;"
-              ></a>
+            <div id="musicStyles">
+              <span class="tag is-success is-medium is-rounded">Rock</span>
+              <span class="tag is-success is-medium is-rounded"
+                >Alternative</span
+              >
             </div>
+            <a
+              id="albumLink"
+              href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648"
+              style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music) no-repeat;width:158px;height:45px;"
+            ></a>
           </div>
         </div>
       </div>
@@ -143,7 +141,7 @@
       <div id="listSongs" class="content">
         <ol type="1">
           <li>
-            <div class="level is-mobile">
+            <div class="level is-mobile is-bordered">
               <div class="level-left">
                 <div id="songName">Stacked Actors</div>
                 <div>
