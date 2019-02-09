@@ -70,6 +70,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
+
 #text-logo {
   color: $background;
   font-family: $big-text;
