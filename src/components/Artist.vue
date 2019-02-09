@@ -1,20 +1,17 @@
 <template>
   <section class="section">
     <section class="container has-text-centered">
-      <a class="card-image">
+      <a>
         <img
-          class="is-rounded"
-          src="https://i.ibb.co/LPJ7Sxv/Rings-Of-Saturn.jpg"
+          class="is-rounded responsive-image"
+          src="https://lastfm-img2.akamaized.net/i/u/ar0/fd4384fc364f4589c217eb3b805eab99.jpg"
           alt="Rings-Of-Saturn"
-          border="0"
         >
       </a>
       <p class="label is-large">Rings of Saturn</p>
       <p class="label is-medium">Technical Death Metal</p>
-
       <a
         id="itunes-link"
-        class="card-image"
         href="https://geo.itunes.apple.com/us/artist/rings-of-saturn/373843476?mt=1&app=music"
       >
         <img
@@ -22,56 +19,92 @@
         >
       </a>
     </section>
-    <div class="field is-grouped is-grouped-centered is-grouped-multiline">
-      <div class="control">
-        <a class="card-image" href="https://itunes.apple.com/ca/album/ultu-ulla/1242876068">
-          <img
-            src="https://is4-ssl.mzstatic.com/image/thumb/Music127/v4/3b/82/42/3b824249-24d0-a7bc-abe5-9a6131dc330e/727361380335.jpg/236x236bb.jpeg"
-            alt="ultu-ulla"
-            border="0"
-          >
-        </a>
-        <label class="label">Ultu Ulla</label>
+    <div class="album-gallery">
+      <div class="album responsive-image">
+        <div class="album-image">
+          <a href="https://itunes.apple.com/ca/album/ultu-ulla/1242876068">
+            <img
+              src="https://pbs.twimg.com/profile_images/870509754350567424/soPP-3fE_400x400.jpg"
+              alt="ultu-ulla"
+            >
+          </a>
+        </div>
+        <div class="album-title">
+          <label class="label subtitle">Ultu Ulla</label>
+        </div>
       </div>
-      <div class="control">
-        <a class="card-image" href="https://itunes.apple.com/ca/album/lugal-ki-en/1298845366">
-          <img
-            src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/43/de/55/43de553a-a08f-691b-29db-34a5c090e405/191773825041.jpg/236x236bb.jpeg"
-            alt="lugal-ki-en"
-            border="0"
-          >
-        </a>
-        <label class="label">Lugal Ki En</label>
+      <div class="album responsive-image">
+        <div class="album-image">
+          <a href="https://itunes.apple.com/ca/album/lugal-ki-en/1298845366">
+            <img
+              src="https://images.shazam.com/coverart/t147914943-b1298846284_s400.jpg"
+              alt="lugal-ki-en"
+            >
+          </a>
+        </div>
+        <div class="album-title">
+          <label class="label subtitle" subtitle>Lugal Ki En</label>
+        </div>
       </div>
-      <div class="control">
-        <a class="card-image" href="https://itunes.apple.com/ca/album/dingir/1298832976">
-          <img
-            src="https://is5-ssl.mzstatic.com/image/thumb/Music128/v4/d5/27/7a/d5277aa8-600a-220f-5446-8c17ff667b5a/191773825027.jpg/236x236bb.jpeg"
-            alt="dingir"
-            border="0"
-          >
-        </a>
-        <label class="label">Dingir</label>
+      <div class="album responsive-image">
+        <div class="album-image">
+          <a href="https://itunes.apple.com/ca/album/dingir/1298832976">
+            <img src="https://img.cdandlp.com/2018/04/imgL/119126211.jpg" alt="dingir">
+          </a>
+        </div>
+        <div class="album-title">
+          <label class="label subtitle">Dingir</label>
+        </div>
       </div>
-      <div class="control">
-        <a class="card-image" href="https://itunes.apple.com/ca/album/embryonic-anomaly/1298828991">
-          <img
-            src="https://is5-ssl.mzstatic.com/image/thumb/Music111/v4/f1/84/2d/f1842dc0-cd28-31fd-05dc-0c458e82fe49/191773825034.jpg/236x236bb.jpeg"
-            alt="embryonic-anomaly"
-            border="0"
-          >
-        </a>
-        <label class="label">Embryonic Anomaly</label>
+      <div class="album responsive-image">
+        <div class="album-image">
+          <a href="https://itunes.apple.com/ca/album/embryonic-anomaly/1298828991">
+            <img
+              src="http://www.ledotakas.net/image/cache/data/R/RINGS-OF-SATURN-Embryonic-Anomaly-LP-400x400.jpg"
+              alt="embryonic-anomaly"
+            >
+          </a>
+        </div>
+        <div class="album-title">
+          <label class="label subtitle">Embryonic Anomaly</label>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
-<style scoped style="scss">
+<style scoped lang="scss">
+@import '@/assets/sass/styles.scss';
+
 #itunes-link {
   margin-bottom: 1%;
 }
-label {
+
+.label {
   text-align: center;
+  color: $text;
+}
+
+.responsive-image {
+  width: 25%;
+  height: 25%;
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 350px;
+  max-height: 350px;
+  padding: 2% 2%;
+}
+
+.album-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.album {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
 }
 </style>
