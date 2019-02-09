@@ -58,6 +58,7 @@
       </div-->
 
       <div class="container">
+        <section class="section">
         <div class="columns">
           <!-- left -->
           <div class="column">
@@ -69,37 +70,37 @@
                 alt="Album cover"
               />
             </figure>
-            <span id="numberSongs">11</span><span> songs, </span>
-            <span id="albumPlayTime">46</span><span> minutes</span>
+            <div id="musicStyles">
+              <span class="tag is-success is-medium is-rounded">Rock</span>
+              <span class="tag is-success is-medium is-rounded"
+              >Alternative</span
+              >
+            </div>
           </div>
           <!-- right -->
-          <div class="column">
-            <p id="albumName" class="title is-4">
+          <div class="column is-four-fifths">
+            <p id="albumName" class="title is-1 has-text-light">
               There Is Nothing Left to Lose
             </p>
-            <p class="subtitle is-6">
+            <div class="subtitle is-6 has-text-grey-lighter">
+              <p>
               <span>by </span><span id="artist">Foo Fighters</span
               ><span id="releaseYear"> (1998)</span>
-            </p>
+              </p>
+              <p>
+            <span id="numberSongs">11</span><span> songs, </span>
+            <span id="albumPlayTime">46</span><span> minutes</span>
+              </p>
+            </div>
             <p id="albumDescription">
               There Is Nothing Left to Lose is the third studio album by
               American rock band Foo Fighters, released on November 2, 1999 by
               Roswell and RCA Records.
             </p>
 
-            <div id="musicStyles">
-              <span class="tag is-success is-medium is-rounded">Rock</span>
-              <span class="tag is-success is-medium is-rounded"
-                >Alternative</span
-              >
-            </div>
-            <a
-              id="albumLink"
-              href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648"
-              style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music) no-repeat;width:158px;height:45px;"
-            ></a>
           </div>
         </div>
+        </section>
       </div>
 
       <!--div class="level">
@@ -138,9 +139,10 @@
           </div>
         </div>
       </section-->
+      <section class="section">
       <div id="listSongs" class="content">
-        <ol type="1">
-          <li>
+        <ol>
+          <li class="has-background-dark">
             <div class="level is-mobile is-bordered">
               <div class="level-left">
                 <div id="songName">Stacked Actors</div>
@@ -151,8 +153,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-pause-circle"></i>
                       </span>
                     </a>
@@ -172,8 +174,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -182,7 +184,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li class="has-background-dark">
             <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Learn to Fly</div>
@@ -193,8 +195,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -214,9 +216,9 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
-                        <i class="far fa-play-circle"></i>
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
+                        <i class="far fa-pause-circle"></i>
                       </span>
                     </a>
                   </p>
@@ -224,7 +226,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li class="has-background-dark">
             <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Generator</div>
@@ -235,8 +237,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -256,9 +258,9 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
-                        <i class="far fa-play-circle"></i>
+                    <a class="icon has-text-light">
+                      <span class="icon is-medium">
+                        <i class="fa fa-play"></i>
                       </span>
                     </a>
                   </p>
@@ -266,7 +268,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li class="has-background-dark">
             <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Live-in Skin</div>
@@ -277,9 +279,9 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
-                        <i class="far fa-play-circle"></i>
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
+                        <i class="fas fa-play-circle"></i>
                       </span>
                     </a>
                   </p>
@@ -298,8 +300,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -308,7 +310,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li class="has-background-dark">
             <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">Headwires</div>
@@ -319,8 +321,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -340,8 +342,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -350,7 +352,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li class="has-background-dark">
             <div class="level is-mobile">
               <div class="level-left">
                 <div id="songName">M.I.A</div>
@@ -361,8 +363,8 @@
               <div class="level-right">
                 <div class="field is-grouped has-addons">
                   <p class="control">
-                    <a class="button is-success">
-                      <span class="icon is-small">
+                    <a class="has-text-light">
+                      <span class="icon is-medium">
                         <i class="far fa-play-circle"></i>
                       </span>
                     </a>
@@ -372,9 +374,23 @@
             </div>
           </li>
         </ol>
+
       </div>
+      </section>
+      <footer class="footer" style="background-color:#27272b">
+        <div class="has-text-centered">
+          <a
+            id="albumLink"
+            href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648"
+            style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music) no-repeat;width:158px;height:45px;"
+          ></a>
+        </div>
+      </footer>
     </div>
   </div>
+
+
 </template>
 
-<style></style>
+<style>
+</style>
