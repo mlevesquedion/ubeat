@@ -38,8 +38,7 @@ $button-primary-color: $background;
 // Labels
 $label-color: $text;
 
-// Responsive
-$navbar-breakpoint: 769px;
+$navbar-breakpoint: 767px;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';

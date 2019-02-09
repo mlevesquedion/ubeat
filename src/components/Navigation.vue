@@ -124,7 +124,7 @@ export default {
 .search-bar {
   height: 40px;
   padding: 10px;
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $navbar-breakpoint) {
     width: 200px;
   }
   @media screen and (min-width: $desktop) {
