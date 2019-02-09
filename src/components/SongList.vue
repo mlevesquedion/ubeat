@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content notification">
     <song v-for="(s, i) in songs" :song="s" :index="i" :key="s.title"></song>
   </div>
 </template>
