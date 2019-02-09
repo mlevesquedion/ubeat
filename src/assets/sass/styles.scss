@@ -48,6 +48,9 @@ $card-background-color: $background;
 $box-background-color: $background-lighter;
 $box-color: $text;
 
+// Responsive
+$navbar-breakpoint: 769px;
+
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
 @import '../../../node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass';
