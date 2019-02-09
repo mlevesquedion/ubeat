@@ -87,6 +87,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 2em;
+  padding-left: 4px;
   text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -144,26 +145,26 @@
 }
 
 .images li:nth-child(1) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png")
+  background-image: url("http://pinkfloydarchives.com/Discog/SAfrica/LP/DSOTM/DSOTM1/FC.jpg")
 }
 .images li:nth-child(2) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/c/c1/Harmonium_-_Si_On_Avait_Besoin_D%27Une_Cinqui%C3%A8me_Saison.jpg");
+  background-image: url("https://fanart.tv/fanart/music/0310f78a-3395-46e9-9986-342480de490e/albumcover/si-on-avait-besoin-dune-cinquime-saison-51bbae14234b6.jpg");
   animation-delay: 5s;
 }
 .images li:nth-child(3) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/a/a4/Pink_Floyd%2C_Wish_You_Were_Here_%281975%29.png");
+  background-image: url("https://www.merchandisingplaza.ca/55195/2/Magnets-Pink-Floyd-Pink-Floyd---Wywh-Cover-Magnet--Emi-Music-officially-licensed-product--l.jpg");
   animation-delay: 10s;
 }
 .images li:nth-child(4) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/c/cb/Led_Zeppelin_-_Mothership.jpg");
+  background-image: url("http://is2.mzstatic.com/image/thumb/Music62/v4/14/bc/e7/14bce756-cb44-d4b3-ffee-762d25d1ab88/source/600x600bb.jpg");
   animation-delay: 15s;
 }
 .images li:nth-child(5) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/1/12/Space_Jam_Soundtrack_Album_Cover.jpg");
+  background-image: url("https://i.scdn.co/image/a356c42b97313b3261e39477a550c4984d1ecf36");
   animation-delay: 20s;
 }
 .images li:nth-child(6) span {
-  background-image: url("https://upload.wikimedia.org/wikipedia/en/0/0f/The_Alan_Parsons_Project_-_I_Robot.jpg");
+  background-image: url("https://llwproductions.files.wordpress.com/2011/07/i-robot.jpg");
   animation-delay: 25s;
 }
 @keyframes animation1 {
@@ -178,7 +179,12 @@
 
   @media screen and (max-width: 768px){
     html {
-      font-size: 40%;
+      font-size: 38%;
+    }
+  }
+  @media screen and (max-width: 960px) and (min-width: 769px){
+  html {
+    font-size: 70%;
     }
   }
 </style>
