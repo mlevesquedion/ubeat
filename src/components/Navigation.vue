@@ -134,4 +134,16 @@ export default {
     width: 100%;
   }
 }
+
+#user-image {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  // Have to do this to override Bulma behavior...
+  max-height: 36px !important;
+  @media screen and (max-width: $desktop) {
+    width: 28px;
+    height: 28px;
+  }
+}
 </style>
