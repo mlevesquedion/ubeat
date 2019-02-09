@@ -2,17 +2,17 @@
   <div>
   <div>
    <header>
-    <div id="welcome-message"> Welcome to UBeat!</div>
-    <div id="sub-message">
+     <div id="welcome-message" class="is-size-3-mobile"> Welcome to UBeat!</div>
+    <div id="sub-message" class="is-size-5-mobile">
 
       Manage your favorite albums, artists, playlists and songs. UBeat does it
       all and lets you listen to your music, your way.
     </div>
 
-    <div id="sub-message2">
+    <div id="sub-message2" class="is-size-6-mobile">
       Get started now !
 
-      <div id="sub-message2-item">
+      <div id="sub-message2-item" class="is-size-9-mobile">
         <i class="fa fa-arrow-circle-right"></i>
       </div>
     </div>
@@ -48,9 +48,10 @@
   </ul>
   </div>
 </div>
+
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
 
 .custom-bg {
@@ -82,12 +83,12 @@
 #sub-message {
   color: $primary;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 110%;
+  font-size: 150%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 2em;
-  padding-left: 4px;
+  padding-left: 15px;
   text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -134,39 +135,37 @@
   height: 100%;
   top: 0px;
   left: 0px;
-  position: absolute;
+  position: fixed;
   z-index: -1;
-  color:transparent;
-  background-position: 30% 30%;
+  color: transparent;
+  background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
+  -webkit-filter: brightness(50%);
 
-  animation: animation1 30s linear infinite 0s;
+  animation: animation1 50s linear infinite 0s;
 }
 
 .images li:nth-child(1) span {
-  background-image: url("http://pinkfloydarchives.com/Discog/SAfrica/LP/DSOTM/DSOTM1/FC.jpg")
+  background-image: url("http://www.jambase.com/wp-content/uploads/2016/03/DSOTM-Crop.jpg")
 }
 .images li:nth-child(2) span {
-  background-image: url("https://fanart.tv/fanart/music/0310f78a-3395-46e9-9986-342480de490e/albumcover/si-on-avait-besoin-dune-cinquime-saison-51bbae14234b6.jpg");
-  animation-delay: 5s;
-}
-.images li:nth-child(3) span {
-  background-image: url("https://www.merchandisingplaza.ca/55195/2/Magnets-Pink-Floyd-Pink-Floyd---Wywh-Cover-Magnet--Emi-Music-officially-licensed-product--l.jpg");
+  background-image: url("https://llwproductions.files.wordpress.com/2011/07/i-robot.jpg");
   animation-delay: 10s;
 }
+.images li:nth-child(3) span {
+  background-image: url("https://i.pinimg.com/736x/1f/87/5c/1f875c2b411eb3d0247f6938ded3e859.jpg");
+  animation-delay: 20s;
+}
 .images li:nth-child(4) span {
-  background-image: url("http://is2.mzstatic.com/image/thumb/Music62/v4/14/bc/e7/14bce756-cb44-d4b3-ffee-762d25d1ab88/source/600x600bb.jpg");
-  animation-delay: 15s;
+  background-image: url("http://flashwounds.com/wp-content/uploads/2014/05/black-album.jpg");
+  animation-delay: 30s;
 }
 .images li:nth-child(5) span {
   background-image: url("https://i.scdn.co/image/a356c42b97313b3261e39477a550c4984d1ecf36");
-  animation-delay: 20s;
+  animation-delay: 40s;
 }
-.images li:nth-child(6) span {
-  background-image: url("https://llwproductions.files.wordpress.com/2011/07/i-robot.jpg");
-  animation-delay: 25s;
-}
+
 @keyframes animation1 {
 
   0%{opacity: 0; animation-timing-function: ease-in}
@@ -177,14 +176,4 @@
 
 }
 
-  @media screen and (max-width: 768px){
-    html {
-      font-size: 38%;
-    }
-  }
-  @media screen and (max-width: 960px) and (min-width: 769px){
-  html {
-    font-size: 70%;
-    }
-  }
 </style>
