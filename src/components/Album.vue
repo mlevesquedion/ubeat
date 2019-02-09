@@ -58,10 +58,10 @@
       </div-->
 
       <div class="container">
-        <div class="">
+        <div class="columns">
           <!-- left -->
           <div class="column">
-            <figure class="image">
+            <figure class="media-left">
               <img
                 style="max-width: 256px"
                 id="albumCover"
