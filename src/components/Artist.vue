@@ -67,7 +67,7 @@
   </section>
 </template>
 
-<style>
+<style scoped style="scss">
 #itunes-link {
   margin-bottom: 1%;
 }
