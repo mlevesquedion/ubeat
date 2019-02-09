@@ -42,6 +42,7 @@ $button-primary-color: $background;
 $label-color: $text;
 
 $navbar-breakpoint: 767px;
+$desktop: 1023px;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
