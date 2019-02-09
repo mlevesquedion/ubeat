@@ -32,6 +32,9 @@ $navbar-dropdown-item-hover-color: $hover;
 $navbar-dropdown-item-hover-background-color: $primary;
 $navbar-dropdown-border-top: 0;
 
+// Box
+$box-background-color: $background;
+
 // Buttons
 $button-primary-color: $background;
 
@@ -39,6 +42,7 @@ $button-primary-color: $background;
 $label-color: $text;
 
 $navbar-breakpoint: 767px;
+$desktop: 1023px;
 
 // Doit être après les couleurs mais avant les classes pour une raison obscure...
 @import '../../../node_modules/bulma/bulma.sass';
