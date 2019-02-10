@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section class="section">
-      <div class="columns ">
+      <div class="columns">
         <div class="column is-one-third is-3-fullhd">
           <figure class="media-left">
             <img
@@ -14,7 +14,7 @@
             <span class="tag is-success is-medium is-rounded">Rock</span>
             <span class="tag is-success is-medium is-rounded">Alternative</span>
           </div>
-          </div>
+        </div>
         <div class="column">
           <p
             class="title is-size-2-tablet is-size-1-desktop is-size-3-mobile has-text-light"
@@ -32,13 +32,10 @@
       </div>
       <song-list></song-list>
     </section>
-    <footer class="footer">
-      <div class="has-text-centered">
-        <a
-          href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648"
-          style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music) no-repeat;width:158px;height:45px;"
-        ></a>
-      </div>
+    <footer class="footer has-text-centered">
+      <a href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648">
+        <img src="@/static/images/get_on_itunes.png">
+      </a>
     </footer>
   </div>
 </template>
@@ -58,5 +55,10 @@ export default {
 @import '@/assets/sass/styles.scss';
 .footer {
   background: $background;
+}
+
+.footer img {
+  min-width: 200px;
+  width: 15%;
 }
 </style>
