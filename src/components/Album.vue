@@ -1,22 +1,23 @@
 <template>
   <div class="container">
     <section class="section">
-      <div class="columns">
-        <div class="column is-one-third is-one-quarter-widescreen">
+      <div class="columns ">
+        <div class="column is-one-third is-3-fullhd">
           <figure class="media-left">
             <img
               src="https://upload.wikimedia.org/wikipedia/en/8/8b/Foo_Fighters_-_There_Is_Nothing_Left_to_Lose.jpg"
               alt="Album cover"
             >
           </figure>
+
           <div>
             <span class="tag is-success is-medium is-rounded">Rock</span>
             <span class="tag is-success is-medium is-rounded">Alternative</span>
           </div>
-        </div>
-        <div class="column is-four-fifths-desktop is-two-thirds-tablet">
+          </div>
+        <div class="column">
           <p
-            class="title is-size-1-tablet is-size-1-desktop is-size-2-mobile has-text-light"
+            class="title is-size-2-tablet is-size-1-desktop is-size-3-mobile has-text-light"
           >There Is Nothing Left to Lose</p>
           <div class="subtitle is-6 has-text-grey-lighter">
             <p>Foo Fighters (1998)</p>
