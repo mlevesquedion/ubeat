@@ -72,7 +72,7 @@ export default {
 @import '@/assets/sass/styles.scss';
 #text-logo {
   color: $background;
-  font-family: $big-text;
+  font-family: $style-text;
   background-color: $primary;
 }
 

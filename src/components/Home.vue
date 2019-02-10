@@ -2,20 +2,20 @@
   <div>
   <div>
    <header>
-     <div id="welcome-message" class="is-size-3-mobile"> Welcome to UBeat!</div>
-    <div id="sub-message" class="is-size-5-mobile">
+     <h1 id="welcome-message" class="title is-primary is-size-0 is-size-4-mobile flex-centered"> Welcome to UBeat!</h1>
+    <p id="sub-message" class="is-size-3 is-size-5-mobile is-primary flex-centered">
 
       Manage your favorite albums, artists, playlists and songs. UBeat does it
       all and lets you listen to your music, your way.
-    </div>
+    </p>
 
-    <div id="sub-message2" class="is-size-6-mobile">
+    <h2 id="sub-message2" class="subtitle is-size-1 is-size-4-mobile is-primary flex-centered">
       Get started now !
 
-      <div id="sub-message2-item" class="is-size-9-mobile">
-        <i class="fa fa-arrow-circle-right"></i>
+      <div id="sub-message2-item" class="is-size-4-mobile">
+        <i class="fa fa-arrow-circle-right bumped-right is-primary"></i>
       </div>
-    </div>
+    </h2>
    </header>
   </div>
 
@@ -59,66 +59,33 @@
 
 }
 
-#home {
-  color: $primary;
-  font-family: 'Permanent Marker', cursive;
-}
 #welcome-message {
   color: $primary;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 500%;
-  height: 2.1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 1.5em;
-  padding-top: 3em;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  font-family: $style-text;
+  text-shadow: $black-border;
+  padding-top: 2em;
 }
 
 #sub-message {
   color: $primary;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 150%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-top: 2em;
   padding-left: 15px;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: $black-border;
 }
 
 #sub-message2 {
-  color: $primary;
-  font-family: 'Permanent Marker', cursive;
+  font-family: $style-text;
   font-size: 110%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2em;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  padding-top: 2em;
+  text-shadow: $black-border;
 }
 
 #sub-message2-item {
   font-size: 33px;
   border-color: $primary;
-  text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: $black-border;
 }
 
 .images:after {
@@ -141,7 +108,7 @@
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
-  -webkit-filter: brightness(50%);
+  -webkit-filter: brightness(45%);
 
   animation: animation1 50s linear infinite 0s;
 }
@@ -169,8 +136,9 @@
 @keyframes animation1 {
 
   0%{opacity: 0; animation-timing-function: ease-in}
-  9%{opacity: 1; animation-timing-function: ease-out}
-  20%{opacity:1}
+  9%{opacity: 1; animation-timing-function:ease-out}
+  15%{opacity: 1}
+  22%{opacity: 1}
   30%{opacity: 0}
   100%{opacity: 0}
 
