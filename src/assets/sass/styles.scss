@@ -16,7 +16,7 @@ $link: $background-light;
 $hover: $white;
 
 // Fonts
-$style-text: 'Permanent Marker', cursive;
+$stylish-text: 'Permanent Marker', cursive;
 
 // Body
 $body-background-color: $background;
@@ -42,6 +42,9 @@ $button-primary-color: $background;
 $label-color: $text;
 
 $navbar-breakpoint: 767px;
+
+// Seems to be an off by one error in Bulma
+$tablet: 767px;
 $desktop: 1023px;
 
 // Les variables de Bulma qu'on veut overrider doivent être avant l'import de Bulma
@@ -64,10 +67,6 @@ $burger-break: $desktop;
   margin-right: 10px;
 }
 
-.is-size-0 {
-  font-size: 5rem;
-}
-
 .is-primary {
   color: $primary;
 }
@@ -78,4 +77,5 @@ $burger-break: $desktop;
   align-items: center;
 }
 
-$black-border: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+$black-border: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
