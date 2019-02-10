@@ -29,6 +29,8 @@ setInterval(updateImage, 3000);
   height: 30vw;
   min-width: 300px;
   min-height: 300px;
+  max-width: 600px;
+  max-height: 600px;
   opacity: 0.8;
   background-size: contain;
   background-repeat: no-repeat;
