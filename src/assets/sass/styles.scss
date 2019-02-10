@@ -32,19 +32,26 @@ $navbar-dropdown-item-hover-color: $hover;
 $navbar-dropdown-item-hover-background-color: $primary;
 $navbar-dropdown-border-top: 0;
 
+// Box
+$box-background-color: $background;
+
 // Buttons
 $button-primary-color: $background;
 
 // Labels
 $label-color: $text;
 
-// Responsive
 $navbar-breakpoint: 767px;
+$desktop: 1023px;
 
-// Doit être après les couleurs mais avant les classes pour une raison obscure...
+// Les variables de Bulma qu'on veut overrider doivent être avant l'import de Bulma
 @import '../../../node_modules/bulma/bulma.sass';
-@import '../../../node_modules/bulma-extensions/bulma-carousel/src/sass/index.sass';
+// Les variables basées sur Bulma doivent être après l'import
 
+// Helpers
+$burger-break: $desktop;
+
+// La classe Bulma ne marche pas
 .is-rounded {
   border-radius: 50%;
 }

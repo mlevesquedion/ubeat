@@ -56,7 +56,6 @@
 
 .custom-bg {
   background-color: $background;
-
 }
 
 #welcome-message {
@@ -97,7 +96,7 @@
   z-index: 0;
 }
 
-.images li span{
+.images li span {
   width: 100%;
   height: 100%;
   top: 0px;
