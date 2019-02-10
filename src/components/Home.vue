@@ -30,24 +30,12 @@
     </div>
     <div>
       <ul class="images">
-        <li>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-        </li>
-        <li>
-          <span></span>
-        </li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
       </ul>
     </div>
   </div>
@@ -83,16 +71,7 @@
   text-shadow: $black-border;
 }
 
-.images:after {
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  z-index: 0;
-}
-
-.images li span {
+.images li {
   width: 100%;
   height: 100%;
   top: 0px;
@@ -100,32 +79,31 @@
   position: fixed;
   z-index: -1;
   color: transparent;
-  background-position: 50% 50%;
+  background-position: center;
   background-size: cover;
   opacity: 0;
-  -webkit-filter: brightness(45%);
-
-  animation: crossfade 50s linear infinite 0s;
+  filter: brightness(25%);
+  animation: crossfade 25s linear infinite 0s;
 }
 
-.images li:nth-child(1) span {
+.images li:nth-child(1) {
   background-image: url('http://www.jambase.com/wp-content/uploads/2016/03/DSOTM-Crop.jpg');
 }
-.images li:nth-child(2) span {
+.images li:nth-child(2) {
   background-image: url('https://llwproductions.files.wordpress.com/2011/07/i-robot.jpg');
+  animation-delay: 5s;
+}
+.images li:nth-child(3) {
+  background-image: url('https://i.pinimg.com/736x/1f/87/5c/1f875c2b411eb3d0247f6938ded3e859.jpg');
   animation-delay: 10s;
 }
-.images li:nth-child(3) span {
-  background-image: url('https://i.pinimg.com/736x/1f/87/5c/1f875c2b411eb3d0247f6938ded3e859.jpg');
-  animation-delay: 20s;
-}
-.images li:nth-child(4) span {
+.images li:nth-child(4) {
   background-image: url('http://flashwounds.com/wp-content/uploads/2014/05/black-album.jpg');
-  animation-delay: 30s;
+  animation-delay: 15s;
 }
-.images li:nth-child(5) span {
+.images li:nth-child(5) {
   background-image: url('https://i.scdn.co/image/a356c42b97313b3261e39477a550c4984d1ecf36');
-  animation-delay: 40s;
+  animation-delay: 20s;
 }
 
 @keyframes crossfade {
