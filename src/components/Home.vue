@@ -49,7 +49,6 @@ export default {
 
 #welcome-message {
   font-family: $stylish-text;
-  text-shadow: $black-border;
   padding-top: 1em;
 }
 
@@ -59,17 +58,14 @@ export default {
   text-align: center;
   padding-left: 20px;
   padding-right: 20px;
-  text-shadow: $black-border;
 }
 
 #punchline-message {
   font-family: $stylish-text;
   padding-top: 2em;
-  text-shadow: $black-border;
 }
 
 #get-started-arrow {
   border-color: $primary;
-  text-shadow: $black-border;
 }
 </style>
