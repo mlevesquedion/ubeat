@@ -16,7 +16,7 @@ $link: $background-light;
 $hover: $white;
 
 // Fonts
-$big-text: 'Permanent Marker', cursive;
+$stylish-text: 'Permanent Marker', cursive;
 
 // Body
 $body-background-color: $background;
@@ -42,18 +42,36 @@ $button-primary-color: $background;
 $label-color: $text;
 
 $navbar-breakpoint: 600px;
+
+// Seems to be off by one errors in Bulma
+$tablet: 767px;
 $desktop: 1023px;
 
-// Les variables de Bulma qu'on veut overrider doivent être avant l'import de Bulma
+// To override Bulma variables, declare variable with same name above import
 @import '../../../node_modules/bulma/bulma.sass';
-// Les variables basées sur Bulma doivent être après l'import
 
-// La classe Bulma ne marche pas
+// Bulma built-in does not work
 .is-rounded {
   border-radius: 50%;
 }
 
-a.button.is-primary,
-a.button.is-primary:hover {
-  color: $background;
+.bumped-right {
+  margin-left: 10px;
 }
+
+.bumped-left {
+  margin-right: 10px;
+}
+
+.is-primary {
+  color: $primary;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$black-border: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;

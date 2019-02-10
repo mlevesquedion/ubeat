@@ -83,7 +83,7 @@ export default {
 
 #text-logo {
   color: $background;
-  font-family: $big-text;
+  font-family: $stylish-text;
   background-color: $primary;
 }
 

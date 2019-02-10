@@ -9,6 +9,7 @@
     "css-watch": "npm run css-build -- -watch",
     "dev": "node build/dev-server.js",
     "start": "npm run css-watch & node build/dev-server.js",
+    "livrable": "node build/dev-server.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
