@@ -16,9 +16,11 @@ const images = [
 let imageIndex = 1;
 const updateImage = () => {
   const carousel = document.getElementById('carousel');
-  const image = images[imageIndex];
-  carousel.style.backgroundImage = `url(${image})`;
-  imageIndex = (imageIndex + 1) % images.length;
+  if (carousel !== null) {
+    const image = images[imageIndex];
+    carousel.style.backgroundImage = `url(${image})`;
+    imageIndex = (imageIndex + 1) % images.length;
+  }
 };
 setInterval(updateImage, 3000);
 </script>
