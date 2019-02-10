@@ -28,8 +28,6 @@
             placeholder="Search ..."
           >
         </div>
-        <router-link to="/artist" class="is-size-6-tablet is-size-5-desktop navbar-item">Artist</router-link>
-        <router-link to="/album" class="is-size-6-tablet is-size-5-desktop navbar-item">Album</router-link>
         <div class="navbar-item has-dropdown is-hoverable">
           <a id="nav-dropdown" class="is-size-6-tablet is-size-5-desktop navbar-link">Playlists</a>
           <div class="navbar-dropdown">

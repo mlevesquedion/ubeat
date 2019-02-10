@@ -19,19 +19,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'song',
-    props: ['song', 'index'],
-    computed: {
-      isDark() {
-        return this.index % 2 === 0;
-      }
+export default {
+  name: 'song',
+  props: ['song', 'index'],
+  computed: {
+    isDark() {
+      return this.index % 2 === 0;
     }
-  };
+  }
+};
 </script>
 
 <style scoped lang="scss">
-  .level {
-    margin-bottom: 0;
-  }
+.level {
+  margin-bottom: 0;
+}
 </style>

@@ -36,6 +36,7 @@ setInterval(updateImage, 3000);
   background-image: url('https://www.billboard.com/files/styles/900_wide/public/media/Joy-Division-Unknown-Pleasures-album-covers-billboard-1000x1000.jpg');
   transition: background-image 1s ease-in-out;
 }
+
 #carousel:after {
   display: block;
   padding-bottom: 100%;
