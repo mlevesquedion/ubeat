@@ -27,12 +27,12 @@ setInterval(updateImage, 3000);
 
 <style scoped lang="scss">
 #carousel {
-  width: 30vw;
-  height: 30vw;
+  width: 40vw;
+  height: 40vw;
   min-width: 300px;
   min-height: 300px;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 500px;
+  max-height: 500px;
   opacity: 0.8;
   background-size: contain;
   background-repeat: no-repeat;
