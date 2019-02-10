@@ -34,7 +34,7 @@
     </section>
     <footer class="footer has-text-centered">
       <a href="https://itunes.apple.com/ca/album/there-is-nothing-left-to-lose/278229648?app=itunes">
-        <img src="@/static/images/get_on_itunes.png" alt="There Is Nothing Left to Lose">
+        <img src="@/static/images/get_on_itunes.png" alt="iTunes">
       </a>
     </footer>
   </div>
