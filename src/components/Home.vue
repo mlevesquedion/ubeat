@@ -20,12 +20,13 @@
         >
           <p>Get started now !</p>
           <router-link
-            to="/user"
-            id="get-started-arrow"
-            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile"
-          >
-            <i class="fa fa-arrow-circle-right bumped-right is-primary"></i>
-          </router-link>
+            to="/artist"
+            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
+          >Artist</router-link>
+          <router-link
+            to="/album"
+            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
+          >Album</router-link>
         </h2>
       </header>
     </div>
@@ -63,9 +64,5 @@ export default {
 #punchline-message {
   font-family: $stylish-text;
   padding-top: 2em;
-}
-
-#get-started-arrow {
-  border-color: $primary;
 }
 </style>
