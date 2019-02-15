@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiRoot } from './common';
+import { apiRoot } from './constants';
 
 const artistRoot = `${apiRoot}artists/`;
 
