@@ -6,9 +6,9 @@
 
     <div v-if="artistState === RequestState.LOADED">
       <section class="container has-text-centered">
-        <p class="label is-size-1">{{ artist['artistName'] }}</p>
-        <p class="label is-size-3">{{ artist['primaryGenreName'] }}</p>
-        <a id="itunes-link" v-bind:href="artist['artistLinkUrl']">
+        <p class="label is-size-1">{{ artist.name }}</p>
+        <p class="label is-size-3">{{ artist.genre }}</p>
+        <a id="itunes-link" v-bind:href="artist.url">
           <img
             src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
           >

@@ -7,15 +7,11 @@
     <div v-if="albumsState === RequestState.LOADED">
       <h1 class="title is-primary albums-title">Albums</h1>
       <div class="album-gallery">
-        <div v-bind:key="album['collectionId']" v-for="album in albums" class="album">
-          <a class="responsive-image-container" :href="album['collectionViewUrl']">
-            <img
-              class="responsive-image"
-              :src="album['artworkUrl100']"
-              alt="album['collectionName']"
-            >
+        <div v-bind:key="album.id" v-for="album in albums" class="album">
+          <a class="responsive-image-container" :href="album.url">
+            <img class="responsive-image" :src="album.artworkUrl" alt="album.name">
           </a>
-          <label class="album-name subtitle">{{ album['collectionName'] }}</label>
+          <label class="album-name subtitle">{{ album.name }}</label>
         </div>
       </div>
     </div>
