@@ -8,7 +8,7 @@
       <section class="container has-text-centered">
         <p class="label is-size-1">{{ artist.name }}</p>
         <p class="label is-size-3">{{ artist.genre }}</p>
-        <a id="itunes-link" v-bind:href="artist.url">
+        <a id="itunes-link" :href="artist.url">
           <img
             src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
           >

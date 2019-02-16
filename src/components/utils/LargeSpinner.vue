@@ -1,5 +1,5 @@
 <template>
-  <Spinner size="large" v-bind:line-fg-color="color"/>
+  <Spinner size="large" :line-fg-color="color"/>
 </template>
 
 <script>

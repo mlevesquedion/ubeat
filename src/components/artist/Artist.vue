@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ArtistInfo v-bind:artistId="id"/>
-    <AlbumGallery v-bind:artistId="id"/>
+    <ArtistInfo :artistId="id"/>
+    <AlbumGallery :artistId="id"/>
   </div>
 </template>
 

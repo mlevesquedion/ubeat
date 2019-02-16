@@ -7,7 +7,7 @@
     <div v-if="albumsState === RequestState.LOADED">
       <h1 class="title is-primary albums-title">Albums</h1>
       <div class="album-gallery">
-        <div v-bind:key="album.id" v-for="album in albums" class="album">
+        <div :key="album.id" v-for="album in albums" class="album">
           <a class="responsive-image-container" :href="album.url">
             <img class="responsive-image" :src="album.artworkUrl" alt="album.name">
           </a>
