@@ -29,6 +29,7 @@ import { getArtist } from '@/api/artist';
 
 export default {
   name: 'artistInfo',
+  props: ['artistId'],
   mounted() {
     getArtist(this.artistId, this.populateArtist, this.handleArtistError);
   },
@@ -36,7 +37,6 @@ export default {
     return {
       RequestState,
       artistState: RequestState.LOADING,
-      artistId: this.$route.params.id,
       artist: {},
       error: ''
     };

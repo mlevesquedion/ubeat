@@ -29,6 +29,7 @@ import { getArtistAlbums } from '@/api/artist';
 
 export default {
   name: 'albumGallery',
+  props: ['artistId'],
   mounted() {
     getArtistAlbums(this.artistId, this.populateAlbums, this.handleAlbumsError);
   },
@@ -36,7 +37,6 @@ export default {
     return {
       RequestState,
       albumsState: RequestState.LOADING,
-      artistId: this.$route.params.id,
       albums: [],
       error: ''
     };
