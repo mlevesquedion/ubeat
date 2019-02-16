@@ -72,3 +72,8 @@ $desktop: 1023px;
   justify-content: center;
   align-items: center;
 }
+
+// Exports for use in components
+:export {
+  primary: $primary;
+}

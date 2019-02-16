@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div v-if="artistState === RequestState.LOADING">
-      <h1>Hol' up, I'm loading some stuff</h1>
+      <LargeSpinner/>
     </div>
 
     <div v-if="artistState === RequestState.LOADED">
@@ -17,15 +17,23 @@
     </div>
 
     <div v-if="artistState === RequestState.ERROR">
-      <h1>Sorry there, an error occurred. Refresh the page, maybe?</h1>
-      <p>{{ error }}</p>
+      <div class="message is-danger">
+        <div class="message-header">
+          <p>Error</p>
+        </div>
+        <div class="message-body">
+          <p>{{ error }}</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import '@/assets/sass/styles.scss';
 import { RequestState } from '@/api/constants';
 import { getArtist } from '@/api/artist';
+import LargeSpinner from '@/components/utils/LargeSpinner';
 
 export default {
   name: 'artistInfo',
@@ -38,23 +46,24 @@ export default {
       RequestState,
       artistState: RequestState.LOADING,
       artist: {},
-      error: ''
+      error: 'Unable to fetch artist data at this time.'
     };
   },
   methods: {
     populateArtist(artistData) {
       if (!artistData) {
         this.artistState = RequestState.ERROR;
-        this.error = `Artist with id ${this.artistId} does not exist.`;
         return;
       }
       this.artist = artistData;
       this.artistState = RequestState.LOADED;
     },
-    handleArtistError(err) {
+    handleArtistError(_err) {
       this.artistState = RequestState.ERROR;
-      this.error = err;
     }
+  },
+  components: {
+    LargeSpinner
   }
 };
 </script>
