@@ -17,14 +17,7 @@
     </div>
 
     <div v-if="albumsState === RequestState.ERROR">
-      <div class="message is-danger">
-        <div class="message-header">
-          <p>Error</p>
-        </div>
-        <div class="message-body">
-          <p>{{ error }}</p>
-        </div>
-      </div>
+      <ErrorMessage :message="error"/>
     </div>
   </section>
 </template>
@@ -33,6 +26,7 @@
 import { RequestState } from '@/api/constants';
 import { getArtistAlbums } from '@/api/artist';
 import LargeSpinner from '@/components/utils/LargeSpinner';
+import ErrorMessage from '@/components/utils/ErrorMessage';
 
 export default {
   name: 'albumGallery',
@@ -62,7 +56,8 @@ export default {
     }
   },
   components: {
-    LargeSpinner
+    LargeSpinner,
+    ErrorMessage
   }
 };
 </script>

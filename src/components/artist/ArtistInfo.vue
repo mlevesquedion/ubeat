@@ -17,14 +17,7 @@
     </div>
 
     <div v-if="artistState === RequestState.ERROR">
-      <div class="message is-danger">
-        <div class="message-header">
-          <p>Error</p>
-        </div>
-        <div class="message-body">
-          <p>{{ error }}</p>
-        </div>
-      </div>
+      <ErrorMessage :message="error"/>
     </div>
   </section>
 </template>
@@ -34,6 +27,7 @@ import '@/assets/sass/styles.scss';
 import { RequestState } from '@/api/constants';
 import { getArtist } from '@/api/artist';
 import LargeSpinner from '@/components/utils/LargeSpinner';
+import ErrorMessage from '@/components/utils/ErrorMessage';
 
 export default {
   name: 'artistInfo',
@@ -63,7 +57,8 @@ export default {
     }
   },
   components: {
-    LargeSpinner
+    LargeSpinner,
+    ErrorMessage
   }
 };
 </script>
