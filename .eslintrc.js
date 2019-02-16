@@ -25,6 +25,7 @@ module.exports = {
     'comma-dangle': 0,
     'arrow-parens': 0,
     'linebreak-style': 0,
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     // don't require .vue extension when importing
     'import/extensions': [
       'error',
