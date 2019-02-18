@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
 import Album from '@/components/Album';
-import Artist from '@/components/Artist';
+import Artist from '@/components/artist/Artist';
 import User from '@/components/User';
 
 Vue.use(Router);
@@ -15,7 +15,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/artist',
+      path: '/artist/:id',
       name: 'Artist',
       component: Artist
     },

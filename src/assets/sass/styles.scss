@@ -73,5 +73,7 @@ $desktop: 1023px;
   align-items: center;
 }
 
-$black-border: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-  1px 1px 0 #000;
+// Exports for use in components
+:export {
+  primary: $primary;
+}

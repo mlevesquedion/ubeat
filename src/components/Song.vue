@@ -1,5 +1,5 @@
 <template>
-  <div class="level is-mobile is-bordered" v-bind:class="{ 'has-background-dark': isDark }">
+  <div class="level is-mobile is-bordered" :class="{ 'has-background-dark': isDark }">
     <div class="level-left">
       <div>{{ index + 1 }}. {{ song.title }}</div>
     </div>
