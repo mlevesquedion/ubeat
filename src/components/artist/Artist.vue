@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import AsyncComponent from '@/components/utils/AsyncComponent';
 import ArtistInfo from './ArtistInfo';
 import AlbumGallery from './AlbumGallery';
 
@@ -13,10 +14,12 @@ export default {
   name: 'artist',
   data() {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      ArtistInfo
     };
   },
   components: {
+    AsyncComponent,
     ArtistInfo,
     AlbumGallery
   }
