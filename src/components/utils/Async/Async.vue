@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div v-if="requestState === RequestState.LOADING">
-      <LargeSpinner/>
+      <Spinner :size="SpinnerSize.LARGE"/>
     </div>
 
     <div v-if="requestState === RequestState.LOADED">
@@ -15,15 +15,17 @@
 </template>
 
 <script>
-import LargeSpinner from '@/components/utils/LargeSpinner';
+import Spinner from '@/components/utils/Spinner/Spinner';
 import ErrorMessage from '@/components/utils/ErrorMessage';
-import { RequestState } from '@/api/constants';
+import SpinnerSize from '@/components/utils/Spinner/spinnerSize';
+import RequestState from './requestState';
 
 export default {
   name: 'asyncComponent',
   props: ['dataSource', 'errorMessage'],
   data() {
     return {
+      SpinnerSize,
       RequestState,
       requestState: RequestState.LOADING,
       data: null,
@@ -47,7 +49,7 @@ export default {
     this.dataSource(this.populateData, this.populateError);
   },
   components: {
-    LargeSpinner,
+    Spinner,
     ErrorMessage
   }
 };
