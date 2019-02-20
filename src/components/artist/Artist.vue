@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import AsyncComponent from '@/components/utils/AsyncComponent';
 import ArtistInfo from './ArtistInfo';
 import AlbumGallery from './AlbumGallery';
 
@@ -19,7 +18,6 @@ export default {
     };
   },
   components: {
-    AsyncComponent,
     ArtistInfo,
     AlbumGallery
   }

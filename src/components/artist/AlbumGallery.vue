@@ -1,14 +1,14 @@
 <template>
-  <AsyncComponent :dataSource="dataSource" :errorMessage="errorMessage">
+  <Async :dataSource="dataSource" :errorMessage="errorMessage">
     <template slot-scope="{data}">
       <AlbumGalleryView :albums="data"/>
     </template>
-  </AsyncComponent>
+  </Async>
 </template>
 
 <script>
-import AsyncComponent from '@/components/utils/AsyncComponent';
 import { getArtistAlbums } from '@/api/artist';
+import Async from '@/components/utils/Async/Async';
 import AlbumGalleryView from './AlbumGalleryView';
 
 export default {
@@ -22,8 +22,8 @@ export default {
     };
   },
   components: {
-    AlbumGalleryView,
-    AsyncComponent
+    Async,
+    AlbumGalleryView
   }
 };
 </script>

@@ -1,14 +1,14 @@
 <template>
-  <AsyncComponent :dataSource="dataSource" :errorMessage="errorMessage">
+  <Async :dataSource="dataSource" :errorMessage="errorMessage">
     <template slot-scope="{data}">
       <ArtistInfoView :artist="data"/>
     </template>
-  </AsyncComponent>
+  </Async>
 </template>
 
 <script>
 import { getArtist } from '@/api/artist';
-import AsyncComponent from '@/components/utils/AsyncComponent';
+import Async from '@/components/utils/Async/Async';
 import ArtistInfoView from './ArtistInfoView';
 
 export default {
@@ -22,7 +22,7 @@ export default {
     };
   },
   components: {
-    AsyncComponent,
+    Async,
     ArtistInfoView
   }
 };
