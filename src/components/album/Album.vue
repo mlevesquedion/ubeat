@@ -1,13 +1,31 @@
 <template>
-
+  <section class="section">
+    <AlbumInfo :albumId="id"/>
+    <TrackGallery :albumId="id"/>
+  </section>
 </template>
 
 <script>
+  import AlbumInfo from './AlbumInfo';
+  import TrackGallery from './TrackGallery';
+
   export default {
-    name: 'Album'
+    name: 'album',
+    data() {
+      return {
+        id: this.$route.params.id,
+      };
+    },
+    components: {
+      AlbumInfo,
+      TrackGallery
+    }
   };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  @import '@/assets/sass/styles.scss';
+  .is-rounded{
+    border-radius: 25px
+  }
 </style>
