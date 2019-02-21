@@ -8,15 +8,15 @@
         <div class="columns ">
           <div class="column is-narrow ">
             <figure class="media-left image">
-              <img class="img-responsive " :src="album.artworkUrl" alt="album.name">
+              <img class="img-responsive" :src="album.artworkUrl" alt="album.name">
             </figure>
           </div>
-          <div class="column is-narrow">
+          <div class="column is-three-quarters">
             <p
-              class="title is-size-2-tablet is-size-1-desktop is-size-3-mobile has-text-light"
+              class="title is-size-3 has-text-light"
             >{{ album.name }}</p>
             <div class="subtitle has-text-grey-lighter">
-              <div class="is-size-4">
+              <div class="is-size-5">
                 <a>
                   <router-link :to="`/artist/${album.artId}`" id="artist-name">
                     <span>{{ album.artist }}</span>
@@ -90,7 +90,7 @@
   .img-responsive {
     display: block;
     min-width: 180px;
-    max-width: 250px;
+    max-width: 200px;
     height: auto;
   }
   #add-album:hover {

@@ -49,7 +49,7 @@
   </div>
         <div class="footer has-text-centered">
           <a :href= "`${url}`" >
-            <img src="@/static/images/get_on_itunes.png" alt="iTunes">
+            <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
           </a>
         </div>
 
@@ -125,6 +125,12 @@
   .footer img {
     min-width: 150px;
     width: 15%;
+  }
+
+  .img-responsive {
+    min-width: 180px;
+    max-width: 150px;
+    height: auto;
   }
 
   #box-track{
