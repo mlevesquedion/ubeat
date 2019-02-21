@@ -42,8 +42,7 @@
       <ErrorMessage :message="error"/>
     </div>
     <footer class="footer has-text-centered">
-      <!--<a :href="albumUrl" >-->
-      <a :href="getAlbumUrl()">
+      <a :href="getAlbumUrl">
         <img src="@/static/images/get_on_itunes.png" alt="iTunes">
       </a>
     </footer>
@@ -55,8 +54,6 @@
   import { getAlbumTracks } from '@/api/album';
   import LargeSpinner from '@/components/utils/LargeSpinner';
   import ErrorMessage from '@/components/utils/ErrorMessage';
-  import { addTrack } from './AddTracks';
-  import play from './playTrack';
 
   export default {
     name: 'trackGallery',
@@ -71,16 +68,9 @@
         tracks: [],
         showByIndex: null,
         error: 'Unable to fetch album tracks at this time.',
-        url: ''
       };
     },
     methods: {
-      addTrackToList(trackId) {
-        addTrack(trackId);
-      },
-      playTrack(trackId) {
-        play(trackId);
-      },
       populateAlbums(trackData) {
         if (trackData.length === 0) {
           this.tracksState = RequestState.ERROR;
@@ -98,8 +88,7 @@
         return this.duration;
       },
       getAlbumUrl() {
-        this.url = this.tracks[0].url;
-        return `${this.url.split('album')[0]}album/${this.albumId}/?app=itunes`;
+        return `${this.tracks[0].url.split('album')[0]}album/${this.albumId}/?app=itunes`;
       }
     },
     components: {

@@ -48,14 +48,12 @@
   import { getAlbum } from '@/api/album';
   import LargeSpinner from '@/components/utils/LargeSpinner';
   import ErrorMessage from '@/components/utils/ErrorMessage';
-  import { addAlbum } from './AddTracks';
 
   export default {
     name: 'albumInfo',
     props: ['albumId'],
     mounted() {
       getAlbum(this.albumId, this.populateAlbum, this.handleAlbumError);
-      addAlbum(this.albumId);
     },
     data() {
       return {
@@ -67,9 +65,6 @@
       };
     },
     methods: {
-      addAblbumToList(trackId) {
-        addAlbum(trackId);
-      },
       populateAlbum(albumData) {
         if (!albumData) {
           this.albumState = RequestState.ERROR;
