@@ -5,7 +5,7 @@ const Artist = {
       id: albumData.collectionId,
       name: albumData.collectionName,
       artist: albumData.artistName,
-      artId: albumData.artistId,
+      artistId: albumData.artistId,
       artworkUrl: albumData.artworkUrl100,
       url: albumData.collectionViewUrl,
       nbTracks: albumData.trackCount,

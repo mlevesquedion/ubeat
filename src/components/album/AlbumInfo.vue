@@ -18,7 +18,7 @@
             <div class="subtitle has-text-grey-lighter">
               <div class="is-size-5">
                 <a>
-                  <router-link :to="{name: 'Artist', params: {id: album.artId}}" id="artist-name">
+                  <router-link :to="{name: 'Artist', params: {id: album.artistId}}" id="artist-name">
                     <span>{{ album.artist }}</span>
                   </router-link>
                 </a>
