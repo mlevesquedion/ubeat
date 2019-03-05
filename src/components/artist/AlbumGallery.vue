@@ -8,9 +8,12 @@
       <h1 class="title is-primary albums-title">Albums</h1>
       <div class="album-gallery">
         <div :key="album.id" v-for="album in albums" class="album">
-          <a class="responsive-image-container" :href="album.url">
+          <router-link
+            class="responsive-image-container"
+            :to="{name: 'Album', params: { id: album.id }}"
+          >
             <img class="responsive-image" :src="album.artworkUrl" alt="album.name">
-          </a>
+          </router-link>
           <label class="album-name subtitle">{{ album.name }}</label>
         </div>
       </div>
