@@ -1,10 +1,10 @@
 const SpinnerSize = Object.freeze({
-  MASSIVE: Symbol('massive'),
-  HUGE: Symbol('huge'),
-  LARGE: Symbol('large'),
-  MEDIUM: Symbol('medium'),
-  SMALL: Symbol('small'),
-  TINY: Symbol('tiny')
+  MASSIVE: 'massive',
+  HUGE: 'huge',
+  LARGE: 'large',
+  MEDIUM: 'medium',
+  SMALL: 'small',
+  TINY: 'tiny'
 });
 
 export default SpinnerSize;
