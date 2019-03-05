@@ -22,6 +22,9 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
+.section {
+  padding-bottom: 0;
+}
 
 #itunes-link {
   margin-bottom: 1%;

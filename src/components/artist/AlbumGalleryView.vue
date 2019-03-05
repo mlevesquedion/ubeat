@@ -25,6 +25,10 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
+.section {
+  padding-top: 0;
+}
+
 .responsive-image-container {
   width: 25vw;
   height: 25vw;
