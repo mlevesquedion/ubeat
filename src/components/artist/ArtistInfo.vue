@@ -1,5 +1,5 @@
 <template>
-  <Async :dataSource="dataSource" :errorMessage="errorMessage">
+  <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
       <ArtistInfoView :artist="data"/>
     </template>
@@ -18,7 +18,7 @@ export default {
     return {
       dataSource: (onSuccess, onError) =>
         getArtist(this.artistId, onSuccess, onError),
-      errorMessage: 'Unable to fetch artist data at this time.'
+      dataName: 'artist data'
     };
   },
   components: {

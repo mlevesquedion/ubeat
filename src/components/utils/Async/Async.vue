@@ -22,14 +22,14 @@ import RequestState from './requestState';
 
 export default {
   name: 'asyncComponent',
-  props: ['dataSource', 'errorMessage'],
+  props: ['dataSource', 'dataName'],
   data() {
     return {
       SpinnerSize,
       RequestState,
       requestState: RequestState.LOADING,
       data: null,
-      error: this.errorMessage
+      error: `Unable to fetch ${this.dataName} at this time.`
     };
   },
   methods: {

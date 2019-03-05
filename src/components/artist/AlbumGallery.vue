@@ -1,5 +1,5 @@
 <template>
-  <Async :dataSource="dataSource" :errorMessage="errorMessage">
+  <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
       <AlbumGalleryView :albums="data"/>
     </template>
@@ -18,7 +18,7 @@ export default {
     return {
       dataSource: (onSuccess, onError) =>
         getArtistAlbums(this.artistId, onSuccess, onError),
-      errorMessage: 'Unable to fetch artist albums at this time.'
+      dataName: 'artist albums'
     };
   },
   components: {
