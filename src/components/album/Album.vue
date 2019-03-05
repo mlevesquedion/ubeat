@@ -23,9 +23,3 @@
   };
 </script>
 
-<style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
-  .is-rounded{
-    border-radius: 25px
-  }
-</style>
