@@ -13,7 +13,8 @@ export default {
   name: 'artist',
   data() {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      ArtistInfo
     };
   },
   components: {
