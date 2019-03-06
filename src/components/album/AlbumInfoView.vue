@@ -26,7 +26,10 @@
           class="navbar-item has-dropdown is-hoverable"
           style="padding-top: 10px"
         >
-          <div id="add-album" class="tag  is-medium button navbar-link">
+          <div
+            id="add-album"
+            class="tag  is-medium button navbar-link is-arrowless"
+          >
             <i class="fas fa-plus-circle"></i
             ><span style="padding-left:5px">Album</span>
           </div>
