@@ -16,9 +16,8 @@
     props: ['albumId'],
     data() {
       return {
-        dataSource: (onSuccess, onError) =>
-          getAlbumTracks(this.albumId, onSuccess, onError),
-        dataName: 'album data'
+        dataSource:
+          getAlbumTracks(this.albumId)
       };
     },
     components: {

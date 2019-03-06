@@ -5,14 +5,14 @@ import ArtistAlbums from '../models/artistAlbums';
 
 const artistRoot = `${apiRoot}artists/`;
 
-export const getArtist = (id, callBack, onError) => {
+export const getArtist = id => (callBack, onError) => {
   axios
     .get(`${artistRoot}${id}`)
     .then(({ data }) => callBack(Artist.from(data)))
     .catch(onError);
 };
 
-export const getArtistAlbums = (id, callBack, onError) => {
+export const getArtistAlbums = id => (callBack, onError) => {
   axios
     .get(`${artistRoot}${id}/albums`)
     .then(({ data }) => callBack(ArtistAlbums.from(data)))

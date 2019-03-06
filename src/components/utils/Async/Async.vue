@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div v-if="requestState === RequestState.LOADING">
+    <section class="section" v-if="requestState === RequestState.LOADING ">
       <Spinner :size="SpinnerSize.LARGE"/>
-    </div>
+    </section>
 
     <div v-if="requestState === RequestState.LOADED">
       <slot :data="data"></slot>
     </div>
 
-    <div v-if="requestState === RequestState.ERROR">
+    <section class="section" v-if="requestState === RequestState.ERROR">
       <ErrorMessage :message="error"/>
-    </div>
+    </section>
   </div>
 </template>
 
