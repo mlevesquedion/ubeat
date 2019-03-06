@@ -1,57 +1,49 @@
 <template>
   <div>
-  <div class="container">
-    <div class="hero-body" id="box-track">
-    <div>
-        <div v-if="tracksState === RequestState.LOADING">
-          <LargeSpinner/>
-        </div>
-        <div v-if="tracksState === RequestState.LOADED">
-          <div class="track-gallery">
-            <div :key="track.id" v-for="track in tracks" class="track">
-              <div @mouseover="showByIndex = track.id" @mouseout="showByIndex = null">
-                <p v-if="track.number !== 1" id="hLine"></p>
+    <div class="container">
+      <div class="hero-body" id="box-track">
+        <div>
+          <div v-if="tracksState === RequestState.LOADING">
+            <LargeSpinner/>
+          </div>
+          <div v-if="tracksState === RequestState.LOADED">
+            <div class="track-gallery">
+              <div :key="track.id" v-for="track in tracks" class="track">
+                <hr v-if="track.number !== 1" class="horizontal-line"/>
                 <div class="track-line level is-mobile is-bordered" style="padding: 5px">
                   <div class="level-left">
                     <div>{{ track.number }}. {{ track.name }}</div>
                   </div>
                   <div class="level-right">
-                    <div class="field is-grouped has-addons">
-                      <div v-show="showByIndex === track.id">
-                        <p class="control">
-                          <!--boutton "add" pour ajouter une chanson a la liste-->
-                          <a id="add-track-list" class="has-text-light" style="text-decoration: none;" v-on:click="addTrackToList(track.id)">
+                    <a class="has-text-light track-button" style="text-decoration: none;"
+                       v-on:click="addTrackToList(track.id)">
             <span class="icon is-medium">
               <i class="fas fa-plus-circle"></i>
             </span>
-                          </a>
-                          <!--boutton "play" pour jouer une chanson-->
-                          <a id="play-track" class="has-text-light" style="text-decoration: none;" v-on:click="playTrack(track.id)">
-              <span class="icon is-medium" style="margin-right: 5px">
+                    </a>
+                    <a class="has-text-light track-button" style="text-decoration: none;"
+                       v-on:click="playTrack(track.id)">
+                        <span class="icon is-medium bumped-left">
               <i class="fas fa-play-circle"></i>
             </span>
-                          </a>
-                        </p>
-                      </div>
-                      <span>{{convertMS(track.duration)}}</span>
-                    </div>
+                    </a>
+                    <span>{{convertMS(track.duration)}}</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div v-if="tracksState === RequestState.ERROR">
+            <ErrorMessage :message="error"/>
+          </div>
         </div>
-        <div v-if="tracksState === RequestState.ERROR">
-          <ErrorMessage :message="error"/>
-        </div>
-    </div>
       </div>
-  </div>
-        <div class="footer has-text-centered">
-          <a :href= "`${url}`" >
-            <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
-          </a>
-        </div>
+    </div>
+    <div class="footer has-text-centered">
+      <a :href="`${url}`">
+        <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
+      </a>
+    </div>
 
   </div>
 </template>
@@ -95,21 +87,23 @@
         this.minutes = (Math.floor((duration / 1000) % 60));
         this.duration = `${Math.floor(duration / 1000 / 60)}:${(this.minutes < 10) ? `0${this.minutes.toString()}` : `${this.minutes.toString()}`}`;
         return this.duration;
-      },
+      }
     },
     components: {
       LargeSpinner,
       ErrorMessage
-    },
+    }
   };
 </script>
 
 <style scoped lang="scss">
   @import '@/assets/sass/styles.scss';
 
-  #hLine {
+  .horizontal-line {
+    margin: 0;
     border-bottom: 1px solid #3B3B3B;
   }
+
   .level {
     margin-bottom: 0;
   }
@@ -133,10 +127,18 @@
     height: auto;
   }
 
-  #box-track{
+  #box-track {
     box-shadow: 0 0px 100px 0 #1B1B1B;
     text-align: center;
-    padding:20px;
+    padding: 20px;
+  }
+
+  .track-line .track-button {
+    visibility: hidden;
+  }
+
+  .track-line:hover .track-button {
+    visibility: visible;
   }
 
 </style>
