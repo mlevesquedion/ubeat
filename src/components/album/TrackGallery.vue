@@ -1,50 +1,45 @@
 <template>
   <div>
-    <div class="container">
-      <div class="hero-body" id="box-track">
-        <div>
-          <div v-if="tracksState === RequestState.LOADING">
-            <LargeSpinner/>
-          </div>
-          <div v-if="tracksState === RequestState.LOADED">
-            <div class="track-gallery">
-              <div :key="track.id" v-for="track in tracks" class="track">
-                <hr v-if="track.number !== 1" class="horizontal-line"/>
-                <div class="track-line level is-mobile is-bordered" style="padding: 5px">
-                  <div class="level-left">
-                    <div>{{ track.number }}. {{ track.name }}</div>
-                  </div>
-                  <div class="level-right">
-                    <a class="has-text-light track-button" style="text-decoration: none;"
-                       v-on:click="addTrackToList(track.id)">
+    <div v-if="tracksState === RequestState.LOADING">
+      <LargeSpinner/>
+    </div>
+    <div v-if="tracksState === RequestState.LOADED">
+      <div class="container">
+        <div class="track-gallery">
+          <div :key="track.id" v-for="track in tracks" class="track">
+            <hr v-if="track.number !== 1" class="horizontal-line"/>
+            <div class="track-line level is-mobile is-bordered" style="padding: 5px">
+              <div class="level-left">
+                <div>{{ track.number }}. {{ track.name }}</div>
+              </div>
+              <div class="level-right">
+                <a class="has-text-light track-button" style="text-decoration: none;"
+                   v-on:click="addTrackToList(track.id)">
             <span class="icon is-medium">
               <i class="fas fa-plus-circle"></i>
             </span>
-                    </a>
-                    <a class="has-text-light track-button" style="text-decoration: none;"
-                       v-on:click="playTrack(track.id)">
+                </a>
+                <a class="has-text-light track-button" style="text-decoration: none;"
+                   v-on:click="playTrack(track.id)">
                         <span class="icon is-medium bumped-left">
               <i class="fas fa-play-circle"></i>
             </span>
-                    </a>
-                    <span>{{convertMS(track.duration)}}</span>
-                  </div>
-                </div>
+                </a>
+                <span>{{track.duration}}</span>
               </div>
             </div>
           </div>
-          <div v-if="tracksState === RequestState.ERROR">
-            <ErrorMessage :message="error"/>
-          </div>
+        </div>
+        <div class="footer has-text-centered">
+          <a :href="`${url}`">
+            <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
+          </a>
         </div>
       </div>
+      <div v-if="tracksState === RequestState.ERROR">
+        <ErrorMessage :message="error"/>
+      </div>
     </div>
-    <div class="footer has-text-centered">
-      <a :href="`${url}`">
-        <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
-      </a>
-    </div>
-
   </div>
 </template>
 
