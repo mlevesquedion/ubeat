@@ -1,4 +1,4 @@
-const ArtistAlbums = {
+const AlbumTracks = {
   from: json => {
     const tracksData = json.results;
     return tracksData.map(trackData => ({
@@ -12,4 +12,4 @@ const ArtistAlbums = {
   }
 };
 
-export default ArtistAlbums;
+export default AlbumTracks;

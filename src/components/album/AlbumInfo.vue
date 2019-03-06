@@ -16,21 +16,21 @@
               class="title is-size-3 has-text-light"
             >{{ album.name }}</p>
             <div class="subtitle has-text-grey-lighter">
-              <div class="is-size-5">
+              <div class="label is-size-5">
                 <a>
-                  <router-link :to="{name: 'Artist', params: {id: album.artistId}}" id="artist-name">
+                  <router-link :to="{name: 'Album', params: {id: album.artistId}}" id="artist-name">
                     <span>{{ album.artist }}</span>
                   </router-link>
                 </a>
               </div>
               <div class="is-size-6 has-text-grey-lighter">
-              <p>{{ album.genre }} ({{year}})</p>
-              <p>{{ album.nbTracks }} songs</p>
+                <p class="label">{{ album.genre }} ({{album.year}})</p>
+                <p class="label">{{ album.nbTracks }} songs</p>
               </div>
               <div style="padding-top: 10px">
-              <div id=add-album class="tag  is-medium button" v-on:click="addAblbumToList( album.id )">
-                <i class="fas fa-plus-circle"></i><span style="padding-left:5px">Album</span>
-              </div>
+                <div id=add-album class="tag  is-medium button" v-on:click="addAblbumToList( album.id )">
+                  <i class="fas fa-plus-circle"></i><span style="padding-left:5px">Album</span>
+                </div>
               </div>
             </div>
           </div>
@@ -58,10 +58,9 @@
     data() {
       return {
         RequestState,
+        album: {},
         albumState: RequestState.LOADING,
-        year: '',
-        durationMS: '',
-        error: 'Unable to fetch album data at this time.',
+        error: 'Unable to fetch album data at this time.'
       };
     },
     methods: {
@@ -71,7 +70,6 @@
           return;
         }
         this.album = albumData;
-        this.year = this.album.date.split('-')[0];
         this.albumState = RequestState.LOADED;
       },
       handleAlbumError(_err) {
@@ -87,17 +85,20 @@
 
 <style scoped lang="scss">
   @import '@/assets/sass/styles.scss';
+
   .img-responsive {
     display: block;
     min-width: 180px;
     max-width: 200px;
     height: auto;
   }
+
   #add-album:hover {
-      color: white;
-      background-color: $primary;
-    }
-  #artist-name{
+    color: white;
+    background-color: $primary;
+  }
+
+  #artist-name {
     color: $primary;
   }
 </style>
