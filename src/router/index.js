@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/Home';
-import Album from '@/components/Album';
+import Album from '@/components/album/Album';
 import Artist from '@/components/artist/Artist';
 import User from '@/components/User';
 
@@ -20,7 +20,7 @@ export default new Router({
       component: Artist
     },
     {
-      path: '/album',
+      path: '/album/:id',
       name: 'Album',
       component: Album
     },
