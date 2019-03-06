@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div>
     <div v-if="requestState === RequestState.LOADING">
       <Spinner :size="SpinnerSize.LARGE"/>
     </div>
@@ -11,48 +11,48 @@
     <div v-if="requestState === RequestState.ERROR">
       <ErrorMessage :message="error"/>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-import Spinner from '@/components/utils/Spinner/Spinner';
-import ErrorMessage from '@/components/utils/ErrorMessage';
-import SpinnerSize from '@/components/utils/Spinner/spinnerSize';
-import RequestState from './requestState';
+  import Spinner from '@/components/utils/Spinner/Spinner';
+  import ErrorMessage from '@/components/utils/ErrorMessage';
+  import SpinnerSize from '@/components/utils/Spinner/spinnerSize';
+  import RequestState from './requestState';
 
-export default {
-  name: 'asyncComponent',
-  props: ['dataSource', 'dataName'],
-  data() {
-    return {
-      SpinnerSize,
-      RequestState,
-      requestState: RequestState.LOADING,
-      data: null,
-      error: `Unable to fetch ${this.dataName} at this time.`
-    };
-  },
-  methods: {
-    populateData(data) {
-      if (Object.entries(data).length === 0) {
-        this.populateError(data);
-        return;
-      }
-      this.data = data;
-      this.requestState = RequestState.LOADED;
+  export default {
+    name: 'asyncComponent',
+    props: ['dataSource', 'dataName'],
+    data() {
+      return {
+        SpinnerSize,
+        RequestState,
+        requestState: RequestState.LOADING,
+        data: null,
+        error: `Unable to fetch ${this.dataName} at this time.`
+      };
     },
-    populateError(_err) {
-      this.requestState = RequestState.ERROR;
+    methods: {
+      populateData(data) {
+        if (Object.entries(data).length === 0) {
+          this.populateError(data);
+          return;
+        }
+        this.data = data;
+        this.requestState = RequestState.LOADED;
+      },
+      populateError(_err) {
+        this.requestState = RequestState.ERROR;
+      }
+    },
+    mounted() {
+      this.dataSource(this.populateData, this.populateError);
+    },
+    components: {
+      Spinner,
+      ErrorMessage
     }
-  },
-  mounted() {
-    this.dataSource(this.populateData, this.populateError);
-  },
-  components: {
-    Spinner,
-    ErrorMessage
-  }
-};
+  };
 </script>
 
 <style scoped>

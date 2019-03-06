@@ -1,4 +1,3 @@
-
 <template>
   <section class="section">
     <section class="container has-text-centered">
@@ -14,19 +13,16 @@
 </template>
 
 <script>
-export default {
-  name: 'artistInfoView',
-  props: ['artist']
-};
+  export default {
+    name: 'artistInfoView',
+    props: ['artist']
+  };
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
-.section {
-  padding-bottom: 0;
-}
+  @import '@/assets/sass/styles.scss';
 
-#itunes-link {
-  margin-bottom: 1%;
-}
+  #itunes-link {
+    margin-bottom: 1%;
+  }
 </style>

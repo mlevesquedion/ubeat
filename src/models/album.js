@@ -8,7 +8,7 @@ const Album = {
       artistId: albumData.artistId,
       artworkUrl: albumData.artworkUrl100,
       url: albumData.collectionViewUrl,
-      nbTracks: albumData.trackCount,
+      trackCount: albumData.trackCount,
       date: albumData.releaseDate,
       year: albumData.releaseDate.split('-')[0],
       genre: albumData.primaryGenreName
