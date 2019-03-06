@@ -25,13 +25,13 @@
               <i class="fas fa-play-circle"></i>
             </span>
                 </a>
-                <span>{{track.duration}}</span>
+                <span>{{ formatTrackDuration(track.duration) }}</span>
               </div>
             </div>
           </div>
         </div>
         <div class="footer has-text-centered">
-          <a :href="`${url}`">
+          <a :href="this.tracks[0].url">
             <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
           </a>
         </div>
@@ -73,15 +73,16 @@
         }
         this.tracks = trackData;
         this.tracksState = RequestState.LOADED;
-        this.url = `${this.tracks[0].url.split('album')[0]}album/${this.albumId}/?app=itunes`;
       },
       handleAlbumsError(_err) {
         this.tracksState = RequestState.ERROR;
       },
-      convertMS(duration) {
-        this.minutes = (Math.floor((duration / 1000) % 60));
-        this.duration = `${Math.floor(duration / 1000 / 60)}:${(this.minutes < 10) ? `0${this.minutes.toString()}` : `${this.minutes.toString()}`}`;
-        return this.duration;
+      formatTrackDuration(durationInSeconds) {
+        const minutes = Math.floor(durationInSeconds / 60);
+        const leftOverSeconds = Math.floor(durationInSeconds % 60);
+        const formattedSeconds = leftOverSeconds.toString()
+          .padStart(2, '0');
+        return `${minutes}:${formattedSeconds}`;
       }
     },
     components: {

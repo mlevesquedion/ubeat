@@ -6,7 +6,7 @@ const AlbumTracks = {
       number: trackData.trackNumber,
       name: trackData.trackName,
       url: trackData.trackViewUrl,
-      duration: trackData.trackTimeMillis,
+      duration: trackData.trackTimeMillis / 1000,
       albumUrl: trackData.collectionViewUrl
     }));
   }

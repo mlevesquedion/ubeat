@@ -7,7 +7,7 @@
 
 <script>
   import AlbumInfo from './AlbumInfo';
-  import TrackGallery from './TrackGallery';
+  import TrackGallery from './TrackList';
 
   export default {
     name: 'album',
