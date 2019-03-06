@@ -20,13 +20,15 @@
         >
           <p>Get started now !</p>
           <router-link
-            to="/artist"
+            to="/artist/3941697"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
-          >Artist</router-link>
+          >Artist
+          </router-link>
           <router-link
-            to="/album"
+            to="/album/1125488753"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
-          >Album</router-link>
+          >Album
+          </router-link>
         </h2>
       </header>
     </div>
@@ -34,35 +36,35 @@
 </template>
 
 <script>
-import ImageCarousel from '@/components/ImageCarousel';
+  import ImageCarousel from '@/components/ImageCarousel';
 
-export default {
-  name: 'app',
-  components: {
-    'image-carousel': ImageCarousel
-  }
-};
+  export default {
+    name: 'app',
+    components: {
+      'image-carousel': ImageCarousel
+    }
+  };
 </script>
 
 
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
+  @import '@/assets/sass/styles.scss';
 
-#welcome-message {
-  font-family: $stylish-text;
-  padding-top: 1em;
-}
+  #welcome-message {
+    font-family: $stylish-text;
+    padding-top: 1em;
+  }
 
-#summary-message {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  #summary-message {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-#punchline-message {
-  font-family: $stylish-text;
-  padding-top: 2em;
-}
+  #punchline-message {
+    font-family: $stylish-text;
+    padding-top: 2em;
+  }
 </style>
