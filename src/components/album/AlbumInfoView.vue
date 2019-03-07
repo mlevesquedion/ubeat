@@ -2,7 +2,7 @@
   <section class="section columns">
     <div class="column is-narrow ">
       <figure class="media-left image">
-        <img class="img-responsive" :src="album.artworkUrl" alt="album.name" />
+        <img class="img-responsive" :src="album.artworkUrl" alt="album.name"/>
       </figure>
     </div>
     <div class="column is-three-quarters">
@@ -23,35 +23,26 @@
           <p class="label">{{ album.trackCount }} songs</p>
         </div>
         <div
-          class="navbar-item has-dropdown is-hoverable"
+          class="dropdown is-hoverable"
           style="padding-top: 10px"
         >
-          <div
-            id="add-album"
-            class="tag  is-medium button navbar-link is-arrowless"
-          >
-            <i class="fas fa-plus-circle"></i
-            ><span style="padding-left:5px">Album</span>
+          <div class="dropdown-trigger">
+            <div
+              id="add-album"
+              class="tag is-medium button navbar-link is-arrowless"
+            >
+              <i class="fas fa-plus-circle"></i
+              ><span style="padding-left:5px">Album</span>
+            </div>
           </div>
-          <div class="navbar-dropdown">
-            <!--adds album to playlist 1-->
-            <a
-              class="navbar-item is-size-7-tablet is-size-6-desktop"
-              v-on:click="addAlbumToList(album.id)"
-              >Playlist 1</a
-            >
-            <!--adds album to playlist 2-->
-            <a
-              class="navbar-item is-size-7-tablet is-size-6-desktop"
-              v-on:click="addAlbumToList(album.id)"
-              >Playlist 2</a
-            >
-            <!--adds album to playlist 3-->
-            <a
-              class="navbar-item is-size-7-tablet is-size-6-desktop"
-              v-on:click="addAlbumToList(album.id)"
-              >Playlist 3</a
-            >
+          <div class="dropdown-menu" role="menu">
+            <div class="dropdown-content album-hoverable">
+              <a
+                class="dropdown-item album-hoverable-item"
+                v-for="p in playlists" :key="p.id" @click="addAlbumToList(p)">
+                {{p.name}}
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -60,42 +51,49 @@
 </template>
 
 <script>
-export default {
-  name: 'albumInfoView',
-  props: ['album'],
-  methods: {
-    addAlbumToList(albumId) {
-      alert(`Album ${albumId} added to playlist!`);
+
+  export default {
+    name: 'albumInfoView',
+    props: ['album'],
+    data() {
+      return {
+        playlists: [
+          {
+            id: 1,
+            name: 'Ma playlist'
+          }, {
+            id: 2,
+            name: 'Chansons que mon chat aime'
+          }
+        ]
+      };
+    },
+    methods: {
+      addAlbumToList(playlist) {
+        alert(`Album ${this.album.name} added to playlist ${playlist.name}!`);
+        // API call
+      }
     }
   }
-};
+  ;
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
+  @import '@/assets/sass/styles.scss';
 
-.section {
-  padding-bottom: 0;
-  padding-top: 0;
-}
+  .section {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
 
-.img-responsive {
-  display: block;
-  min-width: 180px;
-  max-width: 200px;
-  height: auto;
-}
+  .img-responsive {
+    display: block;
+    min-width: 180px;
+    max-width: 200px;
+    height: auto;
+  }
 
-.navbar-item {
-  max-width: fit-content;
-}
-
-#add-album:hover {
-  color: white;
-  background-color: $primary;
-}
-
-#artist-name {
-  color: $primary;
-}
+  #artist-name {
+    color: $primary;
+  }
 </style>
