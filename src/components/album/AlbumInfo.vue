@@ -1,23 +1,23 @@
 <template>
   <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
-      <AlbumInfoView :album="data"/>
+      <AlbumInfoView :album="data" :playlists="playlists"/>
     </template>
   </Async>
 </template>
 
 <script>
   import '@/assets/sass/styles.scss';
-  import { getAlbum } from '@/api/album';
+  import AlbumAPI from '@/api/album';
   import Async from '../utils/Async/Async';
   import AlbumInfoView from './AlbumInfoView';
 
   export default {
-    name: 'albumInfo',
-    props: ['albumId'],
+    name: 'AlbumInfo',
+    props: ['albumId', 'playlists'],
     data() {
       return {
-        dataSource: getAlbum(this.albumId),
+        dataSource: AlbumAPI.getAlbum(this.albumId),
         dataName: 'album data'
       };
     },
