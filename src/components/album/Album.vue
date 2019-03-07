@@ -1,24 +1,32 @@
 <template>
   <section class="section">
-    <AlbumInfo :albumId="id"/>
-    <TrackGallery :albumId="id"/>
+    <AlbumInfo :albumId="id" :playlists="playlists"/>
+    <TrackList :albumId="id" :playlists="playlists"/>
   </section>
 </template>
 
 <script>
   import AlbumInfo from './AlbumInfo';
-  import TrackGallery from './TrackList';
+  import TrackList from './TrackList';
+  import PlaylistAPI from '../../api/playlist';
 
   export default {
     name: 'Album',
     data() {
       return {
-        id: this.$route.params.id
+        id: this.$route.params.id,
+        playlists: []
       };
+    },
+    mounted() {
+      PlaylistAPI.getPlaylists()
+        .then(playlists => {
+          this.playlists = playlists;
+        });
     },
     components: {
       AlbumInfo,
-      TrackGallery
+      TrackList
     }
   };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
-      <TrackListView :tracks="data"/>
+      <TrackListView :tracks="data" :playlists="playlists"/>
     </template>
   </Async>
 </template>
@@ -13,7 +13,7 @@
 
   export default {
     name: 'TrackList',
-    props: ['albumId'],
+    props: ['albumId', 'playlists'],
     data() {
       return {
         dataSource:
