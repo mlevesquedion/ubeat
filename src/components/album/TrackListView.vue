@@ -1,24 +1,34 @@
 <template>
   <section class="section">
-    <div class="track-gallery">
+    <div class="track-list">
       <div :key="track.id" v-for="track in tracks" class="track">
         <hr v-if="track.number !== 1" class="horizontal-line"/>
-        <div class="track-line level is-mobile is-bordered" style="padding: 5px">
+        <div
+          class="track-line level is-mobile is-bordered"
+          style="padding: 5px"
+        >
           <div class="level-left">
             <div>{{ track.number }}. {{ track.name }}</div>
           </div>
           <div class="level-right">
-            <a class="has-text-light track-button" style="text-decoration: none;"
-               v-on:click="addTrackToList(track.id)">
-            <span class="icon is-medium">
-              <i class="fas fa-plus-circle"></i>
-            </span>
-            </a>
-            <a class="has-text-light track-button" style="text-decoration: none;"
-               v-on:click="playTrack(track.id)">
-                        <span class="icon is-medium bumped-left">
-              <i class="fas fa-play-circle"></i>
-            </span>
+            <PlaylistDropdown :playlists="playlists" :on-playlist-click="addTrackToPlayList(track)" :is-right="true">
+              <a
+                class="navbar-link is-arrowless has-text-light track-button"
+                style="text-decoration: none;"
+              >
+                <span class="icon is-medium">
+                  <i class="fas fa-plus-circle"></i>
+                </span>
+              </a>
+            </PlaylistDropdown>
+            <a
+              class="has-text-light track-button"
+              style="text-decoration: none;"
+              v-on:click="playTrack(track.id)"
+            >
+              <span class="icon is-medium bumped-left">
+                <i class="fas fa-play-circle"></i>
+              </span>
             </a>
             <span>{{ formatTrackDuration(track.duration) }}</span>
           </div>
@@ -27,22 +37,38 @@
     </div>
     <div class="footer has-text-centered">
       <a :href="this.tracks[0].url">
-        <img class="img-responsive" src="@/static/images/get_on_itunes.png" alt="iTunes">
+        <img
+          class="img-responsive"
+          src="static/images/get_on_itunes.png"
+          alt="iTunes"
+        />
       </a>
     </div>
   </section>
 </template>
 
 <script>
+  import PlaylistDropdown from './PlaylistDropdown';
+  import PlaylistAPI from '../../api/playlists';
   import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
   export default {
-    name: 'trackListView',
-    props: ['tracks'],
+    name: 'TrackListView',
+    props: ['tracks', 'playlists'],
     methods: {
       formatTrackDuration(seconds) {
         return trackDurationFormatter.format(seconds);
+      },
+      addTrackToPlayList(track) {
+        return (playlist) => {
+          PlaylistAPI.addTrackToPlaylist(track, playlist.id)
+            .then(_ => alert(`Track ${track.name} was successfully added to playlist ${playlist.name}!`))
+            .catch(_ => alert(`Could not add ${track.name} to playlist ${playlist.name}.`));
+        };
       }
+    },
+    components: {
+      PlaylistDropdown
     }
   };
 </script>
@@ -52,7 +78,7 @@
 
   .horizontal-line {
     margin: 0;
-    border-bottom: 1px solid #3B3B3B;
+    border-bottom: 1px solid #3b3b3b;
   }
 
   .level {
@@ -79,7 +105,7 @@
   }
 
   #box-track {
-    box-shadow: 0 0px 100px 0 #1B1B1B;
+    box-shadow: 0 0px 100px 0 #1b1b1b;
     text-align: center;
     padding: 20px;
   }
@@ -91,5 +117,4 @@
   .track-line:hover .track-button {
     visibility: visible;
   }
-
 </style>

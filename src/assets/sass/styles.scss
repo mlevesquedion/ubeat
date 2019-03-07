@@ -13,7 +13,7 @@ $background-light: lighten($background, 10%);
 $background-lighter: lighten($background, 20%);
 $text: #dbdbdb;
 $link: $background-light;
-$hover: $white;
+$hover: white;
 
 // Fonts
 $stylish-text: 'Permanent Marker', cursive;
@@ -31,6 +31,12 @@ $navbar-dropdown-background-color: $primary;
 $navbar-dropdown-item-hover-color: $hover;
 $navbar-dropdown-item-hover-background-color: $primary;
 $navbar-dropdown-border-top: 0;
+
+
+// Dropdown
+$dropdown-content-background-color: $primary;
+$dropdown-item-hover-color: white;
+$dropdown-item-hover-background-color: $primary;
 
 // Box
 $box-background-color: $background;

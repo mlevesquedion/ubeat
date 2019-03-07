@@ -5,16 +5,10 @@ import AlbumTracks from '../models/albumTracks';
 
 const albumRoot = `${apiRoot}albums/`;
 
-export const getAlbum = id => (callBack, onError) => {
-  axios
+export default {
+  getAlbum: id => axios
     .get(`${albumRoot}${id}`)
-    .then(({ data }) => callBack(Album.from(data)))
-    .catch(onError);
-};
-
-export const getAlbumTracks = id => (callBack, onError) => {
-  axios
-    .get(`${albumRoot}${id}/tracks`)
-    .then(({ data }) => callBack(AlbumTracks.from(data)))
-    .catch(onError);
+    .then(({ data }) => Album.from(data.results[0])),
+  getAlbumTracks: id => axios.get(`${albumRoot}${id}/tracks`)
+    .then(({ data }) => AlbumTracks.from(data.results))
 };
