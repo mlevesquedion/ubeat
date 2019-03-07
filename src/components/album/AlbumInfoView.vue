@@ -55,7 +55,7 @@
   import { addAlbumToPlaylist } from '../../api/playlist';
 
   export default {
-    name: 'albumInfoView',
+    name: 'AlbumInfoView',
     props: ['album'],
     data() {
       return {
@@ -64,7 +64,7 @@
             id: '5c813c94d6f63a0004c26543',
             name: 'Ma playlist'
           }, {
-            id: 2,
+            id: 'an-invalid-id',
             name: 'Chansons que mon chat aime'
           }
         ]

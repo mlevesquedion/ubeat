@@ -46,7 +46,9 @@
       }
     },
     mounted() {
-      this.dataSource(this.populateData, this.populateError);
+      this.dataSource
+        .then(this.populateData)
+        .catch(this.populateError);
     },
     components: {
       Spinner,

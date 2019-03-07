@@ -2,7 +2,7 @@
   <section class="section">
     <div class="track-gallery">
       <div :key="track.id" v-for="track in tracks" class="track">
-        <hr v-if="track.number !== 1" class="horizontal-line" />
+        <hr v-if="track.number !== 1" class="horizontal-line"/>
         <div
           class="track-line level is-mobile is-bordered"
           style="padding: 5px"
@@ -25,19 +25,19 @@
                 <a
                   class="navbar-item is-size-7-tablet is-size-6-desktop"
                   v-on:click="addTrackToList(track.id, 1)"
-                  >Playlist 1</a
+                >Playlist 1</a
                 >
                 <!--adds track to playlist 2-->
                 <a
                   class="navbar-item is-size-7-tablet is-size-6-desktop"
                   v-on:click="addTrackToList(track.id, 2)"
-                  >Playlist 2</a
+                >Playlist 2</a
                 >
                 <!--adds track to playlist 3-->
                 <a
                   class="navbar-item is-size-7-tablet is-size-6-desktop"
                   v-on:click="addTrackToList(track.id, 3)"
-                  >Playlist 3</a
+                >Playlist 3</a
                 >
               </div>
             </div>
@@ -68,65 +68,66 @@
 </template>
 
 <script>
-export default {
-  name: 'trackListView',
-  props: ['tracks'],
-  methods: {
-    formatTrackDuration(durationInSeconds) {
-      const minutes = Math.floor(durationInSeconds / 60);
-      const leftOverSeconds = Math.floor(durationInSeconds % 60);
-      const formattedSeconds = leftOverSeconds.toString().padStart(2, '0');
-      return `${minutes}:${formattedSeconds}`;
-    },
-    addTrackToList(trackId, playlistId) {
-      alert(`Track ${trackId} added to playlist ${playlistId}!`);
+  export default {
+    name: 'TrackListView',
+    props: ['tracks'],
+    methods: {
+      formatTrackDuration(durationInSeconds) {
+        const minutes = Math.floor(durationInSeconds / 60);
+        const leftOverSeconds = Math.floor(durationInSeconds % 60);
+        const formattedSeconds = leftOverSeconds.toString()
+          .padStart(2, '0');
+        return `${minutes}:${formattedSeconds}`;
+      },
+      addTrackToList(trackId, playlistId) {
+        alert(`Track ${trackId} added to playlist ${playlistId}!`);
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
+  @import '@/assets/sass/styles.scss';
 
-.horizontal-line {
-  margin: 0;
-  border-bottom: 1px solid #3b3b3b;
-}
+  .horizontal-line {
+    margin: 0;
+    border-bottom: 1px solid #3b3b3b;
+  }
 
-.level {
-  margin-bottom: 0;
-}
+  .level {
+    margin-bottom: 0;
+  }
 
-.track-line:hover {
-  background-color: $primary;
-}
+  .track-line:hover {
+    background-color: $primary;
+  }
 
-.footer {
-  background: $background;
-}
+  .footer {
+    background: $background;
+  }
 
-.footer img {
-  min-width: 150px;
-  width: 15%;
-}
+  .footer img {
+    min-width: 150px;
+    width: 15%;
+  }
 
-.img-responsive {
-  min-width: 180px;
-  max-width: 150px;
-  height: auto;
-}
+  .img-responsive {
+    min-width: 180px;
+    max-width: 150px;
+    height: auto;
+  }
 
-#box-track {
-  box-shadow: 0 0px 100px 0 #1b1b1b;
-  text-align: center;
-  padding: 20px;
-}
+  #box-track {
+    box-shadow: 0 0px 100px 0 #1b1b1b;
+    text-align: center;
+    padding: 20px;
+  }
 
-.track-line .track-button {
-  visibility: hidden;
-}
+  .track-line .track-button {
+    visibility: hidden;
+  }
 
-.track-line:hover .track-button {
-  visibility: visible;
-}
+  .track-line:hover .track-button {
+    visibility: visible;
+  }
 </style>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { apiRoot } from './constants';
 import Playlist from '../models/playlist';
-import { getAlbumTracks } from './album';
+import AlbumAPI from './album';
 
 const playlistRoot = `${apiRoot}playlists/`;
 
@@ -18,7 +18,7 @@ export const addSongToPlaylist = (song, playlistId) =>
   });
 
 export const addAlbumToPlaylist = (albumId, playlistId) =>
-  getAlbumTracks(albumId)
+  AlbumAPI.getAlbumTracks(albumId)
     .then(
       tracks => Promise.all(
         tracks.map(t => addSongToPlaylist(t, playlistId))));

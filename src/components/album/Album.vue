@@ -10,10 +10,10 @@
   import TrackGallery from './TrackList';
 
   export default {
-    name: 'album',
+    name: 'Album',
     data() {
       return {
-        id: this.$route.params.id,
+        id: this.$route.params.id
       };
     },
     components: {

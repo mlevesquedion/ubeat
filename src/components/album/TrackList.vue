@@ -7,17 +7,18 @@
 </template>
 
 <script>
-  import { getAlbumTracks } from '@/api/album';
+  import albumAPI from '@/api/album';
   import TrackListView from './TrackListView';
   import Async from '../utils/Async/Async';
 
   export default {
-    name: 'trackGallery',
+    name: 'TrackList',
     props: ['albumId'],
     data() {
       return {
         dataSource:
-          getAlbumTracks(this.albumId)
+          albumAPI.getAlbumTracks(this.albumId),
+        dataName: 'album tracks'
       };
     },
     components: {

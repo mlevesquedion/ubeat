@@ -8,16 +8,16 @@
 
 <script>
   import '@/assets/sass/styles.scss';
-  import { getAlbum } from '@/api/album';
+  import AlbumAPI from '@/api/album';
   import Async from '../utils/Async/Async';
   import AlbumInfoView from './AlbumInfoView';
 
   export default {
-    name: 'albumInfo',
+    name: 'AlbumInfo',
     props: ['albumId'],
     data() {
       return {
-        dataSource: getAlbum(this.albumId),
+        dataSource: AlbumAPI.getAlbum(this.albumId),
         dataName: 'album data'
       };
     },
