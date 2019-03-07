@@ -27,7 +27,7 @@
               class="tag is-medium button navbar-link is-arrowless"
             >
               <i class="fas fa-plus-circle"></i
-              ><span style="padding-left:5px">Album</span>
+              ><span class="bumped-right">Album</span>
             </div>
           </PlaylistDropdown>
         </div>
