@@ -21,16 +21,16 @@
         <div class="is-size-6 has-text-grey-lighter">
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} songs</p>
+          <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist" :is-right="false">
+            <div
+              id="add-album"
+              class="tag is-medium button navbar-link is-arrowless"
+            >
+              <i class="fas fa-plus-circle"></i
+              ><span style="padding-left:5px">Album</span>
+            </div>
+          </PlaylistDropdown>
         </div>
-        <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist">
-          <div
-            id="add-album"
-            class="tag is-medium button navbar-link is-arrowless"
-          >
-            <i class="fas fa-plus-circle"></i
-            ><span style="padding-left:5px">Album</span>
-          </div>
-        </PlaylistDropdown>
       </div>
     </div>
   </section>

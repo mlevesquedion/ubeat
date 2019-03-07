@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="track-gallery">
+    <div class="track-list">
       <div :key="track.id" v-for="track in tracks" class="track">
         <hr v-if="track.number !== 1" class="horizontal-line"/>
         <div
@@ -11,7 +11,7 @@
             <div>{{ track.number }}. {{ track.name }}</div>
           </div>
           <div class="level-right">
-            <PlaylistDropdown :playlists="playlists" :on-playlist-click="addTrackToPlayList(track)">
+            <PlaylistDropdown :playlists="playlists" :on-playlist-click="addTrackToPlayList(track)" :is-right="true">
               <a
                 class="navbar-link is-arrowless has-text-light track-button"
                 style="text-decoration: none;"

@@ -1,7 +1,7 @@
 <template>
   <div
     class="dropdown is-hoverable"
-    style="padding-top: 10px"
+    :class="{'is-right': isRight}"
   >
     <div class="dropdown-trigger">
       <slot></slot>
@@ -21,7 +21,7 @@
 <script>
   export default {
     name: 'Dropdown',
-    props: ['playlists', 'onPlaylistClick']
+    props: ['playlists', 'onPlaylistClick', 'isRight']
   };
 </script>
 
