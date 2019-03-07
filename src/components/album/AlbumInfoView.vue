@@ -39,7 +39,7 @@
             <div class="dropdown-content album-hoverable">
               <a
                 class="dropdown-item album-hoverable-item"
-                v-for="p in playlists" :key="p.id" @click="addAlbumToList(p)">
+                v-for="p in playlists" :key="p.id" @click="addAlbumToPlaylist(p)">
                 {{p.name}}
               </a>
             </div>
@@ -52,6 +52,8 @@
 
 <script>
 
+  import { addAlbumToPlaylist } from '../../api/playlist';
+
   export default {
     name: 'albumInfoView',
     props: ['album'],
@@ -59,7 +61,7 @@
       return {
         playlists: [
           {
-            id: 1,
+            id: '5c813c94d6f63a0004c26543',
             name: 'Ma playlist'
           }, {
             id: 2,
@@ -69,9 +71,10 @@
       };
     },
     methods: {
-      addAlbumToList(playlist) {
-        alert(`Album ${this.album.name} added to playlist ${playlist.name}!`);
-        // API call
+      addAlbumToPlaylist(playlist) {
+        addAlbumToPlaylist(this.album.id, playlist.id)
+          .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}`))
+          .catch(_ => alert(`Could not add at least one song from ${this.album.name} to playlist ${playlist.name}.`));
       }
     }
   }
