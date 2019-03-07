@@ -22,37 +22,23 @@
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} songs</p>
         </div>
-        <div
-          class="dropdown is-hoverable"
-          style="padding-top: 10px"
-        >
-          <div class="dropdown-trigger">
-            <div
-              id="add-album"
-              class="tag is-medium button navbar-link is-arrowless"
-            >
-              <i class="fas fa-plus-circle"></i
-              ><span style="padding-left:5px">Album</span>
-            </div>
+        <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist">
+          <div
+            id="add-album"
+            class="tag is-medium button navbar-link is-arrowless"
+          >
+            <i class="fas fa-plus-circle"></i
+            ><span style="padding-left:5px">Album</span>
           </div>
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content album-hoverable">
-              <a
-                class="dropdown-item album-hoverable-item"
-                v-for="p in playlists" :key="p.id" @click="addAlbumToPlaylist(p)">
-                {{p.name}}
-              </a>
-            </div>
-          </div>
-        </div>
+        </PlaylistDropdown>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-
   import { addAlbumToPlaylist } from '../../api/playlist';
+  import PlaylistDropdown from './PlaylistDropdown';
 
   export default {
     name: 'AlbumInfoView',
@@ -76,7 +62,8 @@
           .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}`))
           .catch(_ => alert(`Could not add at least one song from ${this.album.name} to playlist ${playlist.name}.`));
       }
-    }
+    },
+    components: { PlaylistDropdown }
   }
   ;
 </script>
