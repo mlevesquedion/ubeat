@@ -17,6 +17,7 @@
     <template slot="body">
       <div class="accordion-body">
         <div class="accordion-content">
+          <div v-if="noTracks">This playlist is empty!</div>
           <div class="level is-mobile" v-for="t in playlist.tracks">
             <div class="level-left">
               <div class="level-item">
@@ -50,6 +51,11 @@
       return {
         isDeleting: false
       };
+    },
+    computed: {
+      noTracks() {
+        return Object.entries(this.playlist.tracks).length === 0;
+      }
     },
     methods: {
       deleteSelf() {
