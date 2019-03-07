@@ -50,17 +50,14 @@
 <script>
   import PlaylistDropdown from './PlaylistDropdown';
   import PlaylistAPI from '../../api/playlist';
+  import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
   export default {
     name: 'TrackListView',
     props: ['tracks', 'playlists'],
     methods: {
-      formatTrackDuration(durationInSeconds) {
-        const minutes = Math.floor(durationInSeconds / 60);
-        const leftOverSeconds = Math.floor(durationInSeconds % 60);
-        const formattedSeconds = leftOverSeconds.toString()
-          .padStart(2, '0');
-        return `${minutes}:${formattedSeconds}`;
+      formatTrackDuration(seconds) {
+        return trackDurationFormatter.format(seconds);
       },
       addTrackToPlayList(track) {
         return (playlist) => {
@@ -68,9 +65,9 @@
             .then(_ => alert(`Track ${track.name} was successfully added to playlist ${playlist.name}!`))
             .catch(_ => alert(`Could not add ${track.name} to playlist ${playlist.name}.`));
         };
-      }
-    },
-    components: { PlaylistDropdown }
+      },
+      components: { PlaylistDropdown }
+    }
   };
 </script>
 
