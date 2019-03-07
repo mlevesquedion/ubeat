@@ -5,7 +5,7 @@ import Album from '@/components/album/Album';
 import Artist from '@/components/artist/Artist';
 import User from '@/components/User';
 import Playlists from '@/components/playlists/Playlists';
-import PageNotFound from '@/components/PageNotFound';
+import NotFound from '@/components/NotFound';
 
 Vue.use(Router);
 
@@ -39,7 +39,7 @@ export default new Router({
     {
       path: '*',
       name: 'Not Found',
-      component: PageNotFound
+      component: NotFound
     }
   ]
 });

@@ -19,7 +19,7 @@
       };
     },
     mounted() {
-      PlaylistAPI.getPlaylists()
+      PlaylistAPI.getUserPlaylists()
         .then(playlists => {
           this.playlists = playlists;
         });

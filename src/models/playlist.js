@@ -1,10 +1,10 @@
-const Playlist = {
+import Track from './track';
+
+export default {
   from: data => ({
     ownerEmail: data.owner.email,
     name: data.name,
-    tracks: data.tracks,
+    tracks: data.tracks.map(Track.from),
     id: data.id
   })
 };
-
-export default Playlist;
