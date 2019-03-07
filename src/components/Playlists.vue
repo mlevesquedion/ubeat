@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import { getPlaylist } from '@/api/playlist';
+  import { getPlaylist } from '@/api/playlists';
   import Async from '@/components/utils/Async/Async';
 
   export default {
@@ -38,7 +38,7 @@
       return {
         dataSource:
           getPlaylist('5c7f1e7483f8840004680d0e'),
-        dataName: 'user playlist'
+        dataName: 'user playlists'
       };
     },
     components: {

@@ -39,7 +39,7 @@
       <a :href="this.tracks[0].url">
         <img
           class="img-responsive"
-          src="@/static/images/get_on_itunes.png"
+          src="static/images/get_on_itunes.png"
           alt="iTunes"
         />
       </a>
@@ -49,7 +49,7 @@
 
 <script>
   import PlaylistDropdown from './PlaylistDropdown';
-  import PlaylistAPI from '../../api/playlist';
+  import PlaylistAPI from '../../api/playlists';
   import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
   export default {

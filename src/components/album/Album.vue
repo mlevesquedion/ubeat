@@ -8,7 +8,7 @@
 <script>
   import AlbumInfo from './AlbumInfo';
   import TrackList from './TrackList';
-  import PlaylistAPI from '../../api/playlist';
+  import PlaylistAPI from '../../api/playlists';
 
   export default {
     name: 'Album',

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import PlaylistAPI from '../../api/playlist';
+  import PlaylistAPI from '../../api/playlists';
   import PlaylistDropdown from './PlaylistDropdown';
 
   export default {
