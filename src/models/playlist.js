@@ -1,17 +1,10 @@
 const Playlist = {
-  from: data => {
-    const owner = data.owner;
-    return {
-      owner: {
-        name: owner.playlistOwner,
-        email: owner.ownerEmail,
-        id: owner.ownerId
-      },
-      name: data.playlistName,
-      tracks: data.playlistTracks,
-      id: data.playlistId
-    };
-  }
+  from: data => ({
+    ownerEmail: data.owner.email,
+    name: data.name,
+    tracks: data.tracks,
+    id: data.id
+  })
 };
 
 export default Playlist;

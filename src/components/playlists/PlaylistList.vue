@@ -1,20 +1,28 @@
 <template>
   <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
-      <PlaylistTracksView :playlist="data"/>
+      <PlaylistListView :playlists="data"/>
     </template>
   </Async>
 </template>
 
 <script>
+  import PlaylistAPI from '../../api/playlists';
+  import PlaylistListView from './PlaylistListView';
   import Async from '../utils/Async/Async';
-  import PlaylistTracksView from './PlaylistTracksView';
 
   export default {
-    name: 'PlaylistTracks',
+    name: 'PlaylistList',
+    data() {
+      return {
+        dataSource: PlaylistAPI.getUserPlaylists(),
+        dataName: 'user playlists'
+      };
+    },
+    props: ['playlists'],
     components: {
-      Async,
-      PlaylistTracksView
+      PlaylistListView,
+      Async
     }
   };
 </script>

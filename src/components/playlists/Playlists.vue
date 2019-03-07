@@ -2,17 +2,13 @@
   <div class="container">
     <PlaylistMaker addPlaylist="addCreatedPlaylist">
     </PlaylistMaker>
-    <Async :dataSource="dataSource" :dataName="dataName">
-      <template slot-scope="{data}">
-        <PlaylistList :playlists="data"/>
-      </template>
-    </Async>
+    <PlaylistList>
 
+    </PlaylistList>
   </div>
 </template>
 
 <script>
-  import PlaylistAPI from '@/api/playlists';
   import Async from '../utils/Async/Async';
   import PlaylistList from './PlaylistList';
   import PlaylistMaker from './PlaylistMaker';
@@ -21,8 +17,6 @@
     name: 'Playlists',
     data() {
       return {
-        dataSource: PlaylistAPI.getUserPlaylists(),
-        dataName: 'user playlists',
         playlists: []
       };
     },

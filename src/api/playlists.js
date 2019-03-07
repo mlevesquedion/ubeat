@@ -10,7 +10,7 @@ const api = {
   getUserPlaylists: () =>
     axios
       .get(`${playlistRoot}`)
-      .then(({ data }) => data.filter(p => p.owner.email === ownerEmail))
+      .then(({ data }) => data.filter(p => p && p.owner && p.owner.email === ownerEmail))
       .then(userPlaylists => userPlaylists.map(Playlist.from)),
   getPlaylistById:
     id =>
