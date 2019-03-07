@@ -37,28 +37,15 @@
 </template>
 
 <script>
-  import { addAlbumToPlaylist } from '../../api/playlist';
+  import PlaylistAPI from '../../api/playlist';
   import PlaylistDropdown from './PlaylistDropdown';
 
   export default {
     name: 'AlbumInfoView',
-    props: ['album'],
-    data() {
-      return {
-        playlists: [
-          {
-            id: '5c813c94d6f63a0004c26543',
-            name: 'Ma playlist'
-          }, {
-            id: 'an-invalid-id',
-            name: 'Chansons que mon chat aime'
-          }
-        ]
-      };
-    },
+    props: ['album', 'playlists'],
     methods: {
       addAlbumToPlaylist(playlist) {
-        addAlbumToPlaylist(this.album.id, playlist.id)
+        PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
           .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`))
           .catch(_ => alert(`Could not add at least one song from ${this.album.name} to playlist ${playlist.name}.`));
       }

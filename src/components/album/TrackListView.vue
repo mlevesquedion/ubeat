@@ -53,20 +53,7 @@
 
   export default {
     name: 'TrackListView',
-    props: ['tracks'],
-    data() {
-      return {
-        playlists: [
-          {
-            id: '5c813c94d6f63a0004c26543',
-            name: 'Ma playlist'
-          }, {
-            id: 'an-invalid-id',
-            name: 'Chansons que mon chat aime'
-          }
-        ]
-      };
-    },
+    props: ['tracks', 'playlists'],
     methods: {
       formatTrackDuration(durationInSeconds) {
         const minutes = Math.floor(durationInSeconds / 60);

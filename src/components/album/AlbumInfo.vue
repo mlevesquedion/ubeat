@@ -1,7 +1,7 @@
 <template>
   <Async :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{data}">
-      <AlbumInfoView :album="data"/>
+      <AlbumInfoView :album="data" :playlists="playlists"/>
     </template>
   </Async>
 </template>
@@ -14,7 +14,7 @@
 
   export default {
     name: 'AlbumInfo',
-    props: ['albumId'],
+    props: ['albumId', 'playlists'],
     data() {
       return {
         dataSource: AlbumAPI.getAlbum(this.albumId),
