@@ -1,15 +1,18 @@
 const Playlist = {
   from: json => {
-    const playlistData = json.results;
+    const ownerData = json.owner;
+    const playlistName = json.name;
+    const playlistTracks = json.tracks;
+    const playlistId = json.id;
     return {
       owner: {
-        name: playlistData.playlistOwner,
-        email: playlistData.ownerEmail,
-        id: playlistData.ownerId
+        name: ownerData.playlistOwner,
+        email: ownerData.ownerEmail,
+        id: ownerData.ownerId
       },
-      name: playlistData.playlistName,
-      tracks: playlistData.playlistTracks,
-      id: playlistData.playlistId
+      name: playlistName,
+      tracks: playlistTracks,
+      id: playlistId
     };
   }
 };
