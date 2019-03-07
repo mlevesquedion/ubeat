@@ -29,7 +29,8 @@ const api = {
   addAlbumToPlaylist:
     (albumId, playlistId) => AlbumAPI.getAlbumTracks(albumId)
       .then(tracks =>
-        Promise.all(tracks.map(t => api.addSongToPlaylist(t, playlistId))))
+        Promise.all(tracks.map(t => api.addSongToPlaylist(t, playlistId)))),
+  delete: id => axios.delete(`${playlistRoot}${id}`)
 };
 
 export default api;
