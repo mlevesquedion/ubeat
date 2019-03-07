@@ -11,7 +11,7 @@
             <div>{{ track.number }}. {{ track.name }}</div>
           </div>
           <div class="level-right">
-            <div class="navbar-item has-dropdown is-hoverable">
+            <PlaylistDropdown :playlists="playlists" :on-playlist-click="addTrackToPlayList(track)">
               <a
                 class="navbar-link is-arrowless has-text-light track-button"
                 style="text-decoration: none;"
@@ -20,27 +20,7 @@
                   <i class="fas fa-plus-circle"></i>
                 </span>
               </a>
-              <div class="navbar-dropdown">
-                <!--adds track to playlist 1-->
-                <a
-                  class="navbar-item is-size-7-tablet is-size-6-desktop"
-                  v-on:click="addTrackToList(track.id, 1)"
-                >Playlist 1</a
-                >
-                <!--adds track to playlist 2-->
-                <a
-                  class="navbar-item is-size-7-tablet is-size-6-desktop"
-                  v-on:click="addTrackToList(track.id, 2)"
-                >Playlist 2</a
-                >
-                <!--adds track to playlist 3-->
-                <a
-                  class="navbar-item is-size-7-tablet is-size-6-desktop"
-                  v-on:click="addTrackToList(track.id, 3)"
-                >Playlist 3</a
-                >
-              </div>
-            </div>
+            </PlaylistDropdown>
             <a
               class="has-text-light track-button"
               style="text-decoration: none;"
@@ -68,9 +48,25 @@
 </template>
 
 <script>
+  import PlaylistDropdown from './PlaylistDropdown';
+  import PlaylistAPI from '../../api/playlist';
+
   export default {
     name: 'TrackListView',
     props: ['tracks'],
+    data() {
+      return {
+        playlists: [
+          {
+            id: '5c813c94d6f63a0004c26543',
+            name: 'Ma playlist'
+          }, {
+            id: 'an-invalid-id',
+            name: 'Chansons que mon chat aime'
+          }
+        ]
+      };
+    },
     methods: {
       formatTrackDuration(durationInSeconds) {
         const minutes = Math.floor(durationInSeconds / 60);
@@ -79,10 +75,15 @@
           .padStart(2, '0');
         return `${minutes}:${formattedSeconds}`;
       },
-      addTrackToList(trackId, playlistId) {
-        alert(`Track ${trackId} added to playlist ${playlistId}!`);
+      addTrackToPlayList(track) {
+        return (playlist) => {
+          PlaylistAPI.addSongToPlaylist(track, playlist.id)
+            .then(_ => alert(`Track ${track.name} was successfully added to playlist ${playlist.name}!`))
+            .catch(_ => alert(`Could not add ${track.name} to playlist ${playlist.name}.`));
+        };
       }
-    }
+    },
+    components: { PlaylistDropdown }
   };
 </script>
 

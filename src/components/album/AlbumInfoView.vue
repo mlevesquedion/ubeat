@@ -59,7 +59,7 @@
     methods: {
       addAlbumToPlaylist(playlist) {
         addAlbumToPlaylist(this.album.id, playlist.id)
-          .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}`))
+          .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`))
           .catch(_ => alert(`Could not add at least one song from ${this.album.name} to playlist ${playlist.name}.`));
       }
     },
