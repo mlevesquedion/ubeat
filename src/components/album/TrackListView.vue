@@ -34,16 +34,14 @@
 </template>
 
 <script>
+  import trackDurationFormatter from '../../formatting/trackDurationFormatter';
+
   export default {
     name: 'trackListView',
     props: ['tracks'],
     methods: {
-      formatTrackDuration(durationInSeconds) {
-        const minutes = Math.floor(durationInSeconds / 60);
-        const leftOverSeconds = Math.floor(durationInSeconds % 60);
-        const formattedSeconds = leftOverSeconds.toString()
-          .padStart(2, '0');
-        return `${minutes}:${formattedSeconds}`;
+      formatTrackDuration(seconds) {
+        return trackDurationFormatter.format(seconds);
       }
     }
   };
