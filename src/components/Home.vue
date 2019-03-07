@@ -10,7 +10,7 @@
           id="summary-message"
           class="is-size-3-desktop is-size-4-tablet is-size-5-mobile is-primary flex-centered"
         >
-          Manage your favorite albums, artists, playlists and songs. UBeat does it
+          Manage your favorite albums, artists, playlists and tracks. UBeat does it
           all and lets you listen to your music, your way.
         </p>
         <image-carousel/>

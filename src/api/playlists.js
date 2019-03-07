@@ -2,6 +2,7 @@ import axios from 'axios';
 import { apiRoot } from './constants';
 import AlbumAPI from './album';
 import Playlist from '../models/playlist';
+import Track from '../models/track';
 
 const playlistRoot = `${apiRoot}playlists/`;
 const ownerEmail = 'utilisateur@gmail.com';
@@ -9,7 +10,7 @@ const ownerEmail = 'utilisateur@gmail.com';
 const api = {
   getUserPlaylists: () =>
     axios
-      .get(`${playlistRoot}`)
+      .get(`${playlistRoot}`, { params: { email: ownerEmail } })
       .then(({ data }) => data.filter(p => p && p.owner && p.owner.email === ownerEmail))
       .then(userPlaylists => userPlaylists.map(Playlist.from)),
   getPlaylistById:
@@ -21,16 +22,18 @@ const api = {
     name => axios.post(`${playlistRoot}`, {
       name, owner: ownerEmail
     }),
-  addSongToPlaylist:
-    (song, playlistId) =>
-      axios.post(`${playlistRoot}${playlistId}/tracks`, song, {
+  addTrackToPlaylist:
+    (track, playlistId) => {
+      axios.post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track), {
         headers: { 'Content-Type': 'application/json' }
-      }),
+      });
+    },
   addAlbumToPlaylist:
     (albumId, playlistId) => AlbumAPI.getAlbumTracks(albumId)
       .then(tracks =>
-        Promise.all(tracks.map(t => api.addSongToPlaylist(t, playlistId)))),
-  delete: id => axios.delete(`${playlistRoot}${id}`)
+        Promise.all(tracks.map(t => api.addTrackToPlaylist(t, playlistId)))),
+  delete: id => axios.delete(`${playlistRoot}${id}`),
+  deleteTrack: (playlistId, trackId) => axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`)
 };
 
 export default api;

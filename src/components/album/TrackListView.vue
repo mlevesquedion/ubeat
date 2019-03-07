@@ -61,12 +61,14 @@
       },
       addTrackToPlayList(track) {
         return (playlist) => {
-          PlaylistAPI.addSongToPlaylist(track, playlist.id)
+          PlaylistAPI.addTrackToPlaylist(track, playlist.id)
             .then(_ => alert(`Track ${track.name} was successfully added to playlist ${playlist.name}!`))
             .catch(_ => alert(`Could not add ${track.name} to playlist ${playlist.name}.`));
         };
-      },
-      components: { PlaylistDropdown }
+      }
+    },
+    components: {
+      PlaylistDropdown
     }
   };
 </script>

@@ -20,7 +20,7 @@
         </div>
         <div class="is-size-6 has-text-grey-lighter">
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
-          <p class="label">{{ album.trackCount }} songs</p>
+          <p class="label">{{ album.trackCount }} tracks</p>
           <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist" :is-right="false">
             <div
               id="add-album"
@@ -47,7 +47,7 @@
       addAlbumToPlaylist(playlist) {
         PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
           .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`))
-          .catch(_ => alert(`Could not add at least one song from ${this.album.name} to playlist ${playlist.name}.`));
+          .catch(_ => alert(`Could not add at least one track from ${this.album.name} to playlist ${playlist.name}.`));
       }
     },
     components: { PlaylistDropdown }

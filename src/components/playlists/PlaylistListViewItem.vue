@@ -1,31 +1,47 @@
 <template>
-  <div class="accordion is-active">
-    <div class="accordion-header toggle">
-      <div class="level">
+  <Accordion>
+    <template slot="header">
+      <div class="level is-mobile">
         <div class="level-left">
-          <span class="level-item">{{playlist.name}}</span>
+          <span class="subtitle is-primary level-item">{{playlist.name}}</span>
         </div>
         <div class="level-right">
-          <button class="button level-item is-danger delete"
+          <button class="button level-item is-danger"
                   :class="{'is-loading': isDeleting}"
-                  @click="deleteSelf()"></button>
+                  @click="deleteSelf()">
+            <i class="fas fa-trash"></i>
+          </button>
         </div>
       </div>
-    </div>
-    <div class="accordion-body">
-      <div class="accordion-content">
-        <ul>
-          <li v-for="t in playlist.tracks">
-            {{ t.name }}
-          </li>
-        </ul>
+    </template>
+    <template slot="body">
+      <div class="accordion-body">
+        <div class="accordion-content">
+          <div class="level is-mobile" v-for="t in playlist.tracks">
+            <div class="level-left">
+              <div class="level-item">
+                {{ t.name }}, {{ t.artist }}
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <button class="button level-item is-danger is-small"
+                        :class="{'is-loading': isDeleting}"
+                        @click="deleteTrack(t.id)">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </template>
+  </Accordion>
 </template>
 
 <script>
   import PlaylistAPI from '../../api/playlists';
+  import Accordion from '../utils/Accordion';
 
   export default {
     name: 'PlaylistListViewItem',
@@ -39,11 +55,15 @@
       deleteSelf() {
         PlaylistAPI.delete(this.playlist.id)
           .then(_ => this.onDelete(this.playlist.id));
+      },
+      deleteTrack(trackId) {
+        PlaylistAPI.deleteTrack(this.playlist.id, trackId)
+          .then(_ => this.removeTrack(trackId));
       }
-    }
+    },
+    components: { Accordion }
   };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>
