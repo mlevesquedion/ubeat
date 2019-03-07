@@ -8,7 +8,7 @@
         <div class="level-right">
           <button class="button level-item is-danger"
                   :class="{'is-loading': isDeleting}"
-                  @click="deleteSelf()">
+                  @click.stop="deleteSelf()">
             <i class="fas fa-trash"></i>
           </button>
         </div>
