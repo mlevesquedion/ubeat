@@ -46,8 +46,8 @@
     methods: {
       addAlbumToPlaylist(playlist) {
         PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
-          .then(_ => alert(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`))
-          .catch(_ => alert(`Could not add at least one track from ${this.album.name} to playlist ${playlist.name}.`));
+          .then(_ => this.$toasted.show(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`, { type: 'success' }))
+          .catch(_ => this.$toasted.show(`Could not add at least one track from ${this.album.name} to playlist ${playlist.name}.`, { type: 'error' }));
       }
     },
     components: { PlaylistDropdown }
