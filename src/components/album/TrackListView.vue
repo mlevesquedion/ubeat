@@ -13,7 +13,7 @@
           <div class="level-right">
             <PlaylistDropdown :playlists="playlists" :on-playlist-click="addTrackToPlayList(track)" :is-right="true">
               <a
-                class="navbar-link is-arrowless has-text-light track-button"
+                class="navbar-link has-text-light track-button"
                 style="text-decoration: none;"
               >
                 <span class="icon is-medium">

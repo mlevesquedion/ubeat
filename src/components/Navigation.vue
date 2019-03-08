@@ -29,15 +29,10 @@
             placeholder="Search ..."
           >
         </div>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <router-link id="nav-dropdown" class="is-size-6-tablet is-size-5-desktop navbar-link" to="/playlists">
+        <div class="navbar-item">
+          <router-link class="is-size-6-tablet is-size-5-desktop hover-white" to="/playlists">
             Playlists
           </router-link>
-          <div class="navbar-dropdown">
-            <a class="navbar-item is-size-7-tablet is-size-6-desktop">Playlist 1</a>
-            <a class="navbar-item is-size-7-tablet is-size-6-desktop">Playlist 2</a>
-            <a class="navbar-item is-size-7-tablet is-size-6-desktop">Playlist 3</a>
-          </div>
         </div>
         <div class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
@@ -115,12 +110,8 @@
     @extend .is-unselectable;
   }
 
-  .bumped-right {
-    margin-left: 10px;
-  }
-
-  .bumped-left {
-    margin-right: 10px;
+  .hover-white:hover {
+    color: white;
   }
 
   .search-bar {
