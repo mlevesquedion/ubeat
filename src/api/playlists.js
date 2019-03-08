@@ -12,7 +12,7 @@ const api = {
     axios
       .get(`${playlistRoot}`, { params: { email: ownerEmail } })
       .then(({ data }) => data.filter(p => p && p.owner && p.owner.email === ownerEmail))
-      .then(userPlaylists => userPlaylists.map(Playlist.from)),
+      .then(userPlaylists => userPlaylists.map(p => Playlist.from(p))),
   getPlaylistById:
     id =>
       axios
@@ -21,13 +21,10 @@ const api = {
   createPlaylist:
     name => axios.post(`${playlistRoot}`, {
       name, owner: ownerEmail
-    }),
-  addTrackToPlaylist:
-    (track, playlistId) => {
-      axios.post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track), {
-        headers: { 'Content-Type': 'application/json' }
-      });
-    },
+    })
+      .then(({ data }) => Playlist.from(data)),
+  addTrackToPlaylist: (track, playlistId) => axios.post(
+    `${playlistRoot}${playlistId}/tracks`, Track.toBackend(track)),
   addAlbumToPlaylist:
     (albumId, playlistId) => AlbumAPI.getAlbumTracks(albumId)
       .then(tracks =>

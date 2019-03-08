@@ -2,7 +2,9 @@
   <section class="section">
     <h1 class="title has-text-light">New playlist</h1>
     <div class="field">
-      <input class="input" placeholder="Name" type="text" v-model="newPlaylistName">
+      <input class="input"
+             @keydown.enter="createPlaylist"
+             placeholder="Name" type="text" v-model="newPlaylistName">
     </div>
     <div class="field">
       <button @click="createPlaylist"
@@ -19,7 +21,6 @@
 
   export default {
     name: 'PlaylistMaker',
-    props: ['addPlaylist'],
     data() {
       return {
         newPlaylistName: '',
@@ -38,8 +39,8 @@
         }
         this.isLoading = true;
         PlaylistAPI.createPlaylist(this.newPlaylistName)
+          .then(playlist => this.$emit('create-playlist', playlist))
           .then(this.reset)
-          .then(this.addPlaylist)
           .catch(err => alert(err));
       }
     }

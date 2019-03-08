@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="section" v-if="requestState === RequestState.LOADING ">
+    <section class="section" v-if="requestState === RequestState.LOADING">
       <Spinner :size="SpinnerSize.LARGE"/>
     </section>
 
