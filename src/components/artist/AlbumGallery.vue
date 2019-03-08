@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  import { getArtistAlbums } from '@/api/artist';
   import Async from '@/components/utils/Async/Async';
   import AlbumGalleryView from './AlbumGalleryView';
+  import ArtistAPI from '../../api/artist';
 
   export default {
     name: 'albumGallery',
@@ -17,7 +17,8 @@
     data() {
       return {
         dataSource:
-          getArtistAlbums(this.artistId)
+          ArtistAPI.getAlbums(this.artistId),
+        dataName: 'artist albums'
       };
     },
     components: {

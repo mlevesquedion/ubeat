@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import { getArtist } from '@/api/artist';
+  import ArtistAPI from '@/api/artist';
   import Async from '@/components/utils/Async/Async';
   import ArtistInfoView from './ArtistInfoView';
 
@@ -16,7 +16,7 @@
     props: ['artistId'],
     data() {
       return {
-        dataSource: getArtist(this.artistId),
+        dataSource: ArtistAPI.get(this.artistId),
         dataName: 'artist data'
       };
     },
