@@ -15,14 +15,10 @@
     data() {
       return {
         id: this.$route.params.id,
-        playlists: []
+        playlists: PlaylistAPI.getUserPlaylists()
       };
     },
     mounted() {
-      PlaylistAPI.getUserPlaylists()
-        .then(playlists => {
-          this.playlists = playlists;
-        });
     },
     components: {
       AlbumInfo,

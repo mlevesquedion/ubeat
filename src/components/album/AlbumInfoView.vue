@@ -24,7 +24,7 @@
           <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist" :is-right="false">
             <div
               id="add-album"
-              class="tag is-medium button navbar-link is-arrowless"
+              class="tag is-medium box navbar-link is-arrowless"
             >
               <i class="fas fa-plus-circle"></i
               ><span class="bumped-right">Album</span>
@@ -72,5 +72,9 @@
 
   #artist-name {
     color: $primary;
+  }
+
+  .box {
+    border: 1px solid white;
   }
 </style>
