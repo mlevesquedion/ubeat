@@ -21,7 +21,6 @@
 
   export default {
     name: 'PlaylistMaker',
-    props: ['addPlaylist'],
     data() {
       return {
         newPlaylistName: '',
@@ -40,8 +39,8 @@
         }
         this.isLoading = true;
         PlaylistAPI.createPlaylist(this.newPlaylistName)
+          .then(playlist => this.$emit('create-playlist', playlist))
           .then(this.reset)
-          .then(this.addPlaylist)
           .catch(err => alert(err));
       }
     }
