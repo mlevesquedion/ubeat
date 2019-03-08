@@ -34,14 +34,15 @@
       },
       createPlaylist() {
         if (!this.newPlaylistName) {
-          alert('Cannot create playlist with empty name!');
+          this.$toasted.show('Cannot create playlist with empty name!', { type: 'error' })
+            .goAway(1500);
           return;
         }
         this.isLoading = true;
         PlaylistAPI.createPlaylist(this.newPlaylistName)
           .then(playlist => this.$emit('create-playlist', playlist))
           .then(this.reset)
-          .catch(err => alert(err));
+          .catch(_err => this.$toasted.show('Could not create playlist :(', { type: 'error' }));
       }
     }
   };

@@ -62,8 +62,8 @@
       addTrackToPlayList(track) {
         return (playlist) => {
           PlaylistAPI.addTrackToPlaylist(track, playlist.id)
-            .then(_ => alert(`Track ${track.name} was successfully added to playlist ${playlist.name}!`))
-            .catch(_ => alert(`Could not add ${track.name} to playlist ${playlist.name}.`));
+            .then(_ => this.$toasted.show(`Track ${track.name} was successfully added to playlist ${playlist.name}!`, { type: 'success' }))
+            .catch(_ => this.$toated.show(`Could not add ${track.name} to playlist ${playlist.name}.`, { type: 'error' }));
         };
       }
     },
