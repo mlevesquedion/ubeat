@@ -9,16 +9,14 @@ export default {
     duration: trackData.trackTimeMillis / 1000,
     albumUrl: trackData.collectionViewUrl
   }),
-  toBackend: trackData => (
-    {
-      trackId: trackData.id,
-      trackNumber: trackData.number,
-      trackName: trackData.name,
-      collectionName: trackData.album,
-      artistName: trackData.artist,
-      trackViewUrl: trackData.url,
-      trackTimeMillis: trackData.duration * 1000,
-      collectionViewUrl: trackData.albumUrl
-    }
-  )
+  toBackend: trackData => ({
+    trackId: trackData.id,
+    trackNumber: trackData.number,
+    trackName: trackData.name,
+    collectionName: trackData.album,
+    artistName: trackData.artist,
+    trackViewUrl: trackData.url,
+    trackTimeMillis: trackData.duration * 1000,
+    collectionViewUrl: trackData.albumUrl
+  })
 };

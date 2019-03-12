@@ -6,10 +6,13 @@
         <template slot="header">
           <div class="level is-mobile">
             <div class="level-left">
-              <span class="subtitle is-primary level-item">{{p.name}}</span>
+              <span class="subtitle is-primary level-item">{{ p.name }}</span>
             </div>
             <div class="level-right">
-              <button class="button level-item is-danger" @click.stop="deletePlaylist(p, pi)">
+              <button
+                class="button level-item is-danger"
+                @click.stop="deletePlaylist(p, pi)"
+              >
                 <i class="fas fa-trash"></i>
               </button>
             </div>

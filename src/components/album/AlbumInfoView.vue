@@ -2,7 +2,7 @@
   <section class="section columns">
     <div class="column is-narrow">
       <figure class="media-left image">
-        <img class="img-responsive" :src="album.artworkUrl" alt="album.name">
+        <img class="img-responsive" :src="album.artworkUrl" alt="album.name" />
       </figure>
     </div>
     <div class="column is-three-quarters">
@@ -10,7 +10,10 @@
       <div class="subtitle has-text-grey-lighter">
         <div class="label is-size-5">
           <a>
-            <router-link :to="{ name: 'Album', params: { id: album.artistId } }" id="artist-name">
+            <router-link
+              :to="{ name: 'Album', params: { id: album.artistId } }"
+              id="artist-name"
+            >
               <span>{{ album.artist }}</span>
             </router-link>
           </a>
@@ -23,7 +26,10 @@
             :on-playlist-click="addAlbumToPlaylist"
             :is-right="false"
           >
-            <div id="add-album" class="tag is-medium box navbar-link is-arrowless">
+            <div
+              id="add-album"
+              class="tag is-medium box navbar-link is-arrowless"
+            >
               <i class="fas fa-plus-circle"></i>
               <span class="bumped-right">Album</span>
             </div>

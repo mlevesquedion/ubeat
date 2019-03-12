@@ -1,5 +1,5 @@
 <template>
-  <Spinner :size="size" :line-fg-color="color"/>
+  <Spinner :size="size" :line-fg-color="color" />
 </template>
 
 <script>
@@ -17,5 +17,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

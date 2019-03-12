@@ -8,14 +8,16 @@
         placeholder="Name"
         type="text"
         v-model="newPlaylistName"
-      >
+      />
     </div>
     <div class="field">
       <button
         @click="createPlaylist"
         class="button is-primary"
-        :class="{'is-loading': isLoading}"
-      >Create</button>
+        :class="{ 'is-loading': isLoading }"
+      >
+        Create
+      </button>
     </div>
   </section>
 </template>
@@ -59,5 +61,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -13,5 +13,4 @@
 export default { name: 'errorMessage', props: ['message'] };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
