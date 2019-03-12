@@ -9,7 +9,7 @@
               <span class="subtitle is-primary level-item">{{p.name}}</span>
             </div>
             <div class="level-right">
-              <button class="button level-item is-danger" @click.stop="deletePlaylist(p.id, pi)">
+              <button class="button level-item is-danger" @click.stop="deletePlaylist(p, pi)">
                 <i class="fas fa-trash"></i>
               </button>
             </div>
@@ -25,7 +25,7 @@
               <div class="level-item">
                 <button
                   class="button level-item is-danger is-small"
-                  @click="deleteTrack(p.id, pi, t.id, ti)"
+                  @click="deleteTrack(p, pi, t, ti)"
                 >
                   <i class="fas fa-trash"></i>
                 </button>
@@ -56,15 +56,27 @@ export default {
     empty(playlist) {
       return isEmpty(playlist.tracks);
     },
-    deletePlaylist(playlistId, playlistIndex) {
-      PlaylistAPI.delete(playlistId).then(_ =>
-        this.$emit('delete-playlist', playlistIndex)
-      );
+    deletePlaylist(playlist, playlistIndex) {
+      PlaylistAPI.delete(playlist.id)
+        .then(_ => this.$emit('delete-playlist', playlistIndex))
+        .catch(_err =>
+          this.$toasted.show(
+            `We could not delete playlist ${playlist.name} at this time.`,
+            { type: 'ubeat-error' }
+          )
+        );
     },
-    deleteTrack(playlistId, playlistIndex, trackId, trackIndex) {
-      PlaylistAPI.deleteTrack(playlistId, trackId).then(_ =>
-        this.$emit('delete-track', playlistIndex, trackIndex)
-      );
+    deleteTrack(playlist, playlistIndex, track, trackIndex) {
+      PlaylistAPI.deleteTrack(playlist.id, track.id)
+        .then(_ => this.$emit('delete-track', playlistIndex, trackIndex))
+        .catch(_err =>
+          this.$toasted.show(
+            `We could not delete track ${track.name} from playlist ${
+              playlist.name
+            } as this time.`,
+            { type: 'ubeat-error' }
+          )
+        );
     }
   },
   components: { Accordion }
