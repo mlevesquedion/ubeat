@@ -60,7 +60,7 @@ export default {
       return isEmpty(playlist.tracks);
     },
     deletePlaylist(playlist, playlistIndex) {
-      PlaylistAPI.delete(playlist.id)
+      PlaylistAPI.deletePlaylist(playlist.id)
         .then(_ => this.$emit('delete-playlist', playlistIndex))
         .catch(_err =>
           this.$toasted.show(
