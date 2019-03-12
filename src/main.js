@@ -11,6 +11,9 @@ Vue.use(Toasted, {
   duration: 1500
 });
 
+Vue.toasted.register('ubeat-success', message => message);
+Vue.toasted.register('ubeat-error', message => message);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -18,4 +21,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 });
-
