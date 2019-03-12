@@ -1,8 +1,8 @@
 <template>
   <section class="section columns">
-    <div class="column is-narrow ">
+    <div class="column is-narrow">
       <figure class="media-left image">
-        <img class="img-responsive" :src="album.artworkUrl" alt="album.name"/>
+        <img class="img-responsive" :src="album.artworkUrl" alt="album.name" />
       </figure>
     </div>
     <div class="column is-three-quarters">
@@ -21,13 +21,17 @@
         <div class="is-size-6 has-text-grey-lighter">
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} tracks</p>
-          <PlaylistDropdown :playlists="playlists" :on-playlist-click="addAlbumToPlaylist" :is-right="false">
+          <PlaylistDropdown
+            :playlists="playlists"
+            :on-playlist-click="addAlbumToPlaylist"
+            :is-right="false"
+          >
             <div
               id="add-album"
               class="tag is-medium box navbar-link is-arrowless"
             >
-              <i class="fas fa-plus-circle"></i
-              ><span class="bumped-right">Album</span>
+              <i class="fas fa-plus-circle"></i>
+              <span class="bumped-right">Album</span>
             </div>
           </PlaylistDropdown>
         </div>
@@ -37,44 +41,57 @@
 </template>
 
 <script>
-  import PlaylistAPI from '../../api/playlists';
-  import PlaylistDropdown from './PlaylistDropdown';
+import PlaylistAPI from '../../api/playlists';
+import PlaylistDropdown from './PlaylistDropdown';
 
-  export default {
-    name: 'AlbumInfoView',
-    props: ['album', 'playlists'],
-    methods: {
-      addAlbumToPlaylist(playlist) {
-        PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
-          .then(_ => this.$toasted.show(`Album ${this.album.name} was successfully added to playlist ${playlist.name}!`, { type: 'success' }))
-          .catch(_ => this.$toasted.show(`Could not add at least one track from ${this.album.name} to playlist ${playlist.name}.`, { type: 'error' }));
-      }
-    },
-    components: { PlaylistDropdown }
-  }
-  ;
+export default {
+  name: 'AlbumInfoView',
+  props: ['album', 'playlists'],
+  methods: {
+    addAlbumToPlaylist(playlist) {
+      PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
+        .then(_ =>
+          this.$toasted.show(
+            `Album ${this.album.name} was successfully added to playlist ${
+              playlist.name
+            }!`,
+            { type: 'ubeat-success' }
+          )
+        )
+        .catch(_ =>
+          this.$toasted.show(
+            `Could not add at least one track from ${
+              this.album.name
+            } to playlist ${playlist.name}.`,
+            { type: 'ubeat-error' }
+          )
+        );
+    }
+  },
+  components: { PlaylistDropdown }
+};
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
+@import '@/assets/sass/styles.scss';
 
-  .section {
-    padding-bottom: 0;
-    padding-top: 0;
-  }
+.section {
+  padding-bottom: 0;
+  padding-top: 0;
+}
 
-  .img-responsive {
-    display: block;
-    min-width: 180px;
-    max-width: 200px;
-    height: auto;
-  }
+.img-responsive {
+  display: block;
+  min-width: 180px;
+  max-width: 200px;
+  height: auto;
+}
 
-  #artist-name {
-    color: $primary;
-  }
+#artist-name {
+  color: $primary;
+}
 
-  .box {
-    border: 1px solid white;
-  }
+.box {
+  border: 1px solid white;
+}
 </style>

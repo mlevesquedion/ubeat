@@ -32,7 +32,6 @@ $navbar-dropdown-item-hover-color: $hover;
 $navbar-dropdown-item-hover-background-color: $primary;
 $navbar-dropdown-border-top: 0;
 
-
 // Dropdown
 $dropdown-content-background-color: $primary;
 $dropdown-item-hover-color: white;
@@ -77,6 +76,15 @@ $desktop: 1023px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// Vue-Toasted custom colors
+// Have to use !important to override built-ins
+.ubeat-success {
+  background-color: $primary !important;
+}
+.ubeat-error {
+  background-color: $danger !important;
 }
 
 // Exports for use in components

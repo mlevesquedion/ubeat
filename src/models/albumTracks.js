@@ -1,7 +1,5 @@
 import Track from './track';
 
 export default {
-  from: tracksData =>
-    tracksData.map(t => Track.fromBackend(t))
+  from: tracksData => tracksData.map(t => Track.fromBackend(t))
 };
-

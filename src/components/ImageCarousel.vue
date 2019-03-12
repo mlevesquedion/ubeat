@@ -45,4 +45,4 @@ setInterval(updateImage, 3000);
   display: block;
   padding-bottom: 100%;
 }
-</style> 
+</style>

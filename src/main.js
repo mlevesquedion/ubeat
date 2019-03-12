@@ -8,8 +8,11 @@ import router from './router';
 Vue.config.productionTip = false;
 Vue.use(Toasted, {
   position: 'bottom-left',
-  duration: 1500
+  duration: 2000
 });
+
+Vue.toasted.register('ubeat-success', message => message);
+Vue.toasted.register('ubeat-error', message => message);
 
 /* eslint-disable no-new */
 new Vue({
@@ -18,4 +21,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 });
-

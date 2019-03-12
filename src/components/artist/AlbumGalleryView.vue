@@ -1,4 +1,3 @@
-
 <template>
   <section class="section">
     <h1 class="title is-primary albums-title">Albums</h1>
@@ -6,9 +5,13 @@
       <div :key="album.id" v-for="album in albums" class="album">
         <router-link
           class="responsive-image-container"
-          :to="{name: 'Album', params: { id: album.id }}"
+          :to="{ name: 'Album', params: { id: album.id } }"
         >
-          <img class="responsive-image" :src="album.artworkUrl" alt="album.name">
+          <img
+            class="responsive-image"
+            :src="album.artworkUrl"
+            alt="album.name"
+          />
         </router-link>
         <label class="album-name subtitle">{{ album.name }}</label>
       </div>

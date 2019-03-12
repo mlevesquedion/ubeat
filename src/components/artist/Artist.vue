@@ -1,7 +1,7 @@
 <template>
   <div>
-    <ArtistInfo :artistId="id"/>
-    <AlbumGallery :artistId="id"/>
+    <ArtistInfo :artistId="id" />
+    <AlbumGallery :artistId="id" />
   </div>
 </template>
 
@@ -24,5 +24,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
