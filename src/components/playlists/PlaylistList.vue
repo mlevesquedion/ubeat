@@ -61,7 +61,7 @@ export default {
     },
     deletePlaylist(playlist, playlistIndex) {
       PlaylistAPI.delete(playlist.id)
-        .then(_ => this.$emit('delete-playlist', playlistIndex))
+        .then(_ => this.$root.$emit('delete-playlist', playlistIndex))
         .catch(_err =>
           this.$toasted.show(
             `We could not delete playlist ${playlist.name} at this time.`,
@@ -71,7 +71,7 @@ export default {
     },
     deleteTrack(playlist, playlistIndex, track, trackIndex) {
       PlaylistAPI.deleteTrack(playlist.id, track.id)
-        .then(_ => this.$emit('delete-track', playlistIndex, trackIndex))
+        .then(_ => this.$root.$emit('delete-track', playlistIndex, trackIndex))
         .catch(_err =>
           this.$toasted.show(
             `We could not delete track ${track.name} from playlist ${

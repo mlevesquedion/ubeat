@@ -1,14 +1,14 @@
 <template>
-  <Async :dataSource="dataSource" :dataName="dataName">
+  <GenericAsync :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{ data }">
       <ArtistInfoView :artist="data" />
     </template>
-  </Async>
+  </GenericAsync>
 </template>
 
 <script>
 import ArtistAPI from '@/api/artist';
-import Async from '@/components/utils/Async/Async';
+import GenericAsync from '@/components/utils/Async/GenericAsync';
 import ArtistInfoView from './ArtistInfoView';
 
 export default {
@@ -21,7 +21,7 @@ export default {
     };
   },
   components: {
-    Async,
+    GenericAsync,
     ArtistInfoView
   }
 };
