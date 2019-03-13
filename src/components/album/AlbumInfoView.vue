@@ -26,10 +26,7 @@
             :on-playlist-click="addAlbumToPlaylist"
             :is-right="false"
           >
-            <div
-              id="add-album"
-              class="tag is-medium box navbar-link is-arrowless"
-            >
+            <div id="add-album" class="tag is-medium bumped-down">
               <i class="fas fa-plus-circle"></i>
               <span class="bumped-right">Album</span>
             </div>
@@ -91,7 +88,18 @@ export default {
   color: $primary;
 }
 
-.box {
+// Overriding Bulma stuff, need to use !important
+.tag {
   border: 1px solid white;
+  background-color: $primary !important;
+  color: $white !important;
+}
+
+.tag:hover {
+  color: $white-ter !important;
+}
+
+.bumped-down {
+  margin-top: 5px;
 }
 </style>

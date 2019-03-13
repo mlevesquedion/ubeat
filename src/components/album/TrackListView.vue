@@ -120,12 +120,6 @@ export default {
   height: auto;
 }
 
-#box-track {
-  box-shadow: 0 0px 100px 0 #1b1b1b;
-  text-align: center;
-  padding: 20px;
-}
-
 .track-line .track-button {
   visibility: hidden;
 }

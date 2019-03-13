@@ -3,7 +3,7 @@
     <div class="dropdown-trigger">
       <slot></slot>
     </div>
-    <div class="dropdown-menu" role="menu">
+    <div class="dropdown-menu my-menu" role="menu">
       <div class="dropdown-content album-hoverable">
         <div v-if="playlistsState === RequestState.LOADING">
           <Spinner :size="SpinnerSize.SMALL"></Spinner>
@@ -70,4 +70,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+// Have to add this style to prevent the dropdown arrow from showing
+.track-button {
+  padding: 0 !important;
+  margin: 0 !important;
+  &::after {
+    border: 0 solid transparent !important;
+  }
+}
+</style>
