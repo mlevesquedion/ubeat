@@ -7,32 +7,46 @@ import Track from '../models/track';
 const playlistRoot = `${apiRoot}playlists/`;
 const ownerEmail = 'utilisateur@gmail.com';
 
+const getUserPlaylists = () =>
+  axios
+    .get(`${playlistRoot}`, { params: { email: ownerEmail } })
+    .then(({ data }) =>
+      data.filter(p => p && p.owner && p.owner.email === ownerEmail)
+    )
+    .then(userPlaylists => userPlaylists.map(p => Playlist.from(p)));
+
+const getPlaylist = id =>
+  axios.get(`${playlistRoot}${id}`).then(({ data }) => Playlist.from(data));
+
+const createPlaylist = name =>
+  axios
+    .post(`${playlistRoot}`, {
+      name,
+      owner: ownerEmail
+    })
+    .then(({ data }) => Playlist.from(data));
+
+const addTrackToPlaylist = (track, playlistId) =>
+  axios.post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track));
+
+const addAlbumToPlaylist = (albumId, playlistId) =>
+  AlbumAPI.getAlbumTracks(albumId).then(tracks =>
+    Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)))
+  );
+
+const deletePlaylist = id => axios.delete(`${playlistRoot}${id}`);
+
+const deleteTrack = (playlistId, trackId) =>
+  axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`);
+
 const api = {
-  getUserPlaylists: () =>
-    axios
-      .get(`${playlistRoot}`, { params: { email: ownerEmail } })
-      .then(({ data }) =>
-        data.filter(p => p && p.owner && p.owner.email === ownerEmail)
-      )
-      .then(userPlaylists => userPlaylists.map(p => Playlist.from(p))),
-  getPlaylistById: id =>
-    axios.get(`${playlistRoot}${id}`).then(({ data }) => Playlist.from(data)),
-  createPlaylist: name =>
-    axios
-      .post(`${playlistRoot}`, {
-        name,
-        owner: ownerEmail
-      })
-      .then(({ data }) => Playlist.from(data)),
-  addTrackToPlaylist: (track, playlistId) =>
-    axios.post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track)),
-  addAlbumToPlaylist: (albumId, playlistId) =>
-    AlbumAPI.getAlbumTracks(albumId).then(tracks =>
-      Promise.all(tracks.map(t => api.addTrackToPlaylist(t, playlistId)))
-    ),
-  delete: id => axios.delete(`${playlistRoot}${id}`),
-  deleteTrack: (playlistId, trackId) =>
-    axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`)
+  getUserPlaylists,
+  getPlaylist,
+  createPlaylist,
+  addTrackToPlaylist,
+  addAlbumToPlaylist,
+  deletePlaylist,
+  deleteTrack
 };
 
 export default api;
