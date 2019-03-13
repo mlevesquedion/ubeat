@@ -1,26 +1,20 @@
 <template>
   <div class="container">
-    <PlaylistMaker @create-playlist="createPlaylist" />
-    <section class="section" v-if="requestState === RequestState.LOADING">
-      <Spinner :size="SpinnerSize.LARGE" />
-    </section>
-    <div v-if="requestState === RequestState.LOADED">
-      <PlaylistListView
-        :playlists="playlists"
-        @delete-playlist="deletePlaylist"
-        @delete-track="deleteTrack"
-      />
-    </div>
-    <section class="section" v-if="requestState === RequestState.ERROR">
-      <ErrorMessage :message="error" />
-    </section>
+    <PlaylistMaker />
+    <AsyncContent
+      :requestState="requestState"
+      :data="playlists"
+      dataName="user playlists"
+    >
+      <PlaylistList :playlists="playlists" />
+    </AsyncContent>
   </div>
 </template>
 
 <script>
 import PlaylistMaker from './PlaylistMaker';
-import PlaylistListView from './PlaylistList';
-import Async from '../utils/Async/Async';
+import PlaylistList from './PlaylistList';
+import AsyncContent from '../utils/Async/AsyncContent';
 import PlaylistAPI from '../../api/playlists';
 import RequestState from '../utils/Async/requestState';
 import Spinner from '../utils/Spinner/Spinner';
@@ -38,17 +32,22 @@ export default {
       error: 'Unable to fetch user playlists at this time.'
     };
   },
+  created() {
+    this.$root.$on('delete-playlist', this.deletePlaylist);
+    this.$root.$on('delete-track', this.deleteTrack);
+    this.$root.$on('create-playlist', this.createPlaylist);
+  },
   mounted() {
     PlaylistAPI.getUserPlaylists()
       .then(this.populatePlaylists)
-      .catch(this.populateError);
+      .catch(this.setError);
   },
   methods: {
     populatePlaylists(playlists) {
       this.playlists = playlists;
       this.requestState = RequestState.LOADED;
     },
-    populateError(_err) {
+    setError(_err) {
       this.requestState = RequestState.ERROR;
     },
     createPlaylist(playlist) {
@@ -62,8 +61,8 @@ export default {
     }
   },
   components: {
-    Async,
-    PlaylistListView,
+    AsyncContent,
+    PlaylistList,
     PlaylistMaker,
     Spinner,
     ErrorMessage

@@ -1,15 +1,15 @@
 <template>
-  <Async :dataSource="dataSource" :dataName="dataName">
+  <GenericAsync :dataSource="dataSource" :dataName="dataName">
     <template slot-scope="{ data }">
       <TrackListView :tracks="data" :playlists="playlists" />
     </template>
-  </Async>
+  </GenericAsync>
 </template>
 
 <script>
 import albumAPI from '@/api/album';
 import TrackListView from './TrackListView';
-import Async from '../utils/Async/Async';
+import GenericAsync from '../utils/Async/GenericAsync';
 
 export default {
   name: 'TrackList',
@@ -21,7 +21,7 @@ export default {
     };
   },
   components: {
-    Async,
+    GenericAsync,
     TrackListView
   }
 };

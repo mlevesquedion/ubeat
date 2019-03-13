@@ -15,9 +15,6 @@ const getUserPlaylists = () =>
     )
     .then(userPlaylists => userPlaylists.map(p => Playlist.from(p)));
 
-const getPlaylist = id =>
-  axios.get(`${playlistRoot}${id}`).then(({ data }) => Playlist.from(data));
-
 const createPlaylist = name =>
   axios
     .post(`${playlistRoot}`, {
@@ -41,7 +38,6 @@ const deleteTrack = (playlistId, trackId) =>
 
 const api = {
   getUserPlaylists,
-  getPlaylist,
   createPlaylist,
   addTrackToPlaylist,
   addAlbumToPlaylist,

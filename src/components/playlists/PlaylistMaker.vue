@@ -40,16 +40,14 @@ export default {
     },
     createPlaylist() {
       if (!this.newPlaylistName) {
-        this.$toasted
-          .show('Cannot create playlist with empty name!', {
-            type: 'ubeat-error'
-          })
-          .goAway(1500);
+        this.$toasted.show('Cannot create playlist with empty name!', {
+          type: 'ubeat-error'
+        });
         return;
       }
       this.isLoading = true;
       PlaylistAPI.createPlaylist(this.newPlaylistName)
-        .then(playlist => this.$emit('create-playlist', playlist))
+        .then(playlist => this.$root.$emit('create-playlist', playlist))
         .then(this.reset)
         .catch(_err =>
           this.$toasted.show('Could not create playlist :(', {
