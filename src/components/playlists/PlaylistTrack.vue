@@ -1,7 +1,7 @@
 <template>
   <div class="level is-mobile">
     <div class="level-left">
-      <div class="level-item">
+      <div class="level-item ">
         {{ trackDescription }}
       </div>
     </div>
@@ -9,6 +9,7 @@
       <div class="level-item">
         <button
           class="button level-item is-danger is-small"
+          :class="{ 'is-loading': isDeleting }"
           @click="deleteTrack"
         >
           <i class="fas fa-trash"></i>
@@ -23,6 +24,11 @@ import PlaylistAPI from '../../api/playlists';
 export default {
   name: 'PlaylistTrack',
   props: ['track', 'index', 'playlist', 'playlistIndex'],
+  data() {
+    return {
+      isDeleting: false
+    };
+  },
   computed: {
     trackDescription() {
       const track = this.track;
@@ -31,18 +37,20 @@ export default {
   },
   methods: {
     deleteTrack() {
+      this.isDeleting = true;
       PlaylistAPI.deleteTrack(this.playlist.id, this.track.id)
-        .then(_ =>
-          this.$root.$emit('delete-track', this.playlistIndex, this.index)
-        )
-        .catch(_err =>
+        .then(_ => {
+          this.$root.$emit('delete-track', this.playlistIndex, this.index);
+        })
+        .catch(_err => {
+          this.isDeleting = false;
           this.$toasted.show(
             `We could not delete track ${this.track.name} from playlist ${
               this.playlist.name
             } at this time.`,
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     }
   }
 };

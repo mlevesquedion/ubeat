@@ -10,6 +10,7 @@
         <div class="level-right">
           <button
             class="button level-item is-danger"
+            :class="{ 'is-loading': isDeleting }"
             @click.stop="deletePlaylist"
           >
             <i class="fas fa-trash"></i>
@@ -21,10 +22,11 @@
       <div v-if="isEmpty">{{ emptyPlaylistMessage }}</div>
       <PlaylistTrack
         :track="t"
-        v-for="(t, ti) in playlist.tracks"
         :playlist="playlist"
         :index="ti"
         :playlistIndex="index"
+        v-for="(t, ti) in playlist.tracks"
+        :key="t.id"
       />
     </template>
   </Accordion>
@@ -40,7 +42,8 @@ export default {
   props: ['playlist', 'index'],
   data() {
     return {
-      emptyPlaylistMessage: 'This playlist is empty!'
+      emptyPlaylistMessage: 'This playlist is empty!',
+      isDeleting: false
     };
   },
   computed: {
@@ -50,14 +53,16 @@ export default {
   },
   methods: {
     deletePlaylist() {
-      PlaylistAPI.delete(this.playlist.id)
+      this.isDeleting = true;
+      PlaylistAPI.deletePlaylist(this.playlist.id)
         .then(_ => this.$root.$emit('delete-playlist', this.index))
-        .catch(_err =>
+        .catch(_err => {
+          this.isDeleting = false;
           this.$toasted.show(
             `We could not delete playlist ${this.playlist.name} at this time.`,
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     }
   },
   components: { PlaylistTrack, Accordion }
