@@ -9,13 +9,18 @@
           <Spinner :size="SpinnerSize.SMALL"></Spinner>
         </div>
         <div v-if="playlistsState === RequestState.LOADED && hasPlaylists">
+          <!-- Have to use an a here to hook into Bulma rules -->
           <a
-            class="dropdown-item album-hoverable-item"
+            class="dropdown-item"
             v-for="p in playlistData"
             :key="p.id"
-            @click="onPlaylistClick(p)"
+            @click="playlistClicked(p)"
           >
-            {{ p.name }}
+            <div>{{ p.name }}</div>
+            <Spinner
+              v-if="pending.includes(p.id)"
+              :size="SpinnerSize.SMALL"
+            ></Spinner>
           </a>
         </div>
         <div
@@ -39,14 +44,16 @@ import SpinnerSize from '../utils/Spinner/spinnerSize';
 import Spinner from '../utils/Spinner/Spinner';
 
 export default {
-  name: 'Dropdown',
+  name: 'PlaylistDropdown',
   props: ['playlists', 'onPlaylistClick', 'isRight'],
   data() {
     return {
       SpinnerSize,
       RequestState,
       playlistsState: RequestState.LOADING,
-      playlistData: []
+      playlistData: [],
+      // Have to use an Array instead of a Set, Sets are not supported by Vue
+      pending: []
     };
   },
   computed: {
@@ -64,6 +71,15 @@ export default {
         this.playlistsState = RequestState.ERROR;
       });
   },
+  methods: {
+    playlistClicked(p) {
+      this.pending.push(p.id);
+      this.onPlaylistClick(p, () => this.playlistResolved(p.id));
+    },
+    playlistResolved(id) {
+      this.pending = this.pending.filter(id_ => id_ !== id);
+    }
+  },
   components: {
     Spinner
   }
@@ -78,5 +94,10 @@ export default {
   &::after {
     border: 0 solid transparent !important;
   }
+}
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

@@ -45,7 +45,7 @@ export default {
   name: 'AlbumInfoView',
   props: ['album', 'playlists'],
   methods: {
-    addAlbumToPlaylist(playlist) {
+    addAlbumToPlaylist(playlist, onAlbumAdded) {
       PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
         .then(_ =>
           this.$toasted.show(
@@ -55,6 +55,7 @@ export default {
             { type: 'ubeat-success' }
           )
         )
+        .then(onAlbumAdded)
         .catch(_ =>
           this.$toasted.show(
             `Could not add at least one track from ${

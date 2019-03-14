@@ -64,7 +64,7 @@ export default {
       return trackDurationFormatter.format(seconds);
     },
     addTrackToPlayList(track) {
-      return playlist => {
+      return (playlist, onTrackAdded) => {
         PlaylistAPI.addTrackToPlaylist(track, playlist.id)
           .then(_ =>
             this.$toasted.show(
@@ -74,6 +74,7 @@ export default {
               { type: 'ubeat-success' }
             )
           )
+          .then(onTrackAdded)
           .catch(_ =>
             this.$toated.show(
               `Could not add ${track.name} to playlist ${playlist.name}.`,
