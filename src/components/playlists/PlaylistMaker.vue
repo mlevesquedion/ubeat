@@ -46,9 +46,15 @@ export default {
         return;
       }
       this.isLoading = true;
-      PlaylistAPI.createPlaylist(this.newPlaylistName)
+      const playlistName = this.newPlaylistName;
+      PlaylistAPI.createPlaylist(playlistName)
         .then(playlist => this.$root.$emit('create-playlist', playlist))
         .then(this.reset)
+        .then(_ =>
+          this.$toasted.show(`Succesfully created playlist ${playlistName}`, {
+            type: 'ubeat-success'
+          })
+        )
         .catch(_err =>
           this.$toasted.show('Could not create playlist :(', {
             type: 'ubeat-error'

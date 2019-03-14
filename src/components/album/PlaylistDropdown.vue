@@ -6,16 +6,18 @@
     <div class="dropdown-menu my-menu" role="menu">
       <div class="dropdown-content album-hoverable">
         <div v-if="playlistsState === RequestState.LOADING">
-          <Spinner :size="SpinnerSize.SMALL"></Spinner>
+          <SmallSpinner />
         </div>
         <div v-if="playlistsState === RequestState.LOADED && hasPlaylists">
+          <!-- Have to use an a here to hook into Bulma rules -->
           <a
-            class="dropdown-item album-hoverable-item"
+            class="dropdown-item"
             v-for="p in playlistData"
             :key="p.id"
-            @click="onPlaylistClick(p)"
+            @click="playlistClicked(p)"
           >
-            {{ p.name }}
+            <div>{{ p.name }}</div>
+            <SmallSpinner v-if="pending.includes(p.id)" />
           </a>
         </div>
         <div
@@ -35,18 +37,18 @@
 <script>
 import isEmpty from '../../utils/isEmpty';
 import RequestState from '../utils/Async/requestState';
-import SpinnerSize from '../utils/Spinner/spinnerSize';
-import Spinner from '../utils/Spinner/Spinner';
+import SmallSpinner from '../utils/Spinner/SmallSpinner';
 
 export default {
-  name: 'Dropdown',
+  name: 'PlaylistDropdown',
   props: ['playlists', 'onPlaylistClick', 'isRight'],
   data() {
     return {
-      SpinnerSize,
       RequestState,
       playlistsState: RequestState.LOADING,
-      playlistData: []
+      playlistData: [],
+      // Have to use an Array instead of a Set, Sets are not supported by Vue
+      pending: []
     };
   },
   computed: {
@@ -64,8 +66,17 @@ export default {
         this.playlistsState = RequestState.ERROR;
       });
   },
+  methods: {
+    playlistClicked(p) {
+      this.pending.push(p.id);
+      this.onPlaylistClick(p, () => this.playlistResolved(p.id));
+    },
+    playlistResolved(id) {
+      this.pending = this.pending.filter(id_ => id_ !== id);
+    }
+  },
   components: {
-    Spinner
+    SmallSpinner
   }
 };
 </script>
@@ -78,5 +89,10 @@ export default {
   &::after {
     border: 0 solid transparent !important;
   }
+}
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

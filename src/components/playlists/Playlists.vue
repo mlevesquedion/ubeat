@@ -17,7 +17,7 @@ import PlaylistList from './PlaylistList';
 import AsyncContent from '../utils/Async/AsyncContent';
 import PlaylistAPI from '../../api/playlists';
 import RequestState from '../utils/Async/requestState';
-import Spinner from '../utils/Spinner/Spinner';
+import Spinner from '../utils/Spinner/CustomSpinner';
 import SpinnerSize from '../utils/Spinner/spinnerSize';
 import ErrorMessage from '../utils/ErrorMessage';
 

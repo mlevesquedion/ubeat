@@ -15,8 +15,8 @@
           Manage your favorite albums, artists, playlists and tracks. UBeat does
           it all and lets you listen to your music, your way.
         </p>
-        <image-carousel />
-        <h2
+        <ImageCarousel />
+        <div
           id="punchline-message"
           class="subtitle is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary flex-centered"
         >
@@ -36,19 +36,19 @@
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
             >Playlists</router-link
           >
-        </h2>
+        </div>
       </header>
     </div>
   </div>
 </template>
 
 <script>
-import ImageCarousel from '@/components/ImageCarousel';
+import ImageCarousel from '@/components/utils/ImageCarousel';
 
 export default {
   name: 'app',
   components: {
-    'image-carousel': ImageCarousel
+    ImageCarousel
   }
 };
 </script>
@@ -62,11 +62,8 @@ export default {
 }
 
 #summary-message {
-  padding-top: 1em;
-  padding-bottom: 1em;
   text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 1em 20px;
 }
 
 #punchline-message {
