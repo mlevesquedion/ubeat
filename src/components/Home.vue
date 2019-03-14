@@ -62,11 +62,8 @@ export default {
 }
 
 #summary-message {
-  padding-top: 1em;
-  padding-bottom: 1em;
   text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 1em 20px;
 }
 
 #punchline-message {
