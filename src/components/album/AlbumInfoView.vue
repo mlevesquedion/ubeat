@@ -1,6 +1,6 @@
 <template>
   <section class="section columns">
-    <div class="column is-narrow">
+    <div class="column is-narrow is-one-quarter-tablet">
       <figure class="media-left image">
         <img class="img-responsive" :src="album.artworkUrl" alt="album.name" />
       </figure>
@@ -79,8 +79,7 @@ export default {
 
 .img-responsive {
   display: block;
-  min-width: 180px;
-  max-width: 200px;
+  min-width: 160px;
   height: auto;
 }
 
