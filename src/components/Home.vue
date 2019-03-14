@@ -16,7 +16,7 @@
           it all and lets you listen to your music, your way.
         </p>
         <ImageCarousel />
-        <h2
+        <div
           id="punchline-message"
           class="subtitle is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary flex-centered"
         >
@@ -36,7 +36,7 @@
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
             >Playlists</router-link
           >
-        </h2>
+        </div>
       </header>
     </div>
   </div>
