@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     populatePlaylists(playlists) {
-      this.playlists = playlists;
+      this.playlists = this.playlists.concat(playlists);
       this.requestState = RequestState.LOADED;
     },
     setError(_err) {
