@@ -6,7 +6,7 @@
     <div class="dropdown-menu my-menu" role="menu">
       <div class="dropdown-content album-hoverable">
         <div v-if="playlistsState === RequestState.LOADING">
-          <Spinner :size="SpinnerSize.SMALL"></Spinner>
+          <SmallSpinner />
         </div>
         <div v-if="playlistsState === RequestState.LOADED && hasPlaylists">
           <!-- Have to use an a here to hook into Bulma rules -->
@@ -17,10 +17,7 @@
             @click="playlistClicked(p)"
           >
             <div>{{ p.name }}</div>
-            <Spinner
-              v-if="pending.includes(p.id)"
-              :size="SpinnerSize.SMALL"
-            ></Spinner>
+            <SmallSpinner v-if="pending.includes(p.id)" />
           </a>
         </div>
         <div
@@ -40,15 +37,13 @@
 <script>
 import isEmpty from '../../utils/isEmpty';
 import RequestState from '../utils/Async/requestState';
-import SpinnerSize from '../utils/Spinner/spinnerSize';
-import Spinner from '../utils/Spinner/Spinner';
+import SmallSpinner from '../utils/Spinner/SmallSpinner';
 
 export default {
   name: 'PlaylistDropdown',
   props: ['playlists', 'onPlaylistClick', 'isRight'],
   data() {
     return {
-      SpinnerSize,
       RequestState,
       playlistsState: RequestState.LOADING,
       playlistData: [],
@@ -81,7 +76,7 @@ export default {
     }
   },
   components: {
-    Spinner
+    SmallSpinner
   }
 };
 </script>

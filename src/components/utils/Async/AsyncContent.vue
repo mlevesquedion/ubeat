@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="section" v-if="requestState === RequestState.LOADING">
-      <Spinner :size="SpinnerSize.LARGE" />
+      <LargeSpinner />
     </section>
 
     <div v-if="requestState === RequestState.LOADED">
@@ -15,10 +15,9 @@
 </template>
 
 <script>
-import Spinner from '@/components/utils/Spinner/Spinner';
 import ErrorMessage from '@/components/utils/ErrorMessage';
 import RequestState from './requestState';
-import SpinnerSize from '../Spinner/spinnerSize';
+import LargeSpinner from '../Spinner/LargeSpinner';
 
 export default {
   name: 'AsyncContent',
@@ -26,12 +25,12 @@ export default {
   data() {
     return {
       RequestState,
-      SpinnerSize,
+      LargeSpinner,
       error: `Unable to fetch ${this.dataName} at this time.`
     };
   },
   components: {
-    Spinner,
+    LargeSpinner,
     ErrorMessage
   }
 };
