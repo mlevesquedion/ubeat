@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import ImageCarousel from '@/components/ImageCarousel';
+import ImageCarousel from '@/components/utils/ImageCarousel';
 
 export default {
   name: 'app',
