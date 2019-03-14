@@ -22,12 +22,15 @@
         </div>
         <div
           v-if="playlistsState === RequestState.LOADED && !hasPlaylists"
-          class="bumped-right"
+          class="bumped-right has-text-light"
         >
           No playlists!
         </div>
-        <div v-if="playlistsState === RequestState.ERROR" class="bumped-right">
-          > Could not fetch playlists!
+        <div
+          v-if="playlistsState === RequestState.ERROR"
+          class="bumped-right has-text-light"
+        >
+          Could not fetch playlists!
         </div>
       </div>
     </div>
