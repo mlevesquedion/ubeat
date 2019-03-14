@@ -103,6 +103,7 @@ export default {
 }
 
 .track-line:hover {
+  color: white;
   background-color: $primary;
 }
 
