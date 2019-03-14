@@ -28,7 +28,7 @@
             <a
               class="has-text-light track-button"
               style="text-decoration: none;"
-              v-on:click="playTrack(track.id)"
+              v-on:click="playTrack(track.sample)"
             >
               <span class="icon is-medium bumped-left">
                 <i class="fas fa-play-circle"></i>
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import Jukebox from '@/components/utils/Jukebox/Jukebox';
 import PlaylistDropdown from './PlaylistDropdown';
 import PlaylistAPI from '../../api/playlists';
 import trackDurationFormatter from '../../formatting/trackDurationFormatter';
@@ -59,7 +60,15 @@ import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 export default {
   name: 'TrackListView',
   props: ['tracks', 'playlists'],
+  data() {
+    return {
+      jukebox: new Jukebox()
+    };
+  },
   methods: {
+    playTrack(url) {
+      this.jukebox.play(url);
+    },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);
     },
