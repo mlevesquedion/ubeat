@@ -105,10 +105,6 @@ export default {
 
 .is-clipped {
   min-width: 100px;
-  width: 20vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
+  width: 40vw;
 }
 </style>

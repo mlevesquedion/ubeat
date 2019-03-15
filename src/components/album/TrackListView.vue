@@ -9,9 +9,7 @@
         >
           <div>
             <div class="level-left">
-              <div class="clip-ellipsis">
-                {{ track.number }}. {{ track.name }}
-              </div>
+              <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
             </div>
           </div>
           <div class="level-right truncate">
@@ -160,13 +158,9 @@ export default {
   width: 64px;
 }
 
-.clip-ellipsis {
+.is-clipped {
   min-width: 100px;
   width: 50vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inline-block;
 }
 
 .section {

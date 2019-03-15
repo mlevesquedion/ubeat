@@ -76,6 +76,13 @@ $desktop: 1023px;
   color: $primary;
 }
 
+.is-clipped {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
 .flex-centered {
   display: flex;
   justify-content: center;
