@@ -30,7 +30,7 @@
             :on-playlist-click="addAlbumToPlaylist"
             :is-right="false"
           >
-            <div id="add-album" class="tag is-medium bumped-down">
+            <div id="add-album" class="tag is-medium bumped-down hover-hand">
               <i class="fas fa-plus-circle"></i>
               <span class="bumped-right">Album</span>
             </div>
@@ -106,5 +106,8 @@ export default {
 
 .bumped-down {
   margin-top: 5px;
+}
+.hover-hand {
+  cursor: pointer;
 }
 </style>

@@ -23,12 +23,7 @@
                   </span>
                 </a>
               </PlaylistDropdown>
-              <span v-if="track.id === playingTrackId">
-                <a class="has-text-light track-button">
-                  <span class="icon is-medium">
-                    <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
-                  </span>
-                </a>
+              <template v-if="track.id === playingTrackId">
                 <a class="has-text-light track-button">
                   <span class="icon is-medium">
                     <i
@@ -37,7 +32,12 @@
                     ></i>
                   </span>
                 </a>
-              </span>
+                <a class="has-text-light track-button">
+                  <span class="icon is-medium">
+                    <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
+                  </span>
+                </a>
+              </template>
               <a class="has-text-light track-button" v-else>
                 <span class="icon is-medium">
                   <i
@@ -158,17 +158,9 @@ export default {
   height: auto;
 }
 
-.track-line .track-button {
-  visibility: hidden;
-}
-
-.track-line:hover .track-button {
-  visibility: visible;
-}
-
 .button-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 96px;
 }
 </style>

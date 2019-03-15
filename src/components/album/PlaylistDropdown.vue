@@ -1,6 +1,6 @@
 <template>
-  <div class="dropdown is-hoverable" :class="{ 'is-right': isRight }">
-    <div class="dropdown-trigger">
+  <div class="dropdown" :class="{ 'is-active': isOpen, 'is-right': isRight }">
+    <div @click="toggle()" class="dropdown-trigger">
       <slot></slot>
     </div>
     <div class="dropdown-menu my-menu" role="menu">
@@ -9,7 +9,6 @@
           <SmallSpinner />
         </div>
         <div v-if="playlistsState === RequestState.LOADED && hasPlaylists">
-          <!-- Have to use an a here to hook into Bulma rules -->
           <a
             class="dropdown-item"
             v-for="p in playlistData"
@@ -50,8 +49,8 @@ export default {
       RequestState,
       playlistsState: RequestState.LOADING,
       playlistData: [],
-      // Have to use an Array instead of a Set, Sets are not supported by Vue
-      pending: []
+      pending: [],
+      isOpen: false
     };
   },
   computed: {
@@ -76,6 +75,9 @@ export default {
     },
     playlistResolved(id) {
       this.pending = this.pending.filter(id_ => id_ !== id);
+    },
+    toggle() {
+      this.isOpen = !this.isOpen;
     }
   },
   components: {
