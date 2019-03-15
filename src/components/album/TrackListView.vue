@@ -7,10 +7,12 @@
           class="track-line level is-mobile is-bordered"
           style="padding: 5px"
         >
-          <div class="level-left">
-            <div>{{ track.number }}. {{ track.name }}</div>
+          <div style="width: calc(100% - 140px)">
+          <div class="level-left item-title">
+            <div class="clip-ellipsis">{{ track.number }}. {{ track.name }}</div>
           </div>
-          <div class="level-right ">
+          </div>
+          <div class="level-right truncate">
             <div class="button-group bumped-left">
               <PlaylistDropdown
                 :playlists="playlists"
@@ -163,4 +165,13 @@ export default {
   justify-content: flex-start;
   width: 96px;
 }
+
+.clip-ellipsis{
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
 </style>
