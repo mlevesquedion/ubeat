@@ -40,7 +40,7 @@
             <i class="fas fa-pencil-alt"></i>
           </button>
           <button
-            class="button level-item is-danger"
+            class="button level-item is-danger size-correction"
             :class="{ 'is-loading': isDeleting }"
             @click.stop="deletePlaylist()"
           >
@@ -109,6 +109,9 @@ export default {
         });
         return;
       }
+      if (this.newPlaylistName === this.playlist.name) {
+        return;
+      }
       this.state = PlaylistState.UPDATING;
       PlaylistAPI.updatePlaylistName(this.playlist.id, this.newPlaylistName)
         .then(playlist => {
@@ -154,5 +157,9 @@ export default {
 }
 .width-responsive {
   width: 20vw;
+}
+.size-correction {
+  width: 42px;
+  height: 36px;
 }
 </style>
