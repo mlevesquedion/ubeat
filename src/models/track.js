@@ -1,6 +1,9 @@
+import { uuid } from 'bulma-extensions/bulma-calendar/src/js/utils';
+
 export default {
   fromBackend: trackData => ({
     id: trackData.trackId,
+    uniqueId: uuid(),
     number: trackData.trackNumber,
     name: trackData.trackName,
     album: trackData.collectionName,

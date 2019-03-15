@@ -57,9 +57,8 @@
         :index="ti"
         :playlistIndex="index"
         v-for="(t, ti) in playlist.tracks"
-        :key="`${t.id}${ti}`"
+        :key="t.uniqueId"
       />
-      <!-- Have to concatenate id and index to guarantee unicity -->
     </template>
   </Accordion>
 </template>
