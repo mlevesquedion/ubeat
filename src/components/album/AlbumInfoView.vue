@@ -81,6 +81,7 @@ export default {
 .img-responsive {
   display: block;
   min-width: 160px;
+  max-width: 300px;
   height: auto;
 }
 

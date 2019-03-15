@@ -8,16 +8,21 @@
           }}</span>
         </div>
         <div class="level-right">
-          <div
-            id="update-name" class="level-right bumped-left">
-            <input id="update-name-input" class="input bumped-left"
-                   placeholder="New name" type="text"
-                   @click.stop=""
-                   v-model.lazy="newPlaylistName">
-            <button @click.stop="updateName()"
-                    class="button level-item is-primary"
-                    :class="{'is-loading': isUpdating}"
-            >Update
+          <div id="update-name" class="level-right bumped-left">
+            <input
+              id="update-name-input"
+              class="input bumped-left"
+              placeholder="New name"
+              type="text"
+              @click.stop=""
+              v-model.lazy="newPlaylistName"
+            />
+            <button
+              @click.stop="updateName()"
+              class="button level-item is-primary"
+              :class="{ 'is-loading': isUpdating }"
+            >
+              Update
             </button>
           </div>
           <button
@@ -45,58 +50,69 @@
   </Accordion>
 </template>
 <script>
-  import PlaylistAPI from '@/api/playlist';
-  import Accordion from '../utils/Accordion';
-  import isEmpty from '../../utils/isEmpty';
-  import PlaylistTrack from './PlaylistTrack';
+import PlaylistAPI from '@/api/playlist';
+import Accordion from '../utils/Accordion';
+import isEmpty from '../../utils/isEmpty';
+import PlaylistTrack from './PlaylistTrack';
 
-  export default {
-    name: 'Playlist',
-    props: ['playlist', 'index'],
-    data() {
-      return {
-        emptyPlaylistMessage: 'This playlist is empty!',
-        newPlaylistName: '',
-        isUpdating: false,
-        isDeleting: false
-      };
-    },
-    computed: {
-      isEmpty() {
-        return isEmpty(this.playlist.tracks);
+export default {
+  name: 'Playlist',
+  props: ['playlist', 'index'],
+  data() {
+    return {
+      emptyPlaylistMessage: 'This playlist is empty!',
+      newPlaylistName: '',
+      isUpdating: false,
+      isDeleting: false
+    };
+  },
+  computed: {
+    isEmpty() {
+      return isEmpty(this.playlist.tracks);
+    }
+  },
+  methods: {
+    updateName() {
+      if (!this.newPlaylistName) {
+        this.$toasted.show('Cannot give playlist empty name!', {
+          type: 'ubeat-error'
+        });
+        return;
       }
-    },
-    methods: {
-      updateName() {
-        if (!this.newPlaylistName) {
-          this.$toasted.show('Cannot give playlist empty name!', { type: 'ubeat-error' });
-          return;
-        }
-        this.isUpdating = true;
-        PlaylistAPI.updatePlaylistName(this.playlist.id, this.newPlaylistName)
-          .then(playlist =>
-            this.$root.$emit('update-playlist-name', this.playlist.id, playlist.name)
+      this.isUpdating = true;
+      PlaylistAPI.updatePlaylistName(this.playlist.id, this.newPlaylistName)
+        .then(playlist =>
+          this.$root.$emit(
+            'update-playlist-name',
+            this.playlist.id,
+            playlist.name
           )
-          .then(this.resetName)
-          .catch(_err => this.$toasted.show(`Could not update playlist ${this.playlist.name}.`, { type: 'ubeat-error' }));
-      },
-      resetName() {
-        this.isUpdating = false;
-        this.newPlaylistName = '';
-      },
-      deletePlaylist() {
-        this.isDeleting = true;
-        PlaylistAPI.deletePlaylist(this.playlist.id)
-          .then(_ => this.$root.$emit('delete-playlist', this.index))
-          .catch(_err => {
-            this.isDeleting = false;
-            this.$toasted.show(
-              `We could not delete playlist ${this.playlist.name} at this time.`,
-              { type: 'ubeat-error' }
-            );
-          });
-      }
+        )
+        .then(this.resetName)
+        .catch(_err =>
+          this.$toasted.show(
+            `Could not update playlist ${this.playlist.name}.`,
+            { type: 'ubeat-error' }
+          )
+        );
     },
-    components: { PlaylistTrack, Accordion }
-  };
+    resetName() {
+      this.isUpdating = false;
+      this.newPlaylistName = '';
+    },
+    deletePlaylist() {
+      this.isDeleting = true;
+      PlaylistAPI.deletePlaylist(this.playlist.id)
+        .then(_ => this.$root.$emit('delete-playlist', this.index))
+        .catch(_err => {
+          this.isDeleting = false;
+          this.$toasted.show(
+            `We could not delete playlist ${this.playlist.name} at this time.`,
+            { type: 'ubeat-error' }
+          );
+        });
+    }
+  },
+  components: { PlaylistTrack, Accordion }
+};
 </script>

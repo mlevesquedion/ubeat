@@ -89,10 +89,12 @@ export default {
 .track-button {
   padding: 0 !important;
   margin: 0 !important;
+
   &::after {
     border: 0 solid transparent !important;
   }
 }
+
 .dropdown-item {
   display: flex;
   justify-content: space-between;

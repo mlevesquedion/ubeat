@@ -29,13 +29,13 @@
           <router-link
             to="/album/1125488753"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
-            >Album</router-link
-          >
+            >Album
+          </router-link>
           <router-link
             to="/playlists"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
-            >Playlists</router-link
-          >
+            >Playlists
+          </router-link>
         </div>
       </header>
     </div>
