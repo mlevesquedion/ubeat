@@ -83,6 +83,9 @@ export default {
       return this.jukebox.playingTrackId();
     }
   },
+  beforeDestroy() {
+    this.stopTrack();
+  },
   methods: {
     playTrack(url) {
       this.jukebox.play(url);
