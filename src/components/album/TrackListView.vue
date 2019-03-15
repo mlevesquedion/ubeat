@@ -75,7 +75,7 @@ export default {
   props: ['tracks', 'playlists'],
   data() {
     return {
-      jukebox: new Jukebox()
+      jukebox: new Jukebox(this.stopTrack)
     };
   },
   computed: {

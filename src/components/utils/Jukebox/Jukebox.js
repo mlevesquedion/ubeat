@@ -1,8 +1,9 @@
 class Jukebox {
-  constructor() {
+  constructor(onSongEnded) {
     this.track = null;
     this.sound = null;
     this.isPlaying = false;
+    this.onSongEnded = onSongEnded;
   }
 
   play(track) {
@@ -13,6 +14,7 @@ class Jukebox {
       this.pause();
       this.sound = new Audio(track.sample);
       this.sound.play();
+      this.sound.addEventListener('ended', this.onSongEnded);
     }
     this.isPlaying = true;
   }
