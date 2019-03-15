@@ -27,7 +27,7 @@
               <i class="fas fa-ban"></i>
             </button>
           </span>
-          <span v-else class="subtitle is-primary level-item">{{
+          <span v-else class="subtitle is-primary is-clipped level-item">{{
             playlist.name
           }}</span>
         </div>
@@ -162,5 +162,9 @@ export default {
 .size-correction {
   width: 42px;
   height: 36px;
+}
+
+.is-clipped {
+  width: 40vw;
 }
 </style>
