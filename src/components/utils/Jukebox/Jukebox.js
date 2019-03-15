@@ -1,31 +1,37 @@
 class Jukebox {
   constructor() {
-    this.url = null;
+    this.track = null;
     this.sound = null;
+    this.isPlaying = false;
   }
 
-  play(url) {
-    if (this.sound !== null) {
-      this.sound.pause();
+  play(track) {
+    if (this.track && track.id === this.track.id) {
+      this.sound.play();
+    } else {
+      this.track = track;
+      this.pause();
+      this.sound = new Audio(track.sample);
+      this.sound.play();
     }
-    this.sound = new Audio(url);
-    this.sound.play();
-    // this.sound = null;
+    this.isPlaying = true;
   }
 
   pause() {
-    if (this.sound !== null) {
+    if (this.isPlaying && this.sound !== null) {
       this.sound.pause();
     }
+    this.isPlaying = false;
   }
 
-  isPlaying() {
-    if (this.sound === null) {
-      return false;
-    } else if (this.sound.is_paused) {
-      return false;
-    }
-    return true;
+  stop() {
+    this.pause();
+    this.track = null;
+    this.sound = null;
+  }
+
+  playingTrackId() {
+    return this.isPlaying && this.track && this.track.id;
   }
 }
 

@@ -10,30 +10,43 @@
           <div class="level-left">
             <div>{{ track.number }}. {{ track.name }}</div>
           </div>
-          <div class="level-right">
-            <PlaylistDropdown
-              :playlists="playlists"
-              :on-playlist-click="addTrackToPlayList(track)"
-              :is-right="true"
-            >
-              <a
-                class="navbar-link has-text-light track-button"
-                style="text-decoration: none;"
+          <div class="level-right ">
+            <div class="button-group bumped-left">
+              <PlaylistDropdown
+                :playlists="playlists"
+                :on-playlist-click="addTrackToPlayList(track)"
+                :is-right="true"
               >
+                <a class="navbar-link has-text-light track-button">
+                  <span class="icon is-medium">
+                    <i class="fas fa-plus-circle"></i>
+                  </span>
+                </a>
+              </PlaylistDropdown>
+              <span v-if="track.id === playingTrackId">
+                <a class="has-text-light track-button">
+                  <span class="icon is-medium">
+                    <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
+                  </span>
+                </a>
+                <a class="has-text-light track-button">
+                  <span class="icon is-medium">
+                    <i
+                      class="fas fa-pause-circle"
+                      v-on:click="pauseTrack()"
+                    ></i>
+                  </span>
+                </a>
+              </span>
+              <a class="has-text-light track-button" v-else>
                 <span class="icon is-medium">
-                  <i class="fas fa-plus-circle"></i>
+                  <i
+                    class="fas fa-play-circle"
+                    v-on:click="playTrack(track)"
+                  ></i>
                 </span>
               </a>
-            </PlaylistDropdown>
-            <a
-              class="has-text-light track-button"
-              style="text-decoration: none;"
-              v-on:click="playTrack(track.sample)"
-            >
-              <span class="icon is-medium bumped-left">
-                <i class="fas fa-play-circle"></i>
-              </span>
-            </a>
+            </div>
             <span>{{ formatTrackDuration(track.duration) }}</span>
           </div>
         </div>
@@ -65,9 +78,20 @@ export default {
       jukebox: new Jukebox()
     };
   },
+  computed: {
+    playingTrackId() {
+      return this.jukebox.playingTrackId();
+    }
+  },
   methods: {
     playTrack(url) {
       this.jukebox.play(url);
+    },
+    pauseTrack() {
+      this.jukebox.pause();
+    },
+    stopTrack() {
+      this.jukebox.stop();
     },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);
@@ -135,5 +159,11 @@ export default {
 
 .track-line:hover .track-button {
   visibility: visible;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 96px;
 }
 </style>
