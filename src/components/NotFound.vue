@@ -1,10 +1,8 @@
 <template>
   <section class="section">
-    <h1
-      class="title is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary flex-centered"
-    >
+    <p class="responsive-heading title">
       We couldn't find that page.
-    </h1>
+    </p>
     <div class="flex-centered">
       <img
         src="https://media1.tenor.com/images/4baee94ad8634680ebd9cbf372f9888e/tenor.gif?itemid=7817705"
@@ -12,9 +10,7 @@
       />
     </div>
     <router-link to="/">
-      <p
-        class="subtitle is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary flex-centered bumped-down"
-      >
+      <p class="responsive-heading subtitle bumped-down">
         Back to home
       </p>
     </router-link>

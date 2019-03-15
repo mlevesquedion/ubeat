@@ -99,6 +99,14 @@ $desktop: 1023px;
   background-color: $danger !important;
 }
 
+.responsive-heading {
+  @extend .is-size-2-desktop;
+  @extend .is-size-3-tablet;
+  @extend .is-size-5-mobile;
+  @extend .is-primary;
+  @extend .flex-centered;
+}
+
 // Exports for use in components
 :export {
   primary: $primary;

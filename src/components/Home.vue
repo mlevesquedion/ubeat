@@ -17,19 +17,13 @@
         </p>
         <ImageCarousel />
         <div class="links">
-          <router-link
-            to="/artist/491675603"
-            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
+          <router-link to="/artist/491675603" class="responsive-heading"
             >Artist
           </router-link>
-          <router-link
-            to="/album/1083396755"
-            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
+          <router-link to="/album/1083396755" class="responsive-heading"
             >Album
           </router-link>
-          <router-link
-            to="/playlists"
-            class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
+          <router-link to="/playlists" class="responsive-heading"
             >Playlists
           </router-link>
         </div>
@@ -67,5 +61,9 @@ export default {
   padding-top: 1em;
   display: flex;
   justify-content: center;
+}
+
+.links > * {
+  margin-left: 20px;
 }
 </style>
