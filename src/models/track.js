@@ -6,6 +6,7 @@ export default {
     album: trackData.collectionName,
     artist: trackData.artistName,
     url: trackData.trackViewUrl,
+    sample: trackData.previewUrl,
     duration: trackData.trackTimeMillis / 1000,
     albumUrl: trackData.collectionViewUrl
   }),
@@ -16,6 +17,7 @@ export default {
     collectionName: trackData.album,
     artistName: trackData.artist,
     trackViewUrl: trackData.url,
+    previewUrl: trackData.sample,
     trackTimeMillis: trackData.duration * 1000,
     collectionViewUrl: trackData.albumUrl
   })
