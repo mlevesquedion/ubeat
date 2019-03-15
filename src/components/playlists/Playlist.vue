@@ -6,7 +6,7 @@
           <span v-if="isEditing" class="editing-group">
             <input
               class="input bumped-left width-responsive"
-              placeholder="New name"
+              :placeholder="playlist.name"
               type="text"
               @click.stop=""
               @keydown.enter="updateName()"
