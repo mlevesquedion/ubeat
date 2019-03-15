@@ -7,27 +7,18 @@ class Jukebox {
   }
 
   play(track) {
-    if (this.track && track.id === this.track.id) {
-      this.sound.play();
-    } else {
-      this.track = track;
-      this.pause();
-      this.sound = new Audio(track.sample);
-      this.sound.play();
-      this.sound.addEventListener('ended', this.onSongEnded);
-    }
+    this.stop();
+    this.track = track;
+    this.sound = new Audio(track.sample);
+    this.sound.play();
+    this.sound.addEventListener('ended', this.onSongEnded);
     this.isPlaying = true;
   }
 
-  pause() {
+  stop() {
     if (this.isPlaying && this.sound !== null) {
       this.sound.pause();
     }
-    this.isPlaying = false;
-  }
-
-  stop() {
-    this.pause();
     this.track = null;
     this.sound = null;
   }

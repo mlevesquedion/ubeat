@@ -7,7 +7,7 @@
           class="track-line level is-mobile is-bordered"
           style="padding: 5px"
         >
-          <div style="width: calc(100% - 140px)">
+          <div>
             <div class="level-left item-title">
               <div class="clip-ellipsis">
                 {{ track.number }}. {{ track.name }}
@@ -27,21 +27,14 @@
                   </span>
                 </a>
               </PlaylistDropdown>
-              <template v-if="track.id === playingTrackId">
-                <a class="has-text-light track-button">
-                  <span class="icon is-medium">
-                    <i
-                      class="fas fa-pause-circle"
-                      v-on:click="pauseTrack()"
-                    ></i>
-                  </span>
-                </a>
-                <a class="has-text-light track-button">
-                  <span class="icon is-medium">
-                    <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
-                  </span>
-                </a>
-              </template>
+              <a
+                v-if="track.id === playingTrackId"
+                class="has-text-light track-button"
+              >
+                <span class="icon is-medium">
+                  <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
+                </span>
+              </a>
               <a class="has-text-light track-button" v-else>
                 <span class="icon is-medium">
                   <i
@@ -93,9 +86,6 @@ export default {
   methods: {
     playTrack(url) {
       this.jukebox.play(url);
-    },
-    pauseTrack() {
-      this.jukebox.pause();
     },
     stopTrack() {
       this.jukebox.stop();
@@ -165,11 +155,12 @@ export default {
 .button-group {
   display: flex;
   justify-content: flex-start;
-  width: 96px;
+  width: 64px;
 }
 
 .clip-ellipsis {
-  width: 90%;
+  min-width: 100px;
+  width: 40vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
