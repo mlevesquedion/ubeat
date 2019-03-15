@@ -29,6 +29,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
+
 .subtitle:hover {
   color: $background-lighter;
 }

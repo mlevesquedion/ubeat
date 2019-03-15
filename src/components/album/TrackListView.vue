@@ -44,7 +44,9 @@
                 </span>
               </a>
             </div>
-            <span class="align-track">{{ formatTrackDuration(track.duration) }}</span>
+            <span class="align-track">{{
+              formatTrackDuration(track.duration)
+            }}</span>
           </div>
         </div>
       </div>
@@ -62,118 +64,118 @@
 </template>
 
 <script>
-  import Jukebox from '@/utils/jukebox';
-  import PlaylistDropdown from './PlaylistDropdown';
-  import PlaylistAPI from '../../api/playlist';
-  import trackDurationFormatter from '../../formatting/trackDurationFormatter';
+import Jukebox from '@/utils/jukebox';
+import PlaylistDropdown from './PlaylistDropdown';
+import PlaylistAPI from '../../api/playlist';
+import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
-  export default {
-    name: 'TrackListView',
-    props: ['tracks', 'playlists'],
-    data() {
-      return {
-        jukebox: new Jukebox(this.stopTrack)
-      };
-    },
-    computed: {
-      playingTrackId() {
-        return this.jukebox.playingTrackId();
-      }
-    },
-    beforeDestroy() {
-      this.stopTrack();
-    },
-    methods: {
-      playTrack(url) {
-        this.jukebox.play(url);
-      },
-      stopTrack() {
-        this.jukebox.stop();
-      },
-      formatTrackDuration(seconds) {
-        return trackDurationFormatter.format(seconds);
-      },
-      addTrackToPlayList(track) {
-        return (playlist, onTrackAdded) => {
-          PlaylistAPI.addTrackToPlaylist(track, playlist.id)
-            .then(_ =>
-              this.$toasted.show(
-                `Track ${track.name} was successfully added to playlist ${
-                  playlist.name
-                  }!`,
-                { type: 'ubeat-success' }
-              )
-            )
-            .then(onTrackAdded)
-            .catch(_ =>
-              this.$toated.show(
-                `Could not add ${track.name} to playlist ${playlist.name}.`,
-                { type: 'ubeat-error' }
-              )
-            );
-        };
-      }
-    },
-    components: {
-      PlaylistDropdown
+export default {
+  name: 'TrackListView',
+  props: ['tracks', 'playlists'],
+  data() {
+    return {
+      jukebox: new Jukebox(this.stopTrack)
+    };
+  },
+  computed: {
+    playingTrackId() {
+      return this.jukebox.playingTrackId();
     }
-  };
+  },
+  beforeDestroy() {
+    this.stopTrack();
+  },
+  methods: {
+    playTrack(url) {
+      this.jukebox.play(url);
+    },
+    stopTrack() {
+      this.jukebox.stop();
+    },
+    formatTrackDuration(seconds) {
+      return trackDurationFormatter.format(seconds);
+    },
+    addTrackToPlayList(track) {
+      return (playlist, onTrackAdded) => {
+        PlaylistAPI.addTrackToPlaylist(track, playlist.id)
+          .then(_ =>
+            this.$toasted.show(
+              `Track ${track.name} was successfully added to playlist ${
+                playlist.name
+              }!`,
+              { type: 'ubeat-success' }
+            )
+          )
+          .then(onTrackAdded)
+          .catch(_ =>
+            this.$toated.show(
+              `Could not add ${track.name} to playlist ${playlist.name}.`,
+              { type: 'ubeat-error' }
+            )
+          );
+      };
+    }
+  },
+  components: {
+    PlaylistDropdown
+  }
+};
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
+@import '@/assets/sass/styles.scss';
 
-  .horizontal-line {
-    margin: 0;
-    border-bottom: 1px solid #3b3b3b;
-  }
+.horizontal-line {
+  margin: 0;
+  border-bottom: 1px solid #3b3b3b;
+}
 
-  .level {
-    margin-bottom: 0;
-  }
+.level {
+  margin-bottom: 0;
+}
 
-  .track-line:hover {
-    color: white;
-    background-color: $primary;
-  }
+.track-line:hover {
+  color: white;
+  background-color: $primary;
+}
 
-  .footer {
-    background: $background;
-  }
+.footer {
+  background: $background;
+}
 
-  .footer img {
-    min-width: 150px;
-    width: 15%;
-  }
+.footer img {
+  min-width: 150px;
+  width: 15%;
+}
 
-  .img-responsive {
-    min-width: 180px;
-    max-width: 150px;
-    height: auto;
-  }
+.img-responsive {
+  min-width: 180px;
+  max-width: 150px;
+  height: auto;
+}
 
-  .button-group {
-    display: flex;
-    justify-content: flex-start;
-    width: 64px;
-  }
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+  width: 64px;
+}
 
-  .clip-ellipsis {
-    min-width: 100px;
-    width: 50vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-  }
+.clip-ellipsis {
+  min-width: 100px;
+  width: 50vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
 
-  .section {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.section {
+  padding-left: 0;
+  padding-right: 0;
+}
 
-  .align-track{
-    margin-right: 25px;
-    width:10px
-  }
+.align-track {
+  margin-right: 25px;
+  width: 10px;
+}
 </style>

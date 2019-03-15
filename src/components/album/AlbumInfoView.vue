@@ -107,6 +107,7 @@ export default {
 .bumped-down {
   margin-top: 5px;
 }
+
 .hover-hand {
   cursor: pointer;
 }

@@ -155,9 +155,11 @@ export default {
   display: flex;
   align-items: flex-start;
 }
+
 .width-responsive {
   width: 20vw;
 }
+
 .size-correction {
   width: 42px;
   height: 36px;

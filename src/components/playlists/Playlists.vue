@@ -17,16 +17,12 @@ import PlaylistList from './PlaylistList';
 import AsyncContent from '../utils/Async/AsyncContent';
 import PlaylistAPI from '../../api/playlist';
 import RequestState from '../utils/Async/requestState';
-import Spinner from '../utils/Spinner/CustomSpinner';
-import SpinnerSize from '../utils/Spinner/spinnerSize';
 import ErrorMessage from '../utils/ErrorMessage';
 
 export default {
   name: 'Playlists',
   data() {
     return {
-      RequestState,
-      SpinnerSize,
       requestState: RequestState.LOADING,
       playlists: [],
       error: 'Unable to fetch user playlists at this time.'
@@ -70,7 +66,6 @@ export default {
     AsyncContent,
     PlaylistList,
     PlaylistMaker,
-    Spinner,
     ErrorMessage
   }
 };
