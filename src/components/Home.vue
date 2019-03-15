@@ -22,12 +22,12 @@
         >
           <p>Get started now !</p>
           <router-link
-            to="/artist/3941697"
+            to="/artist/491675603"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
             >Artist
           </router-link>
           <router-link
-            to="/album/1125488753"
+            to="/album/1083396755"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
             >Album
           </router-link>
