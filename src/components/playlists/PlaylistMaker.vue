@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import PlaylistAPI from '../../api/playlists';
+import PlaylistAPI from '../../api/playlist';
 
 export default {
   name: 'PlaylistMaker',

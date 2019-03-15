@@ -36,13 +36,19 @@ const deletePlaylist = id => axios.delete(`${playlistRoot}${id}`);
 const deleteTrack = (playlistId, trackId) =>
   axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`);
 
+const updatePlaylistName =
+  (id, newName) => axios.put(`${playlistRoot}${id}`, { name: newName, owner: ownerEmail })
+    .then(({ data }) => data)
+;
+
 const api = {
   getUserPlaylists,
   createPlaylist,
   addTrackToPlaylist,
   addAlbumToPlaylist,
   deletePlaylist,
-  deleteTrack
+  deleteTrack,
+  updatePlaylistName
 };
 
 export default api;

@@ -67,7 +67,7 @@
 <script>
 import Jukebox from '@/utils/jukebox';
 import PlaylistDropdown from './PlaylistDropdown';
-import PlaylistAPI from '../../api/playlists';
+import PlaylistAPI from '../../api/playlist';
 import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
 export default {
