@@ -1,7 +1,7 @@
 <template>
   <div class="level is-mobile">
     <div class="level-left">
-      <div class="level-item ">
+      <div class="level-item is-clipped">
         {{ trackDescription }}
       </div>
     </div>
@@ -55,3 +55,9 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.is-clipped {
+  width: 60vw;
+}
+</style>
