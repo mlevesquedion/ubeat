@@ -1,11 +1,15 @@
 <template>
   <section class="section columns">
-    <div class="column is-narrow is-one-quarter-tablet">
+    <div class="column is-narrow">
       <figure class="media-left image">
-        <img class="img-responsive" :src="album.artworkUrl" alt="album.name" />
+        <img
+          class="responsive-image"
+          :src="album.artworkUrl"
+          alt="album.name"
+        />
       </figure>
     </div>
-    <div class="column is-three-quarters">
+    <div class="column">
       <p class="title is-size-3 has-text-light">{{ album.name }}</p>
       <div class="subtitle has-text-grey-lighter">
         <div class="label is-size-5">
@@ -78,11 +82,11 @@ export default {
   padding-top: 0;
 }
 
-.img-responsive {
+.responsive-image {
   display: block;
-  min-width: 160px;
+  width: 25vw !important;
+  min-width: 200px;
   max-width: 300px;
-  height: auto;
 }
 
 #artist-name {
