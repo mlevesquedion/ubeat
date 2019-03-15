@@ -12,18 +12,6 @@
               @keydown.enter="updateName()"
               v-model="newPlaylistName"
             />
-            <button
-              @click.stop="updateName()"
-              class="button level-item is-primary"
-            >
-              <i class="fas fa-check"></i>
-            </button>
-            <button
-              @click.stop="stopEditing()"
-              class="button level-item is-warning"
-            >
-              <i class="fas fa-ban"></i>
-            </button>
           </span>
           <span v-else class="subtitle is-primary is-clipped level-item">{{
             playlist.name
@@ -31,8 +19,15 @@
         </div>
         <div class="level-right">
           <button
+            @click.stop="stopEditing()"
+            v-if="isEditing"
+            class="button level-item is-warning"
+          >
+            <i class="fas fa-ban"></i>
+          </button>
+          <button
             class="button level-item is-primary"
-            v-if="!isEditing"
+            v-else
             :class="{ 'is-loading': isUpdating }"
             @click.stop="edit()"
           >
@@ -155,7 +150,7 @@ export default {
 }
 
 .width-responsive {
-  width: 20vw;
+  width: 35vw;
 }
 
 .size-correction {
