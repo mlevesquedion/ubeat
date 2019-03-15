@@ -15,14 +15,12 @@
             <button
               @click.stop="updateName()"
               class="button level-item is-primary"
-              :class="{ 'is-loading': isUpdating }"
             >
               <i class="fas fa-check"></i>
             </button>
             <button
               @click.stop="stopEditing()"
               class="button level-item is-warning"
-              :class="{ 'is-loading': isUpdating }"
             >
               <i class="fas fa-ban"></i>
             </button>
@@ -35,6 +33,7 @@
           <button
             class="button level-item is-primary"
             v-if="!isEditing"
+            :class="{ 'is-loading': isUpdating }"
             @click.stop="edit()"
           >
             <i class="fas fa-pencil-alt"></i>
