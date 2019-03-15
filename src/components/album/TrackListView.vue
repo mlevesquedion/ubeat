@@ -160,10 +160,14 @@ export default {
 
 .clip-ellipsis {
   min-width: 100px;
-  width: 40vw;
+  width: 50vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
+}
+.section {
+  padding-left: 0;
+  padding-right: 0;
 }
 </style>
