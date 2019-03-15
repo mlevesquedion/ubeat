@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <div class="dropdown-menu my-menu" role="menu">
-      <div class="dropdown-content album-hoverable">
+      <div class="dropdown-content">
         <div v-if="playlistsState === RequestState.LOADING">
           <SmallSpinner />
         </div>
@@ -72,6 +72,7 @@ export default {
     playlistClicked(p) {
       this.pending.push(p.id);
       this.onPlaylistClick(p, () => this.playlistResolved(p.id));
+      this.toggle();
     },
     playlistResolved(id) {
       this.pending = this.pending.filter(id_ => id_ !== id);
