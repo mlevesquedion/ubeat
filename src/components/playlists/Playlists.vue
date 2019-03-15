@@ -61,7 +61,6 @@ export default {
       this.playlists[playlistIndex].tracks.splice(trackIndex, 1);
     },
     updatePlaylist(playlistId, newPlaylistName) {
-      console.log('here');
       this.playlists[
         this.playlists.findIndex(p => p.id === playlistId)
       ].name = newPlaylistName;
