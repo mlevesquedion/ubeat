@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import Jukebox from '@/components/utils/Jukebox/Jukebox';
+import Jukebox from '@/utils/jukebox';
 import PlaylistDropdown from './PlaylistDropdown';
 import PlaylistAPI from '../../api/playlists';
 import trackDurationFormatter from '../../formatting/trackDurationFormatter';
