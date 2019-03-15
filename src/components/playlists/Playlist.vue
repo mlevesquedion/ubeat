@@ -6,35 +6,29 @@
           <span v-if="isEditing" class="editing-group">
             <input
               class="input bumped-left width-responsive"
-              placeholder="New name"
+              :placeholder="playlist.name"
               type="text"
               @click.stop=""
               @keydown.enter="updateName()"
               v-model="newPlaylistName"
             />
-            <button
-              @click.stop="updateName()"
-              class="button level-item is-primary"
-              :class="{ 'is-loading': isUpdating }"
-            >
-              <i class="fas fa-check"></i>
-            </button>
-            <button
-              @click.stop="stopEditing()"
-              class="button level-item is-warning"
-              :class="{ 'is-loading': isUpdating }"
-            >
-              <i class="fas fa-ban"></i>
-            </button>
           </span>
-          <span v-else class="subtitle is-primary level-item">{{
+          <span v-else class="subtitle is-primary is-clipped level-item">{{
             playlist.name
           }}</span>
         </div>
         <div class="level-right">
           <button
+            @click.stop="stopEditing()"
+            v-if="isEditing"
+            class="button level-item is-warning"
+          >
+            <i class="fas fa-ban"></i>
+          </button>
+          <button
             class="button level-item is-primary"
-            v-if="!isEditing"
+            v-else
+            :class="{ 'is-loading': isUpdating }"
             @click.stop="edit()"
           >
             <i class="fas fa-pencil-alt"></i>
@@ -156,11 +150,15 @@ export default {
 }
 
 .width-responsive {
-  width: 20vw;
+  width: 35vw;
 }
 
 .size-correction {
   width: 42px;
   height: 36px;
+}
+
+.is-clipped {
+  width: 40vw;
 }
 </style>

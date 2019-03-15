@@ -15,7 +15,7 @@
             :key="p.id"
             @click="playlistClicked(p)"
           >
-            <div>{{ p.name }}</div>
+            <div class="is-clipped">{{ p.name }}</div>
             <SmallSpinner v-if="pending.includes(p.id)" />
           </a>
         </div>
@@ -101,5 +101,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.is-clipped {
+  min-width: 100px;
+  width: 40vw;
 }
 </style>
