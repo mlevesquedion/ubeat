@@ -3,32 +3,46 @@
     <template slot="header">
       <div class="level is-mobile">
         <div class="level-left">
-          <span class="subtitle is-primary level-item">{{
-            playlist.name
-          }}</span>
-        </div>
-        <div class="level-right">
-          <div id="update-name" class="level-right bumped-left">
+          <span v-if="isEditing" class="editing-group">
             <input
-              id="update-name-input"
-              class="input bumped-left"
+              class="input bumped-left width-responsive"
               placeholder="New name"
               type="text"
               @click.stop=""
-              v-model.lazy="newPlaylistName"
+              @keydown.enter="updateName()"
+              v-model="newPlaylistName"
             />
             <button
               @click.stop="updateName()"
               class="button level-item is-primary"
               :class="{ 'is-loading': isUpdating }"
             >
-              Update
+              <i class="fas fa-check"></i>
             </button>
-          </div>
+            <button
+              @click.stop="stopEditing()"
+              class="button level-item is-warning"
+              :class="{ 'is-loading': isUpdating }"
+            >
+              <i class="fas fa-ban"></i>
+            </button>
+          </span>
+          <span v-else class="subtitle is-primary level-item">{{
+            playlist.name
+          }}</span>
+        </div>
+        <div class="level-right">
           <button
-            class="button level-item is-danger"
+            class="button level-item is-primary"
+            v-if="!isEditing"
+            @click.stop="edit()"
+          >
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button
+            class="button level-item is-danger size-correction"
             :class="{ 'is-loading': isDeleting }"
-            @click.stop="deletePlaylist"
+            @click.stop="deletePlaylist()"
           >
             <i class="fas fa-trash"></i>
           </button>
@@ -54,24 +68,40 @@ import PlaylistAPI from '@/api/playlist';
 import Accordion from '../utils/Accordion';
 import isEmpty from '../../utils/isEmpty';
 import PlaylistTrack from './PlaylistTrack';
+import PlaylistState from './playlistState';
 
 export default {
   name: 'Playlist',
   props: ['playlist', 'index'],
   data() {
     return {
+      PlaylistState,
       emptyPlaylistMessage: 'This playlist is empty!',
-      newPlaylistName: '',
-      isUpdating: false,
-      isDeleting: false
+      newPlaylistName: this.playlist.name,
+      state: PlaylistState.NORMAL
     };
   },
   computed: {
     isEmpty() {
       return isEmpty(this.playlist.tracks);
+    },
+    isUpdating() {
+      return this.state === PlaylistState.UPDATING;
+    },
+    isDeleting() {
+      return this.state === PlaylistState.DELETING;
+    },
+    isEditing() {
+      return this.state === PlaylistState.EDITING;
     }
   },
   methods: {
+    edit() {
+      this.state = PlaylistState.EDITING;
+    },
+    stopEditing() {
+      this.state = PlaylistState.NORMAL;
+    },
     updateName() {
       if (!this.newPlaylistName) {
         this.$toasted.show('Cannot give playlist empty name!', {
@@ -79,16 +109,19 @@ export default {
         });
         return;
       }
-      this.isUpdating = true;
+      if (this.newPlaylistName === this.playlist.name) {
+        return;
+      }
+      this.state = PlaylistState.UPDATING;
       PlaylistAPI.updatePlaylistName(this.playlist.id, this.newPlaylistName)
-        .then(playlist =>
+        .then(playlist => {
           this.$root.$emit(
             'update-playlist-name',
             this.playlist.id,
             playlist.name
-          )
-        )
-        .then(this.resetName)
+          );
+          this.resetName(playlist.name);
+        })
         .catch(_err =>
           this.$toasted.show(
             `Could not update playlist ${this.playlist.name}.`,
@@ -96,16 +129,16 @@ export default {
           )
         );
     },
-    resetName() {
-      this.isUpdating = false;
-      this.newPlaylistName = '';
+    resetName(name) {
+      this.state = PlaylistState.NORMAL;
+      this.newPlaylistName = name;
     },
     deletePlaylist() {
-      this.isDeleting = true;
+      this.state = PlaylistState.DELETING;
       PlaylistAPI.deletePlaylist(this.playlist.id)
         .then(_ => this.$root.$emit('delete-playlist', this.index))
         .catch(_err => {
-          this.isDeleting = false;
+          this.state = PlaylistState.NORMAL;
           this.$toasted.show(
             `We could not delete playlist ${this.playlist.name} at this time.`,
             { type: 'ubeat-error' }
@@ -116,3 +149,17 @@ export default {
   components: { PlaylistTrack, Accordion }
 };
 </script>
+
+<style scoped lang="scss">
+.editing-group {
+  display: flex;
+  align-items: flex-start;
+}
+.width-responsive {
+  width: 20vw;
+}
+.size-correction {
+  width: 42px;
+  height: 36px;
+}
+</style>
