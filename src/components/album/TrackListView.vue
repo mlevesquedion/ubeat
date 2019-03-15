@@ -8,9 +8,11 @@
           style="padding: 5px"
         >
           <div style="width: calc(100% - 140px)">
-          <div class="level-left item-title">
-            <div class="clip-ellipsis">{{ track.number }}. {{ track.name }}</div>
-          </div>
+            <div class="level-left item-title">
+              <div class="clip-ellipsis">
+                {{ track.number }}. {{ track.name }}
+              </div>
+            </div>
           </div>
           <div class="level-right truncate">
             <div class="button-group bumped-left">
@@ -166,12 +168,11 @@ export default {
   width: 96px;
 }
 
-.clip-ellipsis{
+.clip-ellipsis {
   width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
 }
-
 </style>

@@ -101,7 +101,7 @@ export default {
 }
 
 .tag:hover {
-  color: $white-ter !important;
+  color: #e2e2e2 !important;
 }
 
 .bumped-down {

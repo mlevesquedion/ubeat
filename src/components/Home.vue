@@ -16,11 +16,7 @@
           it all and lets you listen to your music, your way.
         </p>
         <ImageCarousel />
-        <div
-          id="punchline-message"
-          class="subtitle is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary flex-centered"
-        >
-          <p>Get started now !</p>
+        <div class="links">
           <router-link
             to="/artist/491675603"
             class="is-size-2-desktop is-size-3-tablet is-size-5-mobile is-primary bumped-right"
@@ -59,6 +55,7 @@ export default {
 #welcome-message {
   font-family: $stylish-text;
   padding-top: 1em;
+  margin-bottom: 0;
 }
 
 #summary-message {
@@ -66,8 +63,9 @@ export default {
   padding: 1em 20px;
 }
 
-#punchline-message {
-  font-family: $stylish-text;
-  padding-top: 2em;
+.links {
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
 }
 </style>
