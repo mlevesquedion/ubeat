@@ -72,7 +72,7 @@ export default {
   props: ['tracks', 'playlists'],
   data() {
     return {
-      jukebox: new Jukebox(this.stopTrack)
+      jukebox: new Jukebox(this.stopTrack, this.onPlaybackError)
     };
   },
   computed: {
@@ -90,6 +90,9 @@ export default {
     stopTrack() {
       this.jukebox.stop();
     },
+    onPlaybackError(track) {
+      this.$toasted.show(`Could not play track ${track.name}!`, { type: 'ubeat-error' });
+    },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);
     },
@@ -106,7 +109,7 @@ export default {
           )
           .then(onTrackAdded)
           .catch(_ =>
-            this.$toated.show(
+            this.$toasted.show(
               `Could not add ${track.name} to playlist ${playlist.name}.`,
               { type: 'ubeat-error' }
             )
