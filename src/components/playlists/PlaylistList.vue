@@ -5,7 +5,7 @@
       <Playlist
         :playlist="p"
         :index="pi"
-        v-for="(p, pi) in sortedPlaylist"
+        v-for="(p, pi) in sortedPlaylists"
         :key="p.id"
       />
     </div>
@@ -14,36 +14,30 @@
 </template>
 
 <script>
-  import isEmpty from '@/utils/isEmpty';
-  import Playlist from './Playlist';
+import isEmpty from '@/utils/isEmpty';
+import Playlist from './Playlist';
 
-  export default {
-    name: 'PlaylistList',
-    props: ['playlists'],
-    data() {
-      return {
-        noPlaylistsMessage: 'You have no playlists!'
-      };
+export default {
+  name: 'PlaylistList',
+  props: ['playlists'],
+  data() {
+    return {
+      noPlaylistsMessage: 'You have no playlists!'
+    };
+  },
+  computed: {
+    hasPlaylists() {
+      return !isEmpty(this.playlists);
     },
-    computed: {
-      hasPlaylists() {
-        return !isEmpty(this.playlists);
-      },
-      sortedPlaylist() {
-        function compare(a, b) {
-          if (a.name < b.name) {
-            return -1;
-          }
-          if (a.name > b.name) {
-            return 1;
-          }
-          return 0;
-        }
-        return this.playlists.sort(compare);
-      },
+    sortedPlaylists() {
+      function compare(a, b) {
+        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+      }
+      return this.playlists.sort(compare);
     },
-    components: { Playlist }
-  };
+  },
+  components: { Playlist }
+};
 </script>
 
 <style scoped lang="scss">
