@@ -11,6 +11,7 @@
         id="burger"
         role="button"
         class="navbar-burger"
+        :class="{ 'is-active': isOpen }"
         aria-label="menu"
         aria-expanded="false"
         @click="toggleBurger"
@@ -20,7 +21,7 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div id="nav-menu" class="navbar-menu">
+    <div id="nav-menu" class="navbar-menu" :class="{ 'is-active': isOpen }">
       <div class="navbar-end">
         <div id="search-bar-container" class="navbar-item is-marginless">
           <input
@@ -29,18 +30,18 @@
             placeholder="Search ..."
           />
         </div>
-        <div class="navbar-item">
-          <router-link
-            class="is-size-6-tablet is-size-5-desktop hover-white"
-            to="/playlists"
-          >
-            Playlists
-          </router-link>
-        </div>
+
+        <router-link
+          @click.native="closeBurger"
+          class="navbar-item is-size-6-tablet is-size-5-desktop hover-white"
+          to="/playlists"
+        >
+          Playlists
+        </router-link>
         <div
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
-          <a class="navbar-link">
+          <a class="navbar-link" @click="closeBurger">
             <router-link to="/user" id="user-container" class="navbar-item">
               <img
                 id="user-image"
@@ -72,14 +73,15 @@
 
 <script>
 export default {
+  data() {
+    return { isOpen: false };
+  },
   methods: {
-    toggleClassById(id, cls) {
-      const el = document.getElementById(id);
-      el.classList.toggle(cls);
-    },
     toggleBurger() {
-      this.toggleClassById('burger', 'is-active');
-      this.toggleClassById('nav-menu', 'is-active');
+      this.isOpen = !this.isOpen;
+    },
+    closeBurger() {
+      this.isOpen = false;
     }
   }
 };
