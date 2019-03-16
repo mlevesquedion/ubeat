@@ -1,16 +1,22 @@
 class Jukebox {
-  constructor(onSongEnded) {
+  constructor(onSongEnded, onPlaybackError) {
     this.track = null;
     this.sound = null;
     this.isPlaying = false;
     this.onSongEnded = onSongEnded;
+    this.onPlaybackError = onPlaybackError;
   }
 
   play(track) {
     this.stop();
     this.track = track;
     this.sound = new Audio(track.sample);
-    this.sound.play();
+    this.sound.play()
+      .catch(_ => {
+        this.onPlaybackError(this.track);
+        this.onSongEnded();
+      }
+    );
     this.sound.addEventListener('ended', this.onSongEnded);
     this.isPlaying = true;
   }
