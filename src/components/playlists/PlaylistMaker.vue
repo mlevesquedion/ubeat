@@ -39,7 +39,7 @@ export default {
       this.newPlaylistName = '';
     },
     createPlaylist() {
-      if (!this.newPlaylistName) {
+      if (!this.newPlaylistName.trim()) {
         this.$toasted.show('Cannot create playlist with empty name!', {
           type: 'ubeat-error'
         });
