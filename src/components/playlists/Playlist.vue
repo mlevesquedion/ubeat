@@ -115,12 +115,13 @@ export default {
           );
           this.resetName(playlist.name);
         })
-        .catch(_err =>
+        .catch(_err => {
           this.$toasted.show(
             `Could not update playlist ${this.playlist.name}.`,
             { type: 'ubeat-error' }
-          )
-        );
+          );
+          this.stopEditing();
+        });
     },
     resetName(name) {
       this.state = PlaylistState.NORMAL;
