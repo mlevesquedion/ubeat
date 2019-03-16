@@ -30,9 +30,7 @@ export default {
       return !isEmpty(this.playlists);
     },
     sortedPlaylists() {
-      function compare(a, b) {
-        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-      }
+      const compare = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase());
       return this.playlists.sort(compare);
     },
   },
