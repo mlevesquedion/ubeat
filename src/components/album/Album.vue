@@ -18,7 +18,6 @@ export default {
       playlists: PlaylistAPI.getUserPlaylists()
     };
   },
-  mounted() {},
   components: {
     AlbumInfo,
     TrackList

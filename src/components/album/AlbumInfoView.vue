@@ -4,7 +4,7 @@
       <figure class="media-left image">
         <img
           :src="album.artworkUrl"
-          alt="album.name"
+          :alt="album.name"
           class="responsive-image"
         />
       </figure>
