@@ -94,6 +94,7 @@ export default {
 
 <style scoped lang="scss">
 .is-clipped {
-  width: 60vw;
+  width: 50vw;
+  max-width: 1000px;
 }
 </style>
