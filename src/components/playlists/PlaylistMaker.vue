@@ -55,11 +55,12 @@ export default {
             type: 'ubeat-success'
           })
         )
-        .catch(_err =>
+        .catch(_err => {
+          this.isLoading = false;
           this.$toasted.show('Could not create playlist!', {
             type: 'ubeat-error'
-          })
-        );
+          });
+        });
     }
   }
 };
