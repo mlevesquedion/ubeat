@@ -29,7 +29,6 @@ export default {
   methods: {
     updateImage() {
       this.imageIndex = (this.imageIndex + 1) % this.images.length;
-      console.log(this.image);
     }
   },
   created() {
