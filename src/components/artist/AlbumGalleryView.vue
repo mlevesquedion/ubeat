@@ -8,8 +8,8 @@
           class="responsive-image-container"
         >
           <img
-            :src="album.artworkUrl"
             :alt="album.name"
+            :src="album.artworkUrl"
             class="responsive-image"
           />
         </router-link>

@@ -3,8 +3,8 @@
     <div class="column is-narrow">
       <figure class="media-left image">
         <img
-          :src="album.artworkUrl"
           :alt="album.name"
+          :src="album.artworkUrl"
           class="responsive-image"
         />
       </figure>

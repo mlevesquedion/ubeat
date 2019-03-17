@@ -1,7 +1,7 @@
 <template>
   <div class="flex-centered">
     <!-- Have to use inline style here to achieve transition effect -->
-    <div id="carousel" :style="{ 'background-image': `url(${image})` }"></div>
+    <div :style="{ 'background-image': `url(${image})` }" id="carousel"></div>
   </div>
 </template>
 
