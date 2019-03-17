@@ -2,15 +2,15 @@
   <div class="box">
     <div
       :class="{
-        'zoom-in': !expanded,
-        'zoom-out': expanded,
-        'bottom-padded': expanded
+        'zoom-in': !isOpen,
+        'zoom-out': isOpen,
+        'bottom-padded': isOpen
       }"
       @click="toggle"
     >
       <slot name="header"></slot>
     </div>
-    <slot name="body" v-if="expanded"></slot>
+    <slot name="body" v-if="isOpen"></slot>
   </div>
 </template>
 
@@ -19,18 +19,18 @@ export default {
   name: 'Accordion',
   data() {
     return {
-      expanded: false
+      isOpen: false
     };
   },
   methods: {
     toggle() {
-      this.expanded = !this.expanded;
+      this.isOpen = !this.isOpen;
     }
   }
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .zoom-in {
   cursor: zoom-in;
 }
