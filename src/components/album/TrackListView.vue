@@ -1,59 +1,47 @@
 <template>
   <section class="section">
-    <div class="track-list">
-      <div :key="track.id" class="track" v-for="track in tracks">
-        <hr class="horizontal-line" v-if="track.number !== 1" />
-        <div
-          class="track-line level is-mobile is-bordered"
-          style="padding: 5px"
-        >
-          <div>
-            <div class="level-left">
-              <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
-            </div>
-          </div>
-          <div class="level-right truncate">
-            <div class="button-group bumped-left">
-              <AsyncPlaylistDropdown
-                :isRight="true"
-                :onPlaylistClick="addTrackToPlayList(track)"
-                :playlists="playlists"
-              >
-                <a class="navbar-link has-text-light track-button">
-                  <span class="icon is-medium">
-                    <i class="fas fa-plus-circle"></i>
-                  </span>
-                </a>
-              </AsyncPlaylistDropdown>
-              <a
-                class="has-text-light track-button"
-                v-if="track.id === playingTrackId"
-              >
+    <div :key="track.id" class="track" v-for="track in tracks">
+      <hr class="horizontal-line" v-if="track.number !== 1" />
+      <div class="level is-mobile is-bordered">
+        <div class="level-left">
+          <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
+        </div>
+        <div class="level-right truncate">
+          <div class="button-group bumped-left">
+            <AsyncPlaylistDropdown
+              :isRight="true"
+              :onPlaylistClick="addTrackToPlayList(track)"
+              :playlists="playlists"
+            >
+              <!-- Using .navbar-link here for styling -->
+              <a class="navbar-link has-text-light">
                 <span class="icon is-medium">
-                  <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
+                  <i class="fas fa-plus-circle"></i>
                 </span>
               </a>
-              <a class="has-text-light track-button" v-else>
-                <span class="icon is-medium">
-                  <i
-                    class="fas fa-play-circle"
-                    v-on:click="playTrack(track)"
-                  ></i>
-                </span>
-              </a>
-            </div>
-            <span class="align-track">{{
-              formatTrackDuration(track.duration)
-            }}</span>
+            </AsyncPlaylistDropdown>
+            <a class="has-text-light" v-if="track.id === playingTrackId">
+              <span class="icon is-medium">
+                <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
+              </span>
+            </a>
+            <a class="has-text-light" v-else>
+              <span class="icon is-medium">
+                <i class="fas fa-play-circle" v-on:click="playTrack(track)"></i>
+              </span>
+            </a>
           </div>
+          <span class="align-track">{{
+            formatTrackDuration(track.duration)
+          }}</span>
         </div>
       </div>
     </div>
     <div class="footer has-text-centered">
-      <a :href="this.tracks[0].url">
+      <a :href="albumUrl">
         <img
-          alt="iTunes"
-          class="img-responsive"
+          alt="Get it on iTunes Store"
+          class="responsive-image"
           src="static/images/get_on_itunes.png"
         />
       </a>
@@ -78,6 +66,9 @@ export default {
   computed: {
     playingTrackId() {
       return this.jukebox.playingTrackId();
+    },
+    albumUrl() {
+      return this.tracks[0].url;
     }
   },
   beforeDestroy() {
@@ -135,9 +126,10 @@ export default {
 
 .level {
   margin-bottom: 0;
+  padding: 5px;
 }
 
-.track-line:hover {
+.level:hover {
   color: white;
   background-color: $primary;
 }
@@ -151,7 +143,7 @@ export default {
   width: 15%;
 }
 
-.img-responsive {
+.responsive-image {
   min-width: 180px;
   max-width: 150px;
   height: auto;
@@ -176,5 +168,15 @@ export default {
 .align-track {
   margin-right: 25px;
   width: 10px;
+}
+
+// Have to add this style to prevent the dropdown arrow from showing
+.navbar-link {
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &::after {
+    border: 0 solid transparent !important;
+  }
 }
 </style>

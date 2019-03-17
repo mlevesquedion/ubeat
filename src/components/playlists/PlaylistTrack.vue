@@ -2,7 +2,7 @@
   <div class="level is-mobile">
     <div class="level-left">
       <div class="level-item is-clipped">
-        {{ trackDescription }}
+        {{ track.name }}, {{ track.artist }} - {{ track.album }}
       </div>
     </div>
     <div class="level-right">
@@ -42,12 +42,6 @@ export default {
     return {
       isDeleting: false
     };
-  },
-  computed: {
-    trackDescription() {
-      const track = this.track;
-      return `${track.name}, ${track.artist} - ${track.album}`;
-    }
   },
   methods: {
     deleteTrack() {

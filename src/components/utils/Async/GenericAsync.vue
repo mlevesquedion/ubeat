@@ -7,6 +7,7 @@
 <script>
 import RequestState from './requestState';
 import AsyncContent from './AsyncContent';
+import isEmpty from '../../../utils/isEmpty';
 
 export default {
   name: 'GenericAsync',
@@ -19,7 +20,7 @@ export default {
   },
   methods: {
     setData(data) {
-      if (Object.entries(data).length === 0) {
+      if (isEmpty(data)) {
         this.setError(data);
         return;
       }

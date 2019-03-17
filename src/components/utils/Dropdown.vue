@@ -34,14 +34,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-// Have to add this style to prevent the dropdown arrow from showing
-.track-button {
-  padding: 0 !important;
-  margin: 0 !important;
-
-  &::after {
-    border: 0 solid transparent !important;
-  }
-}
-</style>
+<style scoped lang="scss"></style>

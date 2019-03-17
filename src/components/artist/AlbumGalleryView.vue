@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title is-primary albums-title">Albums</h1>
+    <h1 class="title is-primary has-text-centered">Albums</h1>
     <div class="album-gallery">
       <div :key="album.id" class="album" v-for="album in albums">
         <router-link
@@ -8,8 +8,8 @@
           class="responsive-image-container"
         >
           <img
+            :alt="album.name"
             :src="album.artworkUrl"
-            alt="album.name"
             class="responsive-image"
           />
         </router-link>
@@ -60,10 +60,6 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-}
-
-.albums-title {
-  text-align: center;
 }
 
 .album-name {
