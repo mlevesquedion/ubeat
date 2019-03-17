@@ -91,7 +91,9 @@ export default {
       this.jukebox.stop();
     },
     onPlaybackError(track) {
-      this.$toasted.show(`Could not play track ${track.name}!`, { type: 'ubeat-error' });
+      this.$toasted.show(`Could not play track ${track.name}!`, {
+        type: 'ubeat-error'
+      });
     },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);

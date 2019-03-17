@@ -30,16 +30,17 @@ export default {
       return !isEmpty(this.playlists);
     },
     sortedPlaylists() {
-      const compare = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+      const compare = (a, b) =>
+        a.name.toLowerCase().localeCompare(b.name.toLowerCase());
       return this.playlists.sort(compare);
-    },
+    }
   },
   components: { Playlist }
 };
 </script>
 
 <style scoped lang="scss">
-  .section {
-    padding-top: 0;
-  }
+.section {
+  padding-top: 0;
+}
 </style>
