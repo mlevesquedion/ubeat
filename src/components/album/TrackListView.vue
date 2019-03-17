@@ -170,7 +170,7 @@ export default {
   width: 10px;
 }
 
-// Have to add this style to prevent the dropdown arrow from showing
+// Have to add this style to prevent the dropdown arrow fromBackend showing
 .navbar-link {
   padding: 0 !important;
   margin: 0 !important;
