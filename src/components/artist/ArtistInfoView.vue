@@ -6,6 +6,7 @@
       <a id="itunes-link" :href="artist.url">
         <img
           src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
+          alt="Find this artist on iTunes"
         />
       </a>
     </section>
