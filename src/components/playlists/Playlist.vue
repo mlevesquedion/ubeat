@@ -107,7 +107,7 @@ export default {
         return;
       }
       this.state = PlaylistState.UPDATING;
-      PlaylistAPI.updatePlaylistName(this.playlist.id, this.newPlaylistName)
+      PlaylistAPI.updatePlaylistName(this.playlist, this.newPlaylistName)
         .then(playlist => {
           this.$root.$emit(
             'update-playlist-name',

@@ -13,7 +13,7 @@ const getUserPlaylists = () =>
     .then(({ data }) =>
       data.filter(p => p && p.owner && p.owner.email === ownerEmail)
     )
-    .then(userPlaylists => userPlaylists.map(p => Playlist.from(p)));
+    .then(userPlaylists => userPlaylists.map(p => Playlist.fromBackend(p)));
 
 const createPlaylist = name =>
   axios
@@ -21,12 +21,12 @@ const createPlaylist = name =>
       name,
       owner: ownerEmail
     })
-    .then(({ data }) => Playlist.from(data));
+    .then(({ data }) => Playlist.fromBackend(data));
 
 const addTrackToPlaylist = (track, playlistId) =>
   axios
     .post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track))
-    .then(({ data }) => Playlist.from(data));
+    .then(({ data }) => Playlist.fromBackend(data));
 
 const addAlbumToPlaylist = (albumId, playlistId) =>
   AlbumAPI.getAlbumTracks(albumId).then(tracks =>
@@ -38,9 +38,12 @@ const deletePlaylist = id => axios.delete(`${playlistRoot}${id}`);
 const deleteTrack = (playlistId, trackId) =>
   axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`);
 
-const updatePlaylistName = (id, newName) =>
+const updatePlaylistName = (playlist, newName) =>
   axios
-    .put(`${playlistRoot}${id}`, { name: newName, owner: ownerEmail })
+    .put(
+      `${playlistRoot}${playlist.id}`,
+      Playlist.toBackend({ ...playlist, name: newName })
+    )
     .then(({ data }) => data);
 
 const api = {
