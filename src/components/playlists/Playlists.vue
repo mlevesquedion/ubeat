@@ -1,11 +1,7 @@
 <template>
   <div class="container">
     <PlaylistMaker />
-    <AsyncContent
-      :requestState="requestState"
-      :data="playlists"
-      dataName="user playlists"
-    >
+    <AsyncContent :requestState="requestState" dataName="user playlists">
       <PlaylistList :playlists="playlists" />
     </AsyncContent>
   </div>
@@ -33,6 +29,7 @@ export default {
     this.$root.$on('delete-track', this.deleteTrack);
     this.$root.$on('create-playlist', this.createPlaylist);
     this.$root.$on('update-playlist-name', this.updatePlaylist);
+    this.$root.$on('track-added', this.overwritePlaylist);
   },
   mounted() {
     PlaylistAPI.getUserPlaylists()
@@ -60,6 +57,10 @@ export default {
       this.playlists[
         this.playlists.findIndex(p => p.id === playlistId)
       ].name = newPlaylistName;
+    },
+    overwritePlaylist(newPlaylist) {
+      const index = this.playlists.findIndex(p => p.id === newPlaylist.id);
+      this.playlists.splice(index, 1, newPlaylist);
     }
   },
   components: {

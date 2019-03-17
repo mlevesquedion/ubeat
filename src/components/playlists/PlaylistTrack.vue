@@ -7,6 +7,19 @@
     </div>
     <div class="level-right">
       <div class="level-item">
+        <PlaylistDropdown
+          :playlists="playlists"
+          :onPlaylistClick="addToPlaylist"
+          :isRight="true"
+        >
+          <button class="button is-primary is-small">
+            <span class="icon is-medium">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </button>
+        </PlaylistDropdown>
+      </div>
+      <div class="level-item">
         <button
           class="button level-item is-danger is-small"
           :class="{ 'is-loading': isDeleting }"
@@ -20,10 +33,11 @@
 </template>
 <script>
 import PlaylistAPI from '../../api/playlist';
+import PlaylistDropdown from './dropdown/PlaylistDropdown';
 
 export default {
   name: 'PlaylistTrack',
-  props: ['track', 'index', 'playlist', 'playlistIndex'],
+  props: ['track', 'index', 'playlist', 'playlistIndex', 'playlists'],
   data() {
     return {
       isDeleting: false
@@ -51,7 +65,29 @@ export default {
             { type: 'ubeat-error' }
           );
         });
+    },
+    addToPlaylist(playlist, onTrackAdded) {
+      PlaylistAPI.addTrackToPlaylist(this.track, playlist.id)
+        .then(newPlaylist => this.$root.$emit('track-added', newPlaylist))
+        .then(_ =>
+          this.$toasted.show(
+            `Track ${this.track.name} was successfully added to playlist ${
+              playlist.name
+            }!`,
+            { type: 'ubeat-success' }
+          )
+        )
+        .then(onTrackAdded)
+        .catch(_ =>
+          this.$toasted.show(
+            `Could not add ${this.track.name} to playlist ${playlist.name}.`,
+            { type: 'ubeat-error' }
+          )
+        );
     }
+  },
+  components: {
+    PlaylistDropdown
   }
 };
 </script>

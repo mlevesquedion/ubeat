@@ -11,12 +11,10 @@ class Jukebox {
     this.stop();
     this.track = track;
     this.sound = new Audio(track.sample);
-    this.sound.play()
-      .catch(_ => {
-        this.onPlaybackError(this.track);
-        this.onSongEnded();
-      }
-    );
+    this.sound.play().catch(_ => {
+      this.onPlaybackError(this.track);
+      this.onSongEnded();
+    });
     this.sound.addEventListener('ended', this.onSongEnded);
     this.isPlaying = true;
   }

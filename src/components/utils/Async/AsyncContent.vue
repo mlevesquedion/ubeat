@@ -21,7 +21,7 @@ import LargeSpinner from '../Spinner/LargeSpinner';
 
 export default {
   name: 'AsyncContent',
-  props: ['requestState', 'data', 'dataName'],
+  props: ['requestState', 'dataName'],
   data() {
     return {
       RequestState,
