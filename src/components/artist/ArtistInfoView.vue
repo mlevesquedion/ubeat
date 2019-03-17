@@ -6,7 +6,6 @@
       <a id="itunes-link" :href="artist.url">
         <img
           src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
-          alt="Find this artist on ITunes"
         />
       </a>
     </section>
@@ -14,16 +13,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'artistInfoView',
-    props: ['artist']
-  };
+export default {
+  name: 'artistInfoView',
+  props: ['artist']
+};
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
+@import '@/assets/sass/styles.scss';
 
-  #itunes-link {
-    margin-bottom: 1%;
-  }
+#itunes-link {
+  margin-bottom: 1%;
+}
 </style>
