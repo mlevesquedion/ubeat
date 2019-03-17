@@ -5,8 +5,8 @@
     </p>
     <div class="flex-centered">
       <img
-        src="https://media1.tenor.com/images/4baee94ad8634680ebd9cbf372f9888e/tenor.gif?itemid=7817705"
         alt="cat typing away furiously on keyboard"
+        src="https://media1.tenor.com/images/4baee94ad8634680ebd9cbf372f9888e/tenor.gif?itemid=7817705"
       />
     </div>
     <router-link to="/">

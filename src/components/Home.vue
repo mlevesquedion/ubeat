@@ -1,27 +1,27 @@
 <template>
   <section class="section">
     <h1
-      id="welcome-message"
       class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered"
+      id="welcome-message"
     >
       Welcome to UBeat!
     </h1>
     <p
-      id="summary-message"
       class="is-size-3-desktop is-size-4-tablet is-size-5-mobile is-primary flex-centered"
+      id="summary-message"
     >
       Manage your favorite albums, artists, playlists and tracks. UBeat does it
       all and lets you listen to your music, your way.
     </p>
     <ImageCarousel />
     <div class="links">
-      <router-link to="/artist/491675603" class="responsive-heading"
+      <router-link class="responsive-heading" to="/artist/491675603"
         >Artist
       </router-link>
-      <router-link to="/album/1083396755" class="responsive-heading"
+      <router-link class="responsive-heading" to="/album/1083396755"
         >Album
       </router-link>
-      <router-link to="/playlists" class="responsive-heading"
+      <router-link class="responsive-heading" to="/playlists"
         >Playlists
       </router-link>
     </div>

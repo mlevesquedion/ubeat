@@ -5,8 +5,8 @@
     </template>
     <template slot="content">
       <PlaylistDropdownContent
-        :playlists="playlists"
         :onPlaylistClick="onPlaylistClick"
+        :playlists="playlists"
         @close="toggle"
       />
     </template>

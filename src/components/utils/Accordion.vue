@@ -10,7 +10,7 @@
     >
       <slot name="header"></slot>
     </div>
-    <slot v-if="expanded" name="body"></slot>
+    <slot name="body" v-if="expanded"></slot>
   </div>
 </template>
 

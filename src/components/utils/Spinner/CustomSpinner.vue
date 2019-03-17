@@ -1,5 +1,5 @@
 <template>
-  <Spinner :size="size" :line-fg-color="color" />
+  <Spinner :line-fg-color="color" :size="size" />
 </template>
 
 <script>

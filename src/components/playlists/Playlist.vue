@@ -3,40 +3,40 @@
     <template slot="header">
       <div class="level is-mobile">
         <div class="level-left">
-          <span v-if="isEditing" class="editing-group">
+          <span class="editing-group" v-if="isEditing">
             <input
-              class="input bumped-left width-responsive"
               :placeholder="playlist.name"
-              type="text"
               @click.stop=""
               @keydown.enter="updateName()"
+              class="input bumped-left width-responsive"
+              type="text"
               v-model="newPlaylistName"
             />
           </span>
-          <span v-else class="subtitle is-primary is-clipped level-item">{{
+          <span class="subtitle is-primary is-clipped level-item" v-else>{{
             playlist.name
           }}</span>
         </div>
         <div class="level-right">
           <button
             @click.stop="stopEditing()"
-            v-if="isEditing"
             class="button level-item is-warning"
+            v-if="isEditing"
           >
             <i class="fas fa-ban"></i>
           </button>
           <button
-            class="button level-item is-primary"
-            v-else
             :class="{ 'is-loading': isUpdating }"
             @click.stop="edit()"
+            class="button level-item is-primary"
+            v-else
           >
             <i class="fas fa-pencil-alt"></i>
           </button>
           <button
-            class="button level-item is-danger size-correction"
             :class="{ 'is-loading': isDeleting }"
             @click.stop="deletePlaylist()"
+            class="button level-item is-danger size-correction"
           >
             <i class="fas fa-trash"></i>
           </button>
@@ -46,13 +46,13 @@
     <template slot="body">
       <div v-if="isEmpty">{{ emptyPlaylistMessage }}</div>
       <PlaylistTrack
-        :track="t"
-        :playlist="playlist"
-        :playlists="playlists"
         :index="ti"
-        :playlistIndex="index"
-        v-for="(t, ti) in playlist.tracks"
         :key="t.uniqueId"
+        :playlist="playlist"
+        :playlistIndex="index"
+        :playlists="playlists"
+        :track="t"
+        v-for="(t, ti) in playlist.tracks"
       />
     </template>
   </Accordion>

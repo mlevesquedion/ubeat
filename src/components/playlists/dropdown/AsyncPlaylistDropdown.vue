@@ -9,13 +9,13 @@
       </div>
       <div v-if="playlistsState === RequestState.LOADED">
         <PlaylistDropdownContent
-          :playlists="playlistData"
           :onPlaylistClick="onPlaylistClick"
+          :playlists="playlistData"
         />
       </div>
       <div
-        v-if="playlistsState === RequestState.ERROR"
         class="bumped-right has-text-light"
+        v-if="playlistsState === RequestState.ERROR"
       >
         Could not fetch playlists!
       </div>

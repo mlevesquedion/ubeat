@@ -3,8 +3,8 @@
     <h1 class="title has-text-light">New playlist</h1>
     <div class="field">
       <input
-        class="input"
         @keydown.enter="createPlaylist"
+        class="input"
         placeholder="Name"
         type="text"
         v-model="newPlaylistName"
@@ -12,9 +12,9 @@
     </div>
     <div class="field">
       <button
+        :class="{ 'is-loading': isLoading }"
         @click="createPlaylist"
         class="button is-primary"
-        :class="{ 'is-loading': isLoading }"
       >
         Create
       </button>

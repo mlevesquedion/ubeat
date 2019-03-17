@@ -1,16 +1,16 @@
 <template>
   <div v-if="hasPlaylists">
     <a
-      class="dropdown-item"
-      v-for="p in playlists"
       :key="p.id"
       @click="playlistClicked(p)"
+      class="dropdown-item"
+      v-for="p in playlists"
     >
       <div class="is-clipped">{{ p.name }}</div>
       <SmallSpinner v-if="pending.includes(p.id)" />
     </a>
   </div>
-  <div v-else class="bumped-right has-text-light">
+  <div class="bumped-right has-text-light" v-else>
     No playlists!
   </div>
 </template>

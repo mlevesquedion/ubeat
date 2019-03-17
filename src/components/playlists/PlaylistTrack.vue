@@ -8,9 +8,9 @@
     <div class="level-right">
       <div class="level-item">
         <PlaylistDropdown
-          :playlists="playlists"
-          :onPlaylistClick="addToPlaylist"
           :isRight="true"
+          :onPlaylistClick="addToPlaylist"
+          :playlists="playlists"
         >
           <button class="button is-primary is-small">
             <span class="icon is-medium">
@@ -21,9 +21,9 @@
       </div>
       <div class="level-item">
         <button
-          class="button level-item is-danger is-small"
           :class="{ 'is-loading': isDeleting }"
           @click="deleteTrack"
+          class="button level-item is-danger is-small"
         >
           <i class="fas fa-trash"></i>
         </button>

@@ -3,9 +3,9 @@
     <div class="column is-narrow">
       <figure class="media-left image">
         <img
-          class="responsive-image"
           :src="album.artworkUrl"
           alt="album.name"
+          class="responsive-image"
         />
       </figure>
     </div>
@@ -26,11 +26,11 @@
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} tracks</p>
           <AsyncPlaylistDropdown
-            :playlists="playlists"
-            :onPlaylistClick="addAlbumToPlaylist"
             :isRight="false"
+            :onPlaylistClick="addAlbumToPlaylist"
+            :playlists="playlists"
           >
-            <div id="add-album" class="tag is-medium bumped-down hover-hand">
+            <div class="tag is-medium bumped-down hover-hand" id="add-album">
               <i class="fas fa-plus-circle"></i>
               <span class="bumped-right">Album</span>
             </div>

@@ -1,5 +1,5 @@
 <template>
-  <AsyncContent :requestState="requestState" :dataName="dataName">
+  <AsyncContent :dataName="dataName" :requestState="requestState">
     <slot :data="data"></slot>
   </AsyncContent>
 </template>

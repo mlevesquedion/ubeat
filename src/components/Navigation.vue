@@ -2,32 +2,32 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <router-link
-        id="text-logo"
         class="is-size-2-desktop is-size-3-mobile is-size-3-tablet navbar-item"
+        id="text-logo"
         to="/"
         >UBeat
       </router-link>
       <a
+        :class="{ 'is-active': isOpen }"
+        @click="toggleBurger"
+        aria-expanded="false"
+        aria-label="menu"
+        class="navbar-burger"
         id="burger"
         role="button"
-        class="navbar-burger"
-        :class="{ 'is-active': isOpen }"
-        aria-label="menu"
-        aria-expanded="false"
-        @click="toggleBurger"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div id="nav-menu" class="navbar-menu" :class="{ 'is-active': isOpen }">
+    <div :class="{ 'is-active': isOpen }" class="navbar-menu" id="nav-menu">
       <div class="navbar-end">
-        <div id="search-bar-container" class="navbar-item is-marginless">
+        <div class="navbar-item is-marginless" id="search-bar-container">
           <input
             class="is-size-6-tablet is-size-5-desktop search-bar"
-            type="search"
             placeholder="Search ..."
+            type="search"
           />
         </div>
 
@@ -41,11 +41,11 @@
         <div
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
-          <a class="navbar-link" @click="closeBurger">
-            <router-link to="/user" id="user-container" class="navbar-item">
+          <a @click="closeBurger" class="navbar-link">
+            <router-link class="navbar-item" id="user-container" to="/user">
               <img
-                id="user-image"
                 class="is-rounded bumped-left"
+                id="user-image"
                 src="static/images/default_profile.png"
               />
               <span>User</span>

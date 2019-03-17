@@ -1,7 +1,7 @@
 <template>
-  <GenericAsync :dataSource="dataSource" :dataName="dataName">
+  <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <TrackListView :tracks="data" :playlists="playlists" />
+      <TrackListView :playlists="playlists" :tracks="data" />
     </template>
   </GenericAsync>
 </template>

@@ -2,15 +2,15 @@
   <section class="section">
     <h1 class="title is-primary albums-title">Albums</h1>
     <div class="album-gallery">
-      <div :key="album.id" v-for="album in albums" class="album">
+      <div :key="album.id" class="album" v-for="album in albums">
         <router-link
-          class="responsive-image-container"
           :to="{ name: 'Album', params: { id: album.id } }"
+          class="responsive-image-container"
         >
           <img
-            class="responsive-image"
             :src="album.artworkUrl"
             alt="album.name"
+            class="responsive-image"
           />
         </router-link>
         <label class="album-name subtitle">{{ album.name }}</label>

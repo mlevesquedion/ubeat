@@ -1,13 +1,13 @@
 <template>
   <section class="section">
     <h1 class="title has-text-light">Playlists</h1>
-    <div v-if="hasPlaylists" class="accordions">
+    <div class="accordions" v-if="hasPlaylists">
       <Playlist
+        :index="pi"
+        :key="p.id"
         :playlist="p"
         :playlists="playlists"
-        :index="pi"
         v-for="(p, pi) in sortedPlaylists"
-        :key="p.id"
       />
     </div>
     <div v-else>{{ noPlaylistsMessage }}</div>

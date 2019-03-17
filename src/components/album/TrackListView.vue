@@ -1,8 +1,8 @@
 <template>
   <section class="section">
     <div class="track-list">
-      <div :key="track.id" v-for="track in tracks" class="track">
-        <hr v-if="track.number !== 1" class="horizontal-line" />
+      <div :key="track.id" class="track" v-for="track in tracks">
+        <hr class="horizontal-line" v-if="track.number !== 1" />
         <div
           class="track-line level is-mobile is-bordered"
           style="padding: 5px"
@@ -15,9 +15,9 @@
           <div class="level-right truncate">
             <div class="button-group bumped-left">
               <AsyncPlaylistDropdown
-                :playlists="playlists"
-                :onPlaylistClick="addTrackToPlayList(track)"
                 :isRight="true"
+                :onPlaylistClick="addTrackToPlayList(track)"
+                :playlists="playlists"
               >
                 <a class="navbar-link has-text-light track-button">
                   <span class="icon is-medium">
@@ -26,8 +26,8 @@
                 </a>
               </AsyncPlaylistDropdown>
               <a
-                v-if="track.id === playingTrackId"
                 class="has-text-light track-button"
+                v-if="track.id === playingTrackId"
               >
                 <span class="icon is-medium">
                   <i class="fas fa-stop-circle" v-on:click="stopTrack()"></i>
@@ -52,9 +52,9 @@
     <div class="footer has-text-centered">
       <a :href="this.tracks[0].url">
         <img
+          alt="iTunes"
           class="img-responsive"
           src="static/images/get_on_itunes.png"
-          alt="iTunes"
         />
       </a>
     </div>

@@ -1,11 +1,11 @@
 <template>
-  <div class="dropdown" :class="{ 'is-active': isOpen, 'is-right': isRight }">
+  <div :class="{ 'is-active': isOpen, 'is-right': isRight }" class="dropdown">
     <div @click="toggle()" class="dropdown-trigger">
       <slot name="trigger"></slot>
     </div>
     <div class="dropdown-menu my-menu" role="menu">
       <div class="dropdown-content">
-        <slot name="content"> </slot>
+        <slot name="content"></slot>
       </div>
     </div>
   </div>
