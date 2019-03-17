@@ -24,7 +24,9 @@ const createPlaylist = name =>
     .then(({ data }) => Playlist.from(data));
 
 const addTrackToPlaylist = (track, playlistId) =>
-  axios.post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track));
+  axios
+    .post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track))
+    .then(({ data }) => Playlist.from(data));
 
 const addAlbumToPlaylist = (albumId, playlistId) =>
   AlbumAPI.getAlbumTracks(albumId).then(tracks =>
@@ -40,6 +42,7 @@ const updatePlaylistName = (id, newName) =>
   axios
     .put(`${playlistRoot}${id}`, { name: newName, owner: ownerEmail })
     .then(({ data }) => data);
+
 const api = {
   getUserPlaylists,
   createPlaylist,

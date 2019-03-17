@@ -48,6 +48,7 @@
       <PlaylistTrack
         :track="t"
         :playlist="playlist"
+        :playlists="playlists"
         :index="ti"
         :playlistIndex="index"
         v-for="(t, ti) in playlist.tracks"
@@ -65,7 +66,7 @@ import PlaylistState from './playlistState';
 
 export default {
   name: 'Playlist',
-  props: ['playlist', 'index'],
+  props: ['playlist', 'index', 'playlists'],
   data() {
     return {
       PlaylistState,

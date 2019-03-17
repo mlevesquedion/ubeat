@@ -25,16 +25,16 @@
         <div class="is-size-6 has-text-grey-lighter">
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} tracks</p>
-          <PlaylistDropdown
+          <AsyncPlaylistDropdown
             :playlists="playlists"
-            :on-playlist-click="addAlbumToPlaylist"
-            :is-right="false"
+            :onPlaylistClick="addAlbumToPlaylist"
+            :isRight="false"
           >
             <div id="add-album" class="tag is-medium bumped-down hover-hand">
               <i class="fas fa-plus-circle"></i>
               <span class="bumped-right">Album</span>
             </div>
-          </PlaylistDropdown>
+          </AsyncPlaylistDropdown>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
 
 <script>
 import PlaylistAPI from '../../api/playlist';
-import PlaylistDropdown from './PlaylistDropdown';
+import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
 
 export default {
   name: 'AlbumInfoView',
@@ -70,7 +70,7 @@ export default {
         );
     }
   },
-  components: { PlaylistDropdown }
+  components: { AsyncPlaylistDropdown }
 };
 </script>
 

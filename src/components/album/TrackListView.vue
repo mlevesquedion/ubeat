@@ -14,17 +14,17 @@
           </div>
           <div class="level-right truncate">
             <div class="button-group bumped-left">
-              <PlaylistDropdown
+              <AsyncPlaylistDropdown
                 :playlists="playlists"
-                :on-playlist-click="addTrackToPlayList(track)"
-                :is-right="true"
+                :onPlaylistClick="addTrackToPlayList(track)"
+                :isRight="true"
               >
                 <a class="navbar-link has-text-light track-button">
                   <span class="icon is-medium">
                     <i class="fas fa-plus-circle"></i>
                   </span>
                 </a>
-              </PlaylistDropdown>
+              </AsyncPlaylistDropdown>
               <a
                 v-if="track.id === playingTrackId"
                 class="has-text-light track-button"
@@ -63,7 +63,7 @@
 
 <script>
 import Jukebox from '@/utils/jukebox';
-import PlaylistDropdown from './PlaylistDropdown';
+import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
 import PlaylistAPI from '../../api/playlist';
 import trackDurationFormatter from '../../formatting/trackDurationFormatter';
 
@@ -120,7 +120,7 @@ export default {
     }
   },
   components: {
-    PlaylistDropdown
+    AsyncPlaylistDropdown
   }
 };
 </script>

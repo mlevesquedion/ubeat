@@ -4,6 +4,7 @@
     <div v-if="hasPlaylists" class="accordions">
       <Playlist
         :playlist="p"
+        :playlists="playlists"
         :index="pi"
         v-for="(p, pi) in sortedPlaylists"
         :key="p.id"

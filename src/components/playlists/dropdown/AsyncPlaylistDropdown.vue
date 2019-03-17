@@ -8,22 +8,12 @@
         <div v-if="playlistsState === RequestState.LOADING">
           <SmallSpinner />
         </div>
-        <div v-if="playlistsState === RequestState.LOADED && hasPlaylists">
-          <a
-            class="dropdown-item"
-            v-for="p in playlistData"
-            :key="p.id"
-            @click="playlistClicked(p)"
-          >
-            <div class="is-clipped">{{ p.name }}</div>
-            <SmallSpinner v-if="pending.includes(p.id)" />
-          </a>
-        </div>
-        <div
-          v-if="playlistsState === RequestState.LOADED && !hasPlaylists"
-          class="bumped-right has-text-light"
-        >
-          No playlists!
+        <div v-if="playlistsState === RequestState.LOADED">
+          <PlaylistDropdownContent
+            :playlists="playlistData"
+            :onPlaylistClick="onPlaylistClick"
+            @close="toggle"
+          />
         </div>
         <div
           v-if="playlistsState === RequestState.ERROR"
@@ -37,26 +27,20 @@
 </template>
 
 <script>
-import isEmpty from '../../utils/isEmpty';
-import RequestState from '../utils/Async/requestState';
-import SmallSpinner from '../utils/Spinner/SmallSpinner';
+import RequestState from '../../utils/Async/requestState';
+import SmallSpinner from '../../utils/Spinner/SmallSpinner';
+import PlaylistDropdownContent from './PlaylistDropdownContent';
 
 export default {
-  name: 'PlaylistDropdown',
+  name: 'AsyncPlaylistDropdown',
   props: ['playlists', 'onPlaylistClick', 'isRight'],
   data() {
     return {
       RequestState,
       playlistsState: RequestState.LOADING,
       playlistData: [],
-      pending: [],
       isOpen: false
     };
-  },
-  computed: {
-    hasPlaylists() {
-      return !isEmpty(this.playlistData);
-    }
   },
   mounted() {
     this.playlists
@@ -69,19 +53,12 @@ export default {
       });
   },
   methods: {
-    playlistClicked(p) {
-      this.pending.push(p.id);
-      this.onPlaylistClick(p, () => this.playlistResolved(p.id));
-      this.toggle();
-    },
-    playlistResolved(id) {
-      this.pending = this.pending.filter(id_ => id_ !== id);
-    },
     toggle() {
       this.isOpen = !this.isOpen;
     }
   },
   components: {
+    PlaylistDropdownContent,
     SmallSpinner
   }
 };
@@ -96,17 +73,5 @@ export default {
   &::after {
     border: 0 solid transparent !important;
   }
-}
-
-.dropdown-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.is-clipped {
-  min-width: 100px;
-  max-width: 200px;
-  width: 40vw;
 }
 </style>
