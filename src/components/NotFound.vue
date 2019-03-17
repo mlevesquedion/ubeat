@@ -11,7 +11,7 @@
     </div>
     <router-link to="/">
       <p class="responsive-heading subtitle bumped-down">
-        Back to home
+        Take me back
       </p>
     </router-link>
   </section>
