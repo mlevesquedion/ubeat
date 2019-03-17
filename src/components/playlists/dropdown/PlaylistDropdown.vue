@@ -1,22 +1,21 @@
 <template>
-  <div class="dropdown" :class="{ 'is-active': isOpen, 'is-right': isRight }">
-    <div @click="toggle()" class="dropdown-trigger">
+  <Dropdown :isRight="isRight">
+    <template slot="trigger">
       <slot></slot>
-    </div>
-    <div class="dropdown-menu my-menu" role="menu">
-      <div class="dropdown-content">
-        <PlaylistDropdownContent
-          :playlists="playlists"
-          :onPlaylistClick="onPlaylistClick"
-          @close="toggle"
-        />
-      </div>
-    </div>
-  </div>
+    </template>
+    <template slot="content">
+      <PlaylistDropdownContent
+        :playlists="playlists"
+        :onPlaylistClick="onPlaylistClick"
+        @close="toggle"
+      />
+    </template>
+  </Dropdown>
 </template>
 
 <script>
 import PlaylistDropdownContent from './PlaylistDropdownContent';
+import Dropdown from '../../utils/Dropdown';
 
 export default {
   name: 'PlaylistDropdown',
@@ -31,7 +30,7 @@ export default {
       this.isOpen = !this.isOpen;
     }
   },
-  components: { PlaylistDropdownContent }
+  components: { PlaylistDropdownContent, Dropdown }
 };
 </script>
 

@@ -36,7 +36,7 @@ export default {
     playlistClicked(p) {
       this.pending.push(p.id);
       this.onPlaylistClick(p, () => this.playlistResolved(p.id));
-      // this.$emit('close');
+      this.$parent.$emit('close');
     },
     playlistResolved(id) {
       this.pending = this.pending.filter(id_ => id_ !== id);
