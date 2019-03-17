@@ -7,7 +7,6 @@
       <PlaylistDropdownContent
         :onPlaylistClick="onPlaylistClick"
         :playlists="playlists"
-        @close="toggle"
       />
     </template>
   </Dropdown>
@@ -20,16 +19,6 @@ import Dropdown from '../../utils/Dropdown';
 export default {
   name: 'PlaylistDropdown',
   props: ['playlists', 'isRight', 'onPlaylistClick'],
-  data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggle() {
-      this.isOpen = !this.isOpen;
-    }
-  },
   components: { PlaylistDropdownContent, Dropdown }
 };
 </script>

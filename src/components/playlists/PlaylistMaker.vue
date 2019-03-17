@@ -56,7 +56,7 @@ export default {
           })
         )
         .catch(_err =>
-          this.$toasted.show('Could not create playlist :(', {
+          this.$toasted.show('Could not create playlist!', {
             type: 'ubeat-error'
           })
         );

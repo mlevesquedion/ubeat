@@ -20,15 +20,14 @@ export default {
   data() {
     return {
       requestState: RequestState.LOADING,
-      playlists: [],
-      error: 'Unable to fetch user playlists at this time.'
+      playlists: []
     };
   },
   created() {
     this.$root.$on('delete-playlist', this.deletePlaylist);
     this.$root.$on('delete-track', this.deleteTrack);
     this.$root.$on('create-playlist', this.createPlaylist);
-    this.$root.$on('update-playlist-name', this.updatePlaylist);
+    this.$root.$on('update-playlist-name', this.updatePlaylistName);
     this.$root.$on('track-added', this.overwritePlaylist);
   },
   mounted() {
@@ -38,6 +37,10 @@ export default {
   },
   methods: {
     populatePlaylists(playlists) {
+      /*
+        Have to use concat, in case the user creates a playlist before
+        the backend data arrives.
+       */
       this.playlists = this.playlists.concat(playlists);
       this.requestState = RequestState.LOADED;
     },
@@ -53,7 +56,7 @@ export default {
     deleteTrack(playlistIndex, trackIndex) {
       this.playlists[playlistIndex].tracks.splice(trackIndex, 1);
     },
-    updatePlaylist(playlistId, newPlaylistName) {
+    updatePlaylistName(playlistId, newPlaylistName) {
       this.playlists[
         this.playlists.findIndex(p => p.id === playlistId)
       ].name = newPlaylistName;
@@ -71,19 +74,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
-
-#create-message {
-  font-family: $stylish-text;
-}
-
-#existing-message {
-  font-family: $stylish-text;
-}
-
-#playlist-name {
-  font-family: $stylish-text;
-}
-</style>

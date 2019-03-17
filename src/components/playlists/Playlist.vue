@@ -97,13 +97,13 @@ export default {
       this.state = PlaylistState.NORMAL;
     },
     updateName() {
+      if (this.newPlaylistName === this.playlist.name) {
+        return;
+      }
       if (!this.newPlaylistName.trim()) {
         this.$toasted.show('Cannot give playlist empty name!', {
           type: 'ubeat-error'
         });
-        return;
-      }
-      if (this.newPlaylistName === this.playlist.name) {
         return;
       }
       this.state = PlaylistState.UPDATING;
