@@ -5,7 +5,7 @@
       <p class="label is-size-3">{{ artist.genre }}</p>
       <a :href="artist.url" id="itunes-link">
         <img
-          alt="Find this artist on iTunes"
+          alt="Listen on Apple Music"
           src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
         />
       </a>
