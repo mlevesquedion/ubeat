@@ -106,6 +106,7 @@ export default {
 
 .is-clipped {
   min-width: 100px;
+  max-width: 200px;
   width: 40vw;
 }
 </style>
