@@ -5,7 +5,7 @@
         class="is-size-2-desktop is-size-3-mobile is-size-3-tablet navbar-item"
         id="text-logo"
         to="/"
-        >UBeat
+      >UBeat
       </router-link>
       <a
         :class="{ 'is-active': isOpen }"
@@ -28,6 +28,7 @@
             class="is-size-6-tablet is-size-5-desktop search-bar"
             placeholder="Search ..."
             type="search"
+            v-on:keyup.enter="redirect"
           />
         </div>
 
@@ -53,15 +54,15 @@
           </a>
           <div class="navbar-dropdown">
             <a class="navbar-item">
-              <i class="fas fa-cog" />
+              <i class="fas fa-cog"/>
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
-                >Settings</span
+              >Settings</span
               >
             </a>
             <a class="navbar-item">
-              <i class="fas fa-sign-out-alt" />
+              <i class="fas fa-sign-out-alt"/>
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
-                >Sign out</span
+              >Sign out</span
               >
             </a>
           </div>
@@ -72,82 +73,89 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return { isOpen: false };
-  },
-  methods: {
-    toggleBurger() {
-      this.isOpen = !this.isOpen;
+  import Router from '@/router/index';
+
+  export default {
+    data() {
+      return { isOpen: false };
     },
-    closeBurger() {
-      this.isOpen = false;
+    props: ['Router'],
+    methods: {
+      redirect() {
+        Router.push('/searchresults');
+      },
+      toggleBurger() {
+        this.isOpen = !this.isOpen;
+      },
+      closeBurger() {
+        this.isOpen = false;
+      }
     }
-  }
-};
+  };
 </script>
 
+
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
+  @import '@/assets/sass/styles.scss';
 
-#text-logo {
-  color: $background;
-  font-family: $stylish-text;
-  background-color: $primary;
-}
+  #text-logo {
+    color: $background;
+    font-family: $stylish-text;
+    background-color: $primary;
+  }
 
-#text-logo:hover {
-  color: $background-light;
-}
+  #text-logo:hover {
+    color: $background-light;
+  }
 
-#text-logo:active {
-  color: $background-lighter;
-}
+  #text-logo:active {
+    color: $background-lighter;
+  }
 
-#nav-menu {
-  padding-top: 0;
-  padding-right: 0;
-}
+  #nav-menu {
+    padding-top: 0;
+    padding-right: 0;
+  }
 
-#user-container {
-  @extend .is-paddingless;
-  @media screen and (max-width: $navbar-breakpoint) {
+  #user-container {
+    @extend .is-paddingless;
+    @media screen and (max-width: $navbar-breakpoint) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navbar-item {
+    @extend .is-unselectable;
+  }
+
+  .hover-white:hover {
+    color: white;
+  }
+
+  .search-bar {
+    height: 40px;
+    padding: 10px;
+    @media screen and (min-width: $navbar-breakpoint) {
+      width: 200px;
+    }
+    @media screen and (min-width: $desktop) {
+      width: 300px;
+    }
+    @media screen and (max-width: $navbar-breakpoint) {
+      width: 100%;
+    }
+  }
+
+  #user-image {
     display: flex;
-    align-items: center;
+    width: 36px;
+    height: 36px;
+    // Have to do this to override Bulma behavior...
+    max-height: 36px !important;
+    @media screen and (max-width: $desktop) {
+      width: 28px;
+      height: 28px;
+    }
   }
-}
-
-.navbar-item {
-  @extend .is-unselectable;
-}
-
-.hover-white:hover {
-  color: white;
-}
-
-.search-bar {
-  height: 40px;
-  padding: 10px;
-  @media screen and (min-width: $navbar-breakpoint) {
-    width: 200px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 300px;
-  }
-  @media screen and (max-width: $navbar-breakpoint) {
-    width: 100%;
-  }
-}
-
-#user-image {
-  display: flex;
-  width: 36px;
-  height: 36px;
-  // Have to do this to override Bulma behavior...
-  max-height: 36px !important;
-  @media screen and (max-width: $desktop) {
-    width: 28px;
-    height: 28px;
-  }
-}
 </style>

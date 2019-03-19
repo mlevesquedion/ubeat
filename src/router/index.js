@@ -6,6 +6,7 @@ import Artist from '@/components/artist/Artist';
 import User from '@/components/User';
 import Playlists from '@/components/playlists/Playlists';
 import NotFound from '@/components/NotFound';
+import SearchResults from '../components/SearchResults';
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '*',
       name: 'Not found',
       component: NotFound
+    },
+    {
+      path: '/searchresults',
+      name: 'SearchResults',
+      component: SearchResults
     }
   ]
 });
