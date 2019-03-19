@@ -118,7 +118,7 @@ export default {
       password: '',
       passwordError: '',
       passwordWasBlurred: false,
-      isLogin: false,
+      isLogin: true,
       isSkipping: false
     };
   },
