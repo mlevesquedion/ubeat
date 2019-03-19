@@ -6,6 +6,7 @@ import Artist from '@/components/artist/Artist';
 import User from '@/components/User';
 import Playlists from '@/components/playlists/Playlists';
 import NotFound from '@/components/NotFound';
+import Auth from '../components/auth/Auth';
 
 Vue.use(Router);
 
