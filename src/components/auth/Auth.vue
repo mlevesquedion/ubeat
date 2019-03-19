@@ -168,41 +168,41 @@ export default {
       this.passwordError = Password.validate(this.password);
     },
     login() {
-      return authAPI.login({ email: this.email, password: this.password });
+      return authAPI
+        .login({ email: this.email, password: this.password })
+        .then(_ => {
+          this.$router.push('/');
+        })
+        .catch(_ =>
+          this.$toasted.show(
+            'Could not log you in. Double-check your login info!',
+            { type: 'ubeat-error' }
+          )
+        );
     },
     signup() {
-      return authAPI.signup({
-        name: this.username,
-        email: this.email,
-        password: this.password
-      });
+      return authAPI
+        .signup({
+          name: this.username,
+          email: this.email,
+          password: this.password
+        })
+        .then(_ => {
+          this.isSkipping = false;
+          this.login();
+        })
+        .catch(_ =>
+          this.$toasted.show(
+            'Could not sign you up. Double-check your signup info!',
+            { type: 'ubeat-error' }
+          )
+        );
     },
     authenticate() {
       if (this.isLogin) {
-        const promise = this.login();
-        promise
-          .then(_ => {
-            this.$router.push('/');
-          })
-          .catch(_ =>
-            this.$toasted.show(
-              'Could not log you in. Double-check your login info!',
-              { type: 'ubeat-error' }
-            )
-          );
+        this.login();
       } else {
-        this.signup()
-          .then(_ => {
-            this.isSkipping = false;
-            this.isLogin = true;
-            this.authenticate();
-          })
-          .catch(_ =>
-            this.$toasted.show(
-              'Could not sign you up. Double-check your signup info!',
-              { type: 'ubeat-error' }
-            )
-          );
+        this.signup();
       }
     },
     skip() {

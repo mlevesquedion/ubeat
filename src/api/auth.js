@@ -4,12 +4,9 @@ import { secureRoot } from './constants';
 import CookieMonster from '../auth/cookieMonster';
 
 const isAuthenticated = () =>
-  axios
-    .get(`${secureRoot}tokenInfo`, {
-      headers: { Authorization: CookieMonster.getToken() }
-    })
-    .then(_ => true)
-    .catch(_ => false);
+  axios.get(`${secureRoot}tokenInfo`, {
+    headers: { Authorization: CookieMonster.getToken() }
+  });
 
 const signup = signupData =>
   axios
