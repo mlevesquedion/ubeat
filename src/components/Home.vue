@@ -24,6 +24,9 @@
       <router-link class="responsive-heading" to="/playlists"
         >Playlists
       </router-link>
+      <button @click="redirect">
+        Redirect
+      </button>
     </div>
   </section>
 </template>
@@ -35,6 +38,11 @@ export default {
   name: 'app',
   components: {
     ImageCarousel
+  },
+  methods: {
+    redirect() {
+      return this.$router.push('artist/491675603');
+    }
   }
 };
 </script>

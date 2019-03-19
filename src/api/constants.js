@@ -1,2 +1,2 @@
-export const secureRoot = 'http://ubeat.herokuapp.com/';
+export const secureRoot = 'http://localhost:3000/';
 export const apiRoot = `${secureRoot}unsecure/`;
