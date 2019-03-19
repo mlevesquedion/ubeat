@@ -7,10 +7,11 @@ import User from '@/components/User';
 import Playlists from '@/components/playlists/Playlists';
 import NotFound from '@/components/NotFound';
 import Auth from '../components/auth/Auth';
+import authAPI from '../api/auth';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -49,3 +50,15 @@ export default new Router({
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/auth') {
+    next();
+  }
+  authAPI
+    .isAuthenticated()
+    .then(_ => next(to))
+    .catch(_ => next('/auth'));
+});
+
+export default router;

@@ -2,6 +2,14 @@ import axios from 'axios';
 import { secureRoot } from './constants';
 import CookieMonster from '../auth/CookieMonster';
 
+const isAuthenticated = () =>
+  axios
+    .get(`${secureRoot}tokenInfo`, {
+      headers: { Authorization: CookieMonster.getToken() }
+    })
+    .then(_ => true)
+    .catch(_ => false);
+
 const signup = signupData =>
   axios
     .post(`${secureRoot}signup`, signupData)
@@ -19,6 +27,7 @@ const login = loginData =>
 const logout = axios.get(`${secureRoot}logout`);
 
 export default {
+  isAuthenticated,
   signup,
   login,
   logout
