@@ -209,6 +209,7 @@ export default {
       this.username = 'monsieur_patate';
       this.email = uuid();
       this.password = 'patate';
+      this.isLogin = false;
       this.authenticate();
       this.isSkipping = true;
     }
