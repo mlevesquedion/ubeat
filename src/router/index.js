@@ -17,6 +17,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/auth',
+      name: 'Login - Signup',
+      component: Auth
+    },
+    {
       path: '/artist/:id',
       name: 'Artist',
       component: Artist
