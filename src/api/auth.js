@@ -28,10 +28,6 @@ const login = loginData =>
     .then(userData => {
       CookieMonster.setToken(userData.token);
       return userData;
-    })
-    .then(data => {
-      console.log('in api');
-      return data;
     });
 
 const logout = axios.get(`${secureRoot}logout`);
