@@ -7,29 +7,7 @@
         <a class="is-primary" @click="toggleIsLogin">{{ oppositeAuthType }}</a>
       </p>
     </div>
-    <div class="field" v-if="!isLogin">
-      <label class="label">Username</label>
-      <div class="control has-icons-left has-icons-right">
-        <input
-          v-model="username"
-          class="input"
-          :class="{
-            'is-success': usernameWasBlurred && usernameIsValid,
-            'is-danger': usernameWasBlurred && !usernameIsValid
-          }"
-          type="text"
-          placeholder="Username"
-          @input="validateUsername"
-          @blur="usernameWasBlurred = true"
-        />
-        <span class="icon is-small is-left">
-          <i class="fas fa-user"></i>
-        </span>
-      </div>
-    </div>
-    <p v-if="!usernameIsValid && usernameWasBlurred" class="help is-danger">
-      {{ usernameError }}
-    </p>
+    <UsernameField v-if="!isLogin" v-model="username" />
     <div class="field">
       <label class="label">Email</label>
       <div class="control has-icons-left has-icons-right">
@@ -101,17 +79,20 @@
 
 <script>
 import { v4 as uuid } from 'uuid';
-import Username from '../../auth/username';
 import Email from '../../auth/email';
 import Password from '../../auth/password';
 import authAPI from '../../api/auth';
+import UsernameField from './UsernameField';
 
 export default {
+  components: { UsernameField },
   data() {
     return {
-      username: '',
-      usernameError: '',
-      usernameWasBlurred: false,
+      username: {
+        value: '',
+        wasBlurred: false,
+        isValid: false
+      },
       email: '',
       emailError: '',
       emailWasBlurred: false,
@@ -135,9 +116,6 @@ export default {
         : 'Already have an account';
       return `${prefix} ?`;
     },
-    usernameIsValid() {
-      return this.usernameError === '';
-    },
     emailIsValid() {
       return this.emailError === '';
     },
@@ -150,16 +128,13 @@ export default {
       if (this.isLogin) {
         return blurs && valids;
       }
-      const username = this.usernameWasBlurred && this.usernameIsValid;
+      const username = this.username.isValid;
       return blurs && valids && username;
     }
   },
   methods: {
     toggleIsLogin() {
       this.isLogin = !this.isLogin;
-    },
-    validateUsername() {
-      this.usernameError = Username.validate(this.username);
     },
     validateEmail() {
       this.emailError = Email.validate(this.email);
@@ -183,7 +158,7 @@ export default {
     signup() {
       return authAPI
         .signup({
-          name: this.username,
+          name: this.username.value,
           email: this.email,
           password: this.password
         })
@@ -206,7 +181,7 @@ export default {
       }
     },
     skip() {
-      this.username = 'monsieur_patate';
+      this.username.value = 'monsieur_patate';
       this.email = uuid();
       this.password = 'patate';
       this.isLogin = false;
