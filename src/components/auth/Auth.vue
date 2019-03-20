@@ -90,7 +90,6 @@ export default {
     return {
       username: {
         value: '',
-        wasBlurred: false,
         isValid: false
       },
       email: '',
