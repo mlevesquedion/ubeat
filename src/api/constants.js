@@ -1,1 +1,2 @@
-export const apiRoot = 'http://ubeat.herokuapp.com/unsecure/';
+export const secureRoot = 'http://ubeat.herokuapp.com/';
+export const apiRoot = `${secureRoot}unsecure/`;

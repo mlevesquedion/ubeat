@@ -1,4 +1,4 @@
-import { uuid } from 'bulma-extensions/bulma-calendar/src/js/utils';
+import { v4 as uuid } from 'uuid';
 
 export default {
   fromBackend: trackData => ({
