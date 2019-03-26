@@ -13,8 +13,10 @@
             </span>
       </template>
       <template slot="body">
-        <div>
-          {{ NoResultsFoundMessage }}
+        <div v-for="r in searchresults">
+          <p>
+            {{ r }}
+          </p>
         </div>
       </template>
     </Accordion>
@@ -60,35 +62,26 @@
         </div>
       </template>
     </Accordion>
-
   </section>
 </template>
 
 <script>
-  import Accordion from './utils/Accordion';
+  import Accordion from '../utils/Accordion';
+  import SearchResultsView from './SearchResultsView';
 
   export default {
-    name: 'SearchResults',
+    name: 'SearchResultsView',
     data() {
       return {
         NoResultsFoundMessage: 'No results were found for this category.'
       };
     },
-    components: { Accordion }
+    components: { SearchResultsView, Accordion },
+    props: ['searchresults']
   }
   ;
 </script>
 
-<style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
-
-  .accordions {
-    padding-left: 2em;
-    padding-top: 2em;
-  }
-
-  .div {
-    padding-bottom: 5px;
-  }
+<style scoped>
 
 </style>

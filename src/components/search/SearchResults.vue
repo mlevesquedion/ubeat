@@ -1,0 +1,39 @@
+<template>
+  <GenericAsync :dataName="dataName" :dataSource="dataSource">
+    <template slot-scope="{ data }">
+      <SearchResultsView :searchresults="data"/>
+    </template>
+  </GenericAsync>
+</template>
+
+<script>
+  import GenericAsync from '@/components/utils/Async/GenericAsync';
+  import SearchResultsView from './SearchResultsView';
+  import SearchAPI from '../../api/search';
+
+  export default {
+    name: 'SearchResults',
+    data() {
+      return {
+        dataSource: SearchAPI.globalSearch(),
+        dataName: 'search results'
+      };
+    },
+    components: { SearchResultsView, GenericAsync }
+  }
+  ;
+</script>
+
+<style scoped lang="scss">
+  @import '@/assets/sass/styles.scss';
+
+  .accordions {
+    padding-left: 2em;
+    padding-top: 2em;
+  }
+
+  .div {
+    padding-bottom: 5px;
+  }
+
+</style>
