@@ -1,9 +1,9 @@
 <template>
   <div class="field">
-    <label class="label">Username</label>
+    <label class="label">Password</label>
     <div class="control has-icons-left has-icons-right">
       <input
-        v-model="username"
+        v-model="password"
         class="input"
         :class="{
           'is-success': value.isValid,
@@ -14,7 +14,7 @@
         @blur="wasBlurred = true"
       />
       <span class="icon is-small is-left">
-        <i class="fas fa-user"></i>
+        <i class="fas fa-lock"></i>
       </span>
     </div>
     <p v-if="hasError" class="help is-danger">
@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import Username from '../../auth/username';
+import Password from '../../auth/password';
 
 export default {
-  name: 'UsernameField',
+  name: 'PasswordField',
   props: ['value'],
   data() {
     return {
-      username: this.value.value,
+      password: this.value.value,
       error: '',
       wasBlurred: false
     };
@@ -42,8 +42,8 @@ export default {
     }
   },
   watch: {
-    username(value) {
-      this.error = Username.validate(value);
+    password(value) {
+      this.error = Password.validate(value);
       this.$emit('input', {
         ...this.value,
         value,
