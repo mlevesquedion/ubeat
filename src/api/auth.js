@@ -3,7 +3,7 @@ import axios from 'axios';
 import { secureRoot } from './constants';
 import CookieMonster from '../auth/cookieMonster';
 
-const checkAuthentication = () =>
+const isAuthenticated = () =>
   axios.get(`${secureRoot}tokenInfo`, {
     headers: { Authorization: CookieMonster.getToken() }
   });
@@ -30,10 +30,11 @@ const login = loginData =>
       return userData;
     });
 
-const logout = axios.get(`${secureRoot}logout`);
+const logout = () =>
+  axios.get(`${secureRoot}logout`).then(_ => CookieMonster.clearToken());
 
 export default {
-  isAuthenticated: checkAuthentication,
+  isAuthenticated,
   signup,
   login,
   logout

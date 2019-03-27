@@ -58,7 +58,7 @@
                 >Settings</span
               >
             </a>
-            <a class="navbar-item">
+            <a class="navbar-item" @click="logout">
               <i class="fas fa-sign-out-alt" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
                 >Sign out</span
@@ -72,6 +72,8 @@
 </template>
 
 <script>
+import authAPI from '../api/auth';
+
 export default {
   data() {
     return { isOpen: false };
@@ -82,6 +84,16 @@ export default {
     },
     closeBurger() {
       this.isOpen = false;
+    },
+    logout() {
+      authAPI
+        .logout()
+        .then(_ => {
+          this.$router.push('/auth');
+        })
+        .catch(_ =>
+          this.$toasted.show('Could not log you out!', { type: 'ubeat-error' })
+        );
     }
   }
 };
