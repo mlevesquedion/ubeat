@@ -9,7 +9,7 @@ const ownerEmail = 'utilisateur@gmail.com';
 
 const getUserPlaylists = () =>
   axios
-    .get(`${playlistRoot}`, { params: { email: ownerEmail } })
+    .get(`${playlistRoot}`, { params: { userId: ownerEmail } })
     .then(({ data }) =>
       data.filter(p => p && p.owner && p.owner.email === ownerEmail)
     )
