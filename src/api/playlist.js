@@ -5,11 +5,14 @@ import Playlist from '../models/playlist';
 import Track from '../models/track';
 
 const playlistRoot = `${apiRoot}playlists/`;
-const ownerEmail = 'utilisateur@gmail.com';
+// FIXME
+const ownerEmail = 'utilisateur3@gmail.com';
+// Password is 'asdfasdfasdf'
+const userId = '5c9d31a5ea03fd0004c27ff0';
 
 const getUserPlaylists = () =>
   axios
-    .get(`${playlistRoot}`, { params: { userId: ownerEmail } })
+    .get(`${playlistRoot}`, { params: { userId } })
     .then(({ data }) =>
       data.filter(p => p && p.owner && p.owner.email === ownerEmail)
     )
