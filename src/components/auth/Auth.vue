@@ -95,12 +95,13 @@ export default {
         .then(_ => {
           this.$router.push('/');
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.emailAndOrPasswordInvalid();
           this.$toasted.show(
             'Could not log you in. Double-check your login info!',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     signup() {
       return authAPI
@@ -113,12 +114,13 @@ export default {
           this.isSkipping = false;
           this.login();
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.emailAndOrPasswordInvalid();
           this.$toasted.show(
             'Could not sign you up. Double-check your signup info!',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     authenticate() {
       if (this.isLogin) {
@@ -134,6 +136,10 @@ export default {
       this.isLogin = false;
       this.authenticate();
       this.isSkipping = true;
+    },
+    emailAndOrPasswordInvalid() {
+      this.email.isValid = false;
+      this.password.isValid = false;
     }
   }
 };
