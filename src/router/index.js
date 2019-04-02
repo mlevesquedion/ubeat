@@ -7,8 +7,13 @@ import User from '@/components/user/User';
 import UserSettings from '@/components/user/UserSettings';
 import Playlists from '@/components/playlists/Playlists';
 import NotFound from '@/components/NotFound';
+import SearchResults from '../components/search/SearchResults';
 import Auth from '../components/auth/Auth';
 import authAPI from '../api/auth';
+import ArtistSearchResults from '../components/search/ArtistSearchResults';
+import AlbumSearchResults from '../components/search/AlbumSearchResults';
+import TrackSearchResults from '../components/search/TrackSearchResults';
+import UserSearchResults from '../components/search/UserSearchResults';
 
 Vue.use(Router);
 
@@ -53,6 +58,31 @@ const router = new Router({
       path: '*',
       name: 'Not found',
       component: NotFound
+    },
+    {
+      path: '/search/artist/:query',
+      name: 'Artist Results',
+      component: ArtistSearchResults
+    },
+    {
+      path: '/search/album/:query',
+      name: 'Album Results',
+      component: AlbumSearchResults
+    },
+    {
+      path: '/search/track/:query',
+      name: 'Track Results',
+      component: TrackSearchResults
+    },
+    {
+      path: '/search/user/:query',
+      name: 'User Results',
+      component: UserSearchResults
+    },
+    {
+      path: '/search/global/:query',
+      name: 'Search results',
+      component: SearchResults
     }
   ]
 });

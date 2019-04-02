@@ -47,12 +47,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.dropdown-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .is-clipped {
   min-width: 100px;
   max-width: 200px;
