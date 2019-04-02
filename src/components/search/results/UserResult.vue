@@ -24,12 +24,7 @@ export default {
   props: ['user'],
   computed: {
     isFollowed() {
-      return (
-        this.$root.$data
-          .getUser()
-          .following.map(u => u.id)
-          .indexOf(this.user.id) !== -1
-      );
+      return this.$root.$data.isFollowing(this.user.id);
     }
   },
   methods: {

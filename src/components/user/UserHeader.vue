@@ -34,10 +34,7 @@ export default {
   props: ['user'],
   computed: {
     isFollowed() {
-      return (
-        this.$root.$data.getUser().following.filter(u => u.id === this.user.id)
-          .length !== 0
-      );
+      return this.$root.$data.isFollowing(this.user.id);
     }
   },
   methods: {

@@ -13,6 +13,15 @@ const store = {
   setUser(user) {
     localStorage.setItem('user', JSON.stringify(user));
     this.state.user = user;
+  },
+  followingUsers() {
+    return this.state.user.following;
+  },
+  followingIds() {
+    return this.followingUsers().map(u => u.id);
+  },
+  isFollowing(id) {
+    return this.followingIds().indexOf(id) !== -1;
   }
 };
 
