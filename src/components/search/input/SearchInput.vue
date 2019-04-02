@@ -18,7 +18,7 @@
         </button>
       </template>
       <template slot="content">
-        <SearchInputDropdownContent :queryTypes="queryTypes" />
+        <SearchInputDropdownContent :queryTypes="otherQueryTypes" />
       </template>
     </Dropdown>
   </div>
@@ -55,6 +55,9 @@ export default {
         default:
           return 'fa-search';
       }
+    },
+    otherQueryTypes() {
+      return this.queryTypes.filter(q => q !== this.queryType);
     }
   },
   methods: {
