@@ -15,10 +15,12 @@ import isEmpty from '@/utils/isEmpty';
 
 export default {
   name: 'PlaylistList',
-  props: ['following'],
   computed: {
     hasFriends() {
       return !isEmpty(this.following);
+    },
+    following() {
+      return this.$root.$data.getUser().following;
     }
   }
 };

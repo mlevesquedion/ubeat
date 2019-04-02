@@ -40,6 +40,7 @@ export default {
   components: { UserFriends, UserPlaylist, FollowingList },
   computed: {
     isFollowed() {
+      console.log(this.$root.$data.getUser());
       return (
         this.$root.$data.getUser().following.filter(u => u.id === this.user.id)
           .length !== 0
@@ -62,7 +63,7 @@ export default {
         .unfollow(this.user.id)
         .then(user => this.$root.$data.setUser(user))
         .catch(_err =>
-          this.$toated.show(`Could not unfollow user ${this.user.name}.`, {
+          this.$toasted.show(`Could not unfollow user ${this.user.name}.`, {
             type: 'ubeat-error'
           })
         );
