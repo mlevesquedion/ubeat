@@ -4,7 +4,7 @@
       id="title"
       class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile level-left"
     >
-      Your search results
+      Results
     </h1>
 
     <Accordion>
@@ -15,7 +15,7 @@
         </span>
       </template>
       <template slot="body">
-        <div v-for="r in searchresults">
+        <div v-for="r in searchresults.artists">
           <p>
             {{ r }}
           </p>
@@ -31,8 +31,10 @@
         </span>
       </template>
       <template slot="body">
-        <div>
-          {{ NoResultsFoundMessage }}
+        <div v-for="r in searchresults.albums">
+          <p>
+            {{ r }}
+          </p>
         </div>
       </template>
     </Accordion>
@@ -45,8 +47,10 @@
         </span>
       </template>
       <template slot="body">
-        <div>
-          {{ NoResultsFoundMessage }}
+        <div v-for="r in searchresults.tracks">
+          <p>
+            {{ r }}
+          </p>
         </div>
       </template>
     </Accordion>

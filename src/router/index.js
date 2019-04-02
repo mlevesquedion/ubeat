@@ -50,8 +50,8 @@ const router = new Router({
       component: NotFound
     },
     {
-      path: '/searchresults',
-      name: 'SearchResults',
+      path: '/searchresults/:query',
+      name: 'Search Results',
       component: SearchResults
     }
   ]

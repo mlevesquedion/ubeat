@@ -15,7 +15,7 @@ export default {
   name: 'SearchResults',
   data() {
     return {
-      dataSource: SearchAPI.globalSearch(),
+      dataSource: SearchAPI.globalSearch(this.$route.params.query),
       dataName: 'search results'
     };
   },
