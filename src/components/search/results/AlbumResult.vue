@@ -1,6 +1,5 @@
 <template>
   <section class="is-bordered level">
-    <div class="level-right">
       <img id="artwork" :alt="album.name" :src="album.artworkUrl" />
     <router-link
       class="is-primary link"
@@ -10,7 +9,6 @@
         {{ album.name }}
       </p>
       </router-link>
-    </div>
   </section>
 </template>
 
