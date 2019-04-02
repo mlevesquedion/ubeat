@@ -4,7 +4,7 @@ import CookieMonster from '../auth/cookieMonster';
 import SearchResults from '../models/searchResults';
 
 const searchRoot = `${secureRoot}search/`;
-const globalSearchRoot = `${searchRoot}?q=`;
+const globalSearchRoot = `${searchRoot}?limit=20&q=`;
 const userSearchRoot = `${searchRoot}users/?q=`;
 const authorization = () => ({
   headers: { Authorization: CookieMonster.getToken() }
