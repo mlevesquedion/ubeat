@@ -7,9 +7,7 @@
         </template>
         <template slot="body">
           <div v-if="hasFriends">
-            <div :key="u.id" v-for="u in following">
-              {{ u }}
-            </div>
+            <UserResult :key="u.id" v-for="u in following" :user="u" />
           </div>
           <div v-else>This user is not following anyone!</div>
         </template>
@@ -21,10 +19,11 @@
 <script>
 import isEmpty from '@/utils/isEmpty';
 import Accordion from '../utils/Accordion';
+import UserResult from '../search/results/UserResult';
 
 export default {
   name: 'PlaylistList',
-  components: { Accordion },
+  components: { Accordion, UserResult },
   computed: {
     hasFriends() {
       return !isEmpty(this.following);
