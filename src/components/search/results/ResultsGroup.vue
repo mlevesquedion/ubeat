@@ -3,7 +3,7 @@
     <template slot="header">
       <span class="subtitle is-primary is-clipped level-item">
         <i :class="`fa ${icon} is-primary bumped-left`"></i>
-        {{ resultType }}
+        {{ resultSummary }}
       </span>
     </template>
     <template slot="body">
@@ -30,6 +30,12 @@ export default {
   computed: {
     hasResults() {
       return !isEmpty(this.results);
+    },
+    resultCount() {
+      return this.results.length;
+    },
+    resultSummary() {
+      return `${this.resultCount} ${this.resultType}`;
     }
   }
 };
