@@ -32,7 +32,6 @@
 import UserPlaylist from './UserPlaylist';
 import UserFriends from './UserFriends';
 import FollowingList from './FollowingList';
-import LocalStorage from '../../auth/localStorage';
 import userAPI from '../../api/user';
 
 export default {
@@ -42,7 +41,7 @@ export default {
   computed: {
     isFollowed() {
       return (
-        LocalStorage.getUser().following.filter(u => u.id === this.user.id)
+        this.$root.$data.getUser().following.filter(u => u.id === this.user.id)
           .length !== 0
       );
     }
@@ -51,7 +50,7 @@ export default {
     follow() {
       userAPI
         .follow(this.user.id)
-        .then(user => LocalStorage.saveUser(user))
+        .then(user => this.$root.$data.setUser(user))
         .catch(_err =>
           this.$toasted.show(`Could not follow user ${this.user.name}.`, {
             type: 'ubeat-error'
@@ -61,7 +60,7 @@ export default {
     unfollow() {
       userAPI
         .unfollow(this.user.id)
-        .then(user => LocalStorage.saveUser(user))
+        .then(user => this.$root.$data.setUser(user))
         .catch(_err =>
           this.$toated.show(`Could not unfollow user ${this.user.name}.`, {
             type: 'ubeat-error'

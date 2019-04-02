@@ -66,7 +66,6 @@
 
 <script>
 import authAPI from '../api/auth';
-import LocalStorage from '../auth/localStorage';
 import SearchInput from './search/input/SearchInput';
 
 export default {
@@ -79,7 +78,7 @@ export default {
   },
   computed: {
     userLink() {
-      return `/user/${LocalStorage.getUser().id}`;
+      return `/user/${this.$root.$data.getUser().id}`;
     }
   },
   methods: {
