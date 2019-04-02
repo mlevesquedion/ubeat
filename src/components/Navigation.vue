@@ -30,7 +30,6 @@
             type="search"
           />
         </div>
-
         <router-link
           @click.native="closeBurger"
           class="navbar-item is-size-6-tablet is-size-5-desktop hover-white"
@@ -42,7 +41,7 @@
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
           <a @click="closeBurger" class="navbar-link">
-            <router-link class="navbar-item" id="user-container" to="/user">
+            <router-link class="navbar-item" id="user-container" :to="userLink">
               <img
                 class="is-rounded bumped-left"
                 id="user-image"
@@ -73,10 +72,16 @@
 
 <script>
 import authAPI from '../api/auth';
+import LocalStorage from '../auth/localStorage';
 
 export default {
   data() {
     return { isOpen: false };
+  },
+  computed: {
+    userLink() {
+      return `/user/${LocalStorage.getUser().id}`;
+    }
   },
   methods: {
     toggleBurger() {

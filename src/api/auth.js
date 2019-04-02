@@ -2,6 +2,7 @@ import * as qs from 'qs';
 import axios from 'axios';
 import { secureRoot } from './constants';
 import CookieMonster from '../auth/cookieMonster';
+import LocalStorage from '../auth/localStorage';
 
 const isAuthenticated = () =>
   axios.get(`${secureRoot}tokenInfo`, {
@@ -26,6 +27,7 @@ const login = loginData =>
     })
     .then(({ data }) => data)
     .then(userData => {
+      LocalStorage.saveUser(userData);
       CookieMonster.setToken(userData.token);
       return userData;
     });

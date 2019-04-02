@@ -35,7 +35,7 @@ const router = new Router({
       component: Album
     },
     {
-      path: '/user',
+      path: '/user/:id',
       name: 'User',
       component: User
     },
