@@ -82,13 +82,6 @@ export default {
   padding-top: 0;
 }
 
-.responsive-image {
-  display: block;
-  width: 25vw !important;
-  min-width: 200px;
-  max-width: 300px;
-}
-
 #artist-name {
   color: $primary;
 }
