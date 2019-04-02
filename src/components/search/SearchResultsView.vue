@@ -2,7 +2,7 @@
   <section class="accordions section">
     <h1
       id="title"
-      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile level-left"
+      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile padded-bottom"
     >
       Results for "{{ query }}"
     </h1>
@@ -25,3 +25,9 @@ export default {
   props: ['searchresults', 'query']
 };
 </script>
+
+<style scoped lang="scss">
+.padded-bottom {
+  padding-bottom: 20px;
+}
+</style>
