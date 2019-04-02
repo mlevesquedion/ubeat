@@ -11,8 +11,14 @@
             <div class="follow-user-friend">
               <div v-if="friend.isFollowing">
                 <i class="fas fa-check add-friend"></i>
+                Unfollow
               </div>
-              <button v-else><i class="fas fa-user-plus"></i> Follow</button>
+              <button v-else>
+                <i class="fas fa-user-plus bumped-left"></i
+                ><span class="bumped-right">
+                  Follow
+                </span>
+              </button>
             </div>
           </button>
         </div>

@@ -1,70 +1,48 @@
 <template>
-  <section class="hero">
-    <div class="hero-body ">
-      <div class="container">
-        <div class="user-content">
-          <div class="columns">
-            <div class="column user-info">
-              <img
-                class="is-rounded bumped-left"
-                id="user-image"
-                src="static/images/default_profile.png"
-                alt="user.name"
-              />
-            </div>
-            <div class="column">
-              <div class="user-name">{{ user.name }}</div>
-              <div class="user-email">{{ user.email }}</div>
-              <button v-if="user.isFollowing">
-                <i class="fas fa-user-times"></i> Unfollow
-              </button>
-              <button v-else-if="user.isFollowing === false">
-                <i class="fas fa-user-plus"></i> Follow
-              </button>
-              <div v-else></div>
-            </div>
-          </div>
-        </div>
-        <vue-tabs
-          active-tab-color="#2fc563"
-          active-text-color="white"
-          centered
-          class="tab-title"
-        >
-          <v-tab title="Playlists" icon="fas fa-music">
-            <div class="container friend-content">
-              <UserPlaylist></UserPlaylist>
-            </div>
-          </v-tab>
-
-          <v-tab title="Following" icon="fas fa-user-friends">
-            <div class="container friend-content">
-              <UserFriends></UserFriends>
-            </div>
-          </v-tab>
-        </vue-tabs>
+  <section class="section columns">
+    <div class="column is-narrow">
+      <figure class="media-left image">
+        <img
+          class="is-rounded bumped-left"
+          id="user-image"
+          src="static/images/default_profile.png"
+          alt="user.name"
+        />
+      </figure>
+    </div>
+    <div class="column">
+      <div class="user-name">{{ user.name }}</div>
+      <div class="user-email">{{ user.email }}</div>
+      <div>
+        <button class="button is-danger" v-if="isFollowed">
+          <i class="fas fa-user-times"></i
+          ><span class="bumped-right">Unfollow</span>
+        </button>
+        <button class="button is-primary">
+          <i class="fas fa-user-plus"></i
+          ><span class="bumped-right">Follow</span>
+        </button>
       </div>
     </div>
+    <FollowingList :following="user.following"></FollowingList>
   </section>
 </template>
 
 <script>
-import { VueTabs, VTab } from 'vue-nav-tabs';
 import UserPlaylist from './UserPlaylist';
 import UserFriends from './UserFriends';
+import FollowingList from './FollowingList';
+import LocalStorage from '../../auth/localStorage';
 
 export default {
   name: 'UserView',
   props: ['user'],
-  components: { UserFriends, UserPlaylist, VueTabs, VTab },
-  data() {
-    console.log(this.user);
-    return {
-      isSettingVisible: false,
-      isUnfollowing: false
-    };
-  },
-  methods: {}
+  components: { UserFriends, UserPlaylist, FollowingList },
+  computed: {
+    isFollowed() {
+      return LocalStorage.getUser().following.indexOf(this.user.id) !== -1;
+    }
+  }
 };
 </script>
 
