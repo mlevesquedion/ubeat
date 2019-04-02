@@ -109,6 +109,10 @@ $desktop: 1023px;
   background-color: $danger !important;
 }
 
+.link:hover {
+  color: $primary-dark !important;
+}
+
 .responsive-heading {
   @extend .is-size-2-desktop;
   @extend .is-size-3-tablet;

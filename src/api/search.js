@@ -5,7 +5,7 @@ import SearchResults from '../models/searchResults';
 
 const searchRoot = `${secureRoot}search/`;
 
-const makeSearchRoot = what => `${searchRoot}${what}?q=`;
+const makeSearchRoot = what => `${searchRoot}${what}?limit=50&q=`;
 
 const globalSearchRoot = makeSearchRoot('');
 const userSearchRoot = makeSearchRoot('users');
