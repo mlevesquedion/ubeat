@@ -11,7 +11,7 @@ import isEmpty from '../../../utils/isEmpty';
 
 export default {
   name: 'GenericAsync',
-  props: ['dataSource', 'dataName'],
+  props: ['dataSource', 'dataName', 'allowEmpty'],
   data() {
     return {
       requestState: RequestState.LOADING,
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     setData(data) {
-      if (isEmpty(data)) {
+      if (!this.allowEmpty && isEmpty(data)) {
         this.setError(data);
         return;
       }

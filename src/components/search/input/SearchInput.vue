@@ -62,8 +62,11 @@ export default {
       if (this.query === '') {
         return;
       }
-      this.$router.push(`/globalsearch/${this.query}`);
       this.$parent.$emit('close-burger');
+      this.dispatch();
+    },
+    dispatch() {
+      this.$router.push(`/search/${this.queryType}/${this.query}`);
     },
     setQueryType(type) {
       this.queryType = type;

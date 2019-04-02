@@ -4,31 +4,50 @@ import CookieMonster from '../auth/cookieMonster';
 import SearchResults from '../models/searchResults';
 
 const searchRoot = `${secureRoot}search/`;
-const globalSearchRoot = `${searchRoot}?limit=20&q=`;
-const userSearchRoot = `${searchRoot}users/?q=`;
+
+const makeSearchRoot = what => `${searchRoot}${what}?q=`;
+
+const globalSearchRoot = makeSearchRoot('');
+const userSearchRoot = makeSearchRoot('users');
+const artistSearchRoot = makeSearchRoot('artists');
+const albumSearchRoot = makeSearchRoot('albums');
+const trackSearchRoot = makeSearchRoot('tracks');
+
 const authorization = () => ({
   headers: { Authorization: CookieMonster.getToken() }
 });
 
-const usersGlobal = query =>
+const encode = encodeURIComponent;
+
+const makeQuery = root => query =>
   axios
-    .get(`${userSearchRoot}${encodeURIComponent(query)}`, authorization())
+    .get(`${root}${encode(query)}`, authorization())
+    .then(({ data }) => data.results);
+
+const artists = makeQuery(artistSearchRoot);
+const albums = makeQuery(albumSearchRoot);
+const tracks = makeQuery(trackSearchRoot);
+
+const users = query =>
+  axios
+    .get(`${userSearchRoot}${encode(query)}`, authorization())
     .then(({ data }) => data);
 
-const everythingElseGlobal = query =>
-  axios
-    .get(`${globalSearchRoot}${encodeURIComponent(query)}`, authorization())
-    .then(({ data }) => data.results);
+const otherGlobals = makeQuery(globalSearchRoot);
 
 const global = query =>
   axios
-    .all([usersGlobal(query), everythingElseGlobal(query)])
+    .all([users(query), otherGlobals(query)])
     .then(
-      axios.spread((users, everythingElse) =>
-        SearchResults.from([...users, ...everythingElse])
+      axios.spread((userResults, otherResults) =>
+        SearchResults.from([...userResults, ...otherResults])
       )
     );
 
 export default {
+  artists,
+  albums,
+  tracks,
+  users,
   global
 };

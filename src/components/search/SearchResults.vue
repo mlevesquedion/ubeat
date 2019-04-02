@@ -1,5 +1,9 @@
 <template>
-  <GenericAsync :dataName="dataName" :dataSource="dataSource">
+  <GenericAsync
+    :dataName="dataName"
+    :dataSource="dataSource"
+    :allowEmpty="true"
+  >
     <template slot-scope="{ data }">
       <SearchResultsView :searchresults="data" :query="query" />
     </template>
