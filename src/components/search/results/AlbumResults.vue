@@ -1,5 +1,10 @@
 <template>
-  <ResultsGroup resultType="Album" :results="albums" icon="fa-list">
+  <ResultsGroup
+    class="album-results"
+    resultType="Album"
+    :results="albums"
+    icon="fa-list"
+  >
     <template slot-scope="{ data }">
       <AlbumResult :album="data" />
     </template>
@@ -15,3 +20,9 @@ export default {
   props: ['albums']
 };
 </script>
+<style scoped lang="scss">
+.album-results {
+  display: flex;
+  justify-content: flex-start;
+}
+</style>

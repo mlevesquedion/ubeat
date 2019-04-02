@@ -8,9 +8,10 @@
     </template>
     <template slot="body">
       <div v-if="hasResults">
-        <p v-for="r in results">
+        <div v-for="(r, i) in results">
+          <hr class="horizontal-line" v-if="i !== 0" />
           <slot :data="r"> </slot>
-        </p>
+        </div>
       </div>
       <div v-else>
         No results found!
@@ -45,4 +46,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.horizontal-line {
+  margin: 0;
+  border-bottom: 1px solid lightgray;
+}
+</style>

@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { secureRoot } from './constants';
-import CookieMonster from '../auth/cookieMonster';
 import SearchResults from '../models/searchResults';
+import Headers from '../auth/headers';
 
 const searchRoot = `${secureRoot}search/`;
 
-const makeSearchRoot = what => `${searchRoot}${what}?q=`;
+const makeSearchRoot = what => `${searchRoot}${what}?limit=50&q=`;
 
 const globalSearchRoot = makeSearchRoot('');
 const userSearchRoot = makeSearchRoot('users');
@@ -13,15 +13,11 @@ const artistSearchRoot = makeSearchRoot('artists');
 const albumSearchRoot = makeSearchRoot('albums');
 const trackSearchRoot = makeSearchRoot('tracks');
 
-const authorization = () => ({
-  headers: { Authorization: CookieMonster.getToken() }
-});
-
 const encode = encodeURIComponent;
 
 const makeQuery = root => query =>
   axios
-    .get(`${root}${encode(query)}`, authorization())
+    .get(`${root}${encode(query)}`, Headers.auth())
     .then(({ data }) => data.results);
 
 const artists = makeQuery(artistSearchRoot);
@@ -30,7 +26,7 @@ const tracks = makeQuery(trackSearchRoot);
 
 const users = query =>
   axios
-    .get(`${userSearchRoot}${encode(query)}`, authorization())
+    .get(`${userSearchRoot}${encode(query)}`, Headers.auth())
     .then(({ data }) => data);
 
 const otherGlobals = makeQuery(globalSearchRoot);

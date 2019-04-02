@@ -35,7 +35,7 @@
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
           <a @click="closeBurger" class="navbar-link">
-            <router-link class="navbar-item" id="user-container" to="/user">
+            <router-link class="navbar-item" id="user-container" :to="userLink">
               <img
                 class="is-rounded bumped-left"
                 id="user-image"
@@ -75,6 +75,11 @@ export default {
   },
   data() {
     return { isOpen: false };
+  },
+  computed: {
+    userLink() {
+      return `/user/${this.$root.$data.getUser().id}`;
+    }
   },
   methods: {
     toggleBurger() {
