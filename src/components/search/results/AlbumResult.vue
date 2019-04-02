@@ -1,9 +1,16 @@
 <template>
-  <section>
+  <section class="is-bordered level">
+    <div class="level-right">
       <img id="artwork" :alt="album.name" :src="album.artworkUrl" />
-      <label class="has-text-light subtitle" id="name">
+    <router-link
+      class="is-primary link"
+      :to="{ name: 'Album', params: { id: album.id } }"
+    >
+      <p class="is-primary is-clipped" id="name">
         {{ album.name }}
-      </label>
+      </p>
+      </router-link>
+    </div>
   </section>
 </template>
 
@@ -35,4 +42,7 @@ export default {
   align-items: center;
 }
 
+  .is-clipped {
+    width: 33vw;
+  }
 </style>
