@@ -1,16 +1,17 @@
 <template>
-  <ResultsGroup
-    resultType="Users"
-    :results="users"
-    icon="fa-star"
-  ></ResultsGroup>
+  <ResultsGroup resultType="Users" :results="users" icon="fa-star">
+    <template slot-scope="{ data }">
+      <UserResult :user="data"></UserResult>
+    </template>
+  </ResultsGroup>
 </template>
 <script>
 import ResultsGroup from './ResultsGroup';
+import UserResult from './UserResult';
 
 export default {
   name: 'UserResults',
-  components: { ResultsGroup },
+  components: { ResultsGroup, UserResult },
   props: ['users']
 };
 </script>

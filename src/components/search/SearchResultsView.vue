@@ -9,7 +9,7 @@
     <ArtistResults :artists="searchresults.artists" />
     <AlbumResults :albums="searchresults.albums" />
     <TrackResults :tracks="searchresults.tracks" />
-    <UserResults :users="[]" />
+    <UserResults :users="searchresults.users" />
   </section>
 </template>
 

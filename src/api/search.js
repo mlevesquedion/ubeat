@@ -3,12 +3,31 @@ import { secureRoot } from './constants';
 import CookieMonster from '../auth/cookieMonster';
 import SearchResults from '../models/searchResults';
 
-const global = query =>
+const searchRoot = `${secureRoot}search/`;
+const globalSearchRoot = `${searchRoot}?q=`;
+const userSearchRoot = `${searchRoot}users/?q=`;
+const authorization = () => ({
+  headers: { Authorization: CookieMonster.getToken() }
+});
+
+const usersGlobal = query =>
   axios
-    .get(`${secureRoot}search?q=${encodeURIComponent(query)}`, {
-      headers: { Authorization: CookieMonster.getToken() }
+    .get(`${userSearchRoot}${encodeURIComponent(query)}`, authorization())
+    .then(({ data }) => data);
+
+const everythingElseGlobal = query =>
+  axios
+    .get(`${globalSearchRoot}${encodeURIComponent(query)}`, authorization())
+    .then(({ data }) => data.results);
+
+const global = query =>
+  axios.all([usersGlobal(query), everythingElseGlobal(query)]).then(
+    axios.spread((users, everythingElse) => {
+      console.log(users);
+      console.log(everythingElse);
+      return SearchResults.from([...users, ...everythingElse]);
     })
-    .then(({ data }) => SearchResults.from(data.results));
+  );
 
 export default {
   global
