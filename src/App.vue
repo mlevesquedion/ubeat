@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Navigation v-if="loggedIn" />
     <router-view />
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   name: 'app',
   components: {
     Navigation
+  },
+  computed: {
+    loggedIn() {
+      return this.$route.name !== 'Login - Signup';
+    }
   }
 };
 </script>

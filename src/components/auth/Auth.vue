@@ -3,79 +3,13 @@
     <div class="spaced-row">
       <h1 class="title is-primary">{{ authType }}</h1>
       <p>
-        {{ hasAccountMessage }}
+        {{ changeAuthTypeMessage }}
         <a class="is-primary" @click="toggleIsLogin">{{ oppositeAuthType }}</a>
       </p>
     </div>
-    <div class="field" v-if="!isLogin">
-      <label class="label">Username</label>
-      <div class="control has-icons-left has-icons-right">
-        <input
-          v-model="username"
-          class="input"
-          :class="{
-            'is-success': usernameWasBlurred && usernameIsValid,
-            'is-danger': usernameWasBlurred && !usernameIsValid
-          }"
-          type="text"
-          placeholder="Username"
-          @input="validateUsername"
-          @blur="usernameWasBlurred = true"
-        />
-        <span class="icon is-small is-left">
-          <i class="fas fa-user"></i>
-        </span>
-      </div>
-    </div>
-    <p v-if="!usernameIsValid && usernameWasBlurred" class="help is-danger">
-      {{ usernameError }}
-    </p>
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control has-icons-left has-icons-right">
-        <input
-          v-model="email"
-          :class="{
-            'is-success': emailWasBlurred && emailIsValid,
-            'is-danger': emailWasBlurred && !emailIsValid
-          }"
-          @blur="emailWasBlurred = true"
-          class="input"
-          type="email"
-          @input="validateEmail"
-          placeholder="Email"
-        />
-        <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
-        </span>
-      </div>
-      <p v-if="emailWasBlurred && !emailIsValid" class="help is-danger">
-        {{ emailError }}
-      </p>
-    </div>
-    <div class="field">
-      <label class="label">Password</label>
-      <div class="control has-icons-left">
-        <input
-          v-model="password"
-          :class="{
-            'is-success': passwordWasBlurred && passwordIsValid,
-            'is-danger': passwordWasBlurred && !passwordIsValid
-          }"
-          @blur="passwordWasBlurred = true"
-          class="input"
-          @input="validatePassword"
-          type="password"
-          placeholder="Password"
-        />
-        <span class="icon is-small is-left">
-          <i class="fas fa-lock"></i>
-        </span>
-      </div>
-    </div>
-    <p v-if="passwordWasBlurred && !passwordIsValid" class="help is-danger">
-      {{ passwordError }}
-    </p>
+    <UsernameField v-if="isSignup" v-model="username" />
+    <EmailField v-model="email"></EmailField>
+    <PasswordField v-model="password"></PasswordField>
     <div class="field submit-button">
       <p class="control">
         <button
@@ -101,75 +35,63 @@
 
 <script>
 import { v4 as uuid } from 'uuid';
-import Username from '../../auth/username';
-import Email from '../../auth/email';
-import Password from '../../auth/password';
 import authAPI from '../../api/auth';
+import UsernameField from './UsernameField';
+import EmailField from './EmailField';
+import PasswordField from './PasswordField';
 
 export default {
+  components: { UsernameField, EmailField, PasswordField },
   data() {
     return {
-      username: '',
-      usernameError: '',
-      usernameWasBlurred: false,
-      email: '',
-      emailError: '',
-      emailWasBlurred: false,
-      password: '',
-      passwordError: '',
-      passwordWasBlurred: false,
+      username: {
+        value: '',
+        isValid: false
+      },
+      email: {
+        value: '',
+        isValid: false
+      },
+      password: {
+        value: '',
+        isValid: false
+      },
       isLogin: true,
       isSkipping: false
     };
   },
   computed: {
+    isSignup() {
+      return !this.isLogin;
+    },
     authType() {
       return this.isLogin ? 'Login' : 'Signup';
     },
     oppositeAuthType() {
       return this.isLogin ? 'Signup' : 'Login';
     },
-    hasAccountMessage() {
+    changeAuthTypeMessage() {
       const prefix = this.isLogin
         ? "Don't have an account"
         : 'Already have an account';
       return `${prefix} ?`;
     },
-    usernameIsValid() {
-      return this.usernameError === '';
-    },
-    emailIsValid() {
-      return this.emailError === '';
-    },
-    passwordIsValid() {
-      return this.passwordError === '';
-    },
     isValid() {
-      const blurs = this.emailWasBlurred && this.passwordWasBlurred;
-      const valids = this.emailIsValid && this.passwordIsValid;
+      const emailAndPasswordAreValid =
+        this.email.isValid && this.password.isValid;
       if (this.isLogin) {
-        return blurs && valids;
+        return emailAndPasswordAreValid;
       }
-      const username = this.usernameWasBlurred && this.usernameIsValid;
-      return blurs && valids && username;
+      return emailAndPasswordAreValid && this.username.isValid;
     }
   },
   methods: {
     toggleIsLogin() {
       this.isLogin = !this.isLogin;
     },
-    validateUsername() {
-      this.usernameError = Username.validate(this.username);
-    },
-    validateEmail() {
-      this.emailError = Email.validate(this.email);
-    },
-    validatePassword() {
-      this.passwordError = Password.validate(this.password);
-    },
     login() {
       return authAPI
-        .login({ email: this.email, password: this.password })
+        .login({ email: this.email.value, password: this.password.value })
         .then(_ => {
           this.$router.push('/');
         })
@@ -183,9 +105,9 @@ export default {
     signup() {
       return authAPI
         .signup({
-          name: this.username,
-          email: this.email,
-          password: this.password
+          name: this.username.value,
+          email: this.email.value,
+          password: this.password.value
         })
         .then(_ => {
           this.isSkipping = false;
@@ -206,9 +128,9 @@ export default {
       }
     },
     skip() {
-      this.username = 'monsieur_patate';
-      this.email = uuid();
-      this.password = 'patate';
+      this.username.value = 'monsieur_patate';
+      this.email.value = uuid();
+      this.password.value = 'patate';
       this.isLogin = false;
       this.authenticate();
       this.isSkipping = true;
