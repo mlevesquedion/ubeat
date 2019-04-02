@@ -7,33 +7,32 @@
       v-model="query"
       @keydown.enter="search"
     />
-    <Dropdown is-right="true">
+    <Dropdown is-right="true" is-small="true">
       <template slot="trigger">
-        <button class="button is-primary is-round fixed-width bumped-right">
+        <button
+          class="button is-primary is-round small-fixed-width bumped-right"
+        >
           <span>
             <i :class="`fa ${icon}`"></i>
           </span>
         </button>
       </template>
-      <template slot="content" class="small">
-        <div
-          v-for="t in queryTypes"
-          :key="t"
-          @click="setQueryType(t)"
-          class="capitalized"
-        >
-          {{ t }}
-        </div>
+      <template slot="content">
+        <SearchInputDropdownContent :queryTypes="queryTypes" />
       </template>
     </Dropdown>
   </div>
 </template>
 <script>
-import Dropdown from '../utils/Dropdown';
+import Dropdown from '../../utils/Dropdown';
+import SearchInputDropdownContent from './SearchInputDropdownContent';
 
 export default {
   name: 'SearchInput',
-  components: { Dropdown },
+  components: { SearchInputDropdownContent, Dropdown },
+  created() {
+    this.$root.$on('set-query-type', this.setQueryType);
+  },
   data() {
     return {
       query: '',
@@ -93,7 +92,7 @@ export default {
   display: flex;
 }
 
-.fixed-width {
+.small-fixed-width {
   width: 40px !important;
 }
 </style>

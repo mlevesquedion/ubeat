@@ -66,7 +66,7 @@
 
 <script>
 import authAPI from '../api/auth';
-import SearchInput from './search/SearchInput';
+import SearchInput from './search/input/SearchInput';
 
 export default {
   components: { SearchInput },

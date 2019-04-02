@@ -93,6 +93,12 @@ $desktop: 1023px;
   align-items: center;
 }
 
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // Vue-Toasted custom colors
 // Have to use !important to override built-ins
 .ubeat-success {
