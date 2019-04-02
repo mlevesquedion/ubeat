@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     setData(data) {
-      console.log(data);
       if (isEmpty(data)) {
         this.setError(data);
         return;

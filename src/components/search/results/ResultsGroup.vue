@@ -9,7 +9,7 @@
     <template slot="body">
       <div v-if="hasResults">
         <p v-for="r in results">
-          {{ r }}
+          <slot :data="r"> </slot>
         </p>
       </div>
       <div v-else>
@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Accordion from '../utils/Accordion';
-import isEmpty from '../../utils/isEmpty';
+import Accordion from '../../utils/Accordion';
+import isEmpty from '../../../utils/isEmpty';
 
 export default {
   name: 'ResultsGroup',
