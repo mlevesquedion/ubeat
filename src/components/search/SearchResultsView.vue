@@ -4,7 +4,7 @@
       id="title"
       class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile padded-bottom"
     >
-      Results for "{{ query }}"
+      Results for "{{ query }}" ({{ count }})
     </h1>
     <ArtistResults :artists="searchresults.artists" />
     <AlbumResults :albums="searchresults.albums" />
@@ -22,7 +22,17 @@ import UserResults from './results/UserResults';
 export default {
   name: 'SearchResultsView',
   components: { ArtistResults, AlbumResults, TrackResults, UserResults },
-  props: ['searchresults', 'query']
+  props: ['searchresults', 'query'],
+  computed: {
+    count() {
+      return (
+        this.searchresults.artists.length +
+        this.searchresults.albums.length +
+        this.searchresults.tracks.length +
+        this.searchresults.users.length
+      );
+    }
+  }
 };
 </script>
 
