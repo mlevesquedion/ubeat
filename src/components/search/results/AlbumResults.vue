@@ -20,9 +20,3 @@ export default {
   props: ['albums']
 };
 </script>
-<style scoped lang="scss">
-.album-results {
-  display: flex;
-  justify-content: flex-start;
-}
-</style>

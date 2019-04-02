@@ -1,16 +1,9 @@
 <template>
   <section>
-    <div
-      :key="album.id"
-      v-for="album in albums"
-      id="container"
-      class="is-mobile "
-    >
       <img id="artwork" :alt="album.name" :src="album.artworkUrl" />
       <label class="has-text-light subtitle" id="name">
         {{ album.name }}
       </label>
-    </div>
   </section>
 </template>
 
@@ -41,4 +34,5 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 </style>
