@@ -21,13 +21,13 @@ const everythingElseGlobal = query =>
     .then(({ data }) => data.results);
 
 const global = query =>
-  axios.all([usersGlobal(query), everythingElseGlobal(query)]).then(
-    axios.spread((users, everythingElse) => {
-      console.log(users);
-      console.log(everythingElse);
-      return SearchResults.from([...users, ...everythingElse]);
-    })
-  );
+  axios
+    .all([usersGlobal(query), everythingElseGlobal(query)])
+    .then(
+      axios.spread((users, everythingElse) =>
+        SearchResults.from([...users, ...everythingElse])
+      )
+    );
 
 export default {
   global
