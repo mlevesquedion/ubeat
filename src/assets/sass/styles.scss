@@ -56,6 +56,14 @@ $desktop: 1023px;
   border-radius: 50%;
 }
 
+.is-round {
+  border-radius: 100%;
+}
+
+.capitalized {
+  text-transform: capitalize;
+}
+
 .bumped-right {
   margin-left: 10px;
 }

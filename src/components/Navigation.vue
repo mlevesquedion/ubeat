@@ -71,7 +71,7 @@ import SearchInput from './search/SearchInput';
 export default {
   components: { SearchInput },
   created() {
-    this.$root.$on('close-burger', this.closeBurger);
+    this.$on('close-burger', this.closeBurger);
   },
   data() {
     return { isOpen: false };
