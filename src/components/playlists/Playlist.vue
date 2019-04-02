@@ -47,7 +47,7 @@
       <div v-if="isEmpty">{{ emptyPlaylistMessage }}</div>
       <PlaylistTrack
         :index="ti"
-        :key="t.uniqueId"
+        :key="`${t.uniqueId}${ti}`"
         :playlist="playlist"
         :playlistIndex="index"
         :playlists="playlists"
