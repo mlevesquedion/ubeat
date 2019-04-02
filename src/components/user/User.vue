@@ -8,15 +8,17 @@
 
 <script>
 import GenericAsync from '../utils/Async/GenericAsync';
+import UserView from './UserView';
+import userAPI from '../../api/user';
 
 export default {
   name: 'User',
   props: ['friend', 'index', 'userList'],
-  components: { GenericAsync },
+  components: { GenericAsync, UserView },
   data() {
     return {
       dataName: 'user info',
-      dataSource: userAPI.getUser(this.$route.id)
+      dataSource: userAPI.get(this.$route.params.id)
     };
   }
 };

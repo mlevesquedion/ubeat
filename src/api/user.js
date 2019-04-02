@@ -1,20 +1,29 @@
 import axios from 'axios';
 import { secureRoot } from './constants';
-import Album from '../models/album';
-import AlbumTracks from '../models/albumTracks';
-import CookieMonster from '../auth/cookieMonster';
+import Headers from '../auth/headers';
+import User from '../models/user';
 
-const userRoot = `${secureRoot}/users`;
-const followRoot = `${secureRoot}/follow`;
+const userRoot = `${secureRoot}users/`;
+const followRoot = `${secureRoot}follow/`;
 
-const user = id =>
+const get = id =>
   axios
-    .get(`${userRoot}${id}`, {
-      headers: { Authorization: CookieMonster.getToken() }
-    })
+    .get(`${userRoot}${id}`, Headers.auth())
     .then(({ data }) => User.from(data));
 
+const follow = id =>
+  axios.post(
+    followRoot,
+    {
+      id
+    },
+    Headers.auth()
+  );
+
+const unfollow = id => axios.delete(`${followRoot}${id}`, Headers.auth());
+
 export default {
-  getAlbum,
-  getAlbumTracks
+  get,
+  follow,
+  unfollow
 };

@@ -9,16 +9,16 @@
                 class="is-rounded bumped-left"
                 id="user-image"
                 src="static/images/default_profile.png"
-                alt="user1.name"
+                alt="user.name"
               />
             </div>
             <div class="column">
-              <div class="user-name">{{ user1.name }}</div>
-              <div class="user-email">{{ user1.email }}</div>
-              <button v-if="user1.isFollowing">
+              <div class="user-name">{{ user.name }}</div>
+              <div class="user-email">{{ user.email }}</div>
+              <button v-if="user.isFollowing">
                 <i class="fas fa-user-times"></i> Unfollow
               </button>
-              <button v-else-if="user1.isFollowing === false">
+              <button v-else-if="user.isFollowing === false">
                 <i class="fas fa-user-plus"></i> Follow
               </button>
               <div v-else></div>
@@ -52,16 +52,14 @@
 import { VueTabs, VTab } from 'vue-nav-tabs';
 import UserPlaylist from './UserPlaylist';
 import UserFriends from './UserFriends';
-import userTemp from './userTemporaire.json';
 
 export default {
   name: 'UserView',
-  props: ['data'],
+  props: ['user'],
   components: { UserFriends, UserPlaylist, VueTabs, VTab },
   data() {
+    console.log(this.user);
     return {
-      user1: userTemp,
-      isModalVisible: false,
       isSettingVisible: false,
       isUnfollowing: false
     };

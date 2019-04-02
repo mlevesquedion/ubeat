@@ -22,14 +22,12 @@
 </template>
 
 <script>
-import userTemp from './userTemporaire.json';
-
 export default {
   name: 'UserFriends',
   props: ['friend', 'index', 'userList'],
   data() {
     return {
-      user1: userTemp,
+      user1: {},
       isUnfollowing: false
     };
   },

@@ -21,13 +21,11 @@
 </template>
 
 <script>
-import userTemp from './userTemporaire.json';
-
 export default {
   name: 'UserPlaylist',
   data() {
     return {
-      user1: userTemp
+      user1: {}
     };
   },
   methods: {
