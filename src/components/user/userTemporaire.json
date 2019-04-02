@@ -1,0 +1,64 @@
+{
+  "isFollowing": false,
+"email": "john.smith@mail.com",
+"name": "John Smith",
+"id": "53ec122d27aafe77d8c37b8",
+"userplaylist": [{
+"playlist1": [
+  {"isInPlaylist":false, "name": "songdfa adfadfwe sddfdfwefwfwefa asdfew 1", "artist": "artistwdfds weew afws sdfwefsfsfsdfwe fi thabig name1",
+  "album": "album withabig name1" },
+  { "name": "song2", "artist": "artist1", "album": "album1" }] },
+  {
+    "playlist2": [
+      {"isInPlaylist":true,
+        "name": "song3",
+        "artist": "artist1",
+        "album": "album1"
+      },
+      {"isInPlaylist":false,
+        "name": "song4",
+        "artist": "artist1",
+        "album": "album1"
+      }
+    ],
+    "playlist3": [
+      {"isInPlaylist":false,
+        "name": " 'song3'",
+        "artist": "artist1",
+        "album": "album1"
+      }
+    ],
+    "playlist4": [
+      {"isInPlaylist":true,
+        "name": "song2",
+        "artist": "artist1",
+        "album": "'album1' "
+      }
+    ]
+  }],
+
+"following": [
+  {
+  "isFollowing": true,
+  "email": "ali.gator@gmail.com",
+  "name": "Ali Gator",
+  "id": "5aa9dc9f297d410004d81724",
+  "userplaylist": [],
+  "following": []
+  },
+  {
+  "isFollowing": false,
+  "email": "alex@ia.ca",
+  "name": "Alex",
+  "id": "5aa99138297d410004d815cc",
+  "userplaylist": [],
+  "following": []
+},
+  {
+    "isFollowing": false,
+    "email": "alex@ia.ca",
+    "name": "Alex",
+    "id": "5aa99138297d410004d815cc",
+    "userplaylist": [],
+    "following": []
+  }] }
