@@ -12,53 +12,18 @@
     <div class="column">
       <div class="user-name">{{ user.name }}</div>
       <div class="user-email">{{ user.email }}</div>
-      <div>
-        <button class="button is-danger" v-if="isFollowed" @click="unfollow">
-          <i class="fas fa-user-times"></i
-          ><span class="bumped-right">Unfollow</span>
-        </button>
-        <button class="button is-primary" v-else @click="follow">
-          <i class="fas fa-user-plus"></i
-          ><span class="bumped-right">Follow</span>
-        </button>
-      </div>
+      <FollowButton :user="user" />
     </div>
   </section>
 </template>
 
 <script>
-import userAPI from '../../api/user';
+import FollowButton from './FollowButton';
 
 export default {
   name: 'UserHeader',
-  props: ['user'],
-  computed: {
-    isFollowed() {
-      return this.$root.$data.isFollowing(this.user.id);
-    }
-  },
-  methods: {
-    follow() {
-      userAPI
-        .follow(this.user.id)
-        .then(user => this.$root.$data.setUser(user))
-        .catch(_err =>
-          this.$toasted.show(`Could not follow user ${this.user.name}.`, {
-            type: 'ubeat-error'
-          })
-        );
-    },
-    unfollow() {
-      userAPI
-        .unfollow(this.user.id)
-        .then(user => this.$root.$data.setUser(user))
-        .catch(_err =>
-          this.$toasted.show(`Could not unfollow user ${this.user.name}.`, {
-            type: 'ubeat-error'
-          })
-        );
-    }
-  }
+  components: { FollowButton },
+  props: ['user']
 };
 </script>
 <style scoped lang="scss">
