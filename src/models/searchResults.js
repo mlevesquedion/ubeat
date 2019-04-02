@@ -8,16 +8,21 @@ export default {
     const artists = [];
     const tracks = [];
     results.forEach(r => {
-      console.log(r);
       switch (r.wrapperType) {
         case 'collection':
           albums.push(Album.from(r));
+          console.log(r);
+          console.log(Album.from(r));
           break;
         case 'artist':
           artists.push(Artist.from(r));
+          // console.log(r);
+          // console.log(Artist.from(r));
           break;
         case 'track':
           tracks.push(Track.fromBackend(r));
+          // console.log(r);
+          // console.log(Track.fromBackend(r));
           break;
         default:
           break;

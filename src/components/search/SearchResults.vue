@@ -1,7 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <SearchResultsView :searchresults="data" />
+      <SearchResultsView :searchresults="data" :query="query" />
     </template>
   </GenericAsync>
 </template>
@@ -15,9 +15,14 @@ export default {
   name: 'SearchResults',
   data() {
     return {
-      dataSource: SearchAPI.globalSearch(this.$route.params.query),
+      dataSource: SearchAPI.global(this.$route.params.query),
       dataName: 'search results'
     };
+  },
+  computed: {
+    query() {
+      return this.$route.params.query;
+    }
   },
   components: { SearchResultsView, GenericAsync }
 };

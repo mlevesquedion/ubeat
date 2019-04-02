@@ -11,5 +11,5 @@ const global = query =>
     .then(({ data }) => SearchResults.from(data.results));
 
 export default {
-  globalSearch: global
+  global
 };
