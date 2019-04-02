@@ -56,6 +56,14 @@ $desktop: 1023px;
   border-radius: 50%;
 }
 
+.is-round {
+  border-radius: 100%;
+}
+
+.capitalized {
+  text-transform: capitalize;
+}
+
 .bumped-right {
   margin-left: 10px;
 }
@@ -82,6 +90,12 @@ $desktop: 1023px;
 .flex-centered {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 

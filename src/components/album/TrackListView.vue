@@ -53,7 +53,7 @@
 import Jukebox from '@/utils/jukebox';
 import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
 import PlaylistAPI from '../../api/playlist';
-import trackDurationFormatter from '../../formatting/trackDurationFormatter';
+import trackDurationFormatter from '../../utils/trackDurationFormatter';
 
 export default {
   name: 'TrackListView',
