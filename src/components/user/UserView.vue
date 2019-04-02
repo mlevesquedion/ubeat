@@ -14,11 +14,11 @@
       <div class="user-name">{{ user.name }}</div>
       <div class="user-email">{{ user.email }}</div>
       <div>
-        <button class="button is-danger" v-if="isFollowed">
+        <button class="button is-danger" v-if="isFollowed" @click="unfollow">
           <i class="fas fa-user-times"></i
           ><span class="bumped-right">Unfollow</span>
         </button>
-        <button class="button is-primary">
+        <button class="button is-primary" v-else @click="follow">
           <i class="fas fa-user-plus"></i
           ><span class="bumped-right">Follow</span>
         </button>
@@ -33,6 +33,7 @@ import UserPlaylist from './UserPlaylist';
 import UserFriends from './UserFriends';
 import FollowingList from './FollowingList';
 import LocalStorage from '../../auth/localStorage';
+import userAPI from '../../api/user';
 
 export default {
   name: 'UserView',
@@ -40,7 +41,32 @@ export default {
   components: { UserFriends, UserPlaylist, FollowingList },
   computed: {
     isFollowed() {
-      return LocalStorage.getUser().following.indexOf(this.user.id) !== -1;
+      return (
+        LocalStorage.getUser().following.filter(u => u.id === this.user.id)
+          .length !== 0
+      );
+    }
+  },
+  methods: {
+    follow() {
+      userAPI
+        .follow(this.user.id)
+        .then(user => LocalStorage.saveUser(user))
+        .catch(_err =>
+          this.$toasted.show(`Could not follow user ${this.user.name}.`, {
+            type: 'ubeat-error'
+          })
+        );
+    },
+    unfollow() {
+      userAPI
+        .unfollow(this.user.id)
+        .then(user => LocalStorage.saveUser(user))
+        .catch(_err =>
+          this.$toated.show(`Could not unfollow user ${this.user.name}.`, {
+            type: 'ubeat-error'
+          })
+        );
     }
   }
 };

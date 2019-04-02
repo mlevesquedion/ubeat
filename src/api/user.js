@@ -12,15 +12,10 @@ const get = id =>
     .then(({ data }) => User.from(data));
 
 const follow = id =>
-  axios.post(
-    followRoot,
-    {
-      id
-    },
-    Headers.auth()
-  );
+  axios.post(followRoot, { id }, Headers.auth()).then(({ data }) => data);
 
-const unfollow = id => axios.delete(`${followRoot}${id}`, Headers.auth());
+const unfollow = id =>
+  axios.delete(`${followRoot}${id}`, Headers.auth()).then(({ data }) => data);
 
 export default {
   get,
