@@ -1,5 +1,5 @@
 <template>
-  <ResultsGroup resultType="Tracks" :results="tracks" icon="fa-music">
+  <ResultsGroup resultType="Track" :results="tracks" icon="fa-music">
     <template slot-scope="{ data }">
       <TrackResult :track="data" />
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <ResultsGroup resultType="Albums" :results="albums" icon="fa-list">
+  <ResultsGroup resultType="Album" :results="albums" icon="fa-list">
     <template slot-scope="{ data }">
       <AlbumResult :album="data" />
     </template>

@@ -22,6 +22,7 @@
 <script>
 import Accordion from '../../utils/Accordion';
 import isEmpty from '../../../utils/isEmpty';
+import pluralize from '../../../utils/pluralize';
 
 export default {
   name: 'ResultsGroup',
@@ -34,8 +35,11 @@ export default {
     resultCount() {
       return this.results.length;
     },
+    resultTypePluralized() {
+      return pluralize(this.resultType, this.resultCount);
+    },
     resultSummary() {
-      return `${this.resultCount} ${this.resultType}`;
+      return `${this.resultTypePluralized} (${this.resultCount})`;
     }
   }
 };

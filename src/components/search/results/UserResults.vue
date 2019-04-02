@@ -1,5 +1,5 @@
 <template>
-  <ResultsGroup resultType="Users" :results="users" icon="fa-user">
+  <ResultsGroup resultType="User" :results="users" icon="fa-user">
     <template slot-scope="{ data }">
       <UserResult :user="data"></UserResult>
     </template>

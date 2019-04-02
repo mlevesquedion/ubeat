@@ -1,5 +1,5 @@
 <template>
-  <ResultsGroup resultType="Artists" :results="artists" icon="fa-star">
+  <ResultsGroup resultType="Artist" :results="artists" icon="fa-star">
     <template slot-scope="{ data }">
       <ArtistResult :artist="data" />
     </template>
