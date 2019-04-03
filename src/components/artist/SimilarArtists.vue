@@ -1,7 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <ArtistInfoView :artist="data" />
+      <SimilarArtistsView :artist="data" />
     </template>
   </GenericAsync>
 </template>
@@ -9,24 +9,19 @@
 <script>
 import ArtistAPI from '@/api/artist';
 import GenericAsync from '@/components/utils/Async/GenericAsync';
-import ArtistInfoView from './ArtistInfoView';
+import SimilarArtistsView from './SimilarArtistsView';
 
 export default {
-  name: 'artistInfo',
+  name: 'SimilarArtists',
+  components: { GenericAsync, SimilarArtistsView },
   props: ['artistId'],
   data() {
     return {
       dataSource: ArtistAPI.get(this.artistId),
-      dataName: 'artist data'
+      dataName: 'similar artists data'
     };
-  },
-  components: {
-    GenericAsync,
-    ArtistInfoView
   }
 };
 </script>
 
-<style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
-</style>
+<style scoped lang="scss"></style>

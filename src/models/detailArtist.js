@@ -5,7 +5,7 @@ const DetailArtist = {
     name: detailArtistData.name,
     bio: detailArtistSanitizer.sanitizeBio(detailArtistData.bio.summary),
     image: detailArtistSanitizer.sanitizeImage(detailArtistData.image),
-    similar: detailArtistData.similar.artist
+    similarArtists: detailArtistData.similar.artist
   })
 };
 export default DetailArtist;
