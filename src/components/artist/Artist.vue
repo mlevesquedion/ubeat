@@ -1,7 +1,7 @@
 <template>
   <div>
     <ArtistInfo :artistId="id" />
-    <DetailArtist :artistName="artistName" />
+    <DetailArtist :artistId="id" />
     <AlbumGallery :artistId="id" />
   </div>
 </template>
@@ -16,8 +16,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      ArtistInfo,
-      artistName: 'Cher'
+      ArtistInfo
     };
   },
   components: {

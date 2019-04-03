@@ -1,7 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <DetailArtistView :detailArtist="data" />
+      <DetailArtistView :artist="data" />
     </template>
   </GenericAsync>
 </template>
@@ -13,10 +13,10 @@ import DetailArtistView from './DetailArtistView';
 
 export default {
   name: 'detailArtist',
-  props: ['artistName'],
+  props: ['artistId'],
   data() {
     return {
-      dataSource: ArtistAPI.getDetails('Cher'),
+      dataSource: ArtistAPI.get(this.artistId),
       dataName: 'artist detail data'
     };
   },
