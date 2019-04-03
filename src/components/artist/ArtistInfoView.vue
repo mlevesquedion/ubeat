@@ -21,11 +21,8 @@
 </template>
 
 <script>
-import DetailArtist from './DetailArtist';
-
 export default {
   name: 'artistInfoView',
-  components: { DetailArtist },
   props: ['artist']
 };
 </script>
