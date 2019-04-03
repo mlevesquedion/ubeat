@@ -1,22 +1,15 @@
 <template>
   <section class="section">
-    <section class="container has-text-centered">
-      <p class="label">{{ artist.name }}</p>
-    </section>
+    <div class="container has-text-centered">
+      <p class="label">{{ artist.bio }}</p>
+    </div>
   </section></template
 >
 
 <script>
-import ArtistAPI from '@/api/artist';
-
 export default {
   name: 'DetailArtistView',
-  props: ['artist'],
-  data() {
-    return {
-      details: ArtistAPI.getDetails(this.artist.name)
-    };
-  }
+  props: ['artist']
 };
 </script>
 

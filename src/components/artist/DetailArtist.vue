@@ -13,10 +13,10 @@ import DetailArtistView from './DetailArtistView';
 
 export default {
   name: 'detailArtist',
-  props: ['artistId'],
+  props: ['artistName'],
   data() {
     return {
-      dataSource: ArtistAPI.get(this.artistId),
+      dataSource: ArtistAPI.getDetails(this.artistName),
       dataName: 'artist detail data'
     };
   },
