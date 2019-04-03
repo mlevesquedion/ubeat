@@ -1,5 +1,6 @@
 <template>
   <div class="container has-text-centered">
+    <img :alt="artist.name" class="responsive-image" :src="artist.image" />
     <p class="label">{{ artist.bio }}</p>
   </div>
 </template>
