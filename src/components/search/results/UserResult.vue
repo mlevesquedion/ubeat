@@ -1,6 +1,13 @@
 <template>
   <div class="level">
-    <div class="level-left">{{ user.name }}, {{ user.email }}</div>
+    <div class="level-left">
+      <router-link
+        class="is-primary link"
+        :to="{ name: 'User', params: { id: user.id } }"
+        >{{ user.name }}
+      </router-link>
+      <span class="bumped-right">({{ user.email }})</span>
+    </div>
     <div class="level-right">
       <FollowButton :user="user" :isSmall="true"></FollowButton>
     </div>
