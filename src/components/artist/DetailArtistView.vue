@@ -1,10 +1,8 @@
 <template>
-  <section class="section">
-    <div class="container has-text-centered">
-      <p class="label">{{ artist.bio }}</p>
-    </div>
-  </section></template
->
+  <div class="container has-text-centered">
+    <p class="label">{{ artist.bio }}</p>
+  </div>
+</template>
 
 <script>
 export default {
