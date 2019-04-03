@@ -3,6 +3,7 @@
     <div class="container has-text-centered">
       <p class="label is-size-1">{{ artist.name }}</p>
       <p class="label is-size-3">{{ artist.genre }}</p>
+      <DetailArtist :artistName="artist.name"></DetailArtist>
       <a :href="artist.url" id="itunes-link">
         <img
           alt="Listen on Apple Music"
@@ -10,7 +11,6 @@
         />
       </a>
     </div>
-    <DetailArtist :artistName="artist.name"></DetailArtist>
   </section>
 </template>
 
