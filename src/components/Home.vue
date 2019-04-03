@@ -15,13 +15,13 @@
     </p>
     <ImageCarousel />
     <div class="links">
-      <router-link class="responsive-heading" to="/artist/491675603"
+      <router-link class="responsive-heading link" to="/artist/491675603"
         >Artist
       </router-link>
-      <router-link class="responsive-heading" to="/album/1083396755"
+      <router-link class="responsive-heading link" to="/album/1083396755"
         >Album
       </router-link>
-      <router-link class="responsive-heading" to="/playlists"
+      <router-link class="responsive-heading link" to="/playlists"
         >Playlists
       </router-link>
     </div>

@@ -92,7 +92,8 @@ export default {
     login() {
       return authAPI
         .login({ email: this.email.value, password: this.password.value })
-        .then(_ => {
+        .then(userData => {
+          this.$root.$data.setUser(userData);
           this.$router.push('/');
         })
         .catch(_ =>

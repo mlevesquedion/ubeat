@@ -56,6 +56,14 @@ $desktop: 1023px;
   border-radius: 50%;
 }
 
+.is-round {
+  border-radius: 100%;
+}
+
+.capitalized {
+  text-transform: capitalize;
+}
+
 .bumped-right {
   margin-left: 10px;
 }
@@ -85,6 +93,19 @@ $desktop: 1023px;
   align-items: center;
 }
 
+.responsive-image {
+  display: block;
+  width: 25vw !important;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // Vue-Toasted custom colors
 // Have to use !important to override built-ins
 .ubeat-success {
@@ -93,6 +114,10 @@ $desktop: 1023px;
 
 .ubeat-error {
   background-color: $danger !important;
+}
+
+.link:hover {
+  color: $primary-dark !important;
 }
 
 .responsive-heading {

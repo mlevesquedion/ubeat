@@ -23,14 +23,7 @@
     </div>
     <div :class="{ 'is-active': isOpen }" class="navbar-menu" id="nav-menu">
       <div class="navbar-end">
-        <div class="navbar-item is-marginless" id="search-bar-container">
-          <input
-            class="is-size-6-tablet is-size-5-desktop search-bar"
-            placeholder="Search ..."
-            type="search"
-          />
-        </div>
-
+        <SearchInput />
         <router-link
           @click.native="closeBurger"
           class="navbar-item is-size-6-tablet is-size-5-desktop hover-white"
@@ -42,7 +35,7 @@
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
           <a @click="closeBurger" class="navbar-link">
-            <router-link class="navbar-item" id="user-container" to="/user">
+            <router-link class="navbar-item" id="user-container" :to="userLink">
               <img
                 class="is-rounded bumped-left"
                 id="user-image"
@@ -73,10 +66,20 @@
 
 <script>
 import authAPI from '../api/auth';
+import SearchInput from './search/input/SearchInput';
 
 export default {
+  components: { SearchInput },
+  created() {
+    this.$on('close-burger', this.closeBurger);
+  },
   data() {
     return { isOpen: false };
+  },
+  computed: {
+    userLink() {
+      return `/user/${this.$root.$data.getUser().id}`;
+    }
   },
   methods: {
     toggleBurger() {
@@ -135,20 +138,6 @@ export default {
 
 .hover-white:hover {
   color: white;
-}
-
-.search-bar {
-  height: 40px;
-  padding: 10px;
-  @media screen and (min-width: $navbar-breakpoint) {
-    width: 200px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 300px;
-  }
-  @media screen and (max-width: $navbar-breakpoint) {
-    width: 100%;
-  }
 }
 
 #user-image {

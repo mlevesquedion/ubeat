@@ -7,6 +7,7 @@
       <img
         alt="cat typing away furiously on keyboard"
         src="https://media1.tenor.com/images/4baee94ad8634680ebd9cbf372f9888e/tenor.gif?itemid=7817705"
+        class="padded"
       />
     </div>
     <router-link to="/">
@@ -28,5 +29,9 @@ export default {
 
 .subtitle:hover {
   color: $background-lighter;
+}
+
+.padded {
+  padding: 20px;
 }
 </style>

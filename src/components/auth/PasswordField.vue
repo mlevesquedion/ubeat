@@ -9,7 +9,7 @@
           'is-success': value.isValid,
           'is-danger': hasError
         }"
-        type="text"
+        type="password"
         placeholder="Username"
         @blur="wasBlurred = true"
       />
