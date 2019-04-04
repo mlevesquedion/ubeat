@@ -19,7 +19,7 @@ const similarArtists = artistName =>
       .all(artists.map(a => SearchAPI.artists(a.name)))
       .then(
         axios.spread((...results) =>
-          results.map((r, i) => ({ ...artists[i], id: r[0].artistId }))
+          results.map((r, i) => ({ ...artists[i], id: r[0] && r[0].artistId }))
         )
       );
   });
