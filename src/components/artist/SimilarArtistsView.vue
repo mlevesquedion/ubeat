@@ -6,16 +6,18 @@
         class="similarArtist"
         v-for="similarArtist in artist[1].similarArtists"
       >
-        <router-link
-          :to="{ name: 'Artist', params: { id: 373843476 } }"
-          class="responsive-image-container"
-        >
+        <!--        <router-link-->
+        <!--          :to="{ name: 'Artist', params: { id: 373843476 } }"-->
+        <!--          class="responsive-image-container"-->
+        <!--        >-->
+        <a class="responsive-image-container" :href="similarArtist.url">
           <img
             :alt="similarArtist.name"
             :src="similarArtist.image[5]['#text']"
             class="responsive-image"
           />
-        </router-link>
+        </a>
+        <!--        </router-link>-->
         <label class="artist-name subtitle">{{ similarArtist.name }}</label>
       </div>
     </div>
