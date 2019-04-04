@@ -1,12 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <Gallery
-        title="Similar Artists"
-        linkTo="Artist Results"
-        :linkParamsMaker="linkParamsMaker"
-        :elements="data"
-      />
+      <Gallery title="Similar Artists" linkTo="Artist" :elements="data" />
     </template>
   </GenericAsync>
 </template>
@@ -23,10 +18,7 @@ export default {
   data() {
     return {
       dataSource: ArtistDetailsAPI.similarArtists(this.artistName),
-      dataName: 'similar artists',
-      linkParamsMaker: artist => ({
-        query: artist.name
-      })
+      dataName: 'similar artists'
     };
   }
 };

@@ -4,7 +4,7 @@
     <div class="gallery">
       <div :key="e.id" class="element" v-for="e in elements">
         <router-link
-          :to="{ name: linkTo, params: linkParams(e) }"
+          :to="{ name: linkTo, params: { id: e.id } }"
           class="responsive-image-container"
         >
           <img :alt="e.name" :src="e.src" class="responsive-image" />
@@ -17,12 +17,7 @@
 <script>
 export default {
   name: 'Gallery',
-  props: ['title', 'linkTo', 'linkParamsMaker', 'elements'],
-  data() {
-    return {
-      linkParams: this.linkParamsMaker || (e => ({ id: e.id }))
-    };
-  }
+  props: ['title', 'linkTo', 'linkParamsMaker', 'elements']
 };
 </script>
 <style scoped lang="scss">
