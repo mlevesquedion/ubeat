@@ -1,15 +1,15 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <AlbumGalleryView :albums="data" />
+      <Gallery title="Albums" linkTo="Album" :elements="data" />
     </template>
   </GenericAsync>
 </template>
 
 <script>
 import GenericAsync from '@/components/utils/Async/GenericAsync';
-import AlbumGalleryView from './AlbumGalleryView';
 import ArtistAPI from '../../api/artist';
+import Gallery from './Gallery';
 
 export default {
   name: 'albumGallery',
@@ -22,7 +22,7 @@ export default {
   },
   components: {
     GenericAsync,
-    AlbumGalleryView
+    Gallery
   }
 };
 </script>

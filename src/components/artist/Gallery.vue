@@ -1,31 +1,30 @@
 <template>
   <section class="section">
-    <h1 class="title is-primary has-text-centered">Albums</h1>
-    <div class="album-gallery">
-      <div :key="album.id" class="album" v-for="album in albums">
+    <h1 class="title is-primary has-text-centered">{{ title }}</h1>
+    <div class="gallery">
+      <div :key="e.id" class="element" v-for="e in elements">
         <router-link
-          :to="{ name: 'Album', params: { id: album.id } }"
+          :to="{ name: linkTo, params: linkParams(e) }"
           class="responsive-image-container"
         >
-          <img
-            :alt="album.name"
-            :src="album.artworkUrl"
-            class="responsive-image"
-          />
+          <img :alt="e.name" :src="e.src" class="responsive-image" />
         </router-link>
-        <label class="album-name subtitle">{{ album.name }}</label>
+        <label class="element-name subtitle">{{ e.name }}</label>
       </div>
     </div>
   </section>
 </template>
-
 <script>
 export default {
-  name: 'albumGallery',
-  props: ['albums']
+  name: 'Gallery',
+  props: ['title', 'linkTo', 'linkParamsMaker', 'elements'],
+  data() {
+    return {
+      linkParams: this.linkParamsMaker || (e => ({ id: e.id }))
+    };
+  }
 };
 </script>
-
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
 
@@ -48,21 +47,21 @@ export default {
   height: 100%;
 }
 
-.album-gallery {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.album {
+.element {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.album-name {
+.element-name {
   width: 200px;
   text-align: center;
   color: $text;
