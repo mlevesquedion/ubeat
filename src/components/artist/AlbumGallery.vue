@@ -9,7 +9,7 @@
 <script>
 import GenericAsync from '@/components/utils/Async/GenericAsync';
 import ArtistAPI from '../../api/artist';
-import Gallery from './Gallery';
+import Gallery from '../utils/Gallery';
 
 export default {
   name: 'albumGallery',

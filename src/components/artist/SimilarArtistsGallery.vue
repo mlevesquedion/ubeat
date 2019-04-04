@@ -14,7 +14,7 @@
 <script>
 import GenericAsync from '@/components/utils/Async/GenericAsync';
 import ArtistDetailsAPI from '../../api/artistDetails';
-import Gallery from './Gallery';
+import Gallery from '../utils/Gallery';
 
 export default {
   name: 'SimilarArtists',
