@@ -1,28 +1,25 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <Gallery title="Albums" linkTo="Album" :elements="data" />
+      <Gallery title="Similar Artists" linkTo="Artist" :elements="data" />
     </template>
   </GenericAsync>
 </template>
 
 <script>
 import GenericAsync from '@/components/utils/Async/GenericAsync';
-import ArtistAPI from '../../api/artist';
+import ArtistDetailsAPI from '../../api/artistDetails';
 import Gallery from '../utils/Gallery';
 
 export default {
-  name: 'albumGallery',
-  props: ['artistId'],
+  name: 'SimilarArtists',
+  components: { GenericAsync, Gallery },
+  props: ['artistName'],
   data() {
     return {
-      dataSource: ArtistAPI.getAlbums(this.artistId),
-      dataName: 'artist albums'
+      dataSource: ArtistDetailsAPI.similarArtists(this.artistName),
+      dataName: 'similar artists'
     };
-  },
-  components: {
-    GenericAsync,
-    Gallery
   }
 };
 </script>

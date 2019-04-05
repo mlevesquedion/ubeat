@@ -80,6 +80,10 @@ $desktop: 1023px;
   color: $primary;
 }
 
+.padded-bottom {
+  padding-bottom: 5%;
+}
+
 .is-clipped {
   overflow: hidden;
   text-overflow: ellipsis;

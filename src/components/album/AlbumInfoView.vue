@@ -2,11 +2,7 @@
   <section class="section columns">
     <div class="column is-narrow">
       <figure class="media-left image">
-        <img
-          :alt="album.name"
-          :src="album.artworkUrl"
-          class="responsive-image"
-        />
+        <img :alt="album.name" :src="album.src" class="responsive-image" />
       </figure>
     </div>
     <div class="column">

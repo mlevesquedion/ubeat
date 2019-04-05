@@ -28,6 +28,7 @@ export default {
       this.requestState = RequestState.LOADED;
     },
     setError(_err) {
+      console.log(_err);
       this.requestState = RequestState.ERROR;
     }
   },
