@@ -31,21 +31,6 @@ export default {
   padding-top: 0;
 }
 
-.responsive-image-container {
-  width: 25vw;
-  height: 25vw;
-  min-width: 250px;
-  min-height: 250px;
-  max-width: 350px;
-  max-height: 350px;
-  padding: 2% 2%;
-}
-
-.responsive-image {
-  width: 100%;
-  height: 100%;
-}
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
