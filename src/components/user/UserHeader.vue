@@ -12,7 +12,7 @@
     <div class="column">
       <div class="label is-primary">{{ userNameText }}</div>
       <div class="label">{{ user.email }}</div>
-      <FollowButton :user="user" />
+      <FollowButton class="no-stretch" :user="user" />
     </div>
   </section>
 </template>
@@ -35,3 +35,14 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.no-stretch {
+  align-self: flex-start;
+}
+</style>
