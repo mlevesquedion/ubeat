@@ -6,7 +6,7 @@
         <div class="level-left">
           <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
         </div>
-        <div class="level-right truncate">
+        <div class="level-right">
           <div class="button-group bumped-left">
             <AsyncPlaylistDropdown
               :isRight="true"
