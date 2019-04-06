@@ -13,6 +13,9 @@ const store = {
   id() {
     return this.getUser().id;
   },
+  name() {
+    return this.getUser().name;
+  },
   isUser(user) {
     return user.id === this.id();
   },

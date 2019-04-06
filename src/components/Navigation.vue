@@ -34,7 +34,7 @@
                 id="user-image"
                 src="static/images/default_profile.png"
               />
-              <span>User</span>
+              <span>{{ username }}</span>
             </router-link>
           </a>
           <div class="navbar-dropdown">
@@ -70,6 +70,9 @@ export default {
     return { isOpen: false };
   },
   computed: {
+    username() {
+      return this.$root.$data.name();
+    },
     userLink() {
       return `/user/${this.$root.$data.getUser().id}`;
     }
