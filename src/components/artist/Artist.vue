@@ -1,25 +1,51 @@
 <template>
   <div>
-    <ArtistInfo :artistId="id" />
+    <AsyncContent :requestState="requestState" dataName="artist info">
+      <ArtistInfo :artist="artist" />
+    </AsyncContent>
     <AlbumGallery :artistId="id" />
+    <AsyncContent :requestState="requestState" dataName="similar artists">
+      <SimilarArtists :artistName="artist.name" />
+    </AsyncContent>
   </div>
 </template>
 
 <script>
 import ArtistInfo from './ArtistInfo';
 import AlbumGallery from './AlbumGallery';
+import SimilarArtists from './SimilarArtistsGallery';
+import RequestState from '../utils/Async/requestState';
+import ArtistAPI from '../../api/artist';
+import AsyncContent from '../utils/Async/AsyncContent';
 
 export default {
-  name: 'artist',
+  name: 'Artist',
   data() {
     return {
       id: this.$route.params.id,
-      ArtistInfo
+      artist: {},
+      requestState: RequestState.LOADING
     };
   },
+  mounted() {
+    ArtistAPI.get(this.id)
+      .then(this.setArtist)
+      .catch(this.setError);
+  },
+  methods: {
+    setArtist(artist) {
+      this.artist = artist;
+      this.requestState = RequestState.LOADED;
+    },
+    setError(_err) {
+      this.requestState = RequestState.ERROR;
+    }
+  },
   components: {
+    SimilarArtists,
     ArtistInfo,
-    AlbumGallery
+    AlbumGallery,
+    AsyncContent
   }
 };
 </script>

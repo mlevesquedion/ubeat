@@ -23,10 +23,9 @@ const login = loginData =>
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    .then(({ data }) => data)
-    .then(userData => {
-      CookieMonster.setToken(userData.token);
-      return userData;
+    .then(({ data }) => {
+      CookieMonster.setToken(data.token);
+      return data;
     });
 
 const logout = () =>

@@ -1,15 +1,19 @@
 <template>
-  <div class="level">
+  <div class="level is-mobile">
     <div class="level-left">
-      <router-link
-        class="is-primary link"
-        :to="{ name: 'User', params: { id: user.id } }"
-        >{{ user.name }}
-      </router-link>
-      <span class="bumped-right">({{ user.email }})</span>
+      <div class="level-item is-clipped">
+        <router-link
+          class="is-primary link"
+          :to="{ name: 'User', params: { id: user.id } }"
+          >{{ user.name }}
+        </router-link>
+        <span>({{ user.email }})</span>
+      </div>
     </div>
     <div class="level-right">
-      <FollowButton :user="user" :isSmall="true"></FollowButton>
+      <div class="level-item">
+        <FollowButton :user="user" :isSmall="true"></FollowButton>
+      </div>
     </div>
   </div>
 </template>
@@ -24,4 +28,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.is-clipped {
+  min-width: 80px;
+  width: 60vw;
+  max-width: 1000px;
+}
+</style>
