@@ -10,6 +10,9 @@ const store = {
     }
     return this.state.user;
   },
+  id() {
+    return this.getUser().id;
+  },
   setUser(user) {
     localStorage.setItem('user', JSON.stringify(user));
     this.state.user = user;

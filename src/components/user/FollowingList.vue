@@ -23,13 +23,11 @@ import UserResult from '../search/results/UserResult';
 
 export default {
   name: 'PlaylistList',
+  props: ['following'],
   components: { Accordion, UserResult },
   computed: {
     hasFriends() {
       return !isEmpty(this.following);
-    },
-    following() {
-      return this.$root.$data.getUser().following;
     },
     followingCount() {
       return this.following.length;
