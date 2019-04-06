@@ -27,15 +27,16 @@ export default {
   components: { Accordion, UserResult },
   computed: {
     following() {
-      if (this.$root.$data.isUser(this.user)) {
-        return this.$root.$data.following();
-      }
       return this.user.following;
     },
     hasFriends() {
       return !isEmpty(this.following);
     },
     followingCount() {
+      if (this.$root.$data.isUser(this.user)) {
+        return this.following.filter(u => this.$root.$data.isFollowing(u))
+          .length;
+      }
       return this.following.length;
     }
   }
