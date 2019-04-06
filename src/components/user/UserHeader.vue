@@ -27,7 +27,7 @@ export default {
   computed: {
     userNameText() {
       let text = this.user.name;
-      if (this.user.id === this.$root.$data.id()) {
+      if (this.$root.$data.isUser(this.user)) {
         text += ' (you)';
       }
       return text;

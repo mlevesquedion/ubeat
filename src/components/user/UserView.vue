@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <UserHeader :user="user" />
-    <FollowingList :following="user.following"></FollowingList>
+    <FollowingList :user="user"></FollowingList>
   </div>
 </template>
 
