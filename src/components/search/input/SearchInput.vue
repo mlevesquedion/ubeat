@@ -46,7 +46,7 @@ export default {
         case 'artist':
           return 'fa-star';
         case 'album':
-          return 'fa-list';
+          return 'fa-compact-disc';
         case 'track':
           return 'fa-music';
         case 'user':
