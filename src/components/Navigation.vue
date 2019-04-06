@@ -34,7 +34,7 @@
                 id="user-image"
                 src="static/images/default_profile.png"
               />
-              <span>{{ username }}</span>
+              <span class="is-clipped">{{ username }}</span>
             </router-link>
           </a>
           <div class="navbar-dropdown">
@@ -74,7 +74,7 @@ export default {
       return this.$root.$data.name();
     },
     userLink() {
-      return `/user/${this.$root.$data.getUser().id}`;
+      return { name: 'User', params: { id: this.$root.$data.getUser().id } };
     }
   },
   methods: {
@@ -145,6 +145,13 @@ export default {
   @media screen and (max-width: $desktop) {
     width: 28px;
     height: 28px;
+  }
+}
+
+.is-clipped {
+  max-width: 18vw;
+  @media screen and (max-width: $navbar-breakpoint) {
+    max-width: 80vw;
   }
 }
 </style>
