@@ -26,8 +26,8 @@ const store = {
   followingIds() {
     return this.following().map(u => u.id);
   },
-  isFollowing(id) {
-    return this.followingIds().indexOf(id) !== -1;
+  isFollowing(user) {
+    return this.followingIds().indexOf(user.id) !== -1;
   }
 };
 

@@ -12,7 +12,7 @@
     <div class="column">
       <div class="label is-primary">{{ userNameText }}</div>
       <div class="label">{{ user.email }}</div>
-      <FollowButton class="no-stretch" :user="user" />
+      <FollowButton v-if="!loggedInUser" class="no-stretch" :user="user" />
     </div>
   </section>
 </template>
@@ -31,6 +31,9 @@ export default {
         text += ' (you)';
       }
       return text;
+    },
+    loggedInUser() {
+      return this.$root.$data.isUser(this.user);
     }
   }
 };

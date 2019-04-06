@@ -34,8 +34,7 @@ export default {
     },
     followingCount() {
       if (this.$root.$data.isUser(this.user)) {
-        return this.following.filter(u => this.$root.$data.isFollowing(u))
-          .length;
+        return this.$root.$data.following().length;
       }
       return this.following.length;
     }

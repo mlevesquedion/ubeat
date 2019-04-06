@@ -34,7 +34,7 @@ export default {
   props: ['user', 'isSmall'],
   computed: {
     isFollowed() {
-      return this.$root.$data.isFollowing(this.user.id);
+      return this.$root.$data.isFollowing(this.user);
     }
   },
   methods: {
