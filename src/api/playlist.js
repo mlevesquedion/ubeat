@@ -2,6 +2,7 @@ import axios from 'axios';
 import { apiRoot } from './constants';
 import AlbumAPI from './album';
 import Playlist from '../models/playlist';
+import Headers from '../auth/headers';
 import Track from '../models/track';
 
 const playlistRoot = `${apiRoot}playlists/`;
@@ -12,7 +13,7 @@ const userId = '5c9d31a5ea03fd0004c27ff0';
 
 const getUserPlaylists = () =>
   axios
-    .get(`${playlistRoot}`, { params: { userId } })
+    .get(`${playlistRoot}`, { ...Headers.auth(), params: { userId } })
     .then(({ data }) =>
       data.filter(p => p && p.owner && p.owner.email === ownerEmail)
     )
