@@ -1,25 +1,26 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <ArtistDetailsView :artist="data" />
+      <Gallery title="Top artists" linkTo="Artist" :elements="data" />
     </template>
   </GenericAsync>
 </template>
 
 <script>
+import Gallery from '../utils/Gallery';
 import GenericAsync from '../utils/Async/GenericAsync';
 import LastFmAPI from '../../api/lastFM';
-import ArtistDetailsView from './ArtistDetailsView';
 
 export default {
-  name: 'ArtistDetails',
-  components: { GenericAsync, ArtistDetailsView },
-  props: ['artistName'],
+  name: 'TopArtists',
+  components: { GenericAsync, Gallery },
   data() {
     return {
-      dataSource: LastFmAPI.getArtistDetails(this.artistName),
-      dataName: 'artist details'
+      dataName: 'top artists',
+      dataSource: LastFmAPI.getTopArtists()
     };
   }
 };
 </script>
+
+<style scoped></style>

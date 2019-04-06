@@ -8,7 +8,7 @@
 
 <script>
 import GenericAsync from '@/components/utils/Async/GenericAsync';
-import ArtistDetailsAPI from '../../api/artistDetails';
+import LastFmAPI from '../../api/lastFM';
 import Gallery from '../utils/Gallery';
 
 export default {
@@ -17,7 +17,7 @@ export default {
   props: ['artistName'],
   data() {
     return {
-      dataSource: ArtistDetailsAPI.similarArtists(this.artistName),
+      dataSource: LastFmAPI.getSimilarArtists(this.artistName),
       dataName: 'similar artists'
     };
   }
