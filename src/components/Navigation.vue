@@ -24,13 +24,6 @@
     <div :class="{ 'is-active': isOpen }" class="navbar-menu" id="nav-menu">
       <div class="navbar-end">
         <SearchInput />
-        <router-link
-          @click.native="closeBurger"
-          class="navbar-item is-size-6-tablet is-size-5-desktop hover-white"
-          to="/playlists"
-        >
-          Playlists
-        </router-link>
         <div
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
@@ -41,16 +34,16 @@
                 id="user-image"
                 src="static/images/default_profile.png"
               />
-              <span>User</span>
+              <span class="is-clipped">{{ username }}</span>
             </router-link>
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              <i class="fas fa-cog" />
+            <router-link to="/playlists" class="navbar-item">
+              <i class="fas fa-list" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
-                >Settings</span
+                >Playlists</span
               >
-            </a>
+            </router-link>
             <a class="navbar-item" @click="logout">
               <i class="fas fa-sign-out-alt" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
@@ -77,8 +70,11 @@ export default {
     return { isOpen: false };
   },
   computed: {
+    username() {
+      return this.$root.$data.name();
+    },
     userLink() {
-      return `/user/${this.$root.$data.getUser().id}`;
+      return { name: 'User', params: { id: this.$root.$data.getUser().id } };
     }
   },
   methods: {
@@ -149,6 +145,13 @@ export default {
   @media screen and (max-width: $desktop) {
     width: 28px;
     height: 28px;
+  }
+}
+
+.is-clipped {
+  max-width: 18vw;
+  @media screen and (max-width: $navbar-breakpoint) {
+    max-width: 80vw;
   }
 }
 </style>
