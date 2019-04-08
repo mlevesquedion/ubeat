@@ -9,7 +9,7 @@
           'is-success': value.isValid,
           'is-danger': hasError
         }"
-        type="text"
+        :type="type"
         :placeholder="fieldName"
         @blur="onBlur"
       />
@@ -26,13 +26,14 @@
 <script>
 export default {
   name: 'AuthField',
-  props: ['fieldName', 'iconName', 'value', 'validator'],
+  props: ['fieldName', 'iconName', 'value', 'validator', 'isPassword'],
   data() {
     return {
       fieldValue: this.value.value,
       error: '',
       dirty: false,
-      wasBlurred: false
+      wasBlurred: false,
+      type: this.isPassword ? 'password' : 'text'
     };
   },
   computed: {

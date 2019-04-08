@@ -100,12 +100,13 @@ export default {
           this.$root.$data.setUser(userData);
           this.$router.push('/');
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.incorrectLoginInformation();
           this.$toasted.show(
             'Could not log you in. Double-check your login info!',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     signup() {
       return authAPI
@@ -118,12 +119,13 @@ export default {
           this.isSkipping = false;
           this.login();
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.incorrectLoginInformation();
           this.$toasted.show(
-            'Could not sign you up. Double-check your signup info!',
+            'Could not sign you up. Maybe you already have an account with that email?',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     authenticate() {
       if (this.isLogin) {
@@ -139,6 +141,13 @@ export default {
       this.isLogin = false;
       this.authenticate();
       this.isSkipping = true;
+    },
+    incorrectLoginInformation() {
+      if (this.isLogin) {
+        this.password.isValid = false;
+      } else {
+        this.email.isValid = false;
+      }
     }
   }
 };
