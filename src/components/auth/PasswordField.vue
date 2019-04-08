@@ -1,57 +1,24 @@
 <template>
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control has-icons-left has-icons-right">
-      <input
-        v-model="password"
-        class="input"
-        :class="{
-          'is-success': value.isValid,
-          'is-danger': hasError
-        }"
-        type="password"
-        placeholder="Username"
-        @blur="wasBlurred = true"
-      />
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-    </div>
-    <p v-if="hasError" class="help is-danger">
-      {{ error }}
-    </p>
-  </div>
+  <FormField
+    fieldName="Password"
+    iconName="lock"
+    :value="value"
+    :validator="validator"
+  />
 </template>
 
 <script>
 import Password from '../../auth/password';
+import FormField from './FormField';
 
 export default {
-  name: 'PasswordField',
+  name: 'EmailField',
   props: ['value'],
   data() {
     return {
-      password: this.value.value,
-      error: '',
-      wasBlurred: false
+      validator: Password
     };
   },
-  computed: {
-    hasError() {
-      return this.wasBlurred && !this.value.isValid;
-    }
-  },
-  watch: {
-    password(value) {
-      this.error = Password.validate(value);
-      this.$emit('input', {
-        ...this.value,
-        value,
-        isValid: this.error === ''
-      });
-    }
-  }
+  components: { FormField }
 };
 </script>
-
-<style scoped></style>
