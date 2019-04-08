@@ -6,7 +6,7 @@
         <div class="level-left">
           <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
         </div>
-        <div class="level-right truncate">
+        <div class="level-right">
           <div class="button-group bumped-left">
             <AsyncPlaylistDropdown
               :isRight="true"
@@ -53,7 +53,7 @@
 import Jukebox from '@/utils/jukebox';
 import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
 import PlaylistAPI from '../../api/playlist';
-import trackDurationFormatter from '../../formatting/trackDurationFormatter';
+import trackDurationFormatter from '../../utils/trackDurationFormatter';
 
 export default {
   name: 'TrackListView',

@@ -56,6 +56,14 @@ $desktop: 1023px;
   border-radius: 50%;
 }
 
+.is-round {
+  border-radius: 100%;
+}
+
+.capitalized {
+  text-transform: capitalize;
+}
+
 .bumped-right {
   margin-left: 10px;
 }
@@ -72,6 +80,25 @@ $desktop: 1023px;
   color: $primary;
 }
 
+.padded-bottom {
+  padding-bottom: 5%;
+}
+
+.responsive-image-container {
+  width: 25vw;
+  height: 25vw;
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 350px;
+  max-height: 350px;
+  padding: 2% 2%;
+}
+
+.responsive-image {
+  width: 100%;
+  height: 100%;
+}
+
 .is-clipped {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -85,6 +112,12 @@ $desktop: 1023px;
   align-items: center;
 }
 
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // Vue-Toasted custom colors
 // Have to use !important to override built-ins
 .ubeat-success {
@@ -93,6 +126,10 @@ $desktop: 1023px;
 
 .ubeat-error {
   background-color: $danger !important;
+}
+
+.link:hover {
+  color: $primary-dark !important;
 }
 
 .responsive-heading {

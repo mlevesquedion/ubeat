@@ -13,34 +13,27 @@
       Manage your favorite albums, artists, playlists and tracks. UBeat does it
       all and lets you listen to your music, your way.
     </p>
-    <ImageCarousel />
-    <div class="links">
-      <router-link class="responsive-heading" to="/artist/491675603"
-        >Artist
-      </router-link>
-      <router-link class="responsive-heading" to="/album/1083396755"
-        >Album
-      </router-link>
-      <router-link class="responsive-heading" to="/playlists"
-        >Playlists
-      </router-link>
-    </div>
+    <TopArtists />
   </section>
 </template>
 
 <script>
-import ImageCarousel from '@/components/utils/ImageCarousel';
+import TopArtists from './home/TopArtists';
 
 export default {
   name: 'app',
   components: {
-    ImageCarousel
+    TopArtists
   }
 };
 </script>
 
 <style scoped lang="scss">
 @import '@/assets/sass/styles.scss';
+
+.section {
+  padding-top: 10px;
+}
 
 #welcome-message {
   font-family: $stylish-text;

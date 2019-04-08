@@ -23,41 +23,27 @@
     </div>
     <div :class="{ 'is-active': isOpen }" class="navbar-menu" id="nav-menu">
       <div class="navbar-end">
-        <div class="navbar-item is-marginless" id="search-bar-container">
-          <input
-            class="is-size-6-tablet is-size-5-desktop search-bar"
-            placeholder="Search ..."
-            type="search"
-          />
-        </div>
-
-        <router-link
-          @click.native="closeBurger"
-          class="navbar-item is-size-6-tablet is-size-5-desktop hover-white"
-          to="/playlists"
-        >
-          Playlists
-        </router-link>
+        <SearchInput />
         <div
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
           <a @click="closeBurger" class="navbar-link">
-            <router-link class="navbar-item" id="user-container" to="/user">
+            <router-link class="navbar-item" id="user-container" :to="userLink">
               <img
                 class="is-rounded bumped-left"
                 id="user-image"
                 src="static/images/default_profile.png"
               />
-              <span>User</span>
+              <span class="is-clipped">{{ username }}</span>
             </router-link>
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              <i class="fas fa-cog" />
+            <router-link to="/playlists" class="navbar-item">
+              <i class="fas fa-list" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
-                >Settings</span
+                >Playlists</span
               >
-            </a>
+            </router-link>
             <a class="navbar-item" @click="logout">
               <i class="fas fa-sign-out-alt" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
@@ -73,10 +59,23 @@
 
 <script>
 import authAPI from '../api/auth';
+import SearchInput from './search/input/SearchInput';
 
 export default {
+  components: { SearchInput },
+  created() {
+    this.$on('close-burger', this.closeBurger);
+  },
   data() {
     return { isOpen: false };
+  },
+  computed: {
+    username() {
+      return this.$root.$data.name();
+    },
+    userLink() {
+      return { name: 'User', params: { id: this.$root.$data.getUser().id } };
+    }
   },
   methods: {
     toggleBurger() {
@@ -137,20 +136,6 @@ export default {
   color: white;
 }
 
-.search-bar {
-  height: 40px;
-  padding: 10px;
-  @media screen and (min-width: $navbar-breakpoint) {
-    width: 200px;
-  }
-  @media screen and (min-width: $desktop) {
-    width: 300px;
-  }
-  @media screen and (max-width: $navbar-breakpoint) {
-    width: 100%;
-  }
-}
-
 #user-image {
   display: flex;
   width: 36px;
@@ -160,6 +145,13 @@ export default {
   @media screen and (max-width: $desktop) {
     width: 28px;
     height: 28px;
+  }
+}
+
+.is-clipped {
+  max-width: 18vw;
+  @media screen and (max-width: $navbar-breakpoint) {
+    max-width: 80vw;
   }
 }
 </style>

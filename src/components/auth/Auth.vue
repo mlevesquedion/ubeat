@@ -1,36 +1,40 @@
 <template>
-  <section class="section">
-    <div class="spaced-row">
-      <h1 class="title is-primary">{{ authType }}</h1>
-      <p>
-        {{ changeAuthTypeMessage }}
-        <a class="is-primary" @click="toggleIsLogin">{{ oppositeAuthType }}</a>
-      </p>
-    </div>
-    <UsernameField v-if="isSignup" v-model="username" />
-    <EmailField v-model="email"></EmailField>
-    <PasswordField v-model="password"></PasswordField>
-    <div class="field submit-button">
-      <p class="control">
-        <button
-          class="button is-primary"
-          :disabled="!isValid"
-          @click="authenticate"
-        >
-          {{ authType }}
-        </button>
-      </p>
-    </div>
-    <button
-      class="button is-warning"
-      :class="{
-        'is-loading': isSkipping
-      }"
-      @click="skip"
-    >
-      Skip
-    </button>
-  </section>
+  <div class="container">
+    <section class="section">
+      <div class="spaced-row">
+        <h1 class="title is-primary">{{ authType }}</h1>
+        <p>
+          {{ changeAuthTypeMessage }}
+          <a class="is-primary" @click="toggleIsLogin">{{
+            oppositeAuthType
+          }}</a>
+        </p>
+      </div>
+      <UsernameField v-if="isSignup" v-model="username" />
+      <EmailField v-model="email"></EmailField>
+      <PasswordField v-model="password"></PasswordField>
+      <div class="field submit-button">
+        <p class="control">
+          <button
+            class="button is-primary"
+            :disabled="!isValid"
+            @click="authenticate"
+          >
+            {{ authType }}
+          </button>
+        </p>
+      </div>
+      <button
+        class="button is-warning"
+        :class="{
+          'is-loading': isSkipping
+        }"
+        @click="skip"
+      >
+        Skip
+      </button>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -92,7 +96,8 @@ export default {
     login() {
       return authAPI
         .login({ email: this.email.value, password: this.password.value })
-        .then(_ => {
+        .then(userData => {
+          this.$root.$data.setUser(userData);
           this.$router.push('/');
         })
         .catch(_ => {
@@ -146,12 +151,18 @@ export default {
 </script>
 
 <style scoped>
-.section {
-  padding-top: 30px;
+.container {
+  max-width: 700px;
 }
+
+.section {
+  padding-top: 40px;
+}
+
 .submit-button {
   padding-top: 10px;
 }
+
 a:hover,
 a:active {
   color: white;

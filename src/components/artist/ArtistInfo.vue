@@ -1,29 +1,26 @@
 <template>
-  <GenericAsync :dataName="dataName" :dataSource="dataSource">
-    <template slot-scope="{ data }">
-      <ArtistInfoView :artist="data" />
-    </template>
-  </GenericAsync>
+  <section class="section">
+    <div class="container has-text-centered">
+      <p class="label is-size-1">{{ artist.name }}</p>
+      <p class="label is-size-3">{{ artist.genre }}</p>
+      <ArtistDetails :artistName="artist.name" />
+      <a :href="artist.url" id="itunes-link">
+        <img
+          alt="Listen on Apple Music"
+          src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=&kind=artist&bubble=apple_music"
+        />
+      </a>
+    </div>
+  </section>
 </template>
 
 <script>
-import ArtistAPI from '@/api/artist';
-import GenericAsync from '@/components/utils/Async/GenericAsync';
-import ArtistInfoView from './ArtistInfoView';
+import ArtistDetails from './ArtistDetails';
 
 export default {
-  name: 'artistInfo',
-  props: ['artistId'],
-  data() {
-    return {
-      dataSource: ArtistAPI.get(this.artistId),
-      dataName: 'artist data'
-    };
-  },
-  components: {
-    GenericAsync,
-    ArtistInfoView
-  }
+  name: 'artistInfoView',
+  props: ['artist'],
+  components: { ArtistDetails }
 };
 </script>
 

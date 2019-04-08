@@ -3,7 +3,7 @@
     <div @click="toggle()" class="dropdown-trigger">
       <slot name="trigger"></slot>
     </div>
-    <div class="dropdown-menu my-menu" role="menu">
+    <div class="dropdown-menu " :class="{ 'is-small': isSmall }" role="menu">
       <div class="dropdown-content">
         <slot name="content"></slot>
       </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'Dropdown',
-  props: ['isRight'],
+  props: ['isRight', 'isSmall'],
   data() {
     return {
       isOpen: false
@@ -34,4 +34,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.dropdown-menu.is-small {
+  min-width: 76px !important;
+  width: 76px !important;
+}
+</style>
