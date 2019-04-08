@@ -1,0 +1,57 @@
+<template>
+  <div class="field">
+    <label class="label">{{ fieldName }}</label>
+    <div class="control has-icons-left">
+      <input
+        v-model="fieldValue"
+        class="input"
+        :class="{
+          'is-success': value.isValid,
+          'is-danger': hasError
+        }"
+        type="text"
+        :placeholder="fieldName"
+        @blur="wasBlurred = true"
+      />
+      <span class="icon is-small is-left">
+        <i :class="`fa fa-${iconName}`"></i>
+      </span>
+    </div>
+    <p v-if="hasError" class="help is-danger">
+      {{ error }}
+    </p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'FormField',
+  props: ['fieldName', 'iconName', 'value', 'validator'],
+  data() {
+    return {
+      fieldValue: this.value.value,
+      error: '',
+      dirty: false,
+      wasBlurred: false
+    };
+  },
+  computed: {
+    hasError() {
+      return this.dirty && this.wasBlurred && !this.value.isValid;
+    }
+  },
+  watch: {
+    fieldValue(value) {
+      this.dirty = true;
+      this.error = this.validator.validate(value);
+      this.$parent.$emit('input', {
+        ...this.value,
+        value,
+        isValid: this.error === ''
+      });
+    }
+  }
+};
+</script>
+
+<style scoped></style>
