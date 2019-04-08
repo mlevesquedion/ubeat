@@ -14,10 +14,7 @@ const userId = '5c9d31a5ea03fd0004c27ff0';
 const getUserPlaylists = () =>
   axios
     .get(`${playlistRoot}`, { ...Headers.auth(), params: { userId } })
-    .then(({ data }) =>
-      data.filter(p => p && p.owner && p.owner.email === ownerEmail)
-    )
-    .then(userPlaylists => userPlaylists.map(p => Playlist.fromBackend(p)));
+    .then(({ data }) => data.map(p => Playlist.fromBackend(p)));
 
 const createPlaylist = name =>
   axios
