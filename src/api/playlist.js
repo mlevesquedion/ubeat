@@ -13,10 +13,12 @@ const userId = '5c9d31a5ea03fd0004c27ff0';
 
 const getUserPlaylists = () =>
   axios
+    // .get(`${playlistRoot}`, { ...Headers.auth(), params:
+    // { userId: this.$route.$data.getUser() } })
     .get(`${playlistRoot}`, { ...Headers.auth(), params: { userId } })
     .then(({ data }) =>
-      data.filter(p => p && p.owner && p.owner.email === ownerEmail)
-    )
+       data.filter(p => p && p.owner && p.owner.email === ownerEmail)
+     )
     .then(userPlaylists => userPlaylists.map(p => Playlist.fromBackend(p)));
 
 const createPlaylist = name =>
@@ -24,12 +26,12 @@ const createPlaylist = name =>
     .post(`${playlistRoot}`, {
       name,
       owner: ownerEmail
-    })
+    }, Headers.auth())
     .then(({ data }) => Playlist.fromBackend(data));
 
 const addTrackToPlaylist = (track, playlistId) =>
   axios
-    .post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track))
+    .post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track), Headers.auth())
     .then(({ data }) => Playlist.fromBackend(data));
 
 const addAlbumToPlaylist = (albumId, playlistId) =>
@@ -37,16 +39,17 @@ const addAlbumToPlaylist = (albumId, playlistId) =>
     Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)))
   );
 
-const deletePlaylist = id => axios.delete(`${playlistRoot}${id}`);
+const deletePlaylist = id => axios.delete(`${playlistRoot}${id}`, Headers.auth());
 
 const deleteTrack = (playlistId, trackId) =>
-  axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`);
+  axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`, Headers.auth());
 
 const updatePlaylistName = (playlist, newName) =>
   axios
     .put(
       `${playlistRoot}${playlist.id}`,
-      Playlist.toBackend({ ...playlist, name: newName })
+      Playlist.toBackend({ ...playlist, name: newName }),
+      Headers.auth()
     )
     .then(({ data }) => data);
 
