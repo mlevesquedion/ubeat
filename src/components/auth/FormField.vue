@@ -11,7 +11,7 @@
         }"
         type="text"
         :placeholder="fieldName"
-        @blur="wasBlurred = true"
+        @blur="onBlur"
       />
       <span class="icon is-small is-left">
         <i :class="`fa fa-${iconName}`"></i>
@@ -38,6 +38,18 @@ export default {
   computed: {
     hasError() {
       return this.dirty && this.wasBlurred && !this.value.isValid;
+    }
+  },
+  methods: {
+    onBlur() {
+      /*
+        This check ensures that we don't annoy the user with an error message when (s)he
+        starts typing and up to now has only clicked into and out of the field without
+        entering anything.
+       */
+      if (this.dirty) {
+        this.wasBlurred = true;
+      }
     }
   },
   watch: {
