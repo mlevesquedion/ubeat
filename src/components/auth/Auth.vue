@@ -122,7 +122,7 @@ export default {
         .catch(_ => {
           this.incorrectLoginInformation();
           this.$toasted.show(
-            'Could not sign you up. Double-check your signup info!',
+            'Could not sign you up. Maybe you already have an account with that email?',
             { type: 'ubeat-error' }
           );
         });
@@ -143,7 +143,11 @@ export default {
       this.isSkipping = true;
     },
     incorrectLoginInformation() {
-      this.password.isValid = false;
+      if (this.isLogin) {
+        this.password.isValid = false;
+      } else {
+        this.email.isValid = false;
+      }
     }
   }
 };

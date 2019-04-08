@@ -9,7 +9,7 @@ import userStore from './userStore';
 Vue.config.productionTip = false;
 Vue.use(Toasted, {
   position: 'bottom-left',
-  duration: 2000
+  duration: 3000
 });
 
 Vue.toasted.register('ubeat-success', message => message);
