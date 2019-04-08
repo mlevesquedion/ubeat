@@ -3,7 +3,7 @@
     class="album-results"
     resultType="Album"
     :results="albums"
-    icon="fa-list"
+    icon="fa-compact-disc"
   >
     <template slot-scope="{ data }">
       <AlbumResult :album="data" />

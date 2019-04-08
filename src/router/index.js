@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Home from '@/components/Home';
 import Album from '@/components/album/Album';
 import Artist from '@/components/artist/Artist';
-import User from '@/components/User';
+import User from '@/components/user/User';
 import Playlists from '@/components/playlists/Playlists';
 import NotFound from '@/components/NotFound';
 import SearchResults from '../components/search/SearchResults';
@@ -39,7 +39,7 @@ const router = new Router({
       component: Album
     },
     {
-      path: '/user',
+      path: '/user/:id',
       name: 'User',
       component: User
     },

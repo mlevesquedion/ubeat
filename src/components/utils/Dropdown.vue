@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.is-small {
+.dropdown-menu.is-small {
   min-width: 76px !important;
   width: 76px !important;
 }

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "bulma-accordion": "^2.0.1",
     "bulma-extensions": "^4.0.1",
     "jest": "^23.6.0",
@@ -22,6 +23,7 @@
     "qs": "^6.6.0",
     "uuid": "^3.3.2",
     "vue": "^2.4.2",
+    "vue-nav-tabs": "^0.5.7",
     "vue-router": "^2.7.0",
     "vue-simple-spinner": "^1.2.8",
     "vue-toasted": "^1.1.26"

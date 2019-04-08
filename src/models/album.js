@@ -7,7 +7,7 @@ const Album = {
       artist: albumData.artistName,
       artistId: albumData.artistId,
       url: albumData.collectionViewUrl,
-      artworkUrl: `${urlParts[0]}600x600${urlParts[1]}`,
+      src: `${urlParts[0]}600x600${urlParts[1]}`,
       trackCount: albumData.trackCount,
       date: albumData.releaseDate,
       year: albumData.releaseDate.split('-')[0],

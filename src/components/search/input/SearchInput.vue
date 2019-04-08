@@ -18,7 +18,7 @@
         </button>
       </template>
       <template slot="content">
-        <SearchInputDropdownContent :queryTypes="queryTypes" />
+        <SearchInputDropdownContent :queryTypes="otherQueryTypes" />
       </template>
     </Dropdown>
   </div>
@@ -46,7 +46,7 @@ export default {
         case 'artist':
           return 'fa-star';
         case 'album':
-          return 'fa-list';
+          return 'fa-compact-disc';
         case 'track':
           return 'fa-music';
         case 'user':
@@ -55,6 +55,9 @@ export default {
         default:
           return 'fa-search';
       }
+    },
+    otherQueryTypes() {
+      return this.queryTypes.filter(q => q !== this.queryType);
     }
   },
   methods: {
