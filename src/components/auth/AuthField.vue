@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'FormField',
+  name: 'AuthField',
   props: ['fieldName', 'iconName', 'value', 'validator'],
   data() {
     return {
@@ -65,5 +65,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

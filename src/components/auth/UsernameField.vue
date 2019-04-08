@@ -9,7 +9,7 @@
 
 <script>
 import Username from '../../auth/username';
-import FormField from './FormField';
+import FormField from './AuthField';
 
 export default {
   name: 'EmailField',
