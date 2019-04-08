@@ -101,7 +101,7 @@ export default {
           this.$router.push('/');
         })
         .catch(_ => {
-          this.emailAndOrPasswordInvalid();
+          this.incorrectLoginInformation();
           this.$toasted.show(
             'Could not log you in. Double-check your login info!',
             { type: 'ubeat-error' }
@@ -120,7 +120,7 @@ export default {
           this.login();
         })
         .catch(_ => {
-          this.emailAndOrPasswordInvalid();
+          this.incorrectLoginInformation();
           this.$toasted.show(
             'Could not sign you up. Double-check your signup info!',
             { type: 'ubeat-error' }
@@ -142,8 +142,7 @@ export default {
       this.authenticate();
       this.isSkipping = true;
     },
-    emailAndOrPasswordInvalid() {
-      this.email.isValid = false;
+    incorrectLoginInformation() {
       this.password.isValid = false;
     }
   }
