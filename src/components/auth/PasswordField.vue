@@ -4,6 +4,7 @@
     iconName="lock"
     :value="value"
     :validator="validator"
+    :isPassword="true"
   />
 </template>
 
