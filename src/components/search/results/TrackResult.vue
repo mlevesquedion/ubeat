@@ -3,7 +3,6 @@
     <div class="is-primary is-clipped">
       {{ track.name }}, {{ track.artist }} - {{ track.album }}
     </div>
-
     <div class="level-right">
       <div class="button-group bumped-left">
         <AsyncPlaylistDropdown
@@ -28,7 +27,6 @@
           </span>
         </a>
       </div>
-
       <span class="level-right">
         {{ formatTrackDuration(track.duration) }}
       </span>
