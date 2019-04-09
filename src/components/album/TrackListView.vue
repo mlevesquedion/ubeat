@@ -6,6 +6,7 @@
       :track="t"
       :playlists="playlists"
       :isPlaying="t.id === playingTrackId"
+      :highlightOnHover="true"
       class="track"
     />
     <div class="footer has-text-centered">
