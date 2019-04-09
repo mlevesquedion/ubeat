@@ -5,7 +5,11 @@
     :allowEmpty="true"
   >
     <template slot-scope="{ data }">
-      <SearchResultsView :playlists="playlists" :searchresults="data" :query="query" />
+      <SearchResultsView
+        :playlists="playlists"
+        :searchresults="data"
+        :query="query"
+      />
     </template>
   </GenericAsync>
 </template>

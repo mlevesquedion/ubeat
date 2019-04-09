@@ -1,35 +1,41 @@
 <template>
   <section class="is-bordered level is-mobile">
-    <img id="artwork" :alt="album.name" :src="album.src"/>
-    <router-link
-      class="is-primary link"
-      :to="{ name: 'Album', params: { id: album.id } }"
-    >
-      <p class="is-primary is-clipped" id="name">
-        {{ album.name }}
-      </p>
-    </router-link>
+    <div class="level-left">
+      <div class="level-item">
+        <img class="artwork" :alt="album.name" :src="album.src" />
+      </div>
+      <div class="level-item">
+        <router-link
+          class="is-primary link"
+          :to="{ name: 'Album', params: { id: album.id } }"
+        >
+          <p class="is-clipped">
+            {{ album.name }}
+          </p>
+        </router-link>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-  export default {
-    name: 'AlbumResult',
-    props: ['album']
-  };
+export default {
+  name: 'AlbumResult',
+  props: ['album']
+};
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/sass/styles.scss';
+@import '@/assets/sass/styles.scss';
 
-  #artwork {
-    display: block;
-    padding-top: 13px;
-    min-width: 60px;
-    max-width: 100px;
-  }
+.artwork {
+  padding: 10px 0;
+  display: block;
+  min-width: 60px;
+  max-width: 100px;
+}
 
-  .is-clipped {
-    width: 33vw;
-  }
+.is-clipped {
+  width: 50vw;
+}
 </style>
