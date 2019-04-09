@@ -9,7 +9,7 @@
       </h1>
       <ArtistResults :artists="searchresults.artists" />
       <AlbumResults :albums="searchresults.albums" />
-      <TrackResults :tracks="searchresults.tracks" />
+      <TrackResults :playlists="playlists" :tracks="searchresults.tracks" />
       <UserResults :users="searchresults.users" />
     </section>
   </div>
@@ -24,7 +24,7 @@ import UserResults from './results/UserResults';
 export default {
   name: 'SearchResultsView',
   components: { ArtistResults, AlbumResults, TrackResults, UserResults },
-  props: ['searchresults', 'query'],
+  props: ['searchresults', 'query', 'playlists'],
   computed: {
     count() {
       return (
