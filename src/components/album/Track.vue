@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hr class="horizontal-line" v-if="track.number !== 1" />
+    <hr class="horizontal-line" v-if="showSeparators && track.number !== 1" />
     <div
       class="level is-mobile is-bordered"
       :class="{ 'hover-highlight': highlightOnHover }"
@@ -18,7 +18,7 @@
             :playlists="playlists"
           >
             <!-- Using .navbar-link here for styling -->
-            <a class="navbar-link has-text-light">
+            <a class="has-text-light">
               <span class="icon is-medium">
                 <i class="fas fa-plus-circle"></i>
               </span>
@@ -50,7 +50,13 @@ import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
 
 export default {
   name: 'Track',
-  props: ['track', 'playlists', 'isPlaying', 'highlightOnHover'],
+  props: [
+    'track',
+    'playlists',
+    'isPlaying',
+    'highlightOnHover',
+    'showSeparators'
+  ],
   methods: {
     play() {
       this.$parent.$emit('play', this.track);
@@ -119,7 +125,7 @@ export default {
   width: 10px;
 }
 
-// Have to add this style to prevent the dropdown arrow fromBackend showing
+// Have to add this style to prevent the dropdown arrow from showing
 .navbar-link {
   padding: 0 !important;
   margin: 0 !important;

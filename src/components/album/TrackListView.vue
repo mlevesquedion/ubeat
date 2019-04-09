@@ -7,6 +7,7 @@
       :playlists="playlists"
       :isPlaying="t.id === playingTrackId"
       :highlightOnHover="true"
+      :showSeparators="true"
       class="track"
     />
     <div class="footer has-text-centered">
