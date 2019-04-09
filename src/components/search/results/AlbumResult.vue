@@ -4,15 +4,22 @@
       <div class="level-item">
         <img class="artwork" :alt="album.name" :src="album.src" />
       </div>
-      <div class="level-item">
-        <router-link
-          class="is-primary link"
-          :to="{ name: 'Album', params: { id: album.id } }"
-        >
-          <p class="is-clipped">
-            {{ album.name }}
-          </p>
-        </router-link>
+      <div class="level-item stacked">
+        <div>
+          <router-link
+            class="is-primary link is-clipped"
+            :to="{ name: 'Album', params: { id: album.id } }"
+            >{{ album.name }}</router-link
+          >
+        </div>
+        <div class="flex-row">
+          <span class="bumped-left">by</span>
+          <router-link
+            class="is-primary link is-clipped"
+            :to="{ name: 'Artist', params: { id: album.artistId } }"
+            >{{ album.artist }}</router-link
+          >
+        </div>
       </div>
     </div>
   </section>
@@ -37,5 +44,19 @@ export default {
 
 .is-clipped {
   width: 50vw;
+}
+
+.stacked {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.bumped-left {
+  margin-right: 5px;
 }
 </style>
