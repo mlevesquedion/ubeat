@@ -6,7 +6,9 @@
       :class="{ 'hover-highlight': highlightOnHover }"
     >
       <div class="level-left">
-        <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
+        <slot>
+          <div class="is-clipped">{{ track.number }}. {{ track.name }}</div>
+        </slot>
       </div>
       <div class="level-right">
         <div class="button-group bumped-left">
