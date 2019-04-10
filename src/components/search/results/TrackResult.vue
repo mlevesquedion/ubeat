@@ -1,10 +1,5 @@
 <template>
-  <Track
-    :track="track"
-    :playlists="playlists"
-    :playingTrackId="playingTrackId"
-    class="track"
-  >
+  <Track :track="track" :playlists="playlists" :playingTrackId="playingTrackId">
     <div class="is-clipped">
       {{ track.name }},
       <router-link
@@ -38,6 +33,7 @@ export default {
 @import '@/assets/sass/styles.scss';
 .is-clipped {
   min-width: 100px;
+  max-width: 700px;
   width: 50vw;
 }
 </style>
