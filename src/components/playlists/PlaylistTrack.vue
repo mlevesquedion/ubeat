@@ -20,14 +20,11 @@
         </PlaylistDropdown>
       </div>
       <div class="level-item">
-        <button
-          :class="{ 'is-loading': isDeleting }"
-          @click="deleteTrack"
-          class="button level-item is-danger is-small fixed-width"
-        >
-          <i v-if="deletePending" class="fas fa-question"></i>
-          <i v-else class="fas fa-trash"></i>
-        </button>
+        <DeleteButton
+          :isDeleting="isDeleting"
+          :deleteAction="deleteTrack"
+          :isSmall="true"
+        />
       </div>
     </div>
   </div>
@@ -35,6 +32,7 @@
 <script>
 import PlaylistAPI from '../../api/playlist';
 import PlaylistDropdown from './dropdown/PlaylistDropdown';
+import DeleteButton from './DeleteButton';
 
 export default {
   name: 'PlaylistTrack',
@@ -47,14 +45,6 @@ export default {
   },
   methods: {
     deleteTrack() {
-      if (!this.deletePending) {
-        this.deletePending = true;
-        setTimeout(() => {
-          this.deletePending = false;
-        }, 3000);
-        return;
-      }
-      this.deletePending = false;
       this.isDeleting = true;
       PlaylistAPI.deleteTrack(this.playlist.id, this.track.id)
         .then(_ => {
@@ -91,7 +81,8 @@ export default {
     }
   },
   components: {
-    PlaylistDropdown
+    PlaylistDropdown,
+    DeleteButton
   }
 };
 </script>

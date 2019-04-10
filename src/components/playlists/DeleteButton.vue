@@ -1,6 +1,10 @@
 <template>
   <button
-    :class="{ 'is-loading': isDeleting }"
+    :class="{
+      'is-loading': isDeleting,
+      'is-small': isSmall,
+      'is-normal': !isSmall
+    }"
     @click.stop="doDelete"
     class="button level-item is-danger size-correction"
   >
@@ -11,7 +15,7 @@
 <script>
 export default {
   name: 'DeleteButton',
-  props: ['deleteAction', 'isDeleting'],
+  props: ['deleteAction', 'isDeleting', 'isSmall'],
   data() {
     return {
       pendingDeletion: false
@@ -32,8 +36,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.size-correction {
+.is-normal {
   width: 42px;
   height: 36px;
+}
+
+.is-small {
+  width: 27px;
+  height: 27px;
 }
 </style>
