@@ -1,36 +1,40 @@
 <template>
-  <section class="section">
-    <div class="spaced-row">
-      <h1 class="title is-primary">{{ authType }}</h1>
-      <p>
-        {{ changeAuthTypeMessage }}
-        <a class="is-primary" @click="toggleIsLogin">{{ oppositeAuthType }}</a>
-      </p>
-    </div>
-    <UsernameField v-if="isSignup" v-model="username" />
-    <EmailField v-model="email"></EmailField>
-    <PasswordField v-model="password"></PasswordField>
-    <div class="field submit-button">
-      <p class="control">
-        <button
-          class="button is-primary"
-          :disabled="!isValid"
-          @click="authenticate"
-        >
-          {{ authType }}
-        </button>
-      </p>
-    </div>
-    <button
-      class="button is-warning"
-      :class="{
-        'is-loading': isSkipping
-      }"
-      @click="skip"
-    >
-      Skip
-    </button>
-  </section>
+  <div class="container">
+    <section class="section">
+      <div class="spaced-row">
+        <h1 class="title is-primary">{{ authType }}</h1>
+        <p>
+          {{ changeAuthTypeMessage }}
+          <a class="is-primary" @click="toggleIsLogin">{{
+            oppositeAuthType
+          }}</a>
+        </p>
+      </div>
+      <UsernameField v-if="isSignup" v-model="username" />
+      <EmailField v-model="email"></EmailField>
+      <PasswordField v-model="password"></PasswordField>
+      <div class="field submit-button">
+        <p class="control">
+          <button
+            class="button is-primary"
+            :disabled="!isValid"
+            @click="authenticate"
+          >
+            {{ authType }}
+          </button>
+        </p>
+      </div>
+      <button
+        class="button is-warning"
+        :class="{
+          'is-loading': isSkipping
+        }"
+        @click="skip"
+      >
+        Skip
+      </button>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -96,12 +100,13 @@ export default {
           this.$root.$data.setUser(userData);
           this.$router.push('/');
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.incorrectLoginInformation();
           this.$toasted.show(
             'Could not log you in. Double-check your login info!',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     signup() {
       return authAPI
@@ -114,12 +119,13 @@ export default {
           this.isSkipping = false;
           this.login();
         })
-        .catch(_ =>
+        .catch(_ => {
+          this.incorrectLoginInformation();
           this.$toasted.show(
-            'Could not sign you up. Double-check your signup info!',
+            'Could not sign you up. Maybe you already have an account with that email?',
             { type: 'ubeat-error' }
-          )
-        );
+          );
+        });
     },
     authenticate() {
       if (this.isLogin) {
@@ -135,18 +141,31 @@ export default {
       this.isLogin = false;
       this.authenticate();
       this.isSkipping = true;
+    },
+    incorrectLoginInformation() {
+      if (this.isLogin) {
+        this.password.isValid = false;
+      } else {
+        this.email.isValid = false;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-.section {
-  padding-top: 30px;
+.container {
+  max-width: 700px;
 }
+
+.section {
+  padding-top: 40px;
+}
+
 .submit-button {
   padding-top: 10px;
 }
+
 a:hover,
 a:active {
   color: white;
