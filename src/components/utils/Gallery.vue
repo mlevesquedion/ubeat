@@ -1,6 +1,10 @@
 <template>
   <section class="section">
-    <h1 class="title is-primary has-text-centered">{{ title }}</h1>
+    <h1
+      class="title is-size-1-desktop is-size-2-tablet is-size-3-mobile is-primary has-text-centered"
+    >
+      {{ title }}
+    </h1>
     <div class="gallery">
       <div :key="e.id || ei" class="element" v-for="(e, ei) in elements">
         <router-link

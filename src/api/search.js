@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { secureRoot } from './constants';
+import { apiRoot } from './constants';
 import SearchResults from '../models/searchResults';
 import Headers from '../auth/headers';
 
-const searchRoot = `${secureRoot}search/`;
+const searchRoot = `${apiRoot}search/`;
 
 const makeSearchRoot = what => `${searchRoot}${what}?limit=50&q=`;
 

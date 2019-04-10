@@ -1,5 +1,5 @@
 const validate = password => {
-  if (password.length < 10) {
+  if (password.length < 8) {
     return 'Password is too short.';
   }
   if (password.length > 30) {

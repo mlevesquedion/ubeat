@@ -16,6 +16,9 @@ const store = {
   name() {
     return this.getUser().name;
   },
+  email() {
+    return this.getUser().email;
+  },
   isUser(user) {
     return user.id === this.id();
   },

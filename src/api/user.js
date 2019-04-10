@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { secureRoot } from './constants';
+import { apiRoot } from './constants';
 import Headers from '../auth/headers';
 import User from '../models/user';
 
-const userRoot = `${secureRoot}users/`;
-const followRoot = `${secureRoot}follow/`;
+const userRoot = `${apiRoot}users/`;
+const followRoot = `${apiRoot}follow/`;
 
 const get = id =>
   axios
