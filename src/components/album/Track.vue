@@ -59,10 +59,10 @@ export default {
   ],
   methods: {
     play() {
-      this.$parent.$emit('play', this.track);
+      this.$root.$emit('play-track', this.track);
     },
     stop() {
-      this.$parent.$emit('stop');
+      this.$root.$emit('stop-track');
     },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);
