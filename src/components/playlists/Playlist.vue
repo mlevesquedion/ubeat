@@ -38,7 +38,8 @@
             @click.stop="deletePlaylist()"
             class="button level-item is-danger size-correction"
           >
-            <i class="fas fa-trash"></i>
+            <i v-if="pendingDeletion" class="fas fa-question"></i>
+            <i v-else class="fas fa-trash"></i>
           </button>
         </div>
       </div>
@@ -87,6 +88,9 @@ export default {
     },
     isEditing() {
       return this.state === PlaylistState.EDITING;
+    },
+    pendingDeletion() {
+      return this.state === PlaylistState.PENDING_DELETION;
     }
   },
   methods: {
@@ -129,6 +133,13 @@ export default {
       this.newPlaylistName = name;
     },
     deletePlaylist() {
+      if (this.state !== PlaylistState.PENDING_DELETION) {
+        this.state = PlaylistState.PENDING_DELETION;
+        setTimeout(() => {
+          this.state = PlaylistState.NORMAL;
+        }, 3000);
+        return;
+      }
       this.state = PlaylistState.DELETING;
       PlaylistAPI.deletePlaylist(this.playlist.id)
         .then(_ => this.$root.$emit('delete-playlist', this.index))
