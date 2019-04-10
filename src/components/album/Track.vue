@@ -24,7 +24,7 @@
               </span>
             </a>
           </AsyncPlaylistDropdown>
-          <a class="has-text-light" v-if="isPlaying">
+          <a class="has-text-light" v-if="playingTrackId === track.id">
             <span class="icon is-medium">
               <i class="fas fa-stop-circle" @click="stop()"></i>
             </span>
@@ -53,16 +53,16 @@ export default {
   props: [
     'track',
     'playlists',
-    'isPlaying',
     'highlightOnHover',
-    'showSeparators'
+    'showSeparators',
+    'playingTrackId'
   ],
   methods: {
     play() {
-      this.$parent.$emit('play', this.track);
+      this.$root.$emit('play-track', this.track);
     },
     stop() {
-      this.$parent.$emit('stop');
+      this.$root.$emit('stop-track');
     },
     formatTrackDuration(seconds) {
       return trackDurationFormatter.format(seconds);

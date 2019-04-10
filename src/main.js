@@ -2,11 +2,15 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Toasted from 'vue-toasted';
+import Fragment from 'vue-fragment';
 import App from './App';
 import router from './router';
 import userStore from './userStore';
 
 Vue.config.productionTip = false;
+
+Vue.use(Fragment.Plugin);
+
 Vue.use(Toasted, {
   position: 'bottom-left',
   duration: 3000

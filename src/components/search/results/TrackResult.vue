@@ -1,5 +1,10 @@
 <template>
-  <Track :track="track" :playlists="playlists" :isPlaying="false" class="track">
+  <Track
+    :track="track"
+    :playlists="playlists"
+    :playingTrackId="playingTrackId"
+    class="track"
+  >
     <div class="is-clipped">
       {{ track.name }},
       <router-link
@@ -20,11 +25,9 @@
 <script>
 import Track from '../../album/Track';
 
-// TODO : Incorporate Jukebox somewhere
-
 export default {
   name: 'TrackResult',
-  props: ['track', 'playlists'],
+  props: ['track', 'playlists', 'playingTrackId'],
   components: {
     Track
   }
