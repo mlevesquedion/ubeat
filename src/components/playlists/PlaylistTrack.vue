@@ -23,9 +23,10 @@
         <button
           :class="{ 'is-loading': isDeleting }"
           @click="deleteTrack"
-          class="button level-item is-danger is-small"
+          class="button level-item is-danger is-small fixed-width"
         >
-          <i class="fas fa-trash"></i>
+          <i v-if="deletePending" class="fas fa-question"></i>
+          <i v-else class="fas fa-trash"></i>
         </button>
       </div>
     </div>
@@ -40,11 +41,20 @@ export default {
   props: ['track', 'index', 'playlist', 'playlistIndex', 'playlists'],
   data() {
     return {
+      deletePending: false,
       isDeleting: false
     };
   },
   methods: {
     deleteTrack() {
+      if (!this.deletePending) {
+        this.deletePending = true;
+        setTimeout(() => {
+          this.deletePending = false;
+        }, 3000);
+        return;
+      }
+      this.deletePending = false;
       this.isDeleting = true;
       PlaylistAPI.deleteTrack(this.playlist.id, this.track.id)
         .then(_ => {
@@ -90,5 +100,8 @@ export default {
 .is-clipped {
   width: 50vw;
   max-width: 1000px;
+}
+.fixed-width {
+  width: 27px;
 }
 </style>
