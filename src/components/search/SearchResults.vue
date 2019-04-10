@@ -5,7 +5,11 @@
     :allowEmpty="true"
   >
     <template slot-scope="{ data }">
-      <SearchResultsView :searchresults="data" :query="query" />
+      <SearchResultsView
+        :playlists="playlists"
+        :searchresults="data"
+        :query="query"
+      />
     </template>
   </GenericAsync>
 </template>
@@ -14,13 +18,15 @@
 import GenericAsync from '@/components/utils/Async/GenericAsync';
 import SearchResultsView from './SearchResultsView';
 import SearchAPI from '../../api/search';
+import PlaylistAPI from '../../api/playlist';
 
 export default {
   name: 'SearchResults',
   data() {
     return {
       dataSource: SearchAPI.global(this.$route.params.query),
-      dataName: 'search results'
+      dataName: 'search results',
+      playlists: PlaylistAPI.getUserPlaylists()
     };
   },
   computed: {

@@ -1,15 +1,26 @@
 <template>
-  <section>
-    <div
-      :key="album.id"
-      v-for="album in albums"
-      id="container"
-      class="is-mobile "
-    >
-      <img id="artwork" :alt="album.name" :src="album.artworkUrl" />
-      <label class="has-text-light subtitle" id="name">
-        {{ album.name }}
-      </label>
+  <section class="is-bordered level is-mobile">
+    <div class="level-left">
+      <div class="level-item">
+        <img class="artwork" :alt="album.name" :src="album.src" />
+      </div>
+      <div class="level-item stacked">
+        <div>
+          <router-link
+            class="is-primary link is-clipped"
+            :to="{ name: 'Album', params: { id: album.id } }"
+            >{{ album.name }}</router-link
+          >
+        </div>
+        <div class="flex-row">
+          <span class="bumped-left">by</span>
+          <router-link
+            class="is-primary link is-clipped"
+            :to="{ name: 'Artist', params: { id: album.artistId } }"
+            >{{ album.artist }}</router-link
+          >
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -22,23 +33,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#artwork {
+@import '@/assets/sass/styles.scss';
+
+.artwork {
+  padding: 10px 0;
   display: block;
-  padding-top: 13px;
   min-width: 60px;
   max-width: 100px;
 }
 
-#name {
-  text-align: center;
+.is-clipped {
+  width: 50vw;
 }
 
-#container {
-  min-width: 200px;
-  max-width: 200px;
+.stacked {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+}
+
+.bumped-left {
+  margin-right: 5px;
 }
 </style>
