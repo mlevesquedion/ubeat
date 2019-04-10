@@ -11,7 +11,7 @@
         </slot>
       </div>
       <div class="level-right">
-        <div class="button-group bumped-left">
+        <div class="button-group level-item bumped-left">
           <AsyncPlaylistDropdown
             :isRight="true"
             :onPlaylistClick="addTrackToPlayList(track)"
@@ -35,7 +35,7 @@
             </span>
           </a>
         </div>
-        <span class="align-track">{{
+        <span class="level-item align-track bumped-right">{{
           formatTrackDuration(track.duration)
         }}</span>
       </div>
@@ -103,6 +103,7 @@ export default {
 .level {
   margin-bottom: 0;
   padding: 5px;
+  width: 100%;
 }
 
 .hover-highlight:hover {
