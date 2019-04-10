@@ -1,15 +1,19 @@
 <template>
   <section class="section">
-    <Track
-      v-for="t in tracks"
-      :key="t.id"
-      :track="t"
-      :playlists="playlists"
-      :isPlaying="t.id === playingTrackId"
-      :highlightOnHover="true"
-      :showSeparators="true"
-      class="track"
-    />
+    <Jukebox>
+      <template slot-scope="{ playingTrackId }">
+        <Track
+          v-for="t in tracks"
+          :key="t.id"
+          :track="t"
+          :highlightOnHover="true"
+          :showSeparators="true"
+          :playlists="playlists"
+          :playingTrackId="playingTrackId"
+          class="track"
+        />
+      </template>
+    </Jukebox>
     <div class="footer has-text-centered">
       <a :href="albumUrl">
         <img
@@ -23,46 +27,19 @@
 </template>
 
 <script>
-import Jukebox from '@/utils/jukebox';
 import Track from './Track';
+import Jukebox from '../utils/Jukebox/Jukebox';
 
 export default {
   name: 'TrackListView',
   props: ['tracks', 'playlists'],
-  data() {
-    return {
-      jukebox: new Jukebox(this.onPlaybackError)
-    };
-  },
-  mounted() {
-    this.$on('play', this.play);
-    this.$on('stop', this.stop);
-  },
   computed: {
-    playingTrackId() {
-      return this.jukebox.playingTrackId();
-    },
     albumUrl() {
       return this.tracks[0].url;
     }
   },
-  beforeDestroy() {
-    this.stop();
-  },
-  methods: {
-    play(track) {
-      this.jukebox.play(track);
-    },
-    stop() {
-      this.jukebox.stop();
-    },
-    onPlaybackError(track) {
-      this.$toasted.show(`Could not play track ${track.name}!`, {
-        type: 'ubeat-error'
-      });
-    }
-  },
   components: {
+    Jukebox,
     Track
   }
 };
