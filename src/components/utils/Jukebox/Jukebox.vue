@@ -11,7 +11,7 @@ export default {
   name: 'Jukebox',
   data() {
     return {
-      jukebox: new Jukebox(this.stop, this.onPlaybackError),
+      jukebox: new Jukebox(this.onSongEnded, this.onPlaybackError),
       playingTrackId: null
     };
   },
@@ -29,6 +29,8 @@ export default {
     },
     stop() {
       this.jukebox.stop();
+    },
+    onSongEnded() {
       this.playingTrackId = null;
     },
     onPlaybackError(track) {
