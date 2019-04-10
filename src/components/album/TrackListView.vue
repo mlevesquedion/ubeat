@@ -28,7 +28,7 @@
 
 <script>
 import Track from './Track';
-import Jukebox from '../utils/Jukebox/Jukebox';
+import Jukebox from '../utils/Jukebox/JukeboxWrapper';
 
 export default {
   name: 'TrackListView',

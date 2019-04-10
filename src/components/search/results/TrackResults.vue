@@ -17,7 +17,7 @@
 <script>
 import ResultsGroup from './ResultsGroup';
 import TrackResult from './TrackResult';
-import Jukebox from '../../utils/Jukebox/Jukebox';
+import Jukebox from '../../utils/Jukebox/JukeboxWrapper';
 
 export default {
   name: 'TrackResults',
