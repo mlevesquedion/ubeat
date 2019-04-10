@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <h1
-      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered"
+      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-3-mobile flex-centered"
       id="welcome-message"
     >
       Welcome to UBeat!
@@ -37,6 +37,7 @@ export default {
 
 #welcome-message {
   font-family: $stylish-text;
+  text-align: center;
   padding-top: 1em;
   margin-bottom: 0;
 }
