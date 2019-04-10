@@ -1,2 +1,1 @@
-export const secureRoot = 'https://fierce-tundra-31347.herokuapp.com/';
-export const apiRoot = `${secureRoot}`;
+export const apiRoot = 'https://fierce-tundra-31347.herokuapp.com/';
