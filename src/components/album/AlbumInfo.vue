@@ -28,4 +28,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <Gallery title="Top artists" linkTo="Artist" :elements="data" />
+      <Gallery :elements="data" linkTo="Artist" title="Top artists" />
     </template>
   </GenericAsync>
 </template>

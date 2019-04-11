@@ -2,8 +2,8 @@
   <div class="level is-mobile is-bordered">
     <div class="level-left">
       <router-link
-        class="is-primary link"
         :to="{ name: 'Artist', params: { id: artist.id } }"
+        class="is-primary link"
         >{{ artist.name }}
       </router-link>
     </div>

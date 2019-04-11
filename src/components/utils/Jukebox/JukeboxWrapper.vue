@@ -22,10 +22,10 @@ export default {
   },
   beforeDestroy() {
     /*
-      Event listeners should automatically be disabled by Vue,
-      but without the next two lines audio playback behaves unreliably
-      (stop does nothing, sound comes out weird, etc.)
-     */
+        Event listeners should automatically be disabled by Vue,
+        but without the next two lines audio playback behaves unreliably
+        (stop does nothing, sound comes out weird, etc.)
+       */
     this.$root.$off('play-track', this.play);
     this.$root.$off('stop-track', this.stop);
     this.stop();

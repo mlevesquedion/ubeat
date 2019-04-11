@@ -1,10 +1,10 @@
 <template>
   <FormField
+    :isPassword="true"
+    :validator="validator"
+    :value="value"
     fieldName="Password"
     iconName="lock"
-    :value="value"
-    :validator="validator"
-    :isPassword="true"
   />
 </template>
 

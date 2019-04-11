@@ -2,8 +2,8 @@
   <div class="container">
     <section class="accordions section">
       <h1
-        id="title"
         class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile padded-bottom"
+        id="title"
       >
         Results for "{{ query }}" ({{ count }})
       </h1>
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .padded-bottom {
   padding-bottom: 20px;
 }

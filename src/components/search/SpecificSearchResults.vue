@@ -6,9 +6,9 @@
   >
     <template slot-scope="{ data }">
       <SpecificSearchResultsView
-        :results="data"
         :query="query"
         :query-type="queryType"
+        :results="data"
       />
     </template>
   </GenericAsync>

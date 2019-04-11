@@ -36,9 +36,9 @@ export default {
   methods: {
     populatePlaylists(playlists) {
       /*
-          Have to use concat, in case the user creates a playlist before
-          the backend data arrives.
-         */
+            Have to use concat, in case the user creates a playlist before
+            the backend data arrives.
+           */
       this.playlists = this.playlists.concat(playlists);
       this.requestState = RequestState.LOADED;
     },

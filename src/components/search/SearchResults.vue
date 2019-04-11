@@ -1,14 +1,14 @@
 <template>
   <GenericAsync
+    :allowEmpty="true"
     :dataName="dataName"
     :dataSource="dataSource"
-    :allowEmpty="true"
   >
     <template slot-scope="{ data }">
       <SearchResultsView
         :playlists="playlists"
-        :searchresults="data"
         :query="query"
+        :searchresults="data"
       />
     </template>
   </GenericAsync>
@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .accordions {

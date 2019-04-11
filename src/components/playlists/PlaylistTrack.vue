@@ -21,8 +21,8 @@
       </div>
       <div class="level-item">
         <DeleteButton
-          :isDeleting="isDeleting"
           :deleteAction="deleteTrack"
+          :isDeleting="isDeleting"
           :isSmall="true"
         />
       </div>
@@ -89,11 +89,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .is-clipped {
   width: 50vw;
   max-width: 1000px;
 }
+
 .fixed-width {
   width: 27px;
 }

@@ -3,14 +3,14 @@
     <Jukebox>
       <template slot-scope="{ playingTrackId }">
         <Track
-          v-for="t in tracks"
-          :key="t.id"
-          :track="t"
           :highlightOnHover="true"
-          :showSeparators="true"
-          :playlists="playlists"
+          :key="t.id"
           :playingTrackId="playingTrackId"
+          :playlists="playlists"
+          :showSeparators="true"
+          :track="t"
           class="track"
+          v-for="t in tracks"
         />
       </template>
     </Jukebox>
@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .footer {

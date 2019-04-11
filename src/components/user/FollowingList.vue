@@ -7,7 +7,7 @@
         </template>
         <template slot="body">
           <div v-if="hasFriends">
-            <UserResult :key="u.id" v-for="u in following" :user="u" />
+            <UserResult :key="u.id" :user="u" v-for="u in following" />
           </div>
           <div v-else>This user is not following anyone!</div>
         </template>
@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
   padding-top: 0;
 }

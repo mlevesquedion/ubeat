@@ -1,21 +1,21 @@
 <template>
   <button
-    class="button is-danger"
     :class="{ 'is-small': isSmall, 'is-loading': isLoading }"
-    v-if="isFollowed"
     @click="unfollow"
+    class="button is-danger"
+    v-if="isFollowed"
   >
     <i class="fas fa-user-times"></i
     ><span class="bumped-right" v-if="!isSmall">Unfollow</span>
   </button>
   <button
-    class="button is-primary"
     :class="{ 'is-small': isSmall, 'is-loading': isLoading }"
-    v-else
     @click="follow"
+    class="button is-primary"
+    v-else
   >
     <i class="fas fa-user-plus"></i
-    ><span v-if="!isSmall" class="bumped-right">Follow</span>
+    ><span class="bumped-right" v-if="!isSmall">Follow</span>
   </button>
 </template>
 

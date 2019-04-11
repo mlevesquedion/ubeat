@@ -143,7 +143,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .editing-group {
   display: flex;
   align-items: flex-start;

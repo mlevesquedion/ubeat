@@ -16,8 +16,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
+
 .user-info {
   min-width: 150px;
   max-width: 150px;
@@ -28,6 +29,7 @@ export default {
   font-size: 12px;
   size: 12px;
 }
+
 .vue-tabs {
   font-size: 10px;
 }

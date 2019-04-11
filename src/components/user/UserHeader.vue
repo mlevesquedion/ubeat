@@ -4,15 +4,15 @@
       <figure class="media-left responsive-image-container image">
         <img
           :alt="user.name"
-          src="static/images/default_profile.png"
           class="responsive-image"
+          src="static/images/default_profile.png"
         />
       </figure>
     </div>
     <div class="column">
       <div class="label is-primary">{{ userNameText }}</div>
       <div class="label">{{ user.email }}</div>
-      <FollowButton v-if="!loggedInUser" class="no-stretch" :user="user" />
+      <FollowButton :user="user" class="no-stretch" v-if="!loggedInUser" />
     </div>
   </section>
 </template>
@@ -39,15 +39,17 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .columns {
   width: 100%;
 }
+
 .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .no-stretch {
   align-self: flex-start;
 }

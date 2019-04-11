@@ -1,11 +1,11 @@
 <template>
   <div class="navbar-item is-marginless one-line">
     <input
+      @keydown.enter="search"
       class="is-size-6-tablet is-size-5-desktop search-bar"
       placeholder="Search ..."
       type="search"
       v-model="query"
-      @keydown.enter="search"
     />
     <Dropdown is-right="true" is-small="true">
       <template slot="trigger">
@@ -77,7 +77,7 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .search-bar {

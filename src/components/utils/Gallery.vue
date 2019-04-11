@@ -8,13 +8,13 @@
     <div class="gallery">
       <div :key="e.id || ei" class="element" v-for="(e, ei) in elements">
         <router-link
-          v-if="e.id"
           :to="{ name: linkTo, params: { id: e.id } }"
           class="responsive-image-container"
+          v-if="e.id"
         >
           <img :alt="e.name" :src="e.src" class="responsive-image" />
         </router-link>
-        <a class="responsive-image-container" v-else :href="e.url">
+        <a :href="e.url" class="responsive-image-container" v-else>
           <img :alt="e.name" :src="e.src" class="responsive-image" />
         </a>
         <label class="element-name subtitle">{{ e.name }}</label>
@@ -28,7 +28,7 @@ export default {
   props: ['title', 'linkTo', 'elements']
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .section {

@@ -2,8 +2,8 @@
   <div>
     <hr class="horizontal-line" v-if="showSeparators && track.number !== 1" />
     <div
-      class="level is-mobile is-bordered"
       :class="{ 'hover-highlight': highlightOnHover }"
+      class="level is-mobile is-bordered"
     >
       <div class="level-left">
         <slot>
@@ -26,12 +26,12 @@
           </AsyncPlaylistDropdown>
           <a class="has-text-light" v-if="playingTrackId === track.id">
             <span class="icon is-medium">
-              <i class="fas fa-stop-circle" @click="stop()"></i>
+              <i @click="stop()" class="fas fa-stop-circle"></i>
             </span>
           </a>
           <a class="has-text-light" v-else>
             <span class="icon is-medium">
-              <i class="fas fa-play-circle" @click="play()"></i>
+              <i @click="play()" class="fas fa-play-circle"></i>
             </span>
           </a>
         </div>
@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .horizontal-line {
@@ -121,6 +121,7 @@ export default {
   min-width: 100px;
   width: 50vw;
 }
+
 .align-track {
   margin-right: 25px;
   width: 10px;

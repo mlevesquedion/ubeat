@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
   padding-top: 0;
 }

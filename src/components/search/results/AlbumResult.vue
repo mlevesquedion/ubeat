@@ -2,23 +2,23 @@
   <section class="is-bordered level is-mobile">
     <div class="level-left">
       <div class="level-item">
-        <img class="artwork" :alt="album.name" :src="album.src" />
+        <img :alt="album.name" :src="album.src" class="artwork" />
       </div>
       <div class="level-item stacked">
         <div>
           <router-link
-            class="is-primary link is-clipped"
             :to="{ name: 'Album', params: { id: album.id } }"
-            >{{ album.name }}</router-link
-          >
+            class="is-primary link is-clipped"
+            >{{ album.name }}
+          </router-link>
         </div>
         <div class="flex-row">
           <span class="bumped-left">by</span>
           <router-link
-            class="is-primary link is-clipped"
             :to="{ name: 'Artist', params: { id: album.artistId } }"
-            >{{ album.artist }}</router-link
-          >
+            class="is-primary link is-clipped"
+            >{{ album.artist }}
+          </router-link>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .artwork {

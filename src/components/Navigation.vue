@@ -28,7 +28,7 @@
           class="is-size-6-tablet is-size-5-desktop navbar-item has-dropdown is-hoverable"
         >
           <a @click="closeBurger" class="navbar-link">
-            <router-link class="navbar-item" id="user-container" :to="userLink">
+            <router-link :to="userLink" class="navbar-item" id="user-container">
               <img
                 class="is-rounded bumped-left"
                 id="user-image"
@@ -39,14 +39,14 @@
           </a>
           <div class="navbar-dropdown">
             <a @click="closeBurger">
-              <router-link to="/playlists" class="navbar-item">
+              <router-link class="navbar-item" to="/playlists">
                 <i class="fas fa-list" />
                 <span class="is-size-7-tablet is-size-6-desktop bumped-right"
                   >Playlists</span
                 >
               </router-link>
             </a>
-            <a class="navbar-item" @click="logout">
+            <a @click="logout" class="navbar-item">
               <i class="fas fa-sign-out-alt" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
                 >Sign out</span
@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 #text-logo {

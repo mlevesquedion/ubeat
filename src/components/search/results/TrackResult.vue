@@ -1,5 +1,5 @@
 <template>
-  <Track :track="track" :playlists="playlists" :playingTrackId="playingTrackId">
+  <Track :playingTrackId="playingTrackId" :playlists="playlists" :track="track">
     <TrackDetails :track="track" />
   </Track>
 </template>
