@@ -1,8 +1,8 @@
 <template>
   <div class="level is-mobile">
     <div class="level-left">
-      <div class="level-item is-clipped">
-        {{ track.name }}, {{ track.artist }} - {{ track.album }}
+      <div class="level-item">
+        <TrackDetails :track="track" />
       </div>
     </div>
     <div class="level-right">
@@ -33,6 +33,7 @@
 import PlaylistAPI from '../../api/playlist';
 import PlaylistDropdown from './dropdown/PlaylistDropdown';
 import DeleteButton from './DeleteButton';
+import TrackDetails from '../album/TrackDetails';
 
 export default {
   name: 'PlaylistTrack',
@@ -81,6 +82,7 @@ export default {
     }
   },
   components: {
+    TrackDetails,
     PlaylistDropdown,
     DeleteButton
   }

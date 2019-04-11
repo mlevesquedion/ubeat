@@ -19,6 +19,8 @@ export default {
     trackId: trackData.id,
     trackNumber: trackData.number,
     trackName: trackData.name,
+    collectionId: trackData.albumId,
+    artistId: trackData.artistId,
     collectionName: trackData.album,
     artistName: trackData.artist,
     trackViewUrl: trackData.url,
