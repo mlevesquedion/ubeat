@@ -8,11 +8,12 @@
 import Jukebox from './jukebox';
 
 export default {
-  name: 'Jukebox',
+  name: 'JukeboxWrapper',
   data() {
     return {
       jukebox: new Jukebox(this.onSongEnded, this.onPlaybackError),
-      playingTrackId: null
+      playingTrackId: null,
+      listeningForEvents: true
     };
   },
   mounted() {
@@ -20,6 +21,8 @@ export default {
     this.$root.$on('stop-track', this.stop);
   },
   beforeDestroy() {
+    this.$root.$off('play-track', this.play);
+    this.$root.$off('stop-track', this.stop);
     this.stop();
   },
   methods: {
