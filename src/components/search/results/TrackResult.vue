@@ -1,17 +1,17 @@
 <template>
   <Track :track="track" :playlists="playlists" :playingTrackId="playingTrackId">
     <div class="is-clipped">
-      {{ track.name }},
-      <router-link
-        class="is-primary link"
-        :to="{ name: 'Artist', params: { id: track.artistId } }"
-        >{{ track.artist }} </router-link
-      >-
       <router-link
         class="is-primary link"
         :to="{ name: 'Album', params: { id: track.albumId } }"
       >
-        {{ track.album }}
+        {{ track.name }}
+      </router-link>
+      by
+      <router-link
+        class="is-primary link"
+        :to="{ name: 'Artist', params: { id: track.artistId } }"
+        >{{ track.artist }}
       </router-link>
     </div>
   </Track>
