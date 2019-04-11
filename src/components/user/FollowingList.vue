@@ -22,7 +22,7 @@ import Accordion from '../utils/Accordion';
 import UserResult from '../search/results/UserResult';
 
 export default {
-  name: 'PlaylistList',
+  name: 'FollowingList',
   props: ['user'],
   components: { Accordion, UserResult },
   computed: {

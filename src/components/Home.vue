@@ -21,7 +21,7 @@
 import TopArtists from './home/TopArtists';
 
 export default {
-  name: 'app',
+  name: 'Home',
   components: {
     TopArtists
   }

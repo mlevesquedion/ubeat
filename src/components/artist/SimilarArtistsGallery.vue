@@ -12,7 +12,7 @@ import LastFmAPI from '../../api/lastFM';
 import Gallery from '../utils/Gallery';
 
 export default {
-  name: 'SimilarArtists',
+  name: 'SimilarArtistsGallery',
   components: { GenericAsync, Gallery },
   props: ['artistName'],
   data() {

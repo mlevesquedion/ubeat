@@ -12,7 +12,7 @@ import Username from '../../auth/username';
 import FormField from './AuthField';
 
 export default {
-  name: 'EmailField',
+  name: 'UsernameField',
   props: ['value'],
   data() {
     return {

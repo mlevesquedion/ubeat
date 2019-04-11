@@ -13,7 +13,7 @@ import Password from '../../auth/password';
 import FormField from './AuthField';
 
 export default {
-  name: 'EmailField',
+  name: 'PasswordField',
   props: ['value'],
   data() {
     return {

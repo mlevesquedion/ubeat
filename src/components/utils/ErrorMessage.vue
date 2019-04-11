@@ -10,7 +10,7 @@
 </template>
 
 <script>
-export default { name: 'errorMessage', props: ['message'] };
+export default { name: 'ErrorMessage', props: ['message'] };
 </script>
 
 <style scoped></style>

@@ -12,7 +12,7 @@ import ArtistAPI from '../../api/artist';
 import Gallery from '../utils/Gallery';
 
 export default {
-  name: 'albumGallery',
+  name: 'AlbumGallery',
   props: ['artistId'],
   data() {
     return {

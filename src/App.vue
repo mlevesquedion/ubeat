@@ -10,7 +10,7 @@ import '@/assets/sass/styles.scss';
 import Navigation from '@/components/Navigation';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Navigation
   },

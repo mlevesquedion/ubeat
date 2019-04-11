@@ -74,7 +74,7 @@ export default {
       return this.$root.$data.name();
     },
     userLink() {
-      return { name: 'User', params: { id: this.$root.$data.getUser().id } };
+      return { name: 'Navigation', params: { id: this.$root.$data.id() } };
     }
   },
   methods: {
