@@ -33,13 +33,10 @@
           >
             <i class="fas fa-pencil-alt"></i>
           </button>
-          <button
-            :class="{ 'is-loading': isDeleting }"
-            @click.stop="deletePlaylist()"
-            class="button level-item is-danger size-correction"
-          >
-            <i class="fas fa-trash"></i>
-          </button>
+          <DeleteButton
+            :deleteAction="deletePlaylist"
+            :is-deleting="isDeleting"
+          />
         </div>
       </div>
     </template>
@@ -63,6 +60,7 @@ import Accordion from '../utils/Accordion';
 import isEmpty from '../../utils/isEmpty';
 import PlaylistTrack from './PlaylistTrack';
 import PlaylistState from './playlistState';
+import DeleteButton from './DeleteButton';
 
 export default {
   name: 'Playlist',
@@ -141,7 +139,7 @@ export default {
         });
     }
   },
-  components: { PlaylistTrack, Accordion }
+  components: { DeleteButton, PlaylistTrack, Accordion }
 };
 </script>
 
@@ -153,11 +151,6 @@ export default {
 
 .width-responsive {
   width: 35vw;
-}
-
-.size-correction {
-  width: 42px;
-  height: 36px;
 }
 
 .is-clipped {

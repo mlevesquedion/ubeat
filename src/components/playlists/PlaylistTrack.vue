@@ -20,13 +20,11 @@
         </PlaylistDropdown>
       </div>
       <div class="level-item">
-        <button
-          :class="{ 'is-loading': isDeleting }"
-          @click="deleteTrack"
-          class="button level-item is-danger is-small"
-        >
-          <i class="fas fa-trash"></i>
-        </button>
+        <DeleteButton
+          :isDeleting="isDeleting"
+          :deleteAction="deleteTrack"
+          :isSmall="true"
+        />
       </div>
     </div>
   </div>
@@ -34,12 +32,14 @@
 <script>
 import PlaylistAPI from '../../api/playlist';
 import PlaylistDropdown from './dropdown/PlaylistDropdown';
+import DeleteButton from './DeleteButton';
 
 export default {
   name: 'PlaylistTrack',
   props: ['track', 'index', 'playlist', 'playlistIndex', 'playlists'],
   data() {
     return {
+      deletePending: false,
       isDeleting: false
     };
   },
@@ -81,7 +81,8 @@ export default {
     }
   },
   components: {
-    PlaylistDropdown
+    PlaylistDropdown,
+    DeleteButton
   }
 };
 </script>
@@ -90,5 +91,8 @@ export default {
 .is-clipped {
   width: 50vw;
   max-width: 1000px;
+}
+.fixed-width {
+  width: 27px;
 }
 </style>
