@@ -38,12 +38,14 @@
             </router-link>
           </a>
           <div class="navbar-dropdown">
-            <router-link to="/playlists" class="navbar-item">
-              <i class="fas fa-list" />
-              <span class="is-size-7-tablet is-size-6-desktop bumped-right"
-                >Playlists</span
-              >
-            </router-link>
+            <a @click="closeBurger">
+              <router-link to="/playlists" class="navbar-item">
+                <i class="fas fa-list" />
+                <span class="is-size-7-tablet is-size-6-desktop bumped-right"
+                  >Playlists</span
+                >
+              </router-link>
+            </a>
             <a class="navbar-item" @click="logout">
               <i class="fas fa-sign-out-alt" />
               <span class="is-size-7-tablet is-size-6-desktop bumped-right"
@@ -62,6 +64,7 @@ import authAPI from '../api/auth';
 import SearchInput from './search/input/SearchInput';
 
 export default {
+  name: 'Navigation',
   components: { SearchInput },
   created() {
     this.$on('close-burger', this.closeBurger);
@@ -74,7 +77,7 @@ export default {
       return this.$root.$data.name();
     },
     userLink() {
-      return { name: 'Navigation', params: { id: this.$root.$data.id() } };
+      return { name: 'User', params: { id: this.$root.$data.id() } };
     }
   },
   methods: {

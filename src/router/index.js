@@ -49,11 +49,6 @@ const router = new Router({
       component: Playlists
     },
     {
-      path: '*',
-      name: 'Not found',
-      component: NotFound
-    },
-    {
       path: '/search/artist/:query',
       name: 'Artist Results',
       component: ArtistSearchResults
@@ -77,6 +72,11 @@ const router = new Router({
       path: '/search/global/:query',
       name: 'Search results',
       component: SearchResults
+    },
+    {
+      path: '*',
+      name: 'Not found',
+      component: NotFound
     }
   ]
 });
