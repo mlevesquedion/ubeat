@@ -39,7 +39,7 @@ export default {
       playlistData: []
     };
   },
-  mounted() {
+  created() {
     this.playlists
       .then(playlistData => {
         this.playlistData = playlistData;

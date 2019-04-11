@@ -27,7 +27,7 @@ export default {
       requestState: RequestState.LOADING
     };
   },
-  mounted() {
+  created() {
     ArtistAPI.get(this.id)
       .then(this.setArtist)
       .catch(this.setError);

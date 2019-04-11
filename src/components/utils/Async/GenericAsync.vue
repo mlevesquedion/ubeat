@@ -31,7 +31,7 @@ export default {
       this.requestState = RequestState.ERROR;
     }
   },
-  mounted() {
+  created() {
     this.dataSource.then(this.setData).catch(this.setError);
   },
   components: {

@@ -29,8 +29,6 @@ export default {
     this.$root.$on('create-playlist', this.createPlaylist);
     this.$root.$on('update-playlist-name', this.updatePlaylistName);
     this.$root.$on('track-added', this.overwritePlaylist);
-  },
-  mounted() {
     PlaylistAPI.getUserPlaylists()
       .then(this.populatePlaylists)
       .catch(this.setError);
