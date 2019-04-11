@@ -28,7 +28,7 @@ export default {
         this.pendingDeletion = true;
         setTimeout(() => {
           this.pendingDeletion = false;
-        }, 3000);
+        }, 2000);
         return;
       }
       this.deleteAction();
