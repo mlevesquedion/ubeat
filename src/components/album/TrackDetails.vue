@@ -2,7 +2,7 @@
   <div class="is-clipped">
     <router-link
       class="is-primary link"
-      :to="{ name: 'Album', params: { id: track.olbumId } }"
+      :to="{ name: 'Album', params: { id: track.albumId } }"
     >
       {{ track.name }}
     </router-link>
