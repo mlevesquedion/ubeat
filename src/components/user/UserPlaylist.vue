@@ -25,7 +25,7 @@ export default {
   name: 'UserPlaylist',
   data() {
     return {
-      user1: {}
+      user1: { }
     };
   },
   methods: {
