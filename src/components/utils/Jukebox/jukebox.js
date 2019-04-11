@@ -2,7 +2,6 @@ class Jukebox {
   constructor(onSongEnded, onPlaybackError) {
     this.track = null;
     this.sound = null;
-    this.isPlaying = false;
     this.onSongEnded = onSongEnded;
     this.onPlaybackError = onPlaybackError;
   }
@@ -16,20 +15,21 @@ class Jukebox {
       this.stop();
     });
     this.sound.addEventListener('ended', _e => this.stop());
-    this.isPlaying = true;
   }
 
   stop() {
-    if (this.isPlaying && this.sound !== null) {
+    if (this.sound) {
       this.sound.pause();
+      this.sound.currentTime = 0;
+      this.sound.removeAttribute('src');
+      this.sound.load();
     }
-    this.track = null;
     this.sound = null;
     this.onSongEnded();
   }
 
   playingTrackId() {
-    return this.isPlaying && this.track && this.track.id;
+    return this.track && this.track.id;
   }
 }
 

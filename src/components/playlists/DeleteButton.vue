@@ -12,6 +12,7 @@
     <i v-else class="fas fa-trash"></i>
   </button>
 </template>
+
 <script>
 export default {
   name: 'DeleteButton',
@@ -35,6 +36,7 @@ export default {
   }
 };
 </script>
+
 <style scoped lang="scss">
 .is-normal {
   width: 42px;
