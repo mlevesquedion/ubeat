@@ -4,7 +4,7 @@
       <PlaylistMaker />
     </div>
     <AsyncContent :requestState="requestState" dataName="user playlists">
-      <PlaylistList :playlists="playlists" />
+      <PlaylistList :playlists="playlists" :userPlaylists="playlists" />
     </AsyncContent>
   </div>
 </template>

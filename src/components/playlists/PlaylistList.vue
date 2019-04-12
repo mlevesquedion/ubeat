@@ -7,7 +7,7 @@
         :playlist="p"
         :index="pi"
         :key="p.id"
-        :playlists="playlists"
+        :userPlaylists="userPlaylists"
         :isReadOnly="isReadOnly"
       />
     </div>
@@ -21,7 +21,7 @@ import Playlist from './Playlist';
 
 export default {
   name: 'PlaylistList',
-  props: ['playlists', 'isReadOnly'],
+  props: ['playlists', 'userPlaylists', 'isReadOnly'],
   computed: {
     count() {
       return this.playlists.length;

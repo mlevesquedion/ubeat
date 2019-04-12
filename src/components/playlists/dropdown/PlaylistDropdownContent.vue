@@ -1,5 +1,11 @@
 <template>
-  <div v-if="hasPlaylists">
+  <div v-if="isLoading">
+    <SmallSpinner />
+  </div>
+  <div v-else-if="isError">
+    An error has occurred.
+  </div>
+  <div v-else-if="hasPlaylists">
     <a
       :key="p.id"
       @click="playlistClicked(p)"
@@ -28,6 +34,12 @@ export default {
     };
   },
   computed: {
+    isLoading() {
+      return this.playlists === 'loading';
+    },
+    isError() {
+      return this.playlists === 'error';
+    },
     hasPlaylists() {
       return !isEmpty(this.playlists);
     }

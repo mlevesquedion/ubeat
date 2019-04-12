@@ -10,7 +10,7 @@
         <PlaylistDropdown
           :isRight="true"
           :onPlaylistClick="addToPlaylist"
-          :playlists="playlists"
+          :playlists="userPlaylists"
         />
       </div>
       <div class="level-item" v-if="!isReadOnly">
@@ -36,7 +36,7 @@ export default {
     'index',
     'playlist',
     'playlistIndex',
-    'playlists',
+    'userPlaylists',
     'isReadOnly'
   ],
   data() {

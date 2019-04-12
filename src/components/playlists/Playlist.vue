@@ -49,7 +49,7 @@
         :key="`${t.uniqueId}${ti}`"
         :playlist="playlist"
         :playlistIndex="index"
-        :playlists="playlists"
+        :userPlaylists="userPlaylists"
         :isReadOnly="isReadOnly"
       />
     </template>
@@ -66,7 +66,7 @@ import DeleteButton from './DeleteButton';
 
 export default {
   name: 'Playlist',
-  props: ['playlist', 'index', 'playlists', 'isReadOnly'],
+  props: ['playlist', 'index', 'userPlaylists', 'isReadOnly'],
   data() {
     return {
       newPlaylistName: this.playlist.name,

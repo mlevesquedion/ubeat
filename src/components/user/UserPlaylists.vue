@@ -2,7 +2,11 @@
   <section class="section">
     <GenericAsync :dataName="dataName" :dataSource="dataSource">
       <template slot-scope="{ data }">
-        <PlaylistList :playlists="data" :isReadOnly="isNotOwnPage" />
+        <PlaylistList
+          :playlists="data"
+          :isReadOnly="isNotOwnPage"
+          :userPlaylists="userPlaylists"
+        />
       </template>
     </GenericAsync>
   </section>
@@ -16,7 +20,7 @@ import GenericAsync from '../utils/Async/GenericAsync';
 
 export default {
   name: 'UserPlaylists',
-  props: ['user'],
+  props: ['user', 'userPlaylists'],
   components: { PlaylistList, Accordion, GenericAsync },
   data() {
     return {
