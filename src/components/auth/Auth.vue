@@ -3,7 +3,7 @@
     <section class="section">
       <div class="spaced-row">
         <h1 class="title is-primary">{{ authType }}</h1>
-        <div class="messageAouth">
+        <div>
         <p>{{ changeAuthTypeMessage }}</p>
           <a @click="toggleIsLogin" class="is-primary">{{
             oppositeAuthType
@@ -174,10 +174,6 @@ a:active {
 
 .title{
   margin: 0 60px 0 0;
-}
-
-.messageAouth{
-
 }
 
 .spaced-row {
