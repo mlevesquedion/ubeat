@@ -1,20 +1,30 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <UserView :user="data" />
+      <div class="container">
+        <UserHeader :user="data" />
+        <FollowingList :user="data"></FollowingList>
+        <UserPlaylists :user="data" />
+      </div>
     </template>
   </GenericAsync>
 </template>
 
 <script>
 import GenericAsync from '../utils/Async/GenericAsync';
-import UserView from './UserView';
+import UserPlaylists from './UserPlaylists';
 import userAPI from '../../api/user';
+import UserHeader from './UserHeader';
+import FollowingList from './FollowingList';
 
 export default {
   name: 'User',
-  props: ['friend', 'index', 'userList'],
-  components: { GenericAsync, UserView },
+  components: {
+    GenericAsync,
+    UserHeader,
+    FollowingList,
+    UserPlaylists
+  },
   data() {
     return {
       dataName: 'user info',

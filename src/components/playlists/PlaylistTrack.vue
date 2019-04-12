@@ -5,12 +5,12 @@
         <TrackDetails :track="track" />
       </div>
     </div>
-    <div class="level-right">
+    <div class="level-right" v-if="!isStatic">
       <div class="level-item">
         <PlaylistDropdown
           :isRight="true"
           :onPlaylistClick="addToPlaylist"
-          :playlists="playlists"
+          :playlists="userPlaylists"
         />
       </div>
       <div class="level-item">
@@ -31,7 +31,14 @@ import TrackDetails from '../album/track/TrackDetails';
 
 export default {
   name: 'PlaylistTrack',
-  props: ['track', 'index', 'playlist', 'playlistIndex', 'playlists'],
+  props: [
+    'track',
+    'index',
+    'playlist',
+    'playlistIndex',
+    'userPlaylists',
+    'isStatic'
+  ],
   data() {
     return {
       deletePending: false,

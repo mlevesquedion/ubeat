@@ -10,6 +10,7 @@
         :placeholder="fieldName"
         :type="type"
         @blur="onBlur"
+        @keydown.enter="submit"
         class="input"
         v-model="fieldValue"
       />
@@ -51,6 +52,9 @@ export default {
       if (this.dirty) {
         this.wasBlurred = true;
       }
+    },
+    submit() {
+      this.$root.$emit('submit');
     }
   },
   watch: {

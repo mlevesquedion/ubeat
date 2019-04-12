@@ -1,5 +1,5 @@
 <template>
-  <FormField
+  <AuthField
     :validator="validator"
     :value="value"
     fieldName="Username"
@@ -9,7 +9,7 @@
 
 <script>
 import Username from '../../auth/username';
-import FormField from './AuthField';
+import AuthField from './AuthField';
 
 export default {
   name: 'UsernameField',
@@ -19,6 +19,6 @@ export default {
       validator: Username
     };
   },
-  components: { FormField }
+  components: { AuthField }
 };
 </script>
