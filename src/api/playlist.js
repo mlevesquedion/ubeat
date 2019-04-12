@@ -8,13 +8,15 @@ import userStore from '../userStore';
 
 const playlistRoot = `${apiRoot}playlists/`;
 
-const getUserPlaylists = () =>
+const getPlaylists = id =>
   axios
     .get(`${playlistRoot}`, {
       ...Headers.auth(),
-      params: { userId: userStore.id() }
+      params: { userId: id }
     })
     .then(({ data }) => data.map(p => Playlist.fromBackend(p)));
+
+const getUserPlaylists = () => getPlaylists(userStore.id());
 
 const createPlaylist = name =>
   axios
@@ -30,9 +32,12 @@ const addTrackToPlaylist = (track, playlistId) =>
     )
     .then(({ data }) => Playlist.fromBackend(data));
 
+const addTracksToPlaylist = (tracks, playlistId) =>
+  Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)));
+
 const addAlbumToPlaylist = (albumId, playlistId) =>
   AlbumAPI.getAlbumTracks(albumId).then(tracks =>
-    Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)))
+    addTracksToPlaylist(tracks, playlistId)
   );
 
 const deletePlaylist = id =>
@@ -53,14 +58,21 @@ const updatePlaylistName = (playlist, newName) =>
     )
     .then(({ data }) => data);
 
+const stealPlaylist = playlist =>
+  createPlaylist(playlist.name).then(p =>
+    addTracksToPlaylist(playlist.tracks, p.id)
+  );
+
 const api = {
+  getPlaylists,
   getUserPlaylists,
   createPlaylist,
   addTrackToPlaylist,
   addAlbumToPlaylist,
   deletePlaylist,
   deleteTrack,
-  updatePlaylistName
+  updatePlaylistName,
+  stealPlaylist
 };
 
 export default api;

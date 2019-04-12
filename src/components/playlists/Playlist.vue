@@ -17,7 +17,7 @@
             playlist.name
           }}</span>
         </div>
-        <div class="level-right">
+        <div class="level-right" v-if="!isStatic">
           <button
             @click.stop="stopEditing()"
             class="button level-item is-warning"
@@ -38,6 +38,15 @@
             :is-deleting="isDeleting"
           />
         </div>
+        <div class="level-right" v-else-if="isNotOwnPlaylist">
+          <button
+            @click.stop="stealPlaylist()"
+            :class="{ 'is-loading': isStealing }"
+            class="button level-item is-primary"
+          >
+            <i class="fas fa-clone"></i>
+          </button>
+        </div>
       </div>
     </template>
     <template slot="body">
@@ -49,7 +58,8 @@
         :key="`${t.uniqueId}${ti}`"
         :playlist="playlist"
         :playlistIndex="index"
-        :playlists="playlists"
+        :userPlaylists="userPlaylists"
+        :isStatic="isStatic"
       />
     </template>
   </Accordion>
@@ -65,11 +75,12 @@ import DeleteButton from './DeleteButton';
 
 export default {
   name: 'Playlist',
-  props: ['playlist', 'index', 'playlists'],
+  props: ['playlist', 'index', 'userPlaylists', 'isStatic'],
   data() {
     return {
       newPlaylistName: this.playlist.name,
-      state: PlaylistState.NORMAL
+      state: PlaylistState.NORMAL,
+      isStealing: false
     };
   },
   computed: {
@@ -84,6 +95,9 @@ export default {
     },
     isEditing() {
       return this.state === PlaylistState.EDITING;
+    },
+    isNotOwnPlaylist() {
+      return this.playlist.ownerEmail !== this.$root.$data.email();
     }
   },
   methods: {
@@ -133,6 +147,24 @@ export default {
           this.state = PlaylistState.NORMAL;
           this.$toasted.show(
             `Could not delete playlist ${this.playlist.name} at this time.`,
+            { type: 'ubeat-error' }
+          );
+        });
+    },
+    stealPlaylist() {
+      this.isStealing = true;
+      PlaylistAPI.stealPlaylist(this.playlist)
+        .then(_ => {
+          this.isStealing = false;
+          this.$toasted.show(
+            `Successfully stole playlist ${this.playlist.name}!`,
+            { type: 'ubeat-success' }
+          );
+        })
+        .catch(_err => {
+          this.isStealing = false;
+          this.$toasted.show(
+            `Could not steal playlist ${this.playlist.name} at this time.`,
             { type: 'ubeat-error' }
           );
         });

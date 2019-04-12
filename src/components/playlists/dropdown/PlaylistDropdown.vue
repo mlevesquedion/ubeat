@@ -1,7 +1,13 @@
 <template>
   <Dropdown :isRight="isRight">
     <template slot="trigger">
-      <slot></slot>
+      <slot>
+        <button class="button is-primary is-small">
+          <span class="icon is-medium">
+            <i class="fas fa-plus-circle"></i>
+          </span>
+        </button>
+      </slot>
     </template>
     <template slot="content">
       <PlaylistDropdownContent

@@ -1,13 +1,14 @@
 <template>
   <section class="section">
-    <h1 class="title has-text-light">Playlists</h1>
+    <h1 class="title has-text-light">Playlists ({{ count }})</h1>
     <div class="accordions" v-if="hasPlaylists">
       <Playlist
+        v-for="(p, pi) in sortedPlaylists"
+        :playlist="p"
         :index="pi"
         :key="p.id"
-        :playlist="p"
-        :playlists="playlists"
-        v-for="(p, pi) in sortedPlaylists"
+        :userPlaylists="userPlaylists"
+        :isStatic="isStatic"
       />
     </div>
     <div v-else>You have no playlists!</div>
@@ -20,8 +21,11 @@ import Playlist from './Playlist';
 
 export default {
   name: 'PlaylistList',
-  props: ['playlists'],
+  props: ['playlists', 'userPlaylists', 'isStatic'],
   computed: {
+    count() {
+      return this.playlists.length;
+    },
     hasPlaylists() {
       return !isEmpty(this.playlists);
     },
