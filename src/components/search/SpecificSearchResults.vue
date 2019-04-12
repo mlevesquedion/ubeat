@@ -6,9 +6,9 @@
   >
     <template slot-scope="{ data }">
       <SpecificSearchResultsView
-        :results="data"
         :query="query"
         :query-type="queryType"
+        :results="data"
       />
     </template>
   </GenericAsync>
@@ -19,10 +19,8 @@ import GenericAsync from '../utils/Async/GenericAsync';
 import SpecificSearchResultsView from './SpecificSearchResultsView';
 
 export default {
-  name: 'ArtistResults',
+  name: 'SpecificSearchResults',
   components: { SpecificSearchResultsView, GenericAsync },
   props: ['queryType', 'query', 'dataSource']
 };
 </script>
-
-<style scoped></style>

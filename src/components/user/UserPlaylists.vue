@@ -1,19 +1,10 @@
 <template>
   <section class="section">
-    <div class="accordions">
-      <Accordion>
-        <template slot="header">
-          <h1 class="title has-text-light">Playlists</h1>
-        </template>
-        <template slot="body">
-          <GenericAsync :dataName="dataName" :dataSource="dataSource">
-            <template slot-scope="{ data }">
-              <PlaylistList :playlists="data" />
-            </template>
-          </GenericAsync>
-        </template>
-      </Accordion>
-    </div>
+    <GenericAsync :dataName="dataName" :dataSource="dataSource">
+      <template slot-scope="{ data }">
+        <PlaylistList :playlists="data" :isReadOnly="isNot" />
+      </template>
+    </GenericAsync>
   </section>
 </template>
 

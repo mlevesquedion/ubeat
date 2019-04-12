@@ -22,5 +22,3 @@ export default {
   components: { PlaylistDropdownContent, Dropdown }
 };
 </script>
-
-<style scoped></style>

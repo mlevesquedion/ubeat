@@ -2,10 +2,10 @@
   <div class="container">
     <section class="section">
       <div class="spaced-row">
-        <h1 class="title is-primary">{{ authType }}</h1>
+        <h1 class="title is-size-4-mobile is-primary">{{ authType }}</h1>
         <p>
           {{ changeAuthTypeMessage }}
-          <a class="is-primary" @click="toggleIsLogin">{{
+          <a @click="toggleIsLogin" class="is-primary">{{
             oppositeAuthType
           }}</a>
         </p>
@@ -16,20 +16,20 @@
       <div class="field submit-button">
         <p class="control">
           <button
-            class="button is-primary"
             :disabled="!isValid"
             @click="authenticate"
+            class="button is-primary"
           >
             {{ authType }}
           </button>
         </p>
       </div>
       <button
-        class="button is-warning"
         :class="{
           'is-loading': isSkipping
         }"
         @click="skip"
+        class="button is-warning"
       >
         Skip
       </button>

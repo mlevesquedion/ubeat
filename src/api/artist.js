@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiRoot } from './constants';
+import apiRoot from './apiRoot';
 import Artist from '../models/artist';
 import ArtistAlbums from '../models/artistAlbums';
 import Headers from '../auth/headers';

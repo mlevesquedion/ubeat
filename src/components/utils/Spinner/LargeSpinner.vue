@@ -1,18 +1,9 @@
 <template>
-  <CustomSpinner :size="SpinnerSize.LARGE"></CustomSpinner>
+  <CustomSpinner size="large"></CustomSpinner>
 </template>
 
 <script>
 import CustomSpinner from './CustomSpinner';
-import SpinnerSize from './spinnerSize';
 
-export default {
-  name: 'LargeSpinner',
-  data() {
-    return { SpinnerSize };
-  },
-  components: { CustomSpinner }
-};
+export default { name: 'LargeSpinner', components: { CustomSpinner } };
 </script>
-
-<style scoped></style>

@@ -1,9 +1,9 @@
 <template>
   <FormField
+    :validator="validator"
+    :value="value"
     fieldName="Email"
     iconName="envelope"
-    :value="value"
-    :validator="validator"
   />
 </template>
 

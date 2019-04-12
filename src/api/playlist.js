@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiRoot } from './constants';
+import apiRoot from './apiRoot';
 import AlbumAPI from './album';
 import Playlist from '../models/playlist';
 import Headers from '../auth/headers';
@@ -20,18 +20,16 @@ const getUserPlaylists = () => getPlaylists(userStore.id());
 
 const createPlaylist = name =>
   axios
-    .post(
-      `${playlistRoot}`,
-      { name, owner: userStore.email() },
-      { ...Headers.auth() }
-    )
+    .post(`${playlistRoot}`, { name, owner: userStore.email() }, Headers.auth())
     .then(({ data }) => Playlist.fromBackend(data));
 
 const addTrackToPlaylist = (track, playlistId) =>
   axios
-    .post(`${playlistRoot}${playlistId}/tracks`, Track.toBackend(track), {
-      ...Headers.auth()
-    })
+    .post(
+      `${playlistRoot}${playlistId}/tracks`,
+      Track.toBackend(track),
+      Headers.auth()
+    )
     .then(({ data }) => Playlist.fromBackend(data));
 
 const addAlbumToPlaylist = (albumId, playlistId) =>
@@ -40,19 +38,20 @@ const addAlbumToPlaylist = (albumId, playlistId) =>
   );
 
 const deletePlaylist = id =>
-  axios.delete(`${playlistRoot}${id}`, { ...Headers.auth() });
+  axios.delete(`${playlistRoot}${id}`, Headers.auth());
 
 const deleteTrack = (playlistId, trackId) =>
-  axios.delete(`${playlistRoot}${playlistId}/tracks/${trackId}`, {
-    ...Headers.auth()
-  });
+  axios.delete(
+    `${playlistRoot}${playlistId}/tracks/${trackId}`,
+    Headers.auth()
+  );
 
 const updatePlaylistName = (playlist, newName) =>
   axios
     .put(
       `${playlistRoot}${playlist.id}`,
       Playlist.toBackend({ ...playlist, name: newName }),
-      { ...Headers.auth() }
+      Headers.auth()
     )
     .then(({ data }) => data);
 

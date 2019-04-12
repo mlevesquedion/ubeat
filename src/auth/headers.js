@@ -1,9 +1,9 @@
-import CookieMonster from './cookieMonster';
+import Token from './token';
 
 export default {
   auth: () => ({
     headers: {
-      Authorization: CookieMonster.getToken()
+      Authorization: Token.get()
     }
   })
 };

@@ -1,7 +1,7 @@
 <template>
   <GenericAsync :dataName="dataName" :dataSource="dataSource">
     <template slot-scope="{ data }">
-      <Gallery title="Albums" linkTo="Album" :elements="data" />
+      <Gallery :elements="data" linkTo="Album" title="Albums" />
     </template>
   </GenericAsync>
 </template>
@@ -12,7 +12,7 @@ import ArtistAPI from '../../api/artist';
 import Gallery from '../utils/Gallery';
 
 export default {
-  name: 'albumGallery',
+  name: 'AlbumGallery',
   props: ['artistId'],
   data() {
     return {

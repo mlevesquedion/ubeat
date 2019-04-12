@@ -10,7 +10,7 @@
       <div v-if="hasResults">
         <div v-for="(r, i) in results">
           <hr class="horizontal-line" v-if="i !== 0" />
-          <slot :data="r"> </slot>
+          <slot :data="r"></slot>
         </div>
       </div>
       <div v-else>
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .horizontal-line {
   margin: 0;
   border-bottom: 1px solid lightgray;

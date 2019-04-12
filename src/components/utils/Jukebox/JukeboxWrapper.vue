@@ -16,7 +16,7 @@ export default {
       listeningForEvents: true
     };
   },
-  mounted() {
+  created() {
     this.$root.$on('play-track', this.play);
     this.$root.$on('stop-track', this.stop);
   },

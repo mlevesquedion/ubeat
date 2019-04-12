@@ -8,8 +8,8 @@
     @click.stop="doDelete"
     class="button level-item is-danger size-correction"
   >
-    <i v-if="pendingDeletion" class="fas fa-question"></i>
-    <i v-else class="fas fa-trash"></i>
+    <i class="fas fa-question" v-if="pendingDeletion"></i>
+    <i class="fas fa-trash" v-else></i>
   </button>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   props: ['deleteAction', 'isDeleting', 'isSmall'],
   data() {
     return {
-      pendingDeletion: false
+      pendingDeletion: false,
+      timeout: 2000
     };
   },
   methods: {
@@ -28,7 +29,7 @@ export default {
         this.pendingDeletion = true;
         setTimeout(() => {
           this.pendingDeletion = false;
-        }, 3000);
+        }, this.timeout);
         return;
       }
       this.deleteAction();
@@ -37,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .is-normal {
   width: 42px;
   height: 36px;

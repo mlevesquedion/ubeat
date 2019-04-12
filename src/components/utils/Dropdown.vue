@@ -1,9 +1,9 @@
 <template>
   <div :class="{ 'is-active': isOpen, 'is-right': isRight }" class="dropdown">
-    <div @click="toggle()" class="dropdown-trigger">
+    <div @click="toggle" class="dropdown-trigger">
       <slot name="trigger"></slot>
     </div>
-    <div class="dropdown-menu " :class="{ 'is-small': isSmall }" role="menu">
+    <div :class="{ 'is-small': isSmall }" class="dropdown-menu " role="menu">
       <div class="dropdown-content">
         <slot name="content"></slot>
       </div>
@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .dropdown-menu.is-small {
   min-width: 76px !important;
   width: 76px !important;

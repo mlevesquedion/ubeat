@@ -1,10 +1,10 @@
 <template>
   <FormField
+    :isPassword="true"
+    :validator="validator"
+    :value="value"
     fieldName="Password"
     iconName="lock"
-    :value="value"
-    :validator="validator"
-    :isPassword="true"
   />
 </template>
 
@@ -13,7 +13,7 @@ import Password from '../../auth/password';
 import FormField from './AuthField';
 
 export default {
-  name: 'EmailField',
+  name: 'PasswordField',
   props: ['value'],
   data() {
     return {

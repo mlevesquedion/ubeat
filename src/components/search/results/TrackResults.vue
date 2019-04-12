@@ -1,12 +1,12 @@
 <template>
   <Jukebox>
     <template slot-scope="{ playingTrackId }">
-      <ResultsGroup resultType="Track" :results="tracks" icon="fa-music">
+      <ResultsGroup :results="tracks" icon="fa-music" resultType="Track">
         <template slot-scope="{ data }">
           <TrackResult
+            :playingTrackId="playingTrackId"
             :playlists="playlists"
             :track="data"
-            :playingTrackId="playingTrackId"
           />
         </template>
       </ResultsGroup>

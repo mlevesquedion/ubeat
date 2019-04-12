@@ -18,17 +18,17 @@
 </template>
 
 <script>
-import TopArtists from './home/TopArtists';
+import TopArtists from './TopArtists';
 
 export default {
-  name: 'app',
+  name: 'Home',
   components: {
     TopArtists
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .section {

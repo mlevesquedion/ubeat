@@ -10,7 +10,7 @@
         v-for="(p, pi) in sortedPlaylists"
       />
     </div>
-    <div v-else>{{ noPlaylistsMessage }}</div>
+    <div v-else>You have no playlists!</div>
   </section>
 </template>
 
@@ -21,11 +21,6 @@ import Playlist from './Playlist';
 export default {
   name: 'PlaylistList',
   props: ['playlists'],
-  data() {
-    return {
-      noPlaylistsMessage: 'You have no playlists!'
-    };
-  },
   computed: {
     hasPlaylists() {
       return !isEmpty(this.playlists);
@@ -40,7 +35,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
   padding-top: 0;
 }
