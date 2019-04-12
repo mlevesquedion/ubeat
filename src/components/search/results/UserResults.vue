@@ -1,29 +1,18 @@
 <template>
-  <section class="section">
-    <div class="results-container">
-      <fragment v-if="hasUsers">
-        <UserResult v-for="u in users" :key="u.id" :user="u"></UserResult>
-      </fragment>
-      <div v-else>
-        <NoResults></NoResults>
-      </div>
-    </div>
-  </section>
+  <SpecificResults :data="users">
+    <template slot-scope="{ data }">
+      <UserResult :user="data"></UserResult>
+    </template>
+  </SpecificResults>
 </template>
 
 <script>
 import UserResult from './UserResult';
-import NoResults from './NoResults';
-import isEmpty from '../../../utils/isEmpty';
+import SpecificResults from './SpecificResults';
 
 export default {
   name: 'UserResults',
   props: ['users'],
-  components: { UserResult, NoResults },
-  computed: {
-    hasUsers() {
-      return !isEmpty(this.users);
-    }
-  }
+  components: { SpecificResults, UserResult }
 };
 </script>
