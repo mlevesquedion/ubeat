@@ -4,9 +4,7 @@
       <div class="spaced-row">
         <h1 class="title is-primary">{{ authType }}</h1>
         <p>{{ changeAuthTypeMessage }}
-          <a @click="toggleIsLogin" class="is-primary">{{
-            oppositeAuthType
-            }}</a>
+          <a @click="toggleIsLogin" class="is-primary">{{oppositeAuthType }}</a>
         </p>
       </div>
       <UsernameField v-if="isSignup" v-model="username" />
@@ -17,8 +15,7 @@
           <button
             :disabled="!isValid"
             @click="authenticate"
-            class="button is-primary"
-          >
+            class="button is-primary">
             {{ authType }}
           </button>
         </p>
@@ -28,8 +25,7 @@
           'is-loading': isSkipping
         }"
         @click="skip"
-        class="button is-warning"
-      >
+        class="button is-warning">
         Skip
       </button>
     </section>
@@ -37,143 +33,143 @@
 </template>
 
 <script>
-  import { v4 as uuid } from 'uuid';
-  import authAPI from '../../api/auth';
-  import UsernameField from './UsernameField';
-  import EmailField from './EmailField';
-  import PasswordField from './PasswordField';
+import { v4 as uuid } from 'uuid';
+import authAPI from '../../api/auth';
+import UsernameField from './UsernameField';
+import EmailField from './EmailField';
+import PasswordField from './PasswordField';
 
-  export default {
-    components: { UsernameField, EmailField, PasswordField },
-    data() {
-      return {
-        username: {
-          value: '',
-          isValid: false
-        },
-        email: {
-          value: '',
-          isValid: false
-        },
-        password: {
-          value: '',
-          isValid: false
-        },
-        isLogin: true,
-        isSkipping: false
-      };
+export default {
+  components: { UsernameField, EmailField, PasswordField },
+  data() {
+    return {
+      username: {
+        value: '',
+        isValid: false
+      },
+      email: {
+        value: '',
+        isValid: false
+      },
+      password: {
+        value: '',
+        isValid: false
+      },
+      isLogin: true,
+      isSkipping: false
+    };
+  },
+  computed: {
+    isSignup() {
+      return !this.isLogin;
     },
-    computed: {
-      isSignup() {
-        return !this.isLogin;
-      },
-      authType() {
-        return this.isLogin ? 'Login' : 'Signup';
-      },
-      oppositeAuthType() {
-        return this.isLogin ? 'Signup' : 'Login';
-      },
-      changeAuthTypeMessage() {
-        const prefix = this.isLogin
-          ? "Don't have an account"
-          : 'Already have an account';
-        return `${prefix} ?`;
-      },
-      isValid() {
-        const emailAndPasswordAreValid =
-          this.email.isValid && this.password.isValid;
-        if (this.isLogin) {
-          return emailAndPasswordAreValid;
-        }
-        return emailAndPasswordAreValid && this.username.isValid;
+    authType() {
+      return this.isLogin ? 'Login' : 'Signup';
+    },
+    oppositeAuthType() {
+      return this.isLogin ? 'Signup' : 'Login';
+    },
+    changeAuthTypeMessage() {
+      const prefix = this.isLogin
+        ? "Don't have an account"
+        : 'Already have an account';
+      return `${prefix} ?`;
+    },
+    isValid() {
+      const emailAndPasswordAreValid =
+        this.email.isValid && this.password.isValid;
+      if (this.isLogin) {
+        return emailAndPasswordAreValid;
+      }
+      return emailAndPasswordAreValid && this.username.isValid;
+    }
+  },
+  methods: {
+    toggleIsLogin() {
+      this.isLogin = !this.isLogin;
+    },
+    login() {
+      return authAPI
+        .login({ email: this.email.value, password: this.password.value })
+        .then(userData => {
+          this.$root.$data.setUser(userData);
+          this.$router.push('/');
+        })
+        .catch(_ => {
+          this.incorrectLoginInformation();
+          this.$toasted.show(
+            'Could not log you in. Double-check your login info!',
+            { type: 'ubeat-error' }
+          );
+        });
+    },
+    signup() {
+      return authAPI
+        .signup({
+          name: this.username.value,
+          email: this.email.value,
+          password: this.password.value
+        })
+        .then(_ => {
+          this.isSkipping = false;
+          this.login();
+        })
+        .catch(_ => {
+          this.incorrectLoginInformation();
+          this.$toasted.show(
+            'Could not sign you up. Maybe you already have an account with that email?',
+            { type: 'ubeat-error' }
+          );
+        });
+    },
+    authenticate() {
+      if (this.isLogin) {
+        this.login();
+      } else {
+        this.signup();
       }
     },
-    methods: {
-      toggleIsLogin() {
-        this.isLogin = !this.isLogin;
-      },
-      login() {
-        return authAPI
-          .login({ email: this.email.value, password: this.password.value })
-          .then(userData => {
-            this.$root.$data.setUser(userData);
-            this.$router.push('/');
-          })
-          .catch(_ => {
-            this.incorrectLoginInformation();
-            this.$toasted.show(
-              'Could not log you in. Double-check your login info!',
-              { type: 'ubeat-error' }
-            );
-          });
-      },
-      signup() {
-        return authAPI
-          .signup({
-            name: this.username.value,
-            email: this.email.value,
-            password: this.password.value
-          })
-          .then(_ => {
-            this.isSkipping = false;
-            this.login();
-          })
-          .catch(_ => {
-            this.incorrectLoginInformation();
-            this.$toasted.show(
-              'Could not sign you up. Maybe you already have an account with that email?',
-              { type: 'ubeat-error' }
-            );
-          });
-      },
-      authenticate() {
-        if (this.isLogin) {
-          this.login();
-        } else {
-          this.signup();
-        }
-      },
-      skip() {
-        this.username.value = 'monsieur_patate';
-        this.email.value = uuid();
-        this.password.value = 'patate';
-        this.isLogin = false;
-        this.authenticate();
-        this.isSkipping = true;
-      },
-      incorrectLoginInformation() {
-        if (this.isLogin) {
-          this.password.isValid = false;
-        } else {
-          this.email.isValid = false;
-        }
+    skip() {
+      this.username.value = 'monsieur_patate';
+      this.email.value = uuid();
+      this.password.value = 'patate';
+      this.isLogin = false;
+      this.authenticate();
+      this.isSkipping = true;
+    },
+    incorrectLoginInformation() {
+      if (this.isLogin) {
+        this.password.isValid = false;
+      } else {
+        this.email.isValid = false;
       }
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
-  .container {
-    max-width: 700px;
-  }
-  .section {
-    padding-top: 40px;
-  }
-  .submit-button {
-    padding-top: 30px;
-  }
-  a:hover,
-  a:active {
-    color: white;
-  }
-  .title{
-    margin: 0 30px 0 0;
-  }
-  .spaced-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
+.container {
+  max-width: 700px;
+}
+.section {
+  padding-top: 40px;
+}
+.submit-button {
+  padding-top: 30px;
+}
+a:hover,
+a:active {
+  color: white;
+}
+.title{
+  margin: 0 30px 0 0;
+}
+.spaced-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
 </style>
