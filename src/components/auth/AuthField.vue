@@ -12,6 +12,7 @@
         :type="type"
         :placeholder="fieldName"
         @blur="onBlur"
+        @keydown.enter="onEmit"
       />
       <span class="icon is-small is-left">
         <i :class="`fa fa-${iconName}`"></i>
@@ -26,7 +27,7 @@
 <script>
 export default {
   name: 'AuthField',
-  props: ['fieldName', 'iconName', 'value', 'validator', 'isPassword'],
+  props: ['fieldName', 'iconName', 'value', 'validator', 'isPassword', 'eventEmittedOnEnter'],
   data() {
     return {
       fieldValue: this.value.value,
@@ -51,6 +52,9 @@ export default {
       if (this.dirty) {
         this.wasBlurred = true;
       }
+    },
+    onEmit() {
+      this.$root.$emit(this.eventEmittedOnEnter);
     }
   },
   watch: {

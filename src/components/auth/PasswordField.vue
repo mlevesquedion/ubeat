@@ -5,6 +5,7 @@
     :value="value"
     :validator="validator"
     :isPassword="true"
+    eventEmittedOnEnter="authenticateSubmitted"
   />
 </template>
 

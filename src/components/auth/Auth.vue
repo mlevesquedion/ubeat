@@ -149,6 +149,10 @@ export default {
         this.email.isValid = false;
       }
     }
+  },
+  created() {
+    this.$root.$on('authenticateSubmitted', this.authenticate);
+    this.$root.$on('signupSubmitted', this.authenticate);
   }
 };
 </script>

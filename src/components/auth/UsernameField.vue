@@ -4,6 +4,7 @@
     iconName="user"
     :value="value"
     :validator="validator"
+    eventEmittedOnEnter="authenticateSubmitted"
   />
 </template>
 
