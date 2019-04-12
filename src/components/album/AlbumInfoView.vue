@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .section {
@@ -93,7 +93,7 @@ export default {
 .tag {
   border: 1px solid white;
   background-color: $primary !important;
-  color: $white !important;
+  color: white !important;
 }
 
 .tag:hover {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiRoot } from './constants';
+import apiRoot from './apiRoot';
 import Headers from '../auth/headers';
 import User from '../models/user';
 

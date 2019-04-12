@@ -1,9 +1,9 @@
 <template>
   <FormField
+    :validator="validator"
+    :value="value"
     fieldName="Username"
     iconName="user"
-    :value="value"
-    :validator="validator"
   />
 </template>
 
@@ -12,7 +12,7 @@ import Username from '../../auth/username';
 import FormField from './AuthField';
 
 export default {
-  name: 'EmailField',
+  name: 'UsernameField',
   props: ['value'],
   data() {
     return {

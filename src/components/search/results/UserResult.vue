@@ -3,8 +3,8 @@
     <div class="level-left">
       <div class="level-item is-clipped">
         <router-link
-          class="is-primary link"
           :to="{ name: 'User', params: { id: user.id } }"
+          class="is-primary link"
           >{{ user.name }}
         </router-link>
         <span>({{ user.email }})</span>
@@ -12,7 +12,7 @@
     </div>
     <div class="level-right">
       <div class="level-item">
-        <FollowButton :user="user" :isSmall="true"></FollowButton>
+        <FollowButton :isSmall="true" :user="user"></FollowButton>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .is-clipped {
   min-width: 80px;
   width: 60vw;

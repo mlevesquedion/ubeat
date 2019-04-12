@@ -1,8 +1,8 @@
 <template>
   <div class="level is-mobile">
     <div class="level-left">
-      <div class="level-item is-clipped">
-        {{ track.name }}, {{ track.artist }} - {{ track.album }}
+      <div class="level-item">
+        <TrackDetails :track="track" />
       </div>
     </div>
     <div class="level-right">
@@ -11,18 +11,12 @@
           :isRight="true"
           :onPlaylistClick="addToPlaylist"
           :playlists="playlists"
-        >
-          <button class="button is-primary is-small">
-            <span class="icon is-medium">
-              <i class="fas fa-plus-circle"></i>
-            </span>
-          </button>
-        </PlaylistDropdown>
+        />
       </div>
       <div class="level-item">
         <DeleteButton
-          :isDeleting="isDeleting"
           :deleteAction="deleteTrack"
+          :isDeleting="isDeleting"
           :isSmall="true"
         />
       </div>
@@ -33,6 +27,7 @@
 import PlaylistAPI from '../../api/playlist';
 import PlaylistDropdown from './dropdown/PlaylistDropdown';
 import DeleteButton from './DeleteButton';
+import TrackDetails from '../album/track/TrackDetails';
 
 export default {
   name: 'PlaylistTrack',
@@ -81,17 +76,19 @@ export default {
     }
   },
   components: {
+    TrackDetails,
     PlaylistDropdown,
     DeleteButton
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .is-clipped {
   width: 50vw;
   max-width: 1000px;
 }
+
 .fixed-width {
   width: 27px;
 }

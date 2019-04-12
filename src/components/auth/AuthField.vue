@@ -3,21 +3,21 @@
     <label class="label">{{ fieldName }}</label>
     <div class="control has-icons-left">
       <input
-        v-model="fieldValue"
-        class="input"
         :class="{
           'is-success': value.isValid,
           'is-danger': hasError
         }"
-        :type="type"
         :placeholder="fieldName"
+        :type="type"
         @blur="onBlur"
+        class="input"
+        v-model="fieldValue"
       />
       <span class="icon is-small is-left">
         <i :class="`fa fa-${iconName}`"></i>
       </span>
     </div>
-    <p v-if="hasError" class="help is-danger">
+    <p class="help is-danger" v-if="hasError">
       {{ error }}
     </p>
   </div>
@@ -44,10 +44,10 @@ export default {
   methods: {
     onBlur() {
       /*
-        This check ensures that we don't annoy the user with an error message when (s)he
-        starts typing and up to now has only clicked into and out of the field without
-        entering anything.
-       */
+          This check ensures that we don't annoy the user with an error message when (s)he
+          starts typing and up to now has only clicked into and out of the field without
+          entering anything.
+         */
       if (this.dirty) {
         this.wasBlurred = true;
       }

@@ -9,13 +9,14 @@ import userStore from './userStore';
 
 Vue.config.productionTip = false;
 
+// Enable "fragment" tag
 Vue.use(Fragment.Plugin);
 
+// Enable this.$toasted in components
 Vue.use(Toasted, {
   position: 'bottom-left',
   duration: 3000
 });
-
 Vue.toasted.register('ubeat-success', message => message);
 Vue.toasted.register('ubeat-error', message => message);
 

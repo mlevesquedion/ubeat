@@ -1,8 +1,8 @@
 <template>
   <section class="accordions section">
     <h1
-      id="title"
       class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile padded-bottom"
+      id="title"
     >
       {{ formattedQueryType }} matching "{{ query }}" ({{ count }})
     </h1>
@@ -12,6 +12,7 @@
 
 <script>
 import pluralize from '../../utils/pluralize';
+import capitalize from '../../utils/capitalize';
 
 export default {
   name: 'SpecificSearchResultsView',
@@ -21,19 +22,13 @@ export default {
       return this.results.length;
     },
     formattedQueryType() {
-      return this.capitalize(pluralize(this.queryType, this.count));
-    }
-  },
-  methods: {
-    capitalize(s) {
-      // TODO : MOVE ME TO THE UTILS FOLDER AND TEST ME
-      return s.charAt(0).toUpperCase() + s.slice(1);
+      return capitalize(pluralize(this.queryType, this.count));
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .padded-bottom {
   padding-bottom: 20px;
 }

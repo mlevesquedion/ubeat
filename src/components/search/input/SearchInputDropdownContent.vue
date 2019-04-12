@@ -1,10 +1,10 @@
 <template>
   <div>
     <a
-      v-for="t in queryTypes"
       :key="t"
       @click="setQueryType(t)"
       class="capitalized dropdown-item"
+      v-for="t in queryTypes"
     >
       {{ t }}
     </a>

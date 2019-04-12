@@ -3,8 +3,8 @@
     <div class="container has-text-centered responsive-image-container">
       <img
         :alt="artist.name"
-        class="responsive-image is-round"
         :src="artist.src"
+        class="responsive-image is-round"
       />
     </div>
     <p class="label padded-bottom">{{ artist.bio }}</p>
@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .responsive-image-container {
   width: 30vw;
   height: 30vw;

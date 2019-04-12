@@ -10,16 +10,14 @@ import '@/assets/sass/styles.scss';
 import Navigation from '@/components/Navigation';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Navigation
   },
   computed: {
     loggedIn() {
-      return this.$route.name !== 'Login - Signup';
+      return this.$route.fullPath !== '/auth';
     }
   }
 };
 </script>
-
-<style></style>
