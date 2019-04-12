@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <PlaylistMaker />
+    <div v-if="!user">
+      <PlaylistMaker />
+    </div>
     <AsyncContent :requestState="requestState" dataName="user playlists">
       <PlaylistList :playlists="playlists" />
     </AsyncContent>
@@ -17,6 +19,7 @@ import ErrorMessage from '../utils/ErrorMessage';
 
 export default {
   name: 'Playlists',
+  props: ['user'],
   data() {
     return {
       requestState: RequestState.LOADING,
@@ -64,7 +67,7 @@ export default {
     overwritePlaylist(newPlaylist) {
       const index = this.playlists.findIndex(p => p.id === newPlaylist.id);
       this.playlists.splice(index, 1, newPlaylist);
-    }
+    },
   },
   components: {
     AsyncContent,

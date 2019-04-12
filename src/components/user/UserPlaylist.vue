@@ -1,85 +1,87 @@
 <template>
-  <div class="container">
-    <div class="hero-body playlist-content">
-      <div v-for="playlist in user1.userplaylist">
-        <div class="playlist-name row">{{ getPlaylistName(playlist) }}</div>
-        <div v-for="song in getPlaylistContent(playlist)">
-          <div class="row">
-            <div class="column check-icon">
-              <div v-if="song.isInPlaylist"><i class="fas fa-check "></i></div>
-              <button v-else class="plus-icon">
-                <i class="fas fa-plus"></i>
-              </button>
-            </div>
-            <div class="column song-name">{{ song.name }}</div>
-          </div>
-          <div class="song-info">{{ song.artist }}</div>
-        </div>
-      </div>
+  <section class="section">
+    <div class="accordions">
+      <Accordion>
+        <template slot="header">
+          <h1 class="title has-text-light">Playlist ({{ count }})</h1>
+        </template>
+        <template slot="body">
+          <!--<div v-if="">-->
+          <Playlists :user="true"/>
+          <!--</div>-->
+          <!--<div v-else>This user has no playlist!</div>-->
+        </template>
+      </Accordion>
     </div>
-  </div>
+  </section>
+
+
+
 </template>
 
 <script>
-export default {
-  name: 'UserPlaylist',
-  data() {
-    return {
-      user1: { }
-    };
-  },
-  methods: {
-    getPlaylistName(playlist) {
-      return Object.keys(playlist)[0];
+  import Playlists from '../playlists/Playlists';
+  import PlaylistAPI from '../../api/playlist';
+  import Accordion from '../utils/Accordion';
+
+  export default {
+    name: 'UserPlaylist',
+    props: ['user'],
+    components: { Playlists, Accordion },
+    computed: {
+      count() {
+        return this.playlists.length;
+      },
     },
-    getPlaylistContent(playlist) {
-      return Object.values(playlist)[0];
-    }
-  }
-};
+    data() {
+      return {
+        playlists: PlaylistAPI.getUserPlaylists()
+      };
+    },
+  };
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/sass/styles.scss';
-.row:after {
-  content: '';
-  display: table;
-  clear: both;
-}
+  @import '@/assets/sass/styles.scss';
+  .row:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 
-.playlist-name {
-  font-weight: bolder;
-  color: $primary;
-  padding-top: 30px;
-  font-size: 18px;
-}
+  .playlist-name {
+    font-weight: bolder;
+    color: $primary;
+    padding-top: 30px;
+    font-size: 18px;
+  }
 
-.check-icon {
-  float: left;
-  padding: 0 10px 0 0;
-  font-size: 10px;
-  margin-top: 8px;
-}
+  .check-icon {
+    float: left;
+    padding: 0 10px 0 0;
+    font-size: 10px;
+    margin-top: 8px;
+  }
 
-.plus-icon {
-  padding: 0;
-  background-color: transparent;
-  color: white;
-  border: none;
-}
+  .plus-icon {
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
 
-.column.song-name {
-  font-size: 18px;
-  padding: 0 0 0 20px;
-}
+  .column.song-name {
+    font-size: 18px;
+    padding: 0 0 0 20px;
+  }
 
-.song-info {
-  padding-left: 20px;
-  font-size: 14px;
-  color: grey;
-}
+  .song-info {
+    padding-left: 20px;
+    font-size: 14px;
+    color: grey;
+  }
 
-.playlist-content {
-  margin-left: 30px;
-}
+  .playlist-content {
+    margin-left: 30px;
+  }
 </style>
