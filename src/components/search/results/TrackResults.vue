@@ -1,27 +1,40 @@
 <template>
-  <Jukebox>
+  <JukeboxWrapper>
     <template slot-scope="{ playingTrackId }">
-      <ResultsGroup :results="tracks" icon="fa-music" resultType="Track">
-        <template slot-scope="{ data }">
-          <TrackResult
-            :playingTrackId="playingTrackId"
-            :playlists="playlists"
-            :track="data"
-          />
-        </template>
-      </ResultsGroup>
+      <section class="section">
+        <div class="results-container">
+          <fragment v-if="hasTracks">
+            <TrackResult
+              v-for="t in tracks"
+              :key="t.id"
+              :track="t"
+              :playingTrackId="playingTrackId"
+              :playlists="playlists"
+            ></TrackResult>
+          </fragment>
+          <div v-else>
+            <NoResults></NoResults>
+          </div>
+        </div>
+      </section>
     </template>
-  </Jukebox>
+  </JukeboxWrapper>
 </template>
 
 <script>
-import ResultsGroup from './ResultsGroup';
 import TrackResult from './TrackResult';
-import Jukebox from '../../utils/Jukebox/JukeboxWrapper';
+import JukeboxWrapper from '../../utils/Jukebox/JukeboxWrapper';
+import isEmpty from '../../../utils/isEmpty';
+import NoResults from './NoResults';
 
 export default {
   name: 'TrackResults',
   props: ['tracks', 'playlists'],
-  components: { ResultsGroup, TrackResult, Jukebox }
+  components: { TrackResult, JukeboxWrapper, NoResults },
+  computed: {
+    hasTracks() {
+      return !isEmpty(this.tracks);
+    }
+  }
 };
 </script>

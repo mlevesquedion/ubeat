@@ -1,0 +1,22 @@
+<template>
+  <ResultsGroup
+    :results="albums"
+    class="album-results"
+    icon="fa-compact-disc"
+    resultType="Album"
+  >
+    <template slot-scope="{ data }">
+      <AlbumResult :album="data" />
+    </template>
+  </ResultsGroup>
+</template>
+<script>
+import ResultsGroup from './ResultsGroup';
+import AlbumResult from './AlbumResult';
+
+export default {
+  name: 'AlbumResults',
+  components: { ResultsGroup, AlbumResult },
+  props: ['albums']
+};
+</script>

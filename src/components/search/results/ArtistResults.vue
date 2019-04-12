@@ -1,17 +1,33 @@
 <template>
-  <ResultsGroup :results="artists" icon="fa-star" resultType="Artist">
-    <template slot-scope="{ data }">
-      <ArtistResult :artist="data" />
-    </template>
-  </ResultsGroup>
+  <section class="section">
+    <div class="results-container">
+      <fragment v-if="hasArtists">
+        <ArtistResult
+          v-for="a in artists"
+          :key="a.id"
+          :artist="a"
+        ></ArtistResult>
+      </fragment>
+      <div v-else>
+        <NoResults></NoResults>
+      </div>
+    </div>
+  </section>
 </template>
+
 <script>
-import ResultsGroup from './ResultsGroup';
 import ArtistResult from './ArtistResult';
+import isEmpty from '../../../utils/isEmpty';
+import NoResults from './NoResults';
 
 export default {
   name: 'ArtistResults',
-  components: { ResultsGroup, ArtistResult },
-  props: ['artists']
+  props: ['artists'],
+  components: { ArtistResult, NoResults },
+  computed: {
+    hasArtists() {
+      return !isEmpty(this.artists);
+    }
+  }
 };
 </script>

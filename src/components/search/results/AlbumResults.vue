@@ -1,22 +1,29 @@
 <template>
-  <ResultsGroup
-    :results="albums"
-    class="album-results"
-    icon="fa-compact-disc"
-    resultType="Album"
-  >
-    <template slot-scope="{ data }">
-      <AlbumResult :album="data" />
-    </template>
-  </ResultsGroup>
+  <section class="section">
+    <div class="results-container">
+      <fragment v-if="hasAlbums">
+        <AlbumResult v-for="a in albums" :key="a.id" :album="a"></AlbumResult>
+      </fragment>
+      <div v-else>
+        <NoResults></NoResults>
+      </div>
+    </div>
+  </section>
 </template>
+
 <script>
-import ResultsGroup from './ResultsGroup';
 import AlbumResult from './AlbumResult';
+import NoResults from './NoResults';
+import isEmpty from '../../../utils/isEmpty';
 
 export default {
   name: 'AlbumResults',
-  components: { ResultsGroup, AlbumResult },
-  props: ['albums']
+  props: ['albums'],
+  components: { AlbumResult, NoResults },
+  computed: {
+    hasAlbums() {
+      return !isEmpty(this.albums);
+    }
+  }
 };
 </script>
