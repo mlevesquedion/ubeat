@@ -4,8 +4,8 @@
       <div class="container">
         <UserHeader :user="data" />
         <FollowingList :user="data"></FollowingList>
+        <UserPlaylists :user="data" />
       </div>
-      <UserPlaylists :user="data" />
     </template>
   </GenericAsync>
 </template>

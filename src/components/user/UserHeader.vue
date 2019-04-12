@@ -38,10 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.columns {
-  width: 100%;
-}
-
 .column {
   display: flex;
   flex-direction: column;
