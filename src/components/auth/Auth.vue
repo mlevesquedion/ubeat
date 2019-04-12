@@ -2,7 +2,7 @@
   <div class="container">
     <section class="section">
       <div class="spaced-row">
-        <h1 class="title is-primary">{{ authType }}</h1>
+        <h1 class="title is-size-4-mobile is-primary">{{ authType }}</h1>
         <p>
           {{ changeAuthTypeMessage }}
           <a @click="toggleIsLogin" class="is-primary">{{

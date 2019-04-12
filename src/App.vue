@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     loggedIn() {
-      return this.$route.name !== 'Login - Signup';
+      return this.$route.fullPath !== '/auth';
     }
   }
 };
