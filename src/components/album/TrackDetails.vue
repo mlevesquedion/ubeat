@@ -6,7 +6,7 @@
     >
       {{ track.name }}
     </router-link>
-    -
+    by
     <router-link
       :to="{ name: 'Artist', params: { id: track.artistId } }"
       class="is-primary link"

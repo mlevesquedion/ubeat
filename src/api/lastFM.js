@@ -8,10 +8,10 @@ export const apiRoot = `http://ws.audioscrobbler.com/2.0/?api_key=${apiKey}&form
 export const artistRoot = `${apiRoot}&method=artist.getinfo&artist=`;
 export const topArtistRoot = `${apiRoot}&method=geo.gettopartists&country=canada`;
 
-const getRaw = artistName => axios.get(`${artistRoot}${artistName}`);
+const getArtist = artistName => axios.get(`${artistRoot}${artistName}`);
 
 const getArtistDetails = artistName =>
-  getRaw(artistName).then(({ data }) => ArtistDetails.from(data.artist));
+  getArtist(artistName).then(({ data }) => ArtistDetails.from(data.artist));
 
 const getArtistList = artists => {
   const artistList = ArtistList.from(artists);
@@ -25,7 +25,7 @@ const getArtistList = artists => {
 };
 
 const getSimilarArtists = artistName =>
-  getRaw(artistName).then(({ data }) =>
+  getArtist(artistName).then(({ data }) =>
     getArtistList(data.artist.similar.artist)
   );
 

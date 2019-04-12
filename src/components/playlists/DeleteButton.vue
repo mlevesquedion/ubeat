@@ -19,7 +19,8 @@ export default {
   props: ['deleteAction', 'isDeleting', 'isSmall'],
   data() {
     return {
-      pendingDeletion: false
+      pendingDeletion: false,
+      timeout: 2000
     };
   },
   methods: {
@@ -28,7 +29,7 @@ export default {
         this.pendingDeletion = true;
         setTimeout(() => {
           this.pendingDeletion = false;
-        }, 2000);
+        }, this.timeout);
         return;
       }
       this.deleteAction();
