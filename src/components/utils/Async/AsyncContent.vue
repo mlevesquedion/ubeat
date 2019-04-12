@@ -25,7 +25,6 @@ export default {
   data() {
     return {
       RequestState,
-      LargeSpinner,
       error: `Unable to fetch ${this.dataName} at this time.`
     };
   },
@@ -35,5 +34,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

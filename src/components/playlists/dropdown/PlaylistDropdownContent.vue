@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .is-clipped {
   min-width: 100px;
   max-width: 200px;

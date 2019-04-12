@@ -1,9 +1,9 @@
 <template>
   <ResultsGroup
-    class="album-results"
-    resultType="Album"
     :results="albums"
+    class="album-results"
     icon="fa-compact-disc"
+    resultType="Album"
   >
     <template slot-scope="{ data }">
       <AlbumResult :album="data" />

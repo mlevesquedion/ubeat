@@ -4,15 +4,15 @@
       <figure class="media-left responsive-image-container image">
         <img
           :alt="user.name"
-          src="static/images/default_profile.png"
           class="responsive-image"
+          src="static/images/default_profile.png"
         />
       </figure>
     </div>
     <div class="column">
       <div class="label is-primary">{{ userNameText }}</div>
       <div class="label">{{ user.email }}</div>
-      <FollowButton v-if="!loggedInUser" class="no-stretch" :user="user" />
+      <FollowButton :user="user" class="no-stretch" v-if="isNotOwnPage" />
     </div>
   </section>
 </template>
@@ -26,28 +26,28 @@ export default {
   props: ['user'],
   computed: {
     userNameText() {
-      let text = this.user.name;
-      if (this.$root.$data.isUser(this.user)) {
-        text += ' (you)';
-      }
-      return text;
+      return (
+        this.user.name + (this.$root.$data.isUser(this.user) ? ' (you)' : '')
+      );
     },
-    loggedInUser() {
-      return this.$root.$data.isUser(this.user);
+    isNotOwnPage() {
+      return !this.$root.$data.isUser(this.user);
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .columns {
   width: 100%;
 }
+
 .column {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .no-stretch {
   align-self: flex-start;
 }

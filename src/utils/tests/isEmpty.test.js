@@ -7,6 +7,6 @@ test.each([
   [{}, true],
   [{ a: 1 }, false],
   [{ a: {} }, false]
-])(`isEmpty.array(%s)`, (obj, expected) => {
+])(`isEmpty(%s)`, (obj, expected) => {
   expect(isEmpty(obj)).toBe(expected);
 });

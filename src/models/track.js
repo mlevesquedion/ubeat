@@ -2,8 +2,8 @@ import { v4 as uuid } from 'uuid';
 
 export default {
   fromBackend: trackData => ({
-    id: trackData.trackId,
     uniqueId: uuid(),
+    id: trackData.trackId,
     number: trackData.trackNumber,
     name: trackData.trackName,
     album: trackData.collectionName,
@@ -20,7 +20,9 @@ export default {
     trackNumber: trackData.number,
     trackName: trackData.name,
     collectionName: trackData.album,
+    collectionId: trackData.albumId,
     artistName: trackData.artist,
+    artistId: trackData.artistId,
     trackViewUrl: trackData.url,
     previewUrl: trackData.sample,
     trackTimeMillis: trackData.duration * 1000,

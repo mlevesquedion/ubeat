@@ -7,7 +7,7 @@
           <div class="row">
             <div class="column check-icon">
               <div v-if="song.isInPlaylist"><i class="fas fa-check "></i></div>
-              <button v-else class="plus-icon">
+              <button class="plus-icon" v-else>
                 <i class="fas fa-plus"></i>
               </button>
             </div>
@@ -39,8 +39,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
+
 .row:after {
   content: '';
   display: table;

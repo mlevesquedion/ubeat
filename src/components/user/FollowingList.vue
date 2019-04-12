@@ -7,9 +7,9 @@
         </template>
         <template slot="body">
           <div v-if="hasFriends">
-            <UserResult :key="u.id" v-for="u in following" :user="u" />
+            <UserResult :key="u.id" :user="u" v-for="u in following" />
           </div>
-          <div v-else>This user is not following anyone!</div>
+          <div v-else>{{ who }} not following anyone!</div>
         </template>
       </Accordion>
     </div>
@@ -22,7 +22,7 @@ import Accordion from '../utils/Accordion';
 import UserResult from '../search/results/UserResult';
 
 export default {
-  name: 'PlaylistList',
+  name: 'FollowingList',
   props: ['user'],
   components: { Accordion, UserResult },
   computed: {
@@ -37,12 +37,18 @@ export default {
         return this.$root.$data.following().length;
       }
       return this.following.length;
+    },
+    who() {
+      if (this.$root.$data.isUser(this.user)) {
+        return 'You are';
+      }
+      return 'This user';
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
   padding-top: 0;
 }

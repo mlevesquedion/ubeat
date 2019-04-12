@@ -1,8 +1,8 @@
 <template>
   <SpecificSearchResults
-    :queryType="queryType"
-    :query="query"
     :dataSource="dataSource"
+    :query="query"
+    :queryType="queryType"
   />
 </template>
 

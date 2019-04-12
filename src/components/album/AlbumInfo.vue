@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import '@/assets/sass/styles.scss';
 import AlbumAPI from '@/api/album';
 import GenericAsync from '../utils/Async/GenericAsync';
 import AlbumInfoView from './AlbumInfoView';
@@ -27,5 +26,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss"></style>
