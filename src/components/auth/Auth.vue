@@ -3,11 +3,13 @@
     <section class="section">
       <div class="spaced-row">
         <h1 class="title is-primary">{{ authType }}</h1>
-        <p>{{ changeAuthTypeMessage }}
+        <div class="messageAouth">
+        <p>{{ changeAuthTypeMessage }}</p>
           <a @click="toggleIsLogin" class="is-primary">{{
             oppositeAuthType
           }}</a>
-        </p>
+        </div>
+
       </div>
       <UsernameField v-if="isSignup" v-model="username" />
       <EmailField v-model="email"></EmailField>
@@ -172,6 +174,10 @@ a:active {
 
 .title{
   margin: 0 60px 0 0;
+}
+
+.messageAouth{
+
 }
 
 .spaced-row {
