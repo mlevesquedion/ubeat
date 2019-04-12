@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <h1 class="title has-text-light">Playlists</h1>
+    <h1 class="title has-text-light">Playlists ({{ count }})</h1>
     <div class="accordions" v-if="hasPlaylists">
       <Playlist
         v-for="(p, pi) in sortedPlaylists"
@@ -23,6 +23,9 @@ export default {
   name: 'PlaylistList',
   props: ['playlists', 'isReadOnly'],
   computed: {
+    count() {
+      return this.playlists.length;
+    },
     hasPlaylists() {
       return !isEmpty(this.playlists);
     },
