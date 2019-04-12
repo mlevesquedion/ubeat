@@ -13,7 +13,7 @@
           :playlists="playlists"
         />
       </div>
-      <div class="level-item">
+      <div class="level-item" v-if="!isReadOnly">
         <DeleteButton
           :deleteAction="deleteTrack"
           :isDeleting="isDeleting"
@@ -31,7 +31,14 @@ import TrackDetails from '../album/track/TrackDetails';
 
 export default {
   name: 'PlaylistTrack',
-  props: ['track', 'index', 'playlist', 'playlistIndex', 'playlists'],
+  props: [
+    'track',
+    'index',
+    'playlist',
+    'playlistIndex',
+    'playlists',
+    'isReadOnly'
+  ],
   data() {
     return {
       deletePending: false,

@@ -3,11 +3,12 @@
     <h1 class="title has-text-light">Playlists</h1>
     <div class="accordions" v-if="hasPlaylists">
       <Playlist
+        v-for="(p, pi) in sortedPlaylists"
+        :playlist="p"
         :index="pi"
         :key="p.id"
-        :playlist="p"
         :playlists="playlists"
-        v-for="(p, pi) in sortedPlaylists"
+        :isReadOnly="isReadOnly"
       />
     </div>
     <div v-else>You have no playlists!</div>
@@ -20,7 +21,7 @@ import Playlist from './Playlist';
 
 export default {
   name: 'PlaylistList',
-  props: ['playlists'],
+  props: ['playlists', 'isReadOnly'],
   computed: {
     hasPlaylists() {
       return !isEmpty(this.playlists);

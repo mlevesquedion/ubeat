@@ -2,7 +2,7 @@
   <section class="section">
     <GenericAsync :dataName="dataName" :dataSource="dataSource">
       <template slot-scope="{ data }">
-        <PlaylistList :playlists="data" :isReadOnly="isNot" />
+        <PlaylistList :playlists="data" :isReadOnly="isNotOwnPage" />
       </template>
     </GenericAsync>
   </section>
@@ -23,6 +23,11 @@ export default {
       dataName: 'user playlists',
       dataSource: PlaylistAPI.getPlaylists(this.user.id)
     };
+  },
+  computed: {
+    isNotOwnPage() {
+      return !this.$root.$data.isUser(this.user);
+    }
   }
 };
 </script>

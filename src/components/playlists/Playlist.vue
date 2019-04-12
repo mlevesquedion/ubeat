@@ -17,7 +17,7 @@
             playlist.name
           }}</span>
         </div>
-        <div class="level-right">
+        <div class="level-right" v-if="!isReadOnly">
           <button
             @click.stop="stopEditing()"
             class="button level-item is-warning"
@@ -50,6 +50,7 @@
         :playlist="playlist"
         :playlistIndex="index"
         :playlists="playlists"
+        :isReadOnly="isReadOnly"
       />
     </template>
   </Accordion>
@@ -65,7 +66,7 @@ import DeleteButton from './DeleteButton';
 
 export default {
   name: 'Playlist',
-  props: ['playlist', 'index', 'playlists'],
+  props: ['playlist', 'index', 'playlists', 'isReadOnly'],
   data() {
     return {
       newPlaylistName: this.playlist.name,
