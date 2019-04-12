@@ -4,7 +4,6 @@
     iconName="envelope"
     :value="value"
     :validator="validator"
-    eventEmittedOnEnter="signupSubmitted"
   />
 </template>
 

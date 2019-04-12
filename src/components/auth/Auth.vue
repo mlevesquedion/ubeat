@@ -151,8 +151,13 @@ export default {
     }
   },
   created() {
-    this.$root.$on('authenticateSubmitted', this.authenticate);
-    this.$root.$on('signupSubmitted', this.authenticate);
+    this.$root.$on('submitted', () => {
+      if (this.isLogin) {
+        this.authenticate();
+      } else {
+        this.signup();
+      }
+    });
   }
 };
 </script>

@@ -27,7 +27,7 @@
 <script>
 export default {
   name: 'AuthField',
-  props: ['fieldName', 'iconName', 'value', 'validator', 'isPassword', 'eventEmittedOnEnter'],
+  props: ['fieldName', 'iconName', 'value', 'validator', 'isPassword'],
   data() {
     return {
       fieldValue: this.value.value,
@@ -54,7 +54,7 @@ export default {
       }
     },
     onEmit() {
-      this.$root.$emit(this.eventEmittedOnEnter);
+      this.$root.$emit('submitted');
     }
   },
   watch: {
