@@ -12,7 +12,7 @@
         :type="type"
         :placeholder="fieldName"
         @blur="onBlur"
-        @keydown.enter="onEmit"
+        @keydown.enter="emitSubmitted"
       />
       <span class="icon is-small is-left">
         <i :class="`fa fa-${iconName}`"></i>
@@ -53,7 +53,7 @@ export default {
         this.wasBlurred = true;
       }
     },
-    onEmit() {
+    emitSubmitted() {
       this.$root.$emit('submitted');
     }
   },
