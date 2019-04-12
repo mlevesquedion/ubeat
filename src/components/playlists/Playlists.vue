@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="!user">
-      <PlaylistMaker />
-    </div>
+    <PlaylistMaker />
     <AsyncContent :requestState="requestState" dataName="user playlists">
       <PlaylistList :playlists="playlists" :userPlaylists="playlists" />
     </AsyncContent>
@@ -19,7 +17,6 @@ import ErrorMessage from '../utils/ErrorMessage';
 
 export default {
   name: 'Playlists',
-  props: ['user'],
   data() {
     return {
       requestState: RequestState.LOADING,

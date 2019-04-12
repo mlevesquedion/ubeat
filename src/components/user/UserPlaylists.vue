@@ -2,11 +2,7 @@
   <section class="section">
     <GenericAsync :dataName="dataName" :dataSource="dataSource">
       <template slot-scope="{ data }">
-        <PlaylistList
-          :playlists="data"
-          :isReadOnly="isNotOwnPage"
-          :userPlaylists="userPlaylists"
-        />
+        <PlaylistList :playlists="data" :isStatic="true" />
       </template>
     </GenericAsync>
   </section>
@@ -20,18 +16,13 @@ import GenericAsync from '../utils/Async/GenericAsync';
 
 export default {
   name: 'UserPlaylists',
-  props: ['user', 'userPlaylists'],
+  props: ['user'],
   components: { PlaylistList, Accordion, GenericAsync },
   data() {
     return {
       dataName: 'user playlists',
       dataSource: PlaylistAPI.getPlaylists(this.user.id)
     };
-  },
-  computed: {
-    isNotOwnPage() {
-      return !this.$root.$data.isUser(this.user);
-    }
   }
 };
 </script>

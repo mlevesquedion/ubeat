@@ -5,7 +5,7 @@
         <TrackDetails :track="track" />
       </div>
     </div>
-    <div class="level-right">
+    <div class="level-right" v-if="!isStatic">
       <div class="level-item">
         <PlaylistDropdown
           :isRight="true"
@@ -13,7 +13,7 @@
           :playlists="userPlaylists"
         />
       </div>
-      <div class="level-item" v-if="!isReadOnly">
+      <div class="level-item">
         <DeleteButton
           :deleteAction="deleteTrack"
           :isDeleting="isDeleting"
@@ -37,7 +37,7 @@ export default {
     'playlist',
     'playlistIndex',
     'userPlaylists',
-    'isReadOnly'
+    'isStatic'
   ],
   data() {
     return {

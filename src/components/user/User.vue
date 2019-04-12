@@ -5,7 +5,7 @@
         <UserHeader :user="data" />
         <FollowingList :user="data"></FollowingList>
       </div>
-      <UserPlaylists :user="data" :userPlaylists="userPlaylists" />
+      <UserPlaylists :user="data" />
     </template>
   </GenericAsync>
 </template>
@@ -16,7 +16,6 @@ import UserPlaylists from './UserPlaylists';
 import userAPI from '../../api/user';
 import UserHeader from './UserHeader';
 import FollowingList from './FollowingList';
-import playlistsAPI from '../../api/playlist';
 
 export default {
   name: 'User',
@@ -26,26 +25,11 @@ export default {
     FollowingList,
     UserPlaylists
   },
-  created() {
-    playlistsAPI
-      .getUserPlaylists()
-      .then(this.setUserPlaylists)
-      .catch(this.setError);
-  },
   data() {
     return {
       dataName: 'user info',
-      dataSource: userAPI.get(this.$route.params.id),
-      userPlaylists: 'loading'
+      dataSource: userAPI.get(this.$route.params.id)
     };
-  },
-  methods: {
-    setUserPlaylists(playlists) {
-      this.userPlaylists = playlists;
-    },
-    setError(_e) {
-      this.userPlaylists = 'error';
-    }
   }
 };
 </script>

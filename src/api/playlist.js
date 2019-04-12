@@ -32,9 +32,12 @@ const addTrackToPlaylist = (track, playlistId) =>
     )
     .then(({ data }) => Playlist.fromBackend(data));
 
+const addTracksToPlaylist = (tracks, playlistId) =>
+  Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)));
+
 const addAlbumToPlaylist = (albumId, playlistId) =>
   AlbumAPI.getAlbumTracks(albumId).then(tracks =>
-    Promise.all(tracks.map(t => addTrackToPlaylist(t, playlistId)))
+    addTracksToPlaylist(tracks, playlistId)
   );
 
 const deletePlaylist = id =>
@@ -55,6 +58,11 @@ const updatePlaylistName = (playlist, newName) =>
     )
     .then(({ data }) => data);
 
+const stealPlaylist = playlist =>
+  createPlaylist(playlist.name).then(p =>
+    addTracksToPlaylist(playlist.tracks, p.id)
+  );
+
 const api = {
   getPlaylists,
   getUserPlaylists,
@@ -63,7 +71,8 @@ const api = {
   addAlbumToPlaylist,
   deletePlaylist,
   deleteTrack,
-  updatePlaylistName
+  updatePlaylistName,
+  stealPlaylist
 };
 
 export default api;

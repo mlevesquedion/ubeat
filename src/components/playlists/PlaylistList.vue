@@ -8,7 +8,7 @@
         :index="pi"
         :key="p.id"
         :userPlaylists="userPlaylists"
-        :isReadOnly="isReadOnly"
+        :isStatic="isStatic"
       />
     </div>
     <div v-else>You have no playlists!</div>
@@ -21,7 +21,7 @@ import Playlist from './Playlist';
 
 export default {
   name: 'PlaylistList',
-  props: ['playlists', 'userPlaylists', 'isReadOnly'],
+  props: ['playlists', 'userPlaylists', 'isStatic'],
   computed: {
     count() {
       return this.playlists.length;
