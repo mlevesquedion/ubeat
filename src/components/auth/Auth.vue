@@ -2,9 +2,8 @@
   <div class="container">
     <section class="section">
       <div class="spaced-row">
-        <h1 class="title is-size-4-mobile is-primary">{{ authType }}</h1>
-        <p>
-          {{ changeAuthTypeMessage }}
+        <h1 class="title is-primary">{{ authType }}</h1>
+        <p>{{ changeAuthTypeMessage }}
           <a @click="toggleIsLogin" class="is-primary">{{
             oppositeAuthType
           }}</a>
@@ -163,7 +162,7 @@ export default {
 }
 
 .submit-button {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 a:hover,
@@ -171,9 +170,16 @@ a:active {
   color: white;
 }
 
+.title{
+  margin: 0;
+
+}
+
 .spaced-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 }
 </style>
