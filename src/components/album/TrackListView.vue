@@ -3,14 +3,14 @@
     <Jukebox>
       <template slot-scope="{ playingTrackId }">
         <Track
-          :highlightOnHover="true"
+          v-for="t in tracks"
+          :track="t"
           :key="t.id"
           :playingTrackId="playingTrackId"
           :playlists="playlists"
+          :highlightOnHover="true"
           :showSeparators="true"
-          :track="t"
           class="track"
-          v-for="t in tracks"
         />
       </template>
     </Jukebox>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Track from './Track';
+import Track from './track/Track';
 import Jukebox from '../utils/Jukebox/JukeboxWrapper';
 
 export default {

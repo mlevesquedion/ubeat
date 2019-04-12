@@ -12,5 +12,3 @@
 <script>
 export default { name: 'ErrorMessage', props: ['message'] };
 </script>
-
-<style scoped></style>

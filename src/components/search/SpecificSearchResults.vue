@@ -24,5 +24,3 @@ export default {
   props: ['queryType', 'query', 'dataSource']
 };
 </script>
-
-<style scoped></style>

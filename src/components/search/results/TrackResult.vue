@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import Track from '../../album/Track';
-import TrackDetails from '../../album/TrackDetails';
+import Track from '../../album/track/Track';
+import TrackDetails from '../../album/track/TrackDetails';
 
 export default {
   name: 'TrackResult',

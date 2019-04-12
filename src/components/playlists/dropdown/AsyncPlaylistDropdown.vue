@@ -1,7 +1,13 @@
 <template>
   <Dropdown :isRight="isRight">
     <template slot="trigger">
-      <slot></slot>
+      <slot>
+        <a class="has-text-light">
+          <span class="icon is-medium">
+            <i class="fas fa-plus-circle"></i>
+          </span>
+        </a>
+      </slot>
     </template>
     <template slot="content">
       <div v-if="playlistsState === RequestState.LOADING">
@@ -56,5 +62,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

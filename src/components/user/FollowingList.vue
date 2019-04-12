@@ -9,7 +9,7 @@
           <div v-if="hasFriends">
             <UserResult :key="u.id" :user="u" v-for="u in following" />
           </div>
-          <div v-else>This user is not following anyone!</div>
+          <div v-else>{{ who }} not following anyone!</div>
         </template>
       </Accordion>
     </div>
@@ -37,6 +37,12 @@ export default {
         return this.$root.$data.following().length;
       }
       return this.following.length;
+    },
+    who() {
+      if (this.$root.$data.isUser(this.user)) {
+        return 'You are';
+      }
+      return 'This user';
     }
   }
 };

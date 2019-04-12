@@ -11,13 +11,7 @@
           :isRight="true"
           :onPlaylistClick="addToPlaylist"
           :playlists="playlists"
-        >
-          <button class="button is-primary is-small">
-            <span class="icon is-medium">
-              <i class="fas fa-plus-circle"></i>
-            </span>
-          </button>
-        </PlaylistDropdown>
+        />
       </div>
       <div class="level-item">
         <DeleteButton
@@ -33,7 +27,7 @@
 import PlaylistAPI from '../../api/playlist';
 import PlaylistDropdown from './dropdown/PlaylistDropdown';
 import DeleteButton from './DeleteButton';
-import TrackDetails from '../album/TrackDetails';
+import TrackDetails from '../album/track/TrackDetails';
 
 export default {
   name: 'PlaylistTrack',

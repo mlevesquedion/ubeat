@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import TopArtists from './home/TopArtists';
+import TopArtists from './TopArtists';
 
 export default {
   name: 'Home',

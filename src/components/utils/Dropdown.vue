@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'is-active': isOpen, 'is-right': isRight }" class="dropdown">
-    <div @click="toggle()" class="dropdown-trigger">
+    <div @click="toggle" class="dropdown-trigger">
       <slot name="trigger"></slot>
     </div>
     <div :class="{ 'is-small': isSmall }" class="dropdown-menu " role="menu">

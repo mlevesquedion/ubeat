@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Gallery from '../utils/Gallery';
-import GenericAsync from '../utils/Async/GenericAsync';
-import LastFmAPI from '../../api/lastFM';
+import Gallery from './utils/Gallery';
+import GenericAsync from './utils/Async/GenericAsync';
+import LastFmAPI from '../api/lastFM';
 
 export default {
   name: 'TopArtists',
@@ -22,5 +22,3 @@ export default {
   }
 };
 </script>
-
-<style scoped></style>

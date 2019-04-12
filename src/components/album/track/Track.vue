@@ -16,14 +16,7 @@
             :isRight="true"
             :onPlaylistClick="addTrackToPlayList(track)"
             :playlists="playlists"
-          >
-            <!-- Using .navbar-link here for styling -->
-            <a class="has-text-light">
-              <span class="icon is-medium">
-                <i class="fas fa-plus-circle"></i>
-              </span>
-            </a>
-          </AsyncPlaylistDropdown>
+          />
           <a class="has-text-light" v-if="playingTrackId === track.id">
             <span class="icon is-medium">
               <i @click="stop()" class="fas fa-stop-circle"></i>
@@ -44,9 +37,9 @@
 </template>
 
 <script>
-import trackDurationFormatter from '../../utils/trackDurationFormatter';
-import PlaylistAPI from '../../api/playlist';
-import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
+import trackDurationFormatter from '../../../utils/trackDurationFormatter';
+import PlaylistAPI from '../../../api/playlist';
+import AsyncPlaylistDropdown from '../../playlists/dropdown/AsyncPlaylistDropdown';
 
 export default {
   name: 'Track',

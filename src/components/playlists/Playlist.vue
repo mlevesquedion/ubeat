@@ -41,19 +41,20 @@
       </div>
     </template>
     <template slot="body">
-      <div v-if="isEmpty">{{ emptyPlaylistMessage }}</div>
+      <div v-if="isEmpty">This playlist is empty!</div>
       <PlaylistTrack
+        v-for="(t, ti) in playlist.tracks"
+        :track="t"
         :index="ti"
         :key="`${t.uniqueId}${ti}`"
         :playlist="playlist"
         :playlistIndex="index"
         :playlists="playlists"
-        :track="t"
-        v-for="(t, ti) in playlist.tracks"
       />
     </template>
   </Accordion>
 </template>
+
 <script>
 import PlaylistAPI from '@/api/playlist';
 import Accordion from '../utils/Accordion';
@@ -67,8 +68,6 @@ export default {
   props: ['playlist', 'index', 'playlists'],
   data() {
     return {
-      PlaylistState,
-      emptyPlaylistMessage: 'This playlist is empty!',
       newPlaylistName: this.playlist.name,
       state: PlaylistState.NORMAL
     };
@@ -112,7 +111,7 @@ export default {
             this.playlist.id,
             playlist.name
           );
-          this.resetName(playlist.name);
+          this.setName(playlist.name);
         })
         .catch(_err => {
           this.$toasted.show(
@@ -122,8 +121,8 @@ export default {
           this.stopEditing();
         });
     },
-    resetName(name) {
-      this.state = PlaylistState.NORMAL;
+    setName(name) {
+      this.stopEditing();
       this.newPlaylistName = name;
     },
     deletePlaylist() {
@@ -133,7 +132,7 @@ export default {
         .catch(_err => {
           this.state = PlaylistState.NORMAL;
           this.$toasted.show(
-            `We could not delete playlist ${this.playlist.name} at this time.`,
+            `Could not delete playlist ${this.playlist.name} at this time.`,
             { type: 'ubeat-error' }
           );
         });

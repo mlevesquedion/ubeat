@@ -5,7 +5,7 @@
     </AsyncContent>
     <AlbumGallery :artistId="id" />
     <AsyncContent :requestState="requestState" dataName="similar artists">
-      <SimilarArtists :artistName="artist.name" />
+      <SimilarArtistsGallery :artistName="artist.name" />
     </AsyncContent>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import ArtistInfo from './ArtistInfo';
 import AlbumGallery from './AlbumGallery';
-import SimilarArtists from './SimilarArtistsGallery';
+import SimilarArtistsGallery from './SimilarArtistsGallery';
 import RequestState from '../utils/Async/requestState';
 import ArtistAPI from '../../api/artist';
 import AsyncContent from '../utils/Async/AsyncContent';
@@ -42,7 +42,7 @@ export default {
     }
   },
   components: {
-    SimilarArtists,
+    SimilarArtistsGallery,
     ArtistInfo,
     AlbumGallery,
     AsyncContent

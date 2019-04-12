@@ -30,11 +30,11 @@ export default {
     this.$root.$on('update-playlist-name', this.updatePlaylistName);
     this.$root.$on('track-added', this.overwritePlaylist);
     PlaylistAPI.getUserPlaylists()
-      .then(this.populatePlaylists)
+      .then(this.setPlaylists)
       .catch(this.setError);
   },
   methods: {
-    populatePlaylists(playlists) {
+    setPlaylists(playlists) {
       /*
             Have to use concat, in case the user creates a playlist before
             the backend data arrives.
