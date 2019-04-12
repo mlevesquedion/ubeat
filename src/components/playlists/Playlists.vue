@@ -67,7 +67,7 @@ export default {
     overwritePlaylist(newPlaylist) {
       const index = this.playlists.findIndex(p => p.id === newPlaylist.id);
       this.playlists.splice(index, 1, newPlaylist);
-    },
+    }
   },
   components: {
     AsyncContent,

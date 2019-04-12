@@ -8,13 +8,15 @@ import userStore from '../userStore';
 
 const playlistRoot = `${apiRoot}playlists/`;
 
-const getUserPlaylists = () =>
+const getPlaylists = id =>
   axios
     .get(`${playlistRoot}`, {
       ...Headers.auth(),
-      params: { userId: userStore.id() }
+      params: { userId: id }
     })
     .then(({ data }) => data.map(p => Playlist.fromBackend(p)));
+
+const getUserPlaylists = () => getPlaylists(userStore.id());
 
 const createPlaylist = name =>
   axios
@@ -55,6 +57,7 @@ const updatePlaylistName = (playlist, newName) =>
     .then(({ data }) => data);
 
 const api = {
+  getPlaylists,
   getUserPlaylists,
   createPlaylist,
   addTrackToPlaylist,
