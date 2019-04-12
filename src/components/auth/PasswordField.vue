@@ -1,5 +1,5 @@
 <template>
-  <FormField
+  <AuthField
     :isPassword="true"
     :validator="validator"
     :value="value"
@@ -10,7 +10,7 @@
 
 <script>
 import Password from '../../auth/password';
-import FormField from './AuthField';
+import AuthField from './AuthField';
 
 export default {
   name: 'PasswordField',
@@ -20,6 +20,6 @@ export default {
       validator: Password
     };
   },
-  components: { FormField }
+  components: { AuthField }
 };
 </script>

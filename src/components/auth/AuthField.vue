@@ -10,7 +10,7 @@
         :placeholder="fieldName"
         :type="type"
         @blur="onBlur"
-        @keydown.enter="emitSubmitted"
+        @keydown.enter="submit"
         class="input"
         v-model="fieldValue"
       />
@@ -53,8 +53,8 @@ export default {
         this.wasBlurred = true;
       }
     },
-    emitSubmitted() {
-      this.$root.$emit('submitted');
+    submit() {
+      this.$root.$emit('submit');
     }
   },
   watch: {
