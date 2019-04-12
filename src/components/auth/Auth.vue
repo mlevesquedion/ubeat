@@ -49,6 +49,9 @@ export default {
   created() {
     this.$root.$on('submit', this.submit);
   },
+  beforeDestroy() {
+    this.$root.$off('submit', this.submit);
+  },
   data() {
     return {
       username: {
