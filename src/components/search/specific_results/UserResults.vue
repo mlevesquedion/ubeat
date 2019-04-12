@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import UserResult from './UserResult';
+import UserResult from '../individual_results/UserResult';
 import SpecificResults from './SpecificResults';
 
 export default {

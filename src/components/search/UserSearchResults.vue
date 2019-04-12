@@ -1,29 +1,23 @@
 <template>
-  <GenericAsync
+  <SpecificSearchResults
     :dataSource="dataSource"
-    dataName="album results"
-    allowEmpty="true"
+    :queryType="queryType"
+    :query="query"
   >
     <template slot-scope="{ data }">
-      <SpecificSearchResultsHeader
-        :query="query"
-        :queryType="queryType"
-        :results="data"
-      />
       <UserResults :users="data"></UserResults>
     </template>
-  </GenericAsync>
+  </SpecificSearchResults>
 </template>
 
 <script>
 import SearchAPI from '../../api/search';
-import UserResults from './results/UserResults';
-import SpecificSearchResultsHeader from './SpecificSearchResultsHeader';
-import GenericAsync from '../utils/Async/GenericAsync';
+import SpecificSearchResults from './SpecificSearchResults';
+import UserResults from './specific_results/UserResults';
 
 export default {
   name: 'UserSearchResults',
-  components: { GenericAsync, SpecificSearchResultsHeader, UserResults },
+  components: { SpecificSearchResults, UserResults },
   data() {
     return {
       queryType: 'user',

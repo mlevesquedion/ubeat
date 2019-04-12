@@ -12,7 +12,7 @@
 </template>
 <script>
 import ResultsGroup from './ResultsGroup';
-import AlbumResult from './AlbumResult';
+import AlbumResult from '../individual_results/AlbumResult';
 
 export default {
   name: 'AlbumResults',

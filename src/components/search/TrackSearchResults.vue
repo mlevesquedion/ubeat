@@ -1,30 +1,24 @@
 <template>
-  <GenericAsync
+  <SpecificSearchResults
     :dataSource="dataSource"
-    dataName="artist results"
-    allowEmpty="true"
+    :queryType="queryType"
+    :query="query"
   >
     <template slot-scope="{ data }">
-      <SpecificSearchResultsHeader
-        :query="query"
-        :queryType="queryType"
-        :results="data"
-      />
       <TrackResults :tracks="data" :playlists="playlists"></TrackResults>
     </template>
-  </GenericAsync>
+  </SpecificSearchResults>
 </template>
 
 <script>
 import SearchAPI from '../../api/search';
-import GenericAsync from '../utils/Async/GenericAsync';
-import SpecificSearchResultsHeader from './SpecificSearchResultsHeader';
-import TrackResults from './results/TrackResults';
+import SpecificSearchResults from './SpecificSearchResults';
 import PlaylistAPI from '../../api/playlist';
+import TrackResults from './specific_results/TrackResults';
 
 export default {
   name: 'TrackSearchResults',
-  components: { GenericAsync, SpecificSearchResultsHeader, TrackResults },
+  components: { SpecificSearchResults, TrackResults },
   data() {
     return {
       queryType: 'track',

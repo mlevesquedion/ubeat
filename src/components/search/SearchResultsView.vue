@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import ArtistResults from './results/ArtistResultsGroup';
-import AlbumResults from './results/AlbumResultsGroup';
-import TrackResults from './results/TrackResultsGroup';
-import UserResults from './results/UserResultsGroup';
+import ArtistResults from './grouped_results/ArtistResultsGroup';
+import AlbumResults from './grouped_results/AlbumResultsGroup';
+import TrackResults from './grouped_results/TrackResultsGroup';
+import UserResults from './grouped_results/UserResultsGroup';
 
 export default {
   name: 'SearchResultsView',

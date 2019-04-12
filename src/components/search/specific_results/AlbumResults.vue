@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import AlbumResult from './AlbumResult';
+import AlbumResult from '../individual_results/AlbumResult';
 import SpecificResults from './SpecificResults';
 
 export default {
