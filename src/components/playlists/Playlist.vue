@@ -44,7 +44,7 @@
             :class="{ 'is-loading': isStealing }"
             class="button level-item is-primary"
           >
-            <i class="fas fa-copy"></i>
+            <i class="fas fa-clone"></i>
           </button>
         </div>
       </div>
