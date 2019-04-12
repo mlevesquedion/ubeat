@@ -171,8 +171,7 @@ a:active {
 }
 
 .title{
-  margin: 0;
-
+  margin: 0 60px 0 0;
 }
 
 .spaced-row {
