@@ -17,7 +17,7 @@
         <p class="control">
           <button
             :disabled="!isValid"
-            @click="authenticate"
+            @click="submit"
             class="button is-primary"
           >
             {{ authType }}
@@ -46,6 +46,12 @@ import PasswordField from './PasswordField';
 
 export default {
   components: { UsernameField, EmailField, PasswordField },
+  created() {
+    this.$root.$on('submit', this.submit);
+  },
+  beforeDestroy() {
+    this.$root.$off('submit', this.submit);
+  },
   data() {
     return {
       username: {
@@ -127,7 +133,10 @@ export default {
           );
         });
     },
-    authenticate() {
+    submit() {
+      if (!this.isValid) {
+        return;
+      }
       if (this.isLogin) {
         this.login();
       } else {
@@ -139,7 +148,7 @@ export default {
       this.email.value = uuid();
       this.password.value = 'patate';
       this.isLogin = false;
-      this.authenticate();
+      this.submit();
       this.isSkipping = true;
     },
     incorrectLoginInformation() {
