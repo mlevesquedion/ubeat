@@ -38,8 +38,8 @@ export default {
 
 <style lang="scss" scoped>
 .is-clipped {
-  min-width: 100px;
+  min-width: 60px;
   max-width: 700px;
-  width: 50vw;
+  width: 35vw;
 }
 </style>

@@ -4,9 +4,9 @@
       <SpecificResults :data="tracks">
         <template slot-scope="{ data }">
           <TrackResult
-            :track="data"
-            :playlists="playlists"
             :playingTrackId="playingTrackId"
+            :playlists="playlists"
+            :track="data"
           >
           </TrackResult>
         </template>

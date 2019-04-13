@@ -17,9 +17,8 @@ export default {
   props: ['artist']
 };
 </script>
-<style scoped lang="scss">
-
-  .is-clipped {
-    width: 41vw;
-  }
+<style lang="scss" scoped>
+.is-clipped {
+  width: 41vw;
+}
 </style>

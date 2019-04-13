@@ -62,6 +62,7 @@
 <script>
 import authAPI from '../api/auth';
 import SearchInput from './search/input/SearchInput';
+import { authPath } from '../router/index';
 
 export default {
   name: 'Navigation',
@@ -91,7 +92,7 @@ export default {
       authAPI
         .logout()
         .then(_ => {
-          this.$router.push('/auth');
+          this.$router.push(authPath);
         })
         .catch(_ =>
           this.$toasted.show('Could not log you out!', { type: 'ubeat-error' })

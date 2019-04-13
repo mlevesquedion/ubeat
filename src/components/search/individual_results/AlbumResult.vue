@@ -22,13 +22,25 @@
         </div>
       </div>
     </div>
+    <div class="level-right">
+      <AlbumPlaylistDropdown
+        :album="album"
+        :hideTextOnMobile="true"
+        :isRight="true"
+        :playlists="playlists"
+      >
+      </AlbumPlaylistDropdown>
+    </div>
   </section>
 </template>
 
 <script>
+import AlbumPlaylistDropdown from '../../album/AlbumPlaylistDropdown';
+
 export default {
   name: 'AlbumResult',
-  props: ['album']
+  components: { AlbumPlaylistDropdown },
+  props: ['album', 'playlists']
 };
 </script>
 
@@ -36,14 +48,17 @@ export default {
 @import '@/assets/sass/styles.scss';
 
 .artwork {
-  padding: 10px 0;
-  display: block;
-  min-width: 60px;
+  margin: 10px 0;
+  width: 20vw;
+  height: 20vw;
+  min-width: 40px;
+  min-height: 40px;
   max-width: 100px;
+  max-height: 100px;
 }
 
 .is-clipped {
-  width: 50vw;
+  width: 25vw;
 }
 
 .stacked {
@@ -58,5 +73,9 @@ export default {
 
 .bumped-left {
   margin-right: 5px;
+}
+
+.level-left {
+  max-width: 800px;
 }
 </style>

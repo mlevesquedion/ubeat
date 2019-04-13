@@ -1,11 +1,11 @@
 <template>
   <SpecificSearchResults
     :dataSource="dataSource"
-    :queryType="queryType"
     :query="query"
+    :queryType="queryType"
   >
     <template slot-scope="{ data }">
-      <TrackResults :tracks="data" :playlists="playlists"></TrackResults>
+      <TrackResults :playlists="playlists" :tracks="data"></TrackResults>
     </template>
   </SpecificSearchResults>
 </template>
