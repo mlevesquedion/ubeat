@@ -3,8 +3,11 @@
     <section class="section">
       <div class="spaced-row">
         <h1 class="title is-primary">{{ authType }}</h1>
-        <p>{{ changeAuthTypeMessage }}
-          <a @click="toggleIsLogin" class="is-primary">{{oppositeAuthType }}</a>
+        <p>
+          {{ changeAuthTypeMessage }}
+          <a @click="toggleIsLogin" class="is-primary">{{
+            oppositeAuthType
+          }}</a>
         </p>
       </div>
       <UsernameField v-if="isSignup" v-model="username" />
@@ -26,7 +29,8 @@
           'is-loading': isSkipping
         }"
         @click="skip"
-        class="button is-warning">
+        class="button is-warning"
+      >
         Skip
       </button>
     </section>
@@ -172,7 +176,7 @@ a:hover,
 a:active {
   color: white;
 }
-.title{
+.title {
   margin: 0 30px 0 0;
 }
 .spaced-row {
