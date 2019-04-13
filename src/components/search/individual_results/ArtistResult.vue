@@ -3,7 +3,7 @@
     <div class="level-left">
       <router-link
         :to="{ name: 'Artist', params: { id: artist.id } }"
-        class="is-primary link"
+        class="is-primary link is-clipped"
         >{{ artist.name }}
       </router-link>
     </div>
@@ -17,3 +17,9 @@ export default {
   props: ['artist']
 };
 </script>
+<style scoped lang="scss">
+
+  .is-clipped {
+    width: 41vw;
+  }
+</style>
