@@ -1,26 +1,33 @@
 <template>
   <GenericAsync
-    :dataName="`${queryType} results`"
     :dataSource="dataSource"
-    allowEmpty="true"
+    :dataName="dataName"
+    :allowEmpty="true"
   >
     <template slot-scope="{ data }">
-      <SpecificSearchResultsView
+      <SpecificSearchResultsHeader
         :query="query"
-        :query-type="queryType"
+        :queryType="queryType"
         :results="data"
       />
+      <slot :data="data"></slot>
     </template>
   </GenericAsync>
 </template>
 
 <script>
+import SpecificSearchResultsHeader from './SpecificSearchResultsHeader';
 import GenericAsync from '../utils/Async/GenericAsync';
-import SpecificSearchResultsView from './SpecificSearchResultsView';
+import AlbumResults from './specific_results/AlbumResults';
 
 export default {
   name: 'SpecificSearchResults',
-  components: { SpecificSearchResultsView, GenericAsync },
-  props: ['queryType', 'query', 'dataSource']
+  components: { GenericAsync, SpecificSearchResultsHeader, AlbumResults },
+  props: ['query', 'queryType', 'dataSource'],
+  data() {
+    return {
+      dataName: `${this.queryType} results`
+    };
+  }
 };
 </script>

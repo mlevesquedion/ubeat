@@ -1,6 +1,10 @@
 <template>
   <section class="section">
-    <GenericAsync :dataName="dataName" :dataSource="dataSource">
+    <GenericAsync
+      :dataName="dataName"
+      :dataSource="dataSource"
+      :allowEmpty="true"
+    >
       <template slot-scope="{ data }">
         <PlaylistList :playlists="data" :isStatic="true" />
       </template>

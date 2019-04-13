@@ -1,18 +1,23 @@
 <template>
   <SpecificSearchResults
     :dataSource="dataSource"
-    :query="query"
     :queryType="queryType"
-  />
+    :query="query"
+  >
+    <template slot-scope="{ data }">
+      <UserResults :users="data"></UserResults>
+    </template>
+  </SpecificSearchResults>
 </template>
 
 <script>
 import SearchAPI from '../../api/search';
 import SpecificSearchResults from './SpecificSearchResults';
+import UserResults from './specific_results/UserResults';
 
 export default {
   name: 'UserSearchResults',
-  components: { SpecificSearchResults },
+  components: { SpecificSearchResults, UserResults },
   data() {
     return {
       queryType: 'user',

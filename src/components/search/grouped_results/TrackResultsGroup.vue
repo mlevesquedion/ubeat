@@ -1,5 +1,5 @@
 <template>
-  <Jukebox>
+  <JukeboxWrapper>
     <template slot-scope="{ playingTrackId }">
       <ResultsGroup :results="tracks" icon="fa-music" resultType="Track">
         <template slot-scope="{ data }">
@@ -11,17 +11,17 @@
         </template>
       </ResultsGroup>
     </template>
-  </Jukebox>
+  </JukeboxWrapper>
 </template>
 
 <script>
 import ResultsGroup from './ResultsGroup';
-import TrackResult from './TrackResult';
-import Jukebox from '../../utils/Jukebox/JukeboxWrapper';
+import TrackResult from '../individual_results/TrackResult';
+import JukeboxWrapper from '../../utils/Jukebox/JukeboxWrapper';
 
 export default {
   name: 'TrackResults',
   props: ['tracks', 'playlists'],
-  components: { ResultsGroup, TrackResult, Jukebox }
+  components: { ResultsGroup, TrackResult, JukeboxWrapper }
 };
 </script>

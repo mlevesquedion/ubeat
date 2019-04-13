@@ -15,13 +15,14 @@ const getArtistDetails = artistName =>
 
 const getArtistList = artists => {
   const artistList = ArtistList.from(artists);
-  return axios
-    .all(artistList.map(a => SearchAPI.artists(a.name)))
-    .then(
-      axios.spread((...results) =>
-        results.map((r, i) => ({ ...artistList[i], id: r[0] && r[0].artistId }))
-      )
-    );
+  return axios.all(artistList.map(a => SearchAPI.artists(a.name))).then(
+    axios.spread((...results) =>
+      results.map((r, i) => ({
+        ...artistList[i],
+        id: r[0] && r[0].id
+      }))
+    )
+  );
 };
 
 const getSimilarArtists = artistName =>

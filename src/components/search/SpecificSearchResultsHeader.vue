@@ -1,23 +1,27 @@
 <template>
-  <section class="accordions section">
+  <section class="section">
     <h1
-      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile padded-bottom"
+      class="title is-primary is-size-1-desktop is-size-2-tablet is-size-4-mobile flex-centered is-mobile"
       id="title"
     >
+      <i :class="`fa ${icon}`" class="bumped-left"></i>
       {{ formattedQueryType }} matching "{{ query }}" ({{ count }})
     </h1>
-    {{ results }}
   </section>
 </template>
 
 <script>
 import pluralize from '../../utils/pluralize';
 import capitalize from '../../utils/capitalize';
+import iconFromQueryType from './utils/icons';
 
 export default {
-  name: 'SpecificSearchResultsView',
+  name: 'SpecificSearchResultsHeader',
   props: ['queryType', 'results', 'query'],
   computed: {
+    icon() {
+      return iconFromQueryType(this.queryType);
+    },
     count() {
       return this.results.length;
     },
@@ -29,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.padded-bottom {
-  padding-bottom: 20px;
+.section {
+  padding-bottom: 0;
 }
 </style>

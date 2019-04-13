@@ -1,7 +1,6 @@
 import Track from './track';
 import Album from './album';
 import Artist from './artist';
-import User from './user';
 
 export default {
   from: results => {
@@ -21,7 +20,7 @@ export default {
           tracks.push(Track.fromBackend(r));
           break;
         default:
-          users.push(User.from(r));
+          users.push(r);
           break;
       }
     });
