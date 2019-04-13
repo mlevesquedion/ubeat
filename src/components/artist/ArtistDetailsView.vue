@@ -2,9 +2,9 @@
   <div>
     <div class="container has-text-centered responsive-image-container">
       <img
-           :alt="artist.name"
-           :src="artist.src"
-           class="responsive-image is-round"
+        :alt="artist.name"
+        :src="artist.src"
+        class="responsive-image is-round"
       />
     </div>
     <p class="label padded-bottom">{{ artist.bio }}</p>

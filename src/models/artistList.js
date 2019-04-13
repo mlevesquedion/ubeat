@@ -1,11 +1,10 @@
-import isArtistImagePresent from '../utils/isArtistImagePresent';
-
+import defaultArtistImagePath from '../utils/defaultArtistImagePath';
 
 const ArtistList = {
   from: artists =>
     artists.map(a => ({
       name: a.name,
-      src: isArtistImagePresent(a.image[4]['#text']),
+      src: a.image[4]['#text'] || defaultArtistImagePath,
       url: a.url
     }))
 };
