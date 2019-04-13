@@ -57,7 +57,7 @@ export default {
 }
 
 .is-clipped {
-  width: 40vw;
+  width: 25vw;
 }
 
 .stacked {
