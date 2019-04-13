@@ -8,6 +8,7 @@
 <script>
 import '@/assets/sass/styles.scss';
 import Navigation from '@/components/Navigation';
+import { authPath } from './router';
 
 export default {
   name: 'App',
@@ -16,7 +17,7 @@ export default {
   },
   computed: {
     loggedIn() {
-      return this.$route.fullPath !== '/auth';
+      return this.$route.fullPath !== authPath;
     }
   }
 };

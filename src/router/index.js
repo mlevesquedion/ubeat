@@ -16,6 +16,8 @@ import UserSearchResults from '../components/search/UserSearchResults';
 
 Vue.use(Router);
 
+export const authPath = '/auth';
+
 const router = new Router({
   routes: [
     {
@@ -24,7 +26,7 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/auth',
+      path: authPath,
       name: 'Login - Signup',
       component: Auth
     },
@@ -82,7 +84,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/auth') {
+  if (to.path === authPath) {
     next();
   }
   authAPI
@@ -91,7 +93,7 @@ router.beforeEach((to, from, next) => {
       next();
     })
     .catch(_ => {
-      next('/auth');
+      next(authPath);
     });
 });
 
