@@ -7,23 +7,34 @@
       >
         Results for "{{ query }}" ({{ count }})
       </h1>
-      <ArtistResults :artists="searchresults.artists" />
-      <AlbumResults :albums="searchresults.albums" :playlists="playlists" />
-      <TrackResults :tracks="searchresults.tracks" :playlists="playlists" />
-      <UserResults :users="searchresults.users" />
+      <ArtistResultsGroup :artists="searchresults.artists" />
+      <AlbumResultsGroup
+        :albums="searchresults.albums"
+        :playlists="playlists"
+      />
+      <TrackResultsGroup
+        :tracks="searchresults.tracks"
+        :playlists="playlists"
+      />
+      <UserResultsGroup :users="searchresults.users" />
     </section>
   </div>
 </template>
 
 <script>
-import ArtistResults from './grouped_results/ArtistResultsGroup';
-import AlbumResults from './grouped_results/AlbumResultsGroup';
-import TrackResults from './grouped_results/TrackResultsGroup';
-import UserResults from './grouped_results/UserResultsGroup';
+import ArtistResultsGroup from './grouped_results/ArtistResultsGroup';
+import AlbumResultsGroup from './grouped_results/AlbumResultsGroup';
+import TrackResultsGroup from './grouped_results/TrackResultsGroup';
+import UserResultsGroup from './grouped_results/UserResultsGroup';
 
 export default {
   name: 'SearchResultsView',
-  components: { ArtistResults, AlbumResults, TrackResults, UserResults },
+  components: {
+    ArtistResultsGroup,
+    AlbumResultsGroup,
+    TrackResultsGroup,
+    UserResultsGroup
+  },
   props: ['searchresults', 'query', 'playlists'],
   computed: {
     count() {
