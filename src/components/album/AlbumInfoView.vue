@@ -11,8 +11,8 @@
         <div class="label is-size-5">
           <a>
             <router-link
+              class="is-primary"
               :to="{ name: 'Artist', params: { id: album.artistId } }"
-              id="artist-name"
             >
               <span>{{ album.artist }}</span>
             </router-link>
@@ -21,16 +21,10 @@
         <div class="is-size-6 has-text-grey-lighter">
           <p class="label">{{ album.genre }} ({{ album.year }})</p>
           <p class="label">{{ album.trackCount }} tracks</p>
-          <AsyncPlaylistDropdown
-            :isRight="false"
-            :onPlaylistClick="addAlbumToPlaylist"
+          <AlbumPlaylistDropdown
+            :album="album"
             :playlists="playlists"
-          >
-            <div class="tag is-medium bumped-down hover-hand" id="add-album">
-              <i class="fas fa-plus-circle"></i>
-              <span class="bumped-right">Album</span>
-            </div>
-          </AsyncPlaylistDropdown>
+          ></AlbumPlaylistDropdown>
         </div>
       </div>
     </div>
@@ -38,35 +32,12 @@
 </template>
 
 <script>
-import PlaylistAPI from '../../api/playlist';
-import AsyncPlaylistDropdown from '../playlists/dropdown/AsyncPlaylistDropdown';
+import AlbumPlaylistDropdown from './AlbumPlaylistDropdown';
 
 export default {
   name: 'AlbumInfoView',
   props: ['album', 'playlists'],
-  methods: {
-    addAlbumToPlaylist(playlist, onAlbumAdded) {
-      PlaylistAPI.addAlbumToPlaylist(this.album.id, playlist.id)
-        .then(_ =>
-          this.$toasted.show(
-            `Album ${this.album.name} was successfully added to playlist ${
-              playlist.name
-            }!`,
-            { type: 'ubeat-success' }
-          )
-        )
-        .then(onAlbumAdded)
-        .catch(_ =>
-          this.$toasted.show(
-            `Could not add at least one track from ${
-              this.album.name
-            } to playlist ${playlist.name}.`,
-            { type: 'ubeat-error' }
-          )
-        );
-    }
-  },
-  components: { AsyncPlaylistDropdown }
+  components: { AlbumPlaylistDropdown }
 };
 </script>
 
@@ -83,28 +54,5 @@ export default {
   width: 25vw !important;
   min-width: 200px;
   max-width: 300px;
-}
-
-#artist-name {
-  color: $primary;
-}
-
-// Overriding Bulma stuff, need to use !important
-.tag {
-  border: 1px solid white;
-  background-color: $primary !important;
-  color: white !important;
-}
-
-.tag:hover {
-  color: #e2e2e2 !important;
-}
-
-.bumped-down {
-  margin-top: 5px;
-}
-
-.hover-hand {
-  cursor: pointer;
 }
 </style>

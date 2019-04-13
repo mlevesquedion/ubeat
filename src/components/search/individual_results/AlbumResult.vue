@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <div class="level-right"></div>
   </section>
 </template>
 
@@ -34,7 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
-
 .artwork {
   padding: 10px 0;
   display: block;
