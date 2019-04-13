@@ -33,6 +33,13 @@ export default {
       .then(this.setPlaylists)
       .catch(this.setError);
   },
+  beforeDestroy() {
+    this.$root.$off('delete-playlist', this.deletePlaylist);
+    this.$root.$off('delete-track', this.deleteTrack);
+    this.$root.$off('create-playlist', this.createPlaylist);
+    this.$root.$off('update-playlist-name', this.updatePlaylistName);
+    this.$root.$off('track-added', this.overwritePlaylist);
+  },
   methods: {
     setPlaylists(playlists) {
       /*
