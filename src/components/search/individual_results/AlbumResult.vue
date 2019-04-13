@@ -22,14 +22,24 @@
         </div>
       </div>
     </div>
-    <div class="level-right"></div>
+    <div class="level-right">
+      <AlbumPlaylistDropdown
+        :album="album"
+        :playlists="playlists"
+        :isRight="true"
+      >
+      </AlbumPlaylistDropdown>
+    </div>
   </section>
 </template>
 
 <script>
+import AlbumPlaylistDropdown from '../../album/AlbumPlaylistDropdown';
+
 export default {
   name: 'AlbumResult',
-  props: ['album']
+  components: { AlbumPlaylistDropdown },
+  props: ['album', 'playlists']
 };
 </script>
 

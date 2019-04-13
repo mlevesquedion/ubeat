@@ -1,7 +1,7 @@
 <template>
   <SpecificResults :data="albums">
     <template slot-scope="{ data }">
-      <AlbumResult :album="data"></AlbumResult>
+      <AlbumResult :album="data" :playlists="playlists"></AlbumResult>
     </template>
   </SpecificResults>
 </template>
@@ -12,7 +12,7 @@ import SpecificResults from './SpecificResults';
 
 export default {
   name: 'AlbumResults',
-  props: ['albums'],
+  props: ['albums', 'playlists'],
   components: { SpecificResults, AlbumResult }
 };
 </script>

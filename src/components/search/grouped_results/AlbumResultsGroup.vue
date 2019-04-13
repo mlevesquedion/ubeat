@@ -6,7 +6,7 @@
     resultType="Album"
   >
     <template slot-scope="{ data }">
-      <AlbumResult :album="data" />
+      <AlbumResult :album="data" :playlists="playlists" />
     </template>
   </ResultsGroup>
 </template>
@@ -17,6 +17,6 @@ import AlbumResult from '../individual_results/AlbumResult';
 export default {
   name: 'AlbumResults',
   components: { ResultsGroup, AlbumResult },
-  props: ['albums']
+  props: ['albums', 'playlists']
 };
 </script>

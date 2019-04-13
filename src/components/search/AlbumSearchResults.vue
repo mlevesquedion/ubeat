@@ -5,7 +5,7 @@
     :query="query"
   >
     <template slot-scope="{ data }">
-      <AlbumResults :albums="data"></AlbumResults>
+      <AlbumResults :albums="data" :playlists="playlists"></AlbumResults>
     </template>
   </SpecificSearchResults>
 </template>
@@ -14,6 +14,7 @@
 import SearchAPI from '../../api/search';
 import SpecificSearchResults from './SpecificSearchResults';
 import AlbumResults from './specific_results/AlbumResults';
+import PlaylistAPI from '../../api/playlist';
 
 export default {
   name: 'AlbumSearchResults',
@@ -22,7 +23,8 @@ export default {
     return {
       queryType: 'album',
       query: this.$route.params.query,
-      dataSource: SearchAPI.albums(this.$route.params.query)
+      dataSource: SearchAPI.albums(this.$route.params.query),
+      playlists: PlaylistAPI.getUserPlaylists()
     };
   }
 };

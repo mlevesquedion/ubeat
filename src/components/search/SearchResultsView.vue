@@ -8,8 +8,8 @@
         Results for "{{ query }}" ({{ count }})
       </h1>
       <ArtistResults :artists="searchresults.artists" />
-      <AlbumResults :albums="searchresults.albums" />
-      <TrackResults :playlists="playlists" :tracks="searchresults.tracks" />
+      <AlbumResults :albums="searchresults.albums" :playlists="playlists" />
+      <TrackResults :tracks="searchresults.tracks" :playlists="playlists" />
       <UserResults :users="searchresults.users" />
     </section>
   </div>
