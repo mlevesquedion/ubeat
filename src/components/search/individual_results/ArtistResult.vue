@@ -18,8 +18,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-
-  .is-clipped {
-    width: 41vw;
-  }
+.is-clipped {
+  width: 41vw;
+}
 </style>

@@ -6,7 +6,7 @@
     resultType="Album"
   >
     <template slot-scope="{ data }">
-      <AlbumResult :data="data" />
+      <AlbumResult :album="data" />
     </template>
   </ResultsGroup>
 </template>
