@@ -25,9 +25,9 @@
     <div class="level-right">
       <AlbumPlaylistDropdown
         :album="album"
-        :playlists="playlists"
-        :isRight="true"
         :hideTextOnMobile="true"
+        :isRight="true"
+        :playlists="playlists"
       >
       </AlbumPlaylistDropdown>
     </div>
@@ -46,6 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
+
 .artwork {
   margin: 10px 0;
   width: 20vw;

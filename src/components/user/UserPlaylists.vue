@@ -1,12 +1,12 @@
 <template>
   <section class="section">
     <GenericAsync
+      :allowEmpty="true"
       :dataName="dataName"
       :dataSource="dataSource"
-      :allowEmpty="true"
     >
       <template slot-scope="{ data }">
-        <PlaylistList :playlists="data" :isStatic="true" />
+        <PlaylistList :isStatic="true" :playlists="data" />
       </template>
     </GenericAsync>
   </section>
@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .section {
   padding-top: 0;
 }

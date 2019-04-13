@@ -3,14 +3,14 @@
     <JukeboxWrapper>
       <template slot-scope="{ playingTrackId }">
         <Track
-          v-for="t in tracks"
-          :track="t"
+          :highlightOnHover="true"
           :key="t.id"
           :playingTrackId="playingTrackId"
           :playlists="playlists"
-          :highlightOnHover="true"
           :showSeparators="true"
+          :track="t"
           class="track"
+          v-for="t in tracks"
         />
       </template>
     </JukeboxWrapper>

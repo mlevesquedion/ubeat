@@ -1,8 +1,8 @@
 <template>
   <SpecificSearchResults
     :dataSource="dataSource"
-    :queryType="queryType"
     :query="query"
+    :queryType="queryType"
   >
     <template slot-scope="{ data }">
       <ArtistResults :artists="data"></ArtistResults>

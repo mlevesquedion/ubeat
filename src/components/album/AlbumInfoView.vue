@@ -11,8 +11,8 @@
         <div class="label is-size-5">
           <a>
             <router-link
-              class="is-primary"
               :to="{ name: 'Artist', params: { id: album.artistId } }"
+              class="is-primary"
             >
               <span>{{ album.artist }}</span>
             </router-link>

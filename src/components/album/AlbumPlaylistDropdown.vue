@@ -6,7 +6,7 @@
   >
     <div class="tag is-medium bumped-down hover-hand">
       <i class="fas fa-plus-circle"></i>
-      <span class="bumped-right" :class="{ 'hidden-mobile': hideTextOnMobile }"
+      <span :class="{ 'hidden-mobile': hideTextOnMobile }" class="bumped-right"
         >Album</span
       >
     </div>
@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 
 .bumped-down {

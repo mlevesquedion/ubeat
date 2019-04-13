@@ -146,19 +146,24 @@ export default {
 .container {
   max-width: 700px;
 }
+
 .section {
   padding-top: 40px;
 }
+
 .submit-button {
   padding-top: 30px;
 }
+
 a:hover,
 a:active {
   color: white;
 }
+
 .title {
   margin: 0 30px 0 0;
 }
+
 .spaced-row {
   display: flex;
   flex-wrap: wrap;

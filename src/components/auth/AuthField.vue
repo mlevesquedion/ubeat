@@ -45,10 +45,10 @@ export default {
   methods: {
     onBlur() {
       /*
-          This check ensures that we don't annoy the user with an error message when (s)he
-          starts typing and up to now has only clicked into and out of the field without
-          entering anything.
-         */
+              This check ensures that we don't annoy the user with an error message when (s)he
+              starts typing and up to now has only clicked into and out of the field without
+              entering anything.
+             */
       if (this.dirty) {
         this.wasBlurred = true;
       }

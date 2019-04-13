@@ -1,7 +1,7 @@
 <template>
   <ResultsGroup :results="users" icon="fa-user" resultType="User">
     <template slot-scope="{ data }">
-      <UserResult class="vertically-separated" :user="data"></UserResult>
+      <UserResult :user="data" class="vertically-separated"></UserResult>
     </template>
   </ResultsGroup>
 </template>
@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .vertically-separated {
   padding: 5px 0;
 }

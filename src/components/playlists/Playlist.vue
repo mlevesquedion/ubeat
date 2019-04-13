@@ -40,8 +40,8 @@
         </div>
         <div class="level-right" v-else-if="isNotOwnPlaylist">
           <button
-            @click.stop="stealPlaylist()"
             :class="{ 'is-loading': isStealing }"
+            @click.stop="stealPlaylist()"
             class="button level-item is-primary"
           >
             <i class="fas fa-clone"></i>
@@ -52,14 +52,14 @@
     <template slot="body">
       <div v-if="isEmpty">This playlist is empty!</div>
       <PlaylistTrack
-        v-for="(t, ti) in playlist.tracks"
-        :track="t"
         :index="ti"
+        :isStatic="isStatic"
         :key="`${t.uniqueId}${ti}`"
         :playlist="playlist"
         :playlistIndex="index"
+        :track="t"
         :userPlaylists="userPlaylists"
-        :isStatic="isStatic"
+        v-for="(t, ti) in playlist.tracks"
       />
     </template>
   </Accordion>

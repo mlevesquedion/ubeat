@@ -13,8 +13,8 @@
         :playlists="playlists"
       />
       <TrackResultsGroup
-        :tracks="searchresults.tracks"
         :playlists="playlists"
+        :tracks="searchresults.tracks"
       />
       <UserResultsGroup :users="searchresults.users" />
     </section>

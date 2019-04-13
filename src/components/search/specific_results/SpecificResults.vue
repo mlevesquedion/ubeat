@@ -2,7 +2,7 @@
   <section class="section">
     <div class="results-container">
       <fragment v-if="hasData">
-        <fragment v-for="d in data" :key="d.id">
+        <fragment :key="d.id" v-for="d in data">
           <slot :data="d"></slot>
         </fragment>
       </fragment>

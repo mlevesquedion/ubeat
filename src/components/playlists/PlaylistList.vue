@@ -3,12 +3,12 @@
     <h1 class="title has-text-light">Playlists ({{ count }})</h1>
     <div class="accordions" v-if="hasPlaylists">
       <Playlist
-        v-for="(p, pi) in sortedPlaylists"
-        :playlist="p"
         :index="pi"
-        :key="p.id"
-        :userPlaylists="userPlaylists"
         :isStatic="isStatic"
+        :key="p.id"
+        :playlist="p"
+        :userPlaylists="userPlaylists"
+        v-for="(p, pi) in sortedPlaylists"
       />
     </div>
     <div v-else>You have no playlists!</div>
