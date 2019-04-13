@@ -24,21 +24,11 @@
           </button>
         </p>
       </div>
-      <button
-        :class="{
-          'is-loading': isSkipping
-        }"
-        @click="skip"
-        class="button is-warning"
-      >
-        Skip
-      </button>
     </section>
   </div>
 </template>
 
 <script>
-import { v4 as uuid } from 'uuid';
 import authAPI from '../../api/auth';
 import UsernameField from './UsernameField';
 import EmailField from './EmailField';
@@ -66,8 +56,7 @@ export default {
         value: '',
         isValid: false
       },
-      isLogin: true,
-      isSkipping: false
+      isLogin: true
     };
   },
   computed: {
@@ -122,7 +111,6 @@ export default {
           password: this.password.value
         })
         .then(_ => {
-          this.isSkipping = false;
           this.login();
         })
         .catch(_ => {
@@ -142,14 +130,6 @@ export default {
       } else {
         this.signup();
       }
-    },
-    skip() {
-      this.username.value = 'monsieur_patate';
-      this.email.value = uuid();
-      this.password.value = 'patate';
-      this.isLogin = false;
-      this.submit();
-      this.isSkipping = true;
     },
     incorrectLoginInformation() {
       if (this.isLogin) {
