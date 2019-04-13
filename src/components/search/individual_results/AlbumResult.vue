@@ -27,6 +27,7 @@
         :album="album"
         :playlists="playlists"
         :isRight="true"
+        :hideTextOnMobile="true"
       >
       </AlbumPlaylistDropdown>
     </div>
@@ -46,14 +47,17 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/sass/styles.scss';
 .artwork {
-  padding: 10px 0;
-  display: block;
-  min-width: 60px;
+  margin: 10px 0;
+  width: 20vw;
+  height: 20vw;
+  min-width: 40px;
+  min-height: 40px;
   max-width: 100px;
+  max-height: 100px;
 }
 
 .is-clipped {
-  width: 50vw;
+  width: 40vw;
 }
 
 .stacked {
@@ -68,5 +72,9 @@ export default {
 
 .bumped-left {
   margin-right: 5px;
+}
+
+.level-left {
+  max-width: 800px;
 }
 </style>
