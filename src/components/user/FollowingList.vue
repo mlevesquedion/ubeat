@@ -19,7 +19,7 @@
 <script>
 import isEmpty from '@/utils/isEmpty';
 import Accordion from '../utils/Accordion';
-import UserResult from '../search/results/UserResult';
+import UserResult from '../search/individual_results/UserResult';
 
 export default {
   name: 'FollowingList',

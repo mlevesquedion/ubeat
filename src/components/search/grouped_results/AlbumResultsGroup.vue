@@ -6,13 +6,13 @@
     resultType="Album"
   >
     <template slot-scope="{ data }">
-      <AlbumResult :album="data" />
+      <AlbumResult :data="data" />
     </template>
   </ResultsGroup>
 </template>
 <script>
 import ResultsGroup from './ResultsGroup';
-import AlbumResult from './AlbumResult';
+import AlbumResult from '../individual_results/AlbumResult';
 
 export default {
   name: 'AlbumResults',

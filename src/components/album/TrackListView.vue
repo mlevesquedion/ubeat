@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <Jukebox>
+    <JukeboxWrapper>
       <template slot-scope="{ playingTrackId }">
         <Track
           v-for="t in tracks"
@@ -13,7 +13,7 @@
           class="track"
         />
       </template>
-    </Jukebox>
+    </JukeboxWrapper>
     <div class="footer has-text-centered">
       <a :href="albumUrl">
         <img
@@ -28,7 +28,7 @@
 
 <script>
 import Track from './track/Track';
-import Jukebox from '../utils/Jukebox/JukeboxWrapper';
+import JukeboxWrapper from '../utils/Jukebox/JukeboxWrapper';
 
 export default {
   name: 'TrackListView',
@@ -39,7 +39,7 @@ export default {
     }
   },
   components: {
-    Jukebox,
+    JukeboxWrapper,
     Track
   }
 };

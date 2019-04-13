@@ -7,7 +7,7 @@
 </template>
 <script>
 import ResultsGroup from './ResultsGroup';
-import ArtistResult from './ArtistResult';
+import ArtistResult from '../individual_results/ArtistResult';
 
 export default {
   name: 'ArtistResults',

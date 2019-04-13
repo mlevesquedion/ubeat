@@ -26,6 +26,7 @@
 <script>
 import Dropdown from '../../utils/Dropdown';
 import SearchInputDropdownContent from './SearchInputDropdownContent';
+import iconFromQueryType from '../utils/icons';
 
 export default {
   name: 'SearchInput',
@@ -42,19 +43,7 @@ export default {
   },
   computed: {
     icon() {
-      switch (this.queryType) {
-        case 'artist':
-          return 'fa-star';
-        case 'album':
-          return 'fa-compact-disc';
-        case 'track':
-          return 'fa-music';
-        case 'user':
-          return 'fa-user';
-        case 'global':
-        default:
-          return 'fa-search';
-      }
+      return iconFromQueryType(this.queryType);
     },
     otherQueryTypes() {
       return this.queryTypes.filter(q => q !== this.queryType);

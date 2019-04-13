@@ -1,18 +1,23 @@
 <template>
   <SpecificSearchResults
     :dataSource="dataSource"
-    :query="query"
     :queryType="queryType"
-  />
+    :query="query"
+  >
+    <template slot-scope="{ data }">
+      <ArtistResults :artists="data"></ArtistResults>
+    </template>
+  </SpecificSearchResults>
 </template>
 
 <script>
 import SearchAPI from '../../api/search';
 import SpecificSearchResults from './SpecificSearchResults';
+import ArtistResults from './specific_results/ArtistResults';
 
 export default {
   name: 'ArtistSearchResults',
-  components: { SpecificSearchResults },
+  components: { SpecificSearchResults, ArtistResults },
   data() {
     return {
       queryType: 'artist',

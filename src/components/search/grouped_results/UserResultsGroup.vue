@@ -7,7 +7,7 @@
 </template>
 <script>
 import ResultsGroup from './ResultsGroup';
-import UserResult from './UserResult';
+import UserResult from '../individual_results/UserResult';
 
 export default {
   name: 'UserResults',

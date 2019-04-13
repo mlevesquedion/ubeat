@@ -140,6 +140,12 @@ $desktop: 1023px;
   @extend .flex-centered;
 }
 
+.results-container {
+  @extend .container;
+  padding-top: 0;
+  max-width: 1000px;
+}
+
 // Exports for use in components
 :export {
   primary: $primary;
